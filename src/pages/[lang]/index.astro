@@ -1,0 +1,35 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import type { Lang } from '../../config';
+import { SECTION_META } from '../../resume.config';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'zh' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const entry = await getEntry('cv', `${lang}/about`);
+const { Content } = await render(entry!);
+const pageMeta = SECTION_META[lang].about;
+---
+
+<Layout lang={lang} title={entry!.data.title} currentPage="nav.about" pageKey="about" pageMeta={pageMeta}>
+  <section class="hero">
+    <div class="hero-card" data-reveal>
+      <p class="hero-kicker">{entry!.data.eyebrow ?? pageMeta.kicker}</p>
+      <h1 class="hero-title">{entry!.data.title}</h1>
+      <p class="hero-summary">{entry!.data.summary ?? pageMeta.summary}</p>
+    </div>
+    <aside class="arrow-stack" aria-hidden="true" data-reveal>
+      <div class="arrow-stack-inner">
+        <div class="arrow-layer"><span>{pageMeta.arrowLabel}</span><span class="arrow-line"></span></div>
+        <div class="arrow-layer"><span>Content</span><span class="arrow-line"></span></div>
+        <div class="arrow-layer"><span>Motion</span><span class="arrow-line"></span></div>
+      </div>
+    </aside>
+  </section>
+  <article class="resume-content" data-reveal>
+    <Content />
+  </article>
+</Layout>
