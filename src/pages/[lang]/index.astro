@@ -1,35 +1,90 @@
 ---
-import { getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import type { Lang } from '../../config';
+import { LANGUAGES } from '../../config';
+import { getResumeContent } from '../../resume-data';
 import { SECTION_META } from '../../resume.config';
+import '../../styles/resume-pages.css';
 
 export function getStaticPaths() {
-  return [{ params: { lang: 'en' } }, { params: { lang: 'zh' } }];
+  return LANGUAGES.map(lang => ({
+    params: { lang },
+  }));
 }
 
 const { lang } = Astro.params as { lang: Lang };
-const entry = await getEntry('cv', `${lang}/about`);
-const { Content } = await render(entry!);
-const pageMeta = SECTION_META[lang].about;
+const content = getResumeContent(lang);
+const config = SECTION_META[lang].about;
+const heroTitle = content.profile.name;
+const heroKicker = config.kicker;
+const heroSummary = content.about.highlights[0]?.description ?? '';
 ---
 
-<Layout lang={lang} title={entry!.data.title} currentPage="nav.about" pageKey="about" pageMeta={pageMeta}>
-  <section class="hero">
-    <div class="hero-card" data-reveal>
-      <p class="hero-kicker">{entry!.data.eyebrow ?? pageMeta.kicker}</p>
-      <h1 class="hero-title">{entry!.data.title}</h1>
-      <p class="hero-summary">{entry!.data.summary ?? pageMeta.summary}</p>
+<Layout lang={lang} title={heroTitle} currentPage="nav.about" pageKey="about" pageMeta={config}>
+  <article class="page-content">
+    <div class="structured-content">
+      <!-- Hero: Profile Card -->
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">{heroKicker}</p>
+          <h1 class="hero-title">{heroTitle}</h1>
+          <p class="hero-role">{content.profile.role}</p>
+          <p class="hero-summary">{heroSummary}</p>
+        </div>
+        <aside class="arrow-stack" aria-hidden="true">
+          <div class="arrow-stack-inner">
+            <div class="arrow-layer"><span>{config.arrowLabel}</span><span class="arrow-line"></span></div>
+            <div class="arrow-layer"><span>Profile</span><span class="arrow-line"></span></div>
+            <div class="arrow-layer"><span>Growth</span><span class="arrow-line"></span></div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Quick Facts -->
+      <section class="facts-section" data-reveal>
+        <div class="section-title">
+          <span class="section-label">{config.kicker}</span>
+          <h2>{config.kicker}</h2>
+        </div>
+        <div class="facts-grid">
+          {content.about.facts.map(fact => (
+            <div class="fact-card" data-reveal data-stagger>
+              <dt class="fact-label">{fact.label}</dt>
+              <dd class="fact-value">
+                {fact.href ? (
+                  <a href={fact.href}>{fact.value}</a>
+                ) : (
+                  fact.value
+                )}
+              </dd>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Highlights -->
+      <section class="highlights-section" data-reveal>
+        <div class="section-title">
+          <span class="section-label">{config.summary.split(' ')[0]}</span>
+          <h2>Design Principles</h2>
+        </div>
+        <div class="highlights-grid">
+          {content.about.highlights.map(highlight => (
+            <article class="highlight-card" data-reveal data-stagger>
+              <h3 class="highlight-title">{highlight.title}</h3>
+              <p class="highlight-description">{highlight.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
-    <aside class="arrow-stack" aria-hidden="true" data-reveal>
-      <div class="arrow-stack-inner">
-        <div class="arrow-layer"><span>{pageMeta.arrowLabel}</span><span class="arrow-line"></span></div>
-        <div class="arrow-layer"><span>Content</span><span class="arrow-line"></span></div>
-        <div class="arrow-layer"><span>Motion</span><span class="arrow-line"></span></div>
-      </div>
-    </aside>
-  </section>
-  <article class="resume-content" data-reveal>
-    <Content />
+
+    <!-- Arrow CTA -->
+    <section class="cta-section" data-reveal>
+      <a href={`/${lang}/experience`} class="arrow-link">
+        <span class="arrow-label">Explore Experience</span>
+        <span class="arrow-icon">→</span>
+      </a>
+    </section>
   </article>
 </Layout>

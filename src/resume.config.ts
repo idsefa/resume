@@ -64,6 +64,32 @@ export const SECTION_META: Record<Lang, Record<ResumeSectionKey, ResumeSectionMe
       arrowLabel: '发表',
     },
   },
+  'zh-hant': {
+    about: {
+      kicker: '概覽',
+      summary: '用一句話說明你的定位、方向和個人標籤。',
+      accent: '#2457ff',
+      arrowLabel: '簡介',
+    },
+    experience: {
+      kicker: '履歷軌跡',
+      summary: '按時間呈現關鍵角色、成果與能力遞進。',
+      accent: '#0f766e',
+      arrowLabel: '經歷',
+    },
+    education: {
+      kicker: '學習路徑',
+      summary: '展示學術訓練、研究方向與教育背景。',
+      accent: '#b45309',
+      arrowLabel: '教育',
+    },
+    publications: {
+      kicker: '代表成果',
+      summary: '用更克制的節奏呈現論文與發表亮點。',
+      accent: '#7c3aed',
+      arrowLabel: '發表',
+    },
+  },
   de: {
     about: {
       kicker: 'Übersicht',

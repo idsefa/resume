@@ -1,4 +1,5 @@
 import type { Lang } from './config';
+import { RESUME_CONTENT_OVERRIDES, type DeepPartial } from './resume-overrides/index';
 
 export type FactItem = {
   label: string;
@@ -60,6 +61,34 @@ export type ResumeContent = {
     }>;
   };
 };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function mergeDeep<T>(base: T, override?: DeepPartial<T>): T {
+  if (override === undefined) {
+    return base;
+  }
+
+  if (Array.isArray(base)) {
+    return (Array.isArray(override) ? override : base) as T;
+  }
+
+  if (isRecord(base) && isRecord(override)) {
+    const result: Record<string, unknown> = { ...base };
+
+    for (const key of Object.keys(override)) {
+      const baseValue = (base as Record<string, unknown>)[key];
+      const overrideValue = (override as Record<string, unknown>)[key];
+      result[key] = mergeDeep(baseValue, overrideValue as never);
+    }
+
+    return result as T;
+  }
+
+  return override as T;
+}
 
 const en: ResumeContent = {
   profile: {
@@ -169,15 +198,15 @@ const en: ResumeContent = {
 
 const zh: ResumeContent = {
   profile: {
-    name: '何浩诚',
-    role: '研究 / 工程',
-    email: 'your@email.com',
-    location: '城市，国家',
+    name: '何昊程',
+    role: '学生',
+    email: 'haocheng.he@foxmail.com',
+    location: '香港，中国',
   },
   about: {
     facts: [
-      { label: '邮箱', value: 'your@email.com', href: 'mailto:your@email.com' },
-      { label: '所在地', value: '城市，国家' },
+      { label: '邮箱', value: 'haocheng.he@foxmail.com', href: 'mailto:haocheng.he@foxmail.com' },
+      { label: '所在地', value: '香港，中国' },
       { label: '方向', value: '系统、AI 与面向产品的研究' },
     ],
     highlights: [
@@ -273,11 +302,330 @@ const zh: ResumeContent = {
   },
 };
 
+const zhHant: ResumeContent = {
+  profile: {
+    name: '何浩誠',
+    role: '研究 / 工程',
+    email: 'your@email.com',
+    location: '城市，國家',
+  },
+  about: {
+    facts: [
+      { label: '信箱', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: '所在地', value: '城市，國家' },
+      { label: '方向', value: '系統、AI 與面向產品的研究' },
+    ],
+    highlights: [
+      {
+        title: '定位明確',
+        description: '以簡潔的名片式排版先說清楚個人定位。',
+      },
+      {
+        title: '結構化敘事',
+        description: '正文由資料驅動，層級與間距更容易一致。',
+      },
+      {
+        title: '克制的動效',
+        description: '採用進場、懸停與頁面切換動效，而非持續噪音。',
+      },
+    ],
+  },
+  experience: {
+    summary: [
+      '經歷區採用結構化時間線，不再直接依賴 Markdown 段落。',
+      '這樣更容易控制閱讀節奏、資訊層次與視覺密度。',
+    ],
+    items: [
+      {
+        title: '職位名稱',
+        org: '公司名稱',
+        period: '2022 – 至今',
+        location: '城市，國家',
+        bullets: ['關鍵職責或成果', '另一條重點說明'],
+      },
+      {
+        title: '上一段經歷',
+        org: '上一家公司',
+        period: '2019 – 2022',
+        location: '城市，國家',
+        bullets: ['關鍵職責或成果'],
+      },
+    ],
+  },
+  education: {
+    summary: [
+      '教育經歷與工作經歷使用同一套時間線，但視覺更平穩。',
+      '在保持統一的同時，仍能自然區分學術與職涯內容。',
+    ],
+    items: [
+      {
+        title: '某方向博士',
+        org: '某大學',
+        period: '2015 – 2019',
+        location: '城市，國家',
+        bullets: ['論文題目：「你的論文題目」'],
+      },
+      {
+        title: '某方向學士',
+        org: '某大學',
+        period: '2011 – 2015',
+        location: '城市，國家',
+        bullets: [],
+      },
+    ],
+  },
+  publications: {
+    summary: [
+      '發表成果按類別分組，方便先掃讀、再深入閱讀。',
+      '每條記錄保留作者、期刊/會議與連結，資訊密度更高。',
+    ],
+    sections: [
+      {
+        title: '期刊論文',
+        items: [
+          {
+            title: '論文標題',
+            year: '2024',
+            authors: '你，A.，合作者，B.',
+            venue: '期刊名稱',
+            links: [{ label: 'DOI', href: 'https://doi.org/YOUR_DOI' }],
+          },
+        ],
+      },
+      {
+        title: '會議論文',
+        items: [
+          {
+            title: '會議論文標題',
+            year: '2023',
+            authors: '你，A.',
+            venue: '會議名稱（CONF’23）',
+            links: [{ label: 'PDF', href: 'https://arxiv.org/abs/YOUR_ID' }],
+          },
+        ],
+      },
+    ],
+  },
+};
+
+const de: ResumeContent = {
+  profile: {
+    name: 'He Haocheng',
+    role: 'Forschung / Engineering',
+    email: 'your@email.com',
+    location: 'Stadt, Land',
+  },
+  about: {
+    facts: [
+      { label: 'E-Mail', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: 'Ort', value: 'Stadt, Land' },
+      { label: 'Fokus', value: 'Systeme, KI und produktnahe Forschung' },
+    ],
+    highlights: [
+      {
+        title: 'Klare Positionierung',
+        description: 'Eine prägnante Profilkarte macht die Ausrichtung sofort verständlich.',
+      },
+      {
+        title: 'Strukturierte Erzählung',
+        description: 'Der Inhalt ist datengetrieben, dadurch bleiben Rhythmus und Hierarchie stabil.',
+      },
+      {
+        title: 'Zurückhaltende Motion',
+        description: 'Animationen unterstützen den Fluss, statt dauerhaft Aufmerksamkeit zu ziehen.',
+      },
+    ],
+  },
+  experience: {
+    summary: [
+      'Der Werdegang wird als strukturierte Zeitleiste statt als lose Absätze dargestellt.',
+      'So lassen sich Lesetempo, Informationsdichte und visuelle Balance gezielt steuern.',
+    ],
+    items: [
+      {
+        title: 'Positionsbezeichnung',
+        org: 'Unternehmen',
+        period: '2022 – heute',
+        location: 'Stadt, Land',
+        bullets: ['Wichtige Verantwortung oder Ergebnis', 'Zusätzlicher Kernbeitrag'],
+      },
+      {
+        title: 'Vorherige Rolle',
+        org: 'Vorheriges Unternehmen',
+        period: '2019 – 2022',
+        location: 'Stadt, Land',
+        bullets: ['Zentrale Verantwortung oder Wirkung'],
+      },
+    ],
+  },
+  education: {
+    summary: [
+      'Der Ausbildungsbereich nutzt dasselbe Timeline-Modell wie die Berufserfahrung.',
+      'Damit bleibt die Seite konsistent und trennt dennoch akademische und berufliche Inhalte.',
+    ],
+    items: [
+      {
+        title: 'Promotion im Fachgebiet',
+        org: 'Universität',
+        period: '2015 – 2019',
+        location: 'Stadt, Land',
+        bullets: ['Dissertation: "Titel der Dissertation"'],
+      },
+      {
+        title: 'Bachelor im Fachgebiet',
+        org: 'Universität',
+        period: '2011 – 2015',
+        location: 'Stadt, Land',
+        bullets: [],
+      },
+    ],
+  },
+  publications: {
+    summary: [
+      'Publikationen sind nach Kategorien gruppiert, um Scannen und Vertiefen zu erleichtern.',
+      'Jeder Eintrag zeigt kompakt Autor:innen, Venue und weiterführende Links.',
+    ],
+    sections: [
+      {
+        title: 'Journalartikel',
+        items: [
+          {
+            title: 'Titel des Artikels',
+            year: '2024',
+            authors: 'Sie, A., Co-Autor:in, B.',
+            venue: 'Name der Zeitschrift',
+            links: [{ label: 'DOI', href: 'https://doi.org/YOUR_DOI' }],
+          },
+        ],
+      },
+      {
+        title: 'Konferenzbeiträge',
+        items: [
+          {
+            title: 'Titel des Konferenzbeitrags',
+            year: '2023',
+            authors: 'Sie, A.',
+            venue: 'Konferenzname (CONF’23)',
+            links: [{ label: 'PDF', href: 'https://arxiv.org/abs/YOUR_ID' }],
+          },
+        ],
+      },
+    ],
+  },
+};
+
+const fr: ResumeContent = {
+  profile: {
+    name: 'He Haocheng',
+    role: 'Recherche / Ingénierie',
+    email: 'your@email.com',
+    location: 'Ville, Pays',
+  },
+  about: {
+    facts: [
+      { label: 'E-mail', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: 'Localisation', value: 'Ville, Pays' },
+      { label: 'Focus', value: 'Systèmes, IA et recherche orientée produit' },
+    ],
+    highlights: [
+      {
+        title: 'Positionnement clair',
+        description: 'Une carte de profil concise clarifie immédiatement votre proposition de valeur.',
+      },
+      {
+        title: 'Récit structuré',
+        description: 'Le contenu est piloté par des données pour garder une hiérarchie cohérente.',
+      },
+      {
+        title: 'Motion mesurée',
+        description: 'Les animations accompagnent la lecture sans créer de distraction continue.',
+      },
+    ],
+  },
+  experience: {
+    summary: [
+      'L’expérience est présentée sous forme de timeline structurée plutôt qu’en paragraphes bruts.',
+      'Ce format facilite l’ajustement du rythme visuel et de la densité d’information.',
+    ],
+    items: [
+      {
+        title: 'Intitulé du poste',
+        org: 'Entreprise',
+        period: '2022 – présent',
+        location: 'Ville, Pays',
+        bullets: ['Responsabilité ou résultat clé', 'Autre contribution notable'],
+      },
+      {
+        title: 'Poste précédent',
+        org: 'Entreprise précédente',
+        period: '2019 – 2022',
+        location: 'Ville, Pays',
+        bullets: ['Responsabilité ou impact principal'],
+      },
+    ],
+  },
+  education: {
+    summary: [
+      'La section formation utilise le même modèle de timeline que la section expérience.',
+      'Cela maintient la cohérence tout en distinguant clairement académique et professionnel.',
+    ],
+    items: [
+      {
+        title: 'Doctorat dans votre domaine',
+        org: 'Université',
+        period: '2015 – 2019',
+        location: 'Ville, Pays',
+        bullets: ['Thèse : « Titre de votre thèse »'],
+      },
+      {
+        title: 'Licence dans votre domaine',
+        org: 'Université',
+        period: '2011 – 2015',
+        location: 'Ville, Pays',
+        bullets: [],
+      },
+    ],
+  },
+  publications: {
+    summary: [
+      'Les publications sont regroupées par catégorie pour une lecture progressive.',
+      'Chaque entrée conserve auteurs, venue et liens dans un format compact.',
+    ],
+    sections: [
+      {
+        title: 'Articles de revue',
+        items: [
+          {
+            title: 'Titre de l’article',
+            year: '2024',
+            authors: 'Vous, A., Co-auteur, B.',
+            venue: 'Nom de la revue',
+            links: [{ label: 'DOI', href: 'https://doi.org/YOUR_DOI' }],
+          },
+        ],
+      },
+      {
+        title: 'Articles de conférence',
+        items: [
+          {
+            title: 'Titre de la publication de conférence',
+            year: '2023',
+            authors: 'Vous, A.',
+            venue: 'Nom de la conférence (CONF’23)',
+            links: [{ label: 'PDF', href: 'https://arxiv.org/abs/YOUR_ID' }],
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export const RESUME_CONTENT: Record<Lang, ResumeContent> = {
-  en,
-  zh,
-  de: en,
-  fr: en,
+  en: mergeDeep(en, RESUME_CONTENT_OVERRIDES.en),
+  zh: mergeDeep(zh, RESUME_CONTENT_OVERRIDES.zh),
+  'zh-hant': mergeDeep(zhHant, RESUME_CONTENT_OVERRIDES['zh-hant']),
+  de: mergeDeep(de, RESUME_CONTENT_OVERRIDES.de),
+  fr: mergeDeep(fr, RESUME_CONTENT_OVERRIDES.fr),
 };
 
 export function getResumeContent(lang: Lang): ResumeContent {
