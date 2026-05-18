@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Variant B: Dark Tech — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #08090a;
+    --surface: #0f1011;
+    --card: #191a1b;
+    --text: #f7f8f8;
+    --muted: #8a8f98;
+    --subtle: #62666d;
+    --border: rgba(255,255,255,0.06);
+    --border-strong: rgba(255,255,255,0.10);
+    --accent: #5e6ad2;
+    --accent-glow: rgba(94,106,210,0.15);
+    --radius: 10px;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'cv01', 'ss03';
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Animated background */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 10%, rgba(94,106,210,0.06), transparent),
+      radial-gradient(ellipse 400px 300px at 80% 20%, rgba(94,106,210,0.04), transparent);
+    z-index: 0;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 32px;
+    padding: 14px 24px; max-width: 1100px; margin: 0 auto;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-title {
+    font-size: 16px; font-weight: 500; color: var(--text);
+    text-decoration: none; letter-spacing: -0.3px;
+  }
+  .nav-links { display: flex; gap: 20px; flex: 1; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--muted);
+    text-decoration: none; transition: color .15s; letter-spacing: -0.15px;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .lang-btn {
+    font-size: 12px; font-weight: 500; padding: 6px 12px;
+    border: 1px solid var(--border); border-radius: 6px;
+    background: rgba(255,255,255,0.03); color: var(--muted);
+    cursor: pointer; transition: all .15s;
+  }
+  .lang-btn:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
+  .social-link {
+    color: var(--muted); text-decoration: none; font-size: 13px;
+    transition: color .15s;
+  }
+  .social-link:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    position: relative; z-index: 1;
+    padding: 100px 0 60px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center;
+  }
+  .hero-left {}
+  .hero-tag {
+    display: inline-block;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    padding: 4px 12px; border-radius: 6px;
+    background: rgba(94,106,210,0.1);
+    border: 1px solid rgba(94,106,210,0.2);
+    margin-bottom: 24px;
+  }
+  .hero-name {
+    font-size: clamp(40px, 4.5vw, 56px);
+    font-weight: 500; line-height: 1.05;
+    letter-spacing: -1.2px;
+    margin-bottom: 16px;
+  }
+  .hero-name .accent { color: var(--accent); }
+  .hero-role {
+    font-size: 18px; font-weight: 400;
+    color: var(--muted); line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .hero-actions { display: flex; gap: 12px; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; padding: 10px 20px;
+    border-radius: 6px; text-decoration: none;
+    transition: all .2s; letter-spacing: -0.15px;
+  }
+  .cta-primary {
+    background: var(--accent); color: #fff;
+  }
+  .cta-primary:hover { background: #7170ff; transform: translateY(-1px); }
+  .cta-ghost {
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-strong);
+  }
+  .cta-ghost:hover { background: rgba(255,255,255,0.06); }
+
+  /* Hero right - stats */
+  .hero-right {
+    display: grid; gap: 12px;
+  }
+  .stat-card {
+    padding: 20px 24px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .stat-card:hover { border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+  .stat-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); margin-bottom: 4px; }
+  .stat-value { font-size: 15px; font-weight: 500; color: var(--text); }
+
+  /* Section divider */
+  .section {
+    position: relative; z-index: 1;
+    padding: 0 0 80px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-header::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border-strong), transparent);
+  }
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 500; color: var(--accent);
+  }
+  .section-title {
+    font-size: 14px; font-weight: 500; color: var(--text);
+    letter-spacing: -0.15px;
+  }
+
+  /* Section tabs / quick nav */
+  .quick-nav {
+    display: flex; gap: 8px; margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .quick-nav a {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    color: var(--muted);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(94,106,210,0.08); }
+  .quick-nav .badge {
+    font-size: 11px; font-weight: 500; padding: 1px 8px; border-radius: 999px;
+    background: rgba(255,255,255,0.06); color: var(--subtle);
+  }
+
+  /* Timeline - dark variant */
+  .timeline { display: grid; gap: 12px; }
+  .timeline-item {
+    display: grid; grid-template-columns: 24px 1fr; gap: 16px;
+    padding: 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all .2s;
+  }
+  .timeline-item:hover { border-color: var(--accent); background: rgba(94,106,210,0.04); }
+  .timeline-connector {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .timeline-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+    flex-shrink: 0;
+  }
+  .timeline-title { font-size: 17px; font-weight: 500; letter-spacing: -0.3px; margin-bottom: 4px; }
+  .timeline-org { font-size: 14px; color: var(--muted); font-weight: 500; margin-bottom: 2px; }
+  .timeline-period { font-size: 13px; color: var(--subtle); margin-bottom: 12px; }
+  .timeline-bullets { padding-left: 18px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .timeline-bullets li { margin-bottom: 3px; }
+
+  /* Education */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .edu-card {
+    padding: 24px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .edu-card:hover { border-color: var(--accent); }
+  .edu-card .accent-bar { width: 32px; height: 3px; border-radius: 999px; background: var(--accent); margin-bottom: 16px; }
+  .edu-title { font-size: 16px; font-weight: 500; letter-spacing: -0.2px; margin-bottom: 4px; }
+  .edu-org { font-size: 14px; color: var(--muted); }
+  .edu-period { font-size: 13px; color: var(--subtle); }
+
+  /* Publications */
+  .pub-card {
+    padding: 20px 24px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    margin-bottom: 12px; transition: all .2s;
+  }
+  .pub-card:hover { border-color: var(--accent); }
+  .pub-title { font-size: 16px; font-weight: 500; letter-spacing: -0.2px; margin-bottom: 6px; }
+  .pub-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .pub-links { display: flex; gap: 12px; }
+  .pub-links a { font-size: 13px; color: var(--accent); text-decoration: none; transition: color .15s; }
+  .pub-links a:hover { color: #828fff; }
+
+  /* Footer */
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 32px 24px; text-align: center;
+    font-size: 14px; color: var(--subtle);
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 0 40px; gap: 32px; }
+    .hero-right { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero-right { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-title">Haocheng He</a>
+  <div class="nav-links">
+    <a href="#" class="active">About</a>
+    <a href="#">Experience</a>
+    <a href="#">Education</a>
+    <a href="#">Publications</a>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="social-link">LinkedIn</a>
+    <button class="lang-btn">EN</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">✦ Open to opportunities</div>
+      <h1 class="hero-name">
+        Hi, I'm <span class="accent">Haocheng He</span>
+      </h1>
+      <p class="hero-role">
+        MEng in Aviation Engineering &amp; Operation Management.<br>
+        Building at the intersection of simulation, AI, and operations.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="cta-btn cta-primary">View Experience →</a>
+        <a href="#" class="cta-btn cta-ghost">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-label">Location</div>
+        <div class="stat-value">Hong Kong SAR</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Focus</div>
+        <div class="stat-value">Aviation Operations · AI · Simulation</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Email</div>
+        <div class="stat-value">haocheng.he@foxmail.com</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick nav -->
+  <div class="quick-nav">
+    <a href="#"><span>💼</span> Experience <span class="badge">5</span></a>
+    <a href="#"><span>🎓</span> Education <span class="badge">3</span></a>
+    <a href="#"><span>📄</span> Publications</a>
+    <a href="#"><span>🏆</span> Highlights</a>
+  </div>
+
+  <!-- Highlights -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">// 01</span>
+      <span class="section-title">Highlights</span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="accent-bar"></div>
+        <div class="edu-title">Real operations problems</div>
+        <div class="edu-org">Using simulation and AI to improve airport and airline operations. My research won the Excellent Thesis and Innovation Award.</div>
+      </div>
+      <div class="edu-card">
+        <div class="accent-bar" style="background: #7170ff;"></div>
+        <div class="edu-title">Engineering + Communication</div>
+        <div class="edu-org">I work across teams, turning complex problems into clear steps. Campus brand ambassador experience at LiuGong.</div>
+      </div>
+      <div class="edu-card">
+        <div class="accent-bar" style="background: #828fff;"></div>
+        <div class="edu-title">Hands-on toolkit</div>
+        <div class="edu-org">Python, SQL, AnyLogic, Plant Simulation, OR-Tools, Prompt Engineering. Multiple patents filed from R&amp;D internship.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">// 02</span>
+      <span class="section-title">Experience</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-connector"><div class="timeline-dot"></div></div>
+        <div>
+          <div class="timeline-title">R&amp;D and Operations Intern</div>
+          <div class="timeline-org">Shenzhen Wuxian Hongyin Technology</div>
+          <div class="timeline-period">May 2025 – Apr 2026 · Shenzhen, China</div>
+          <ul class="timeline-bullets">
+            <li>AI use cases on Huawei Ascend + workflow optimization</li>
+            <li>Filed multiple patents from internship projects</li>
+            <li>Prompt engineering for accelerated development</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-connector"><div class="timeline-dot"></div></div>
+        <div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-org">GDUT × Guangzhou Baiyun International Airport</div>
+          <div class="timeline-period">Sep 2023 – Jun 2025 · Guangzhou, China</div>
+          <ul class="timeline-bullets">
+            <li>AnyLogic simulation for airport special vehicle traffic</li>
+            <li>Collision avoidance + path planning with Java &amp; MySQL</li>
+            <li>🏆 Awarded Excellent Thesis and Innovation Award</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">// 03</span>
+      <span class="section-title">Education</span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="accent-bar"></div>
+        <div class="edu-title">MEng Aviation Engineering &amp; Operation Management</div>
+        <div class="edu-org">The Hong Kong Polytechnic University</div>
+        <div class="edu-period">Sep 2025 – Jan 2027</div>
+      </div>
+      <div class="edu-card" style="--accent-card: #7170ff;">
+        <div class="accent-bar" style="background: #7170ff;"></div>
+        <div class="edu-title">BEng Industrial Engineering</div>
+        <div class="edu-org">Guangdong University of Technology</div>
+        <div class="edu-period">Sep 2021 – Jun 2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="accent-bar" style="background: #828fff;"></div>
+        <div class="edu-title">LLB Law (Minor)</div>
+        <div class="edu-org">Guangdong University of Technology</div>
+        <div class="edu-period">Sep 2022 – Jun 2025</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Haocheng He</p>
+</footer>
+
+</body>
+</html>

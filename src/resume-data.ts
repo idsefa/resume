@@ -1,5 +1,6 @@
 import type { Lang } from './config';
-import { RESUME_CONTENT_OVERRIDES, type DeepPartial } from './resume-overrides/index';
+import { RESUME_CONTENT_OVERRIDES, RESUME_CONTENT_OVERRIDES_CAREER, type DeepPartial } from './resume-overrides/index';
+import { RESUME_MODE } from './config';
 
 export type FactItem = {
   label: string;
@@ -94,12 +95,12 @@ const en: ResumeContent = {
   profile: {
     name: 'He Haocheng',
     role: 'Researcher / Engineer',
-    email: 'your@email.com',
+    email: 'haocheng.he@foxmail.com',
     location: 'City, Country',
   },
   about: {
     facts: [
-      { label: 'Email', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: 'Email', value: 'haocheng.he@foxmail.com', href: 'mailto:haocheng.he@foxmail.com' },
       { label: 'Location', value: 'City, Country' },
       { label: 'Focus', value: 'Systems, AI, and product-facing research' },
     ],
@@ -306,12 +307,12 @@ const zhHant: ResumeContent = {
   profile: {
     name: '何浩誠',
     role: '研究 / 工程',
-    email: 'your@email.com',
+    email: 'haocheng.he@foxmail.com',
     location: '城市，國家',
   },
   about: {
     facts: [
-      { label: '信箱', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: '信箱', value: 'haocheng.he@foxmail.com', href: 'mailto:haocheng.he@foxmail.com' },
       { label: '所在地', value: '城市，國家' },
       { label: '方向', value: '系統、AI 與面向產品的研究' },
     ],
@@ -412,12 +413,12 @@ const de: ResumeContent = {
   profile: {
     name: 'He Haocheng',
     role: 'Forschung / Engineering',
-    email: 'your@email.com',
+    email: 'haocheng.he@foxmail.com',
     location: 'Stadt, Land',
   },
   about: {
     facts: [
-      { label: 'E-Mail', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: 'E-Mail', value: 'haocheng.he@foxmail.com', href: 'mailto:haocheng.he@foxmail.com' },
       { label: 'Ort', value: 'Stadt, Land' },
       { label: 'Fokus', value: 'Systeme, KI und produktnahe Forschung' },
     ],
@@ -518,12 +519,12 @@ const fr: ResumeContent = {
   profile: {
     name: 'He Haocheng',
     role: 'Recherche / Ingénierie',
-    email: 'your@email.com',
+    email: 'haocheng.he@foxmail.com',
     location: 'Ville, Pays',
   },
   about: {
     facts: [
-      { label: 'E-mail', value: 'your@email.com', href: 'mailto:your@email.com' },
+      { label: 'E-mail', value: 'haocheng.he@foxmail.com', href: 'mailto:haocheng.he@foxmail.com' },
       { label: 'Localisation', value: 'Ville, Pays' },
       { label: 'Focus', value: 'Systèmes, IA et recherche orientée produit' },
     ],
@@ -620,12 +621,23 @@ const fr: ResumeContent = {
   },
 };
 
+// Chain: base template → personal override → (when career) career override
+// This ensures career mode inherits real data from personal overrides
+// instead of falling back to template placeholder text.
+const mergeChain = (lang: Lang, base: ResumeContent): ResumeContent => {
+  const personal = RESUME_CONTENT_OVERRIDES[lang];
+  if (RESUME_MODE === 'career') {
+    return mergeDeep(mergeDeep(base, personal), RESUME_CONTENT_OVERRIDES_CAREER[lang]);
+  }
+  return mergeDeep(base, personal);
+};
+
 export const RESUME_CONTENT: Record<Lang, ResumeContent> = {
-  en: mergeDeep(en, RESUME_CONTENT_OVERRIDES.en),
-  zh: mergeDeep(zh, RESUME_CONTENT_OVERRIDES.zh),
-  'zh-hant': mergeDeep(zhHant, RESUME_CONTENT_OVERRIDES['zh-hant']),
-  de: mergeDeep(de, RESUME_CONTENT_OVERRIDES.de),
-  fr: mergeDeep(fr, RESUME_CONTENT_OVERRIDES.fr),
+  en: mergeChain('en', en),
+  zh: mergeChain('zh', zh),
+  'zh-hant': mergeChain('zh-hant', zhHant),
+  de: mergeChain('de', de),
+  fr: mergeChain('fr', fr),
 };
 
 export function getResumeContent(lang: Lang): ResumeContent {

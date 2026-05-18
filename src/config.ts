@@ -6,10 +6,7 @@ export const SITE = {
 export const NAVIGATION_SITE_URL = 'https://nav.example.com';
 
 export const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/YOUR_HANDLE', icon: 'linkedin' },
-  { label: 'GitHub', href: 'https://github.com/YOUR_HANDLE', icon: 'github' },
-  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=YOUR_ID', icon: 'scholar' },
-  { label: 'ORCID', href: 'https://orcid.org/YOUR_ORCID', icon: 'orcid' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b', icon: 'linkedin' },
   { label: 'Navigation', href: NAVIGATION_SITE_URL, icon: 'navigation' },
 ];
 
@@ -25,3 +22,13 @@ export const LANGUAGE_META: Record<Lang, { label: string; name: string }> = {
 };
 
 export const DEFAULT_LANG: Lang = 'en';
+
+// Resume content mode: 'personal' shows the homepage/personal copy,
+// 'career' switches to the job-seeking / career-focused copy.
+export type ResumeMode = 'personal' | 'career';
+// Change this value to 'career' to use the career-oriented resume overrides.
+export const RESUME_MODE: ResumeMode = 'career';
+
+export type LayoutMode = 'classic' | 'light-tech';
+// Switch between visual layouts
+export const LAYOUT: LayoutMode = 'light-tech';

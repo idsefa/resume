@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import type { Lang } from '../../config';
 import { LANGUAGES } from '../../config';
 import { getResumeContent } from '../../resume-data';
 import { SECTION_META } from '../../resume.config';
+import { t } from '../../i18n';
+import PageShell from '../../components/PageShell.astro';
 import '../../styles/resume-pages.css';
 
 export function getStaticPaths() {
@@ -16,50 +17,46 @@ const { lang } = Astro.params as { lang: Lang };
 const content = getResumeContent(lang);
 const config = SECTION_META[lang].education;
 const nextLabel = SECTION_META[lang].publications.arrowLabel;
+const expData = getResumeContent(lang).experience;
+const eduData = getResumeContent(lang).education;
 ---
 
-<Layout lang={lang} title={config.arrowLabel} currentPage="nav.education" pageKey="education" pageMeta={config}>
-  <article class="page-content">
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-kicker">{config.kicker}</p>
-        <h1 class="hero-title">{config.arrowLabel}</h1>
-        <p class="hero-summary">{content.education.summary[0]}</p>
-      </div>
-      <aside class="arrow-stack" aria-hidden="true">
-        <div class="arrow-stack-inner">
-          <div class="arrow-layer"><span>{config.arrowLabel}</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Study</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Depth</span><span class="arrow-line"></span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="timeline-section" data-reveal>
-      <div class="timeline">
-        {content.education.items.map((item, idx) => (
-          <article class="timeline-item" data-reveal data-stagger={idx}>
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3 class="timeline-title">{item.title}</h3>
-              <p class="timeline-org">{item.org}</p>
-              <p class="timeline-period">{item.period} • {item.location}</p>
-              <ul class="timeline-bullets">
-                {item.bullets.map(bullet => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="cta-section" data-reveal>
-      <a href={`/${lang}/publications`} class="arrow-link">
-        <span>{nextLabel}</span>
-        <span class="arrow-icon">→</span>
-      </a>
-    </section>
-  </article>
-</Layout>
+<PageShell
+  lang={lang}
+  title={config.arrowLabel}
+  currentPage="nav.education"
+  pageKey="education"
+  pageMeta={config}
+  heroKicker={config.kicker}
+  heroTitle={config.arrowLabel}
+  heroSummary={content.education.summary[0]}
+  experienceCount={expData.items.length}
+  educationCount={eduData.items.length}
+  arrowLabels={[config.arrowLabel, t(lang, 'arrow.study'), t(lang, 'arrow.depth')]}
+  ctaHref={`/${lang}/publications`}
+  ctaLabel={nextLabel}
+>
+  <section class="timeline-section" data-reveal>
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title-text">{config.arrowLabel}</span>
+    </div>
+    <div class="timeline">
+      {content.education.items.map((item, idx) => (
+        <article class="timeline-item" data-reveal data-stagger={idx}>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">{item.title}</h3>
+            <p class="timeline-org">{item.org}</p>
+            <p class="timeline-period">{item.period} • {item.location}</p>
+            <ul class="timeline-bullets">
+              {item.bullets.map(bullet => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</PageShell>

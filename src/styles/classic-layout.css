@@ -1,0 +1,360 @@
+/* Old layout (classic) - scoped under .layout-classic */
+/* Extracted from git history - Layout.astro <style is:global> + resume-pages.css */
+
+.layout-classic {
+  --color-bg: #f7f3eb;
+  --color-surface: rgba(255, 255, 255, 0.7);
+  --color-surface-strong: rgba(255, 255, 255, 0.92);
+  --color-text: #111827;
+  --color-muted: #5b6473;
+  --color-border: rgba(17, 24, 39, 0.1);
+  --color-accent: #2457ff;
+  --font: 'Inter', 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --max-w: 1080px;
+}
+
+.layout-classic .page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.layout-classic .page-content .hero {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.layout-classic .hero-inner {
+  flex: 1;
+  min-width: 0;
+}
+
+.layout-classic .hero-kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.7rem;
+}
+
+.layout-classic .hero-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 0.8rem;
+}
+
+.layout-classic .hero-role {
+  font-size: 1.05rem;
+  color: color-mix(in srgb, var(--color-text) 68%, white);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.layout-classic .hero-summary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 60%, white);
+  max-width: 56ch;
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .arrow-stack-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.layout-classic .arrow-layer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  border-left: 2px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 7%, white);
+  color: var(--color-accent);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  animation: pageArrowSlide 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.layout-classic .arrow-layer:nth-child(1) { animation-delay: 0.28s; }
+.layout-classic .arrow-layer:nth-child(2) { animation-delay: 0.34s; }
+.layout-classic .arrow-layer:nth-child(3) { animation-delay: 0.4s; }
+
+.layout-classic .arrow-line {
+  height: 1px;
+  width: 2.1rem;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.layout-classic .section-title {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  padding-bottom: 1.2rem;
+}
+
+.layout-classic .section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.layout-classic .section-title h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.layout-classic .facts-section,
+.layout-classic .highlights-section {
+  margin-bottom: 4rem;
+}
+
+.layout-classic .facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.layout-classic .fact-card {
+  padding: 1.2rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-accent) 4%, white);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 12%, transparent);
+  transition: all 0.2s ease;
+}
+
+.layout-classic .fact-card:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 8%, white);
+  transform: translateY(-2px);
+}
+
+.layout-classic .fact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--color-accent) 70%, var(--color-text));
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.layout-classic .fact-value {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.layout-classic .fact-value a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  transition: color 0.2s ease;
+}
+
+.layout-classic .highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.layout-classic .highlight-card {
+  padding: 1.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+  transition: all 0.3s ease;
+}
+
+.layout-classic .highlight-card:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 6%, rgba(255, 255, 255, 0.8)), rgba(255, 255, 255, 0.5));
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.layout-classic .timeline-section {
+  position: relative;
+  margin: 1rem 0 0;
+}
+
+.layout-classic .timeline {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.layout-classic .timeline-item {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 1rem;
+}
+
+.layout-classic .timeline-marker {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  margin-top: 0.45rem;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 18%, white);
+}
+
+.layout-classic .timeline-content {
+  padding: 1rem 1rem 1rem 1.1rem;
+  border-left: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 3%, white);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.layout-classic .timeline-title {
+  font-size: 1rem;
+  font-weight: 650;
+  margin: 0;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .timeline-org {
+  margin: 0.25rem 0 0;
+  font-size: 0.92rem;
+  color: color-mix(in srgb, var(--color-text) 70%, white);
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .timeline-period {
+  margin: 0.2rem 0 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-text) 55%, white);
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .timeline-bullets {
+  margin: 0;
+  padding-left: 1.05rem;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: color-mix(in srgb, var(--color-text) 74%, white);
+  line-height: 1.5;
+}
+
+.layout-classic .pub-sections {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.layout-classic .pub-group-title {
+  margin: 0 0 0.9rem;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
+}
+
+.layout-classic .pub-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.layout-classic .pub-card {
+  border: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 3%, white);
+  border-radius: 9px;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.layout-classic .pub-title {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .pub-meta {
+  margin: 0.45rem 0 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-text) 60%, white);
+  overflow-wrap: anywhere;
+}
+
+.layout-classic .pub-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.layout-classic .pub-links a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  color: var(--color-accent);
+  border-bottom: 1px dotted currentColor;
+}
+
+.layout-classic .cta-section {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.layout-classic .arrow-link {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-accent);
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  padding: 0.68rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.layout-classic .arrow-link:hover {
+  transform: translateX(2px);
+  background: color-mix(in srgb, var(--color-accent) 10%, white);
+}
+
+@keyframes pageArrowSlide {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .layout-classic .page-content { padding: 1.4rem 1rem; }
+  .layout-classic .page-content .hero { flex-direction: column; gap: 1.3rem; }
+  .layout-classic .hero-title { font-size: 1.7rem; }
+  .layout-classic .arrow-link { width: 100%; justify-content: center; }
+  .layout-classic .facts-grid,
+  .layout-classic .highlights-grid { grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; }
+  .layout-classic .timeline-item { grid-template-columns: 1.1rem 1fr; gap: 0.8rem; }
+}
+
+@media (max-width: 600px) {
+  .layout-classic .page-content { padding: 1rem 0.75rem; }
+  .layout-classic .hero-title { font-size: 1.5rem; }
+  .layout-classic .facts-grid,
+  .layout-classic .highlights-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-classic * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

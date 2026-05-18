@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Lang } from '../config';
+import { LAYOUT, type LayoutMode } from '../config';
+import { t } from '../i18n';
+import type { ResumeSectionKey, ResumeSectionMeta } from '../resume.config';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  currentPage?: string;
+  pageKey?: ResumeSectionKey;
+  pageMeta?: ResumeSectionMeta;
+  /** Hero kicker label */
+  heroKicker: string;
+  /** Hero heading text */
+  heroTitle: string;
+  /** Hero summary / description */
+  heroSummary: string;
+  /** Optional hero role line (only on about page) */
+  heroRole?: string;
+  /** Optional hero location line */
+  heroLocation?: string;
+  /** Experience item count for section nav tab */
+  experienceCount?: number;
+  /** Education item count for section nav tab */
+  educationCount?: number;
+  /** Three arrow-stack labels (classic layout only) */
+  arrowLabels?: [string, string, string];
+  /** CTA target URL */
+  ctaHref: string;
+  /** CTA button label */
+  ctaLabel: string;
+}
+
+const {
+  lang, title, currentPage, pageKey, pageMeta,
+  heroKicker, heroTitle, heroSummary, heroRole, heroLocation,
+  experienceCount, educationCount,
+  arrowLabels,
+  ctaHref, ctaLabel,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const layout: LayoutMode = LAYOUT;
+
+const sectionTabs = [
+  { href: `${base}${lang}/`, label: t(lang, 'nav.about'), active: currentPage === 'nav.about' },
+  { href: `${base}${lang}/experience`, label: t(lang, 'nav.experience'), count: experienceCount, active: currentPage === 'nav.experience' },
+  { href: `${base}${lang}/education`, label: t(lang, 'nav.education'), count: educationCount, active: currentPage === 'nav.education' },
+  { href: `${base}${lang}/publications`, label: t(lang, 'nav.publications'), active: currentPage === 'nav.publications' },
+];
+---
+
+<Layout {lang} {title} {currentPage} {pageKey} {pageMeta} layout={layout}>
+  <article class="page-content">
+    {layout === 'classic' ? (
+      <!-- Classic layout: hero + arrow-stack sidebar -->
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">{heroKicker}</p>
+          <h1 class="hero-title">{heroTitle}</h1>
+          {heroRole && <p class="hero-role">{heroRole}</p>}
+          <p class="hero-summary">{heroSummary}</p>
+        </div>
+        {arrowLabels && (
+          <aside class="arrow-stack" aria-hidden="true">
+            <div class="arrow-stack-inner">
+              <div class="arrow-layer"><span>{arrowLabels[0]}</span><span class="arrow-line"></span></div>
+              <div class="arrow-layer"><span>{arrowLabels[1]}</span><span class="arrow-line"></span></div>
+              <div class="arrow-layer"><span>{arrowLabels[2]}</span><span class="arrow-line"></span></div>
+            </div>
+          </aside>
+        )}
+      </section>
+    ) : (
+      <!-- Light-tech layout: centered hero + section nav -->
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">✦ {heroKicker}</p>
+          <h1 class="hero-title">{heroTitle}</h1>
+          {heroRole && <p class="hero-role">{heroRole}</p>}
+          {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+        </div>
+      </section>
+    )}
+
+    {layout === 'light-tech' && (
+      <nav class="section-nav">
+        {sectionTabs.map(tab => (
+          <a href={tab.href} class={`section-tab${tab.active ? ' active' : ''}`}>
+            {tab.label}
+            {tab.count !== undefined && <span class="tab-count">{tab.count}</span>}
+          </a>
+        ))}
+      </nav>
+    )}
+
+    <slot />
+
+    <section class="cta-section" data-reveal>
+      {layout === 'classic' ? (
+        <a href={ctaHref} class="arrow-link">
+          <span>{ctaLabel}</span>
+          <span class="arrow-icon">→</span>
+        </a>
+      ) : (
+        <a href={ctaHref} class="cta-btn">
+          <span>{ctaLabel}</span>
+          <span class="arrow-icon">→</span>
+        </a>
+      )}
+    </section>
+  </article>
+</Layout>

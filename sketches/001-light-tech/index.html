@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Variant A: Light Tech — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff;
+    --text: #0a0a0b;
+    --muted: #6b7280;
+    --border: rgba(0,0,0,0.08);
+    --accent: #6366f1;
+    --accent-soft: rgba(99,102,241,0.08);
+    --surface: #fafbfc;
+    --card: #ffffff;
+    --radius: 12px;
+    --shadow: 0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px rgba(0,0,0,0.04), 0px 4px 8px -2px rgba(0,0,0,0.04);
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    display: flex; align-items: center; gap: 32px;
+    padding: 16px 24px; max-width: 1100px; margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-title { font-size: 16px; font-weight: 600; color: var(--text); text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; flex: 1; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .lang-btn {
+    font-size: 13px; font-weight: 500; padding: 6px 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+    color: var(--text); cursor: pointer; transition: all .15s;
+  }
+  .lang-btn:hover { border-color: var(--accent); }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 500; padding: 8px 18px;
+    border-radius: 8px; text-decoration: none; transition: all .2s;
+  }
+  .cta-primary { background: var(--accent); color: #fff; }
+  .cta-primary:hover { opacity: .9; transform: translateY(-1px); }
+  .cta-ghost {
+    color: var(--text); border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .cta-ghost:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    padding: 4px 12px; border-radius: 999px;
+    background: var(--accent-soft);
+  }
+  .hero-name {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 650; line-height: 1.05;
+    letter-spacing: -2.4px;
+    margin-bottom: 12px;
+  }
+  .hero-role {
+    font-size: 20px; font-weight: 400;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .hero-location {
+    font-size: 15px; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+
+  /* Sub-nav: sections */
+  .section-nav {
+    display: flex; gap: 8px; justify-content: center;
+    padding: 32px 0 48px; flex-wrap: wrap;
+  }
+  .section-tab {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    font-size: 15px; font-weight: 500; text-decoration: none; color: var(--text);
+    transition: all .2s;
+  }
+  .section-tab:hover {
+    border-color: var(--accent); background: var(--accent-soft);
+    transform: translateY(-2px); box-shadow: var(--shadow);
+  }
+  .section-tab .tab-icon { font-size: 18px; }
+  .section-tab .tab-count {
+    font-size: 12px; font-weight: 600; color: var(--muted);
+    background: var(--border); padding: 2px 8px; border-radius: 999px;
+  }
+
+  /* Section */
+  .section {
+    padding: 0 0 64px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-header::after {
+    content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent);
+  }
+  .section-number {
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    font-feature-settings: "tnum";
+  }
+  .section-title {
+    font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text);
+  }
+
+  /* Timeline */
+  .timeline { display: grid; gap: 16px; }
+  .timeline-item {
+    display: grid; grid-template-columns: 20px 1fr; gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface); border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .timeline-item:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+  .timeline-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); margin-top: 6px;
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .timeline-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .timeline-org { font-size: 15px; color: var(--muted); font-weight: 500; margin-bottom: 2px; }
+  .timeline-period { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .timeline-bullets { padding-left: 20px; font-size: 15px; color: var(--muted); line-height: 1.7; }
+  .timeline-bullets li { margin-bottom: 4px; }
+
+  /* Facts Grid */
+  .facts-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin-bottom: 48px;
+  }
+  .fact-card {
+    padding: 20px; border-radius: var(--radius);
+    background: var(--surface); border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .fact-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .fact-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; }
+  .fact-value { font-size: 15px; font-weight: 500; color: var(--text); }
+  .fact-value a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+
+  /* Publications */
+  .pub-card {
+    padding: 20px 24px; border-radius: var(--radius);
+    background: var(--surface); border: 1px solid var(--border);
+    margin-bottom: 12px; transition: all .2s;
+  }
+  .pub-card:hover { border-color: var(--accent); }
+  .pub-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .pub-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .pub-links { display: flex; gap: 12px; }
+  .pub-links a {
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    text-decoration: none; border-bottom: 1px dotted transparent; transition: all .15s;
+  }
+  .pub-links a:hover { border-bottom-color: var(--accent); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px; text-align: center;
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 32px; }
+    .section-nav { flex-direction: column; align-items: stretch; padding: 16px 0 32px; }
+    .section-tab { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-title">Haocheng He</a>
+  <div class="nav-links">
+    <a href="#" class="active">About</a>
+    <a href="#">Experience</a>
+    <a href="#">Education</a>
+    <a href="#">Publications</a>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn">EN</button>
+    <a href="#" class="cta-btn cta-primary">LinkedIn →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-kicker">✦ Available for opportunities</div>
+    <h1 class="hero-name">Haocheng He</h1>
+    <p class="hero-role">MEng Student in Aviation Engineering &amp; Operation Management</p>
+    <p class="hero-location">📍 Hong Kong SAR, China</p>
+
+    <div class="section-nav">
+      <a href="#" class="section-tab"><span class="tab-icon">📋</span> Overview</a>
+      <a href="#" class="section-tab"><span class="tab-icon">💼</span> Experience <span class="tab-count">5</span></a>
+      <a href="#" class="section-tab"><span class="tab-icon">🎓</span> Education <span class="tab-count">3</span></a>
+      <a href="#" class="section-tab"><span class="tab-icon">📄</span> Publications</a>
+    </div>
+  </section>
+
+  <!-- Facts -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title">Quick Facts</span>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">Email</div>
+        <div class="fact-value"><a href="mailto:haocheng.he@foxmail.com">haocheng.he@foxmail.com</a></div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Location</div>
+        <div class="fact-value">Hong Kong SAR, China</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Focus</div>
+        <div class="fact-value">Aviation operations, AI workflow, simulation</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <span class="section-title">Highlights</span>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">Why me</div>
+        <div class="fact-value">I work on real operations problems — using simulation and AI to improve airport and airline operations.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Skills mix</div>
+        <div class="fact-value">Strong mix of engineering and communication. I turn complex tasks into clear steps.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Toolkit</div>
+        <div class="fact-value">Python, SQL, AnyLogic, Plant Simulation, OR-Tools, Prompt Engineering</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <span class="section-title">Experience</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <div class="timeline-title">R&amp;D and Operations Intern</div>
+          <div class="timeline-org">Shenzhen Wuxian Hongyin Technology Co., Ltd.</div>
+          <div class="timeline-period">May 2025 – Apr 2026 · Shenzhen</div>
+          <ul class="timeline-bullets">
+            <li>AI use cases based on Huawei Ascend and workflow optimization</li>
+            <li>Filed multiple patents from internship projects</li>
+            <li>Used prompt engineering to accelerate development</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-org">GDUT (with Guangzhou Baiyun Int'l Airport)</div>
+          <div class="timeline-period">Sep 2023 – Jun 2025 · Guangzhou</div>
+          <ul class="timeline-bullets">
+            <li>Built AnyLogic simulation for airport special vehicle traffic</li>
+            <li>Collision avoidance and path planning with Java + MySQL</li>
+            <li>Awarded Excellent Thesis and Innovation Award</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Haocheng He · Built with Astro</p>
+</footer>
+
+</body>
+</html>

@@ -1,8 +1,9 @@
 ---
 import type { Lang } from '../../config';
 import { LANGUAGES, NAVIGATION_SITE_URL } from '../../config';
-import Layout from '../../layouts/Layout.astro';
 import { SECTION_META } from '../../resume.config';
+import { t } from '../../i18n';
+import PageShell from '../../components/PageShell.astro';
 import '../../styles/resume-pages.css';
 
 export function getStaticPaths() {
@@ -15,33 +16,25 @@ const { lang } = Astro.params as { lang: Lang };
 const pageMeta = SECTION_META[lang].about;
 ---
 
-<Layout lang={lang} title="Navigator" currentPage="nav.navigator" pageKey="about" pageMeta={pageMeta}>
-  <article class="page-content" data-reveal>
-    <section class="hero" data-reveal>
-      <div class="hero-inner">
-        <p class="hero-kicker">Navigator</p>
-        <h1 class="hero-title">Jump To My Navigation Site</h1>
-        <p class="hero-summary">You are being redirected. If it does not open automatically, use the button below.</p>
-      </div>
-      <aside class="arrow-stack" aria-hidden="true">
-        <div class="arrow-stack-inner">
-          <div class="arrow-layer"><span>Navigator</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Links</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Resources</span><span class="arrow-line"></span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="cta-section" data-reveal>
-      <a href={NAVIGATION_SITE_URL} class="arrow-link" target="_blank" rel="noopener noreferrer">
-        <span>Open Navigation Site</span>
-        <span class="arrow-icon">→</span>
-      </a>
-    </section>
-  </article>
-  <script is:inline>
-    window.setTimeout(() => {
-      window.location.href = '${NAVIGATION_SITE_URL}';
-    }, 250);
+<PageShell
+  lang={lang}
+  title="Navigator"
+  currentPage="nav.navigator"
+  pageKey="about"
+  pageMeta={pageMeta}
+  heroKicker={t(lang, 'nav.navigator')}
+  heroTitle={t(lang, 'nav.jump')}
+  heroSummary={t(lang, 'nav.redirect')}
+  arrowLabels={[t(lang, 'nav.navigator'), t(lang, 'arrow.links'), t(lang, 'arrow.resources')]}
+  ctaHref={NAVIGATION_SITE_URL}
+  ctaLabel={t(lang, 'nav.open')}
+>
+  <div id="navigator-target" data-url={NAVIGATION_SITE_URL} style="display:none"></div>
+  <script>
+    const el = document.getElementById('navigator-target');
+    const url = el?.getAttribute('data-url');
+    if (url) {
+      window.setTimeout(() => { window.location.href = url; }, 3000);
+    }
   </script>
-</Layout>
+</PageShell>

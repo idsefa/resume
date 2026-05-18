@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import type { Lang } from '../../config';
 import { LANGUAGES } from '../../config';
 import { getResumeContent } from '../../resume-data';
 import { SECTION_META } from '../../resume.config';
+import { t } from '../../i18n';
+import PageShell from '../../components/PageShell.astro';
 import '../../styles/resume-pages.css';
 
 export function getStaticPaths() {
@@ -16,51 +17,47 @@ const { lang } = Astro.params as { lang: Lang };
 const content = getResumeContent(lang);
 const config = SECTION_META[lang].publications;
 const nextLabel = SECTION_META[lang].about.arrowLabel;
+const expData = getResumeContent(lang).experience;
+const eduData = getResumeContent(lang).education;
 ---
 
-<Layout lang={lang} title={config.arrowLabel} currentPage="nav.publications" pageKey="publications" pageMeta={config}>
-  <article class="page-content">
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-kicker">{config.kicker}</p>
-        <h1 class="hero-title">{config.arrowLabel}</h1>
-        <p class="hero-summary">{content.publications.summary[0]}</p>
+<PageShell
+  lang={lang}
+  title={config.arrowLabel}
+  currentPage="nav.publications"
+  pageKey="publications"
+  pageMeta={config}
+  heroKicker={config.kicker}
+  heroTitle={config.arrowLabel}
+  heroSummary={content.publications.summary[0]}
+  experienceCount={expData.items.length}
+  educationCount={eduData.items.length}
+  arrowLabels={[config.arrowLabel, t(lang, 'arrow.works'), t(lang, 'arrow.impact')]}
+  ctaHref={`/${lang}/`}
+  ctaLabel={nextLabel}
+>
+  <section class="pub-sections" data-reveal>
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title-text">{config.arrowLabel}</span>
+    </div>
+    {content.publications.sections.map((section, sectionIndex) => (
+      <div class="pub-group" data-reveal data-stagger={sectionIndex}>
+        <h2 class="pub-group-title">{section.title}</h2>
+        <div class="pub-list">
+          {section.items.map(item => (
+            <article class="pub-card">
+              <h3 class="pub-title">{item.title}</h3>
+              <p class="pub-meta">{item.authors} · {item.venue} · {item.year}</p>
+              <div class="pub-links">
+                {item.links.map(link => (
+                  <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <aside class="arrow-stack" aria-hidden="true">
-        <div class="arrow-stack-inner">
-          <div class="arrow-layer"><span>{config.arrowLabel}</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Works</span><span class="arrow-line"></span></div>
-          <div class="arrow-layer"><span>Impact</span><span class="arrow-line"></span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="pub-sections" data-reveal>
-      {content.publications.sections.map((section, sectionIndex) => (
-        <div class="pub-group" data-reveal data-stagger={sectionIndex}>
-          <h2 class="pub-group-title">{section.title}</h2>
-          <div class="pub-list">
-            {section.items.map(item => (
-              <article class="pub-card">
-                <h3 class="pub-title">{item.title}</h3>
-                <p class="pub-meta">{item.authors} · {item.venue} · {item.year}</p>
-                <div class="pub-links">
-                  {item.links.map(link => (
-                    <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
-
-    <section class="cta-section" data-reveal>
-      <a href={`/${lang}/`} class="arrow-link">
-        <span>{nextLabel}</span>
-        <span class="arrow-icon">→</span>
-      </a>
-    </section>
-  </article>
-</Layout>
+    ))}
+  </section>
+</PageShell>

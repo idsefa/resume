@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Variant C: Terminal — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0f;
+    --surface: #121214;
+    --card: #18181b;
+    --text: #e8e8ea;
+    --muted: #888890;
+    --subtle: #555558;
+    --border: rgba(255,255,255,0.06);
+    --accent: #22c55e;
+    --accent-dim: rgba(34,197,94,0.1);
+    --radius: 4px;
+  }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* Terminal scanline effect */
+  body::after {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+    );
+    z-index: 999;
+  }
+
+  /* Nav - terminal style */
+  nav {
+    display: flex; align-items: center; gap: 24px;
+    padding: 20px 24px; max-width: 960px; margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-prompt {
+    font-size: 14px; font-weight: 400; color: var(--accent);
+    white-space: nowrap;
+  }
+  .nav-prompt::before { content: '❯ '; }
+  .nav-title { color: var(--text); text-decoration: none; }
+  .nav-links { display: flex; gap: 20px; flex: 1; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; color: var(--muted);
+    text-decoration: none; text-transform: lowercase;
+    transition: color .15s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .lang-btn {
+    font-size: 12px; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: transparent; color: var(--muted);
+    cursor: pointer; transition: all .15s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 48px;
+  }
+  .hero-terminal-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 0 24px;
+    font-size: 12px; color: var(--subtle);
+  }
+  .hero-terminal-bar .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .hero-terminal-bar .dot.red { background: #ef4444; }
+  .hero-terminal-bar .dot.yellow { background: #eab308; }
+  .hero-terminal-bar .dot.green { background: var(--accent); }
+  .hero-terminal-bar .path { color: var(--muted); margin-left: 8px; }
+
+  .hero-name {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 500; line-height: 1.3;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .hero-name .prompt { color: var(--accent); }
+  .hero-role {
+    font-size: 15px; font-weight: 400;
+    color: var(--muted); margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    padding: 16px 0; border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .hero-meta-item { font-size: 13px; color: var(--muted); }
+  .hero-meta-item .key { color: var(--accent); }
+  .hero-meta-item .sep { color: var(--subtle); }
+  .hero-meta-item a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted transparent; transition: all .15s; }
+  .hero-meta-item a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ASCII-style section headers */
+  .section {
+    padding: 0 0 56px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+    font-size: 12px; color: var(--subtle); text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .section-header .arrow { color: var(--accent); }
+  .section-header::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  /* Stats / facts - CLI style */
+  .facts-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin-bottom: 40px;
+  }
+  .fact-card {
+    padding: 16px 20px; border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .fact-card:hover { border-color: rgba(255,255,255,0.12); }
+  .fact-label {
+    font-size: 11px; font-weight: 500; color: var(--accent);
+    margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .fact-value { font-size: 14px; color: var(--text); }
+  .fact-value a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--subtle); }
+  .fact-value a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Timeline - minimal */
+  .timeline { }
+  .timeline-item {
+    display: grid; grid-template-columns: 40px 1fr; gap: 12px;
+    padding: 16px 20px;
+    border-left: 1px solid var(--border);
+    margin-left: 12px;
+    position: relative;
+    transition: all .2s;
+  }
+  .timeline-item:hover { border-left-color: var(--accent); }
+  .timeline-item::before {
+    content: '◆';
+    position: absolute; left: -8px; top: 18px;
+    font-size: 8px; color: var(--accent);
+  }
+  .timeline-year {
+    font-size: 12px; color: var(--subtle);
+    padding-top: 2px; text-align: right;
+  }
+  .timeline-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .timeline-org { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .timeline-bullets { padding-left: 16px; font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .timeline-bullets li { }
+  .timeline-bullets li::marker { color: var(--subtle); }
+
+  /* Education cards */
+  .edu-grid { display: grid; gap: 8px; }
+  .edu-item {
+    display: flex; gap: 16px; align-items: baseline;
+    padding: 14px 20px; border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .edu-item:hover { border-color: rgba(255,255,255,0.12); }
+  .edu-icon { color: var(--accent); font-size: 12px; }
+  .edu-degree { font-size: 14px; font-weight: 500; flex: 1; }
+  .edu-school { font-size: 13px; color: var(--muted); }
+  .edu-year { font-size: 12px; color: var(--subtle); white-space: nowrap; }
+
+  /* Publications */
+  .pub-item {
+    padding: 16px 20px; border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 8px; transition: all .2s;
+  }
+  .pub-item:hover { border-color: rgba(255,255,255,0.12); }
+  .pub-tags { display: flex; gap: 8px; margin-bottom: 6px; }
+  .pub-tag {
+    font-size: 10px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 2px 8px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    color: var(--subtle);
+  }
+  .pub-tag.green { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+  .pub-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .pub-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .pub-links { display: flex; gap: 12px; }
+  .pub-links a {
+    font-size: 12px; color: var(--accent);
+    text-decoration: none; transition: color .15s;
+  }
+  .pub-links a:hover { text-decoration: underline; }
+
+  /* CTA */
+  .cta-section {
+    text-align: center; padding: 40px 0;
+    border-top: 1px solid var(--border);
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; padding: 12px 28px;
+    border-radius: var(--radius); text-decoration: none;
+    border: 1px solid var(--accent);
+    color: var(--accent); background: transparent;
+    transition: all .2s;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .cta-btn:hover { background: var(--accent-dim); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px; text-align: center;
+    font-size: 12px; color: var(--subtle);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 32px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+    .timeline-item { grid-template-columns: 1fr; margin-left: 8px; }
+    .timeline-year { text-align: left; }
+    .edu-item { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-prompt"></span>
+  <span class="nav-title">Haocheng He</span>
+  <div class="nav-links">
+    <a href="#" class="active">about</a>
+    <a href="#">experience</a>
+    <a href="#">education</a>
+    <a href="#">pub</a>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn">en</button>
+    <button class="lang-btn">zh</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="path">~/resume — zsh</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="prompt">❯</span> Haocheng He
+    </h1>
+    <p class="hero-role">
+      # MEng Aviation Engineering &amp; Operation Management<br>
+      # Simulation · AI · Operations Research
+    </p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="key">email</span><span class="sep"> :: </span>haocheng.he@foxmail.com</div>
+      <div class="hero-meta-item"><span class="key">location</span><span class="sep"> :: </span>Hong Kong SAR</div>
+      <div class="hero-meta-item"><span class="key">status</span><span class="sep"> :: </span><span style="color: var(--accent);">open to work</span></div>
+      <div class="hero-meta-item"><span class="key">linkedin</span><span class="sep"> :: </span><a href="#">haocheng-he</a></div>
+    </div>
+  </section>
+
+  <!-- Highlights / About -->
+  <section class="section">
+    <div class="section-header">
+      <span class="arrow">❯</span> About
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">$ focus</div>
+        <div class="fact-value">Aviation operations, AI workflow, simulation optimization</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">$ approach</div>
+        <div class="fact-value">Bridge operations problems with engineering solutions. Cross-functional communication.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">$ stack</div>
+        <div class="fact-value">Python, SQL, AnyLogic, Plant Simulation, OR-Tools</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="section-header">
+      <span class="arrow">❯</span> Experience
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2025–26</div>
+        <div>
+          <div class="timeline-title">R&amp;D and Operations Intern</div>
+          <div class="timeline-org">Shenzhen Wuxian Hongyin Technology</div>
+          <ul class="timeline-bullets">
+            <li>AI applications on Huawei Ascend platform</li>
+            <li>Multiple patent filings from internship projects</li>
+            <li>Prompt engineering workflow optimization</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023–25</div>
+        <div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-org">GDUT × Guangzhou Baiyun International Airport</div>
+          <ul class="timeline-bullets">
+            <li>AnyLogic simulation for airport ground service vehicles</li>
+            <li>Collision avoidance &amp; path planning — Java, MySQL</li>
+            <li>Excellent Thesis + Innovation Award</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div>
+          <div class="timeline-title">Industrial Engineering Intern</div>
+          <div class="timeline-org">Midea Group</div>
+          <ul class="timeline-bullets">
+            <li>Standard time measurement on assembly line</li>
+            <li>Line balancing &amp; motion economy analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <div class="section-header">
+      <span class="arrow">❯</span> Education
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="edu-icon">▶</div>
+        <div class="edu-degree">MEng Aviation Engineering &amp; Operation Management</div>
+        <div class="edu-school">PolyU</div>
+        <div class="edu-year">2025–27</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-icon">▶</div>
+        <div class="edu-degree">BEng Industrial Engineering</div>
+        <div class="edu-school">GDUT</div>
+        <div class="edu-year">2021–25</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-icon">▶</div>
+        <div class="edu-degree">LLB Law (Minor)</div>
+        <div class="edu-school">GDUT</div>
+        <div class="edu-year">2022–25</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <a href="#" class="cta-btn">❯ view_full_resume.sh</a>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Haocheng He · built with ❯_</p>
+</footer>
+
+</body>
+</html>
