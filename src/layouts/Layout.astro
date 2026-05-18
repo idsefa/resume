@@ -44,19 +44,19 @@ const navItems = [
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;650;700&display=swap" rel="stylesheet" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href={`${import.meta.env.SITE}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
+    <link rel="canonical" href={`${import.meta.env.SITE}${base}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
 
     <!-- Hreflang for all language variants -->
     {LANGUAGES.map(code => (
-      <link rel="alternate" hreflang={code === 'zh-hant' ? 'zh-Hant' : code} href={`${import.meta.env.SITE}${code}/${pageKey === 'about' ? '' : pageKey}`} />
+      <link rel="alternate" hreflang={code === 'zh-hant' ? 'zh-Hant' : code} href={`${import.meta.env.SITE}${base}${code}/${pageKey === 'about' ? '' : pageKey}`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${import.meta.env.SITE}${lang}/`} />
+    <link rel="alternate" hreflang="x-default" href={`${import.meta.env.SITE}${base}${lang}/`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title ? `${title} · ${SITE.title}` : SITE.title} />
     <meta property="og:description" content={pageMeta?.summary ?? SITE.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`${import.meta.env.SITE}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
+    <meta property="og:url" content={`${import.meta.env.SITE}${base}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
     <meta property="og:site_name" content={SITE.title} />
 
     <!-- Twitter Card -->
@@ -69,7 +69,7 @@ const navItems = [
       "@context": "https://schema.org",
       "@type": "Person",
       "name": SITE.title,
-      "url": `${import.meta.env.SITE}${lang}/`,
+      "url": `${import.meta.env.SITE}${base}${lang}/`,
       "knowsAbout": ["Aviation operations", "AI workflow", "Simulation optimization", "Industrial engineering"],
       "alumniOf": ["The Hong Kong Polytechnic University", "Guangdong University of Technology"],
     })} />

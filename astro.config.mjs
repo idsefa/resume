@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://haocheng-he.github.io',
+  site: 'https://idsefa.github.io',
+  base: '/resume',
   output: 'static',
   integrations: [
     sitemap({
