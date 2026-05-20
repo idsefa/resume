@@ -1,0 +1,147 @@
+---
+// ThemeToggle.astro — Theme picker button + dropdown
+// Renders the toggle UI. JavaScript handles theme switching and persistence.
+
+import { THEMES, DEFAULT_THEME, STORAGE_KEY } from '../config/themes';
+import type { Lang } from '../config';
+import { t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="theme-toggle-wrapper">
+  <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Switch theme">
+    <span class="theme-toggle-icon" id="themeToggleIcon">☀️</span>
+  </button>
+  <div class="theme-picker" id="themePicker" role="menu" aria-label="Select theme">
+    <div class="theme-picker-header">{t(lang, 'nav.theme')}</div>
+    <div class="theme-picker-grid">
+      {THEMES.map(theme => (
+        <button
+          type="button"
+          class="theme-option"
+          data-theme-id={theme.id}
+          role="menuitem"
+        >
+          <span class="theme-option-icon">{theme.icon}</span>
+          <span class="theme-option-label">{lang === 'zh' || lang === 'zh-hant' ? theme.labelZh : theme.label}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .theme-toggle-wrapper {
+    position: relative;
+    z-index: 35;
+  }
+
+  .theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--theme-border, var(--color-border));
+    background: var(--theme-surface, var(--color-surface));
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .theme-toggle-btn:hover {
+    border-color: var(--theme-accent, var(--color-accent));
+    transform: scale(1.05);
+  }
+
+  .theme-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .theme-picker {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    min-width: 13rem;
+    padding: 0.6rem;
+    border: 1px solid var(--theme-border, var(--color-border));
+    border-radius: 12px;
+    background: var(--theme-card, var(--color-card));
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.06), 0px 8px 24px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .theme-picker.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .theme-picker-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--theme-muted, var(--color-muted));
+    padding: 0.25rem 0.35rem 0.5rem;
+    border-bottom: 1px solid var(--theme-border, var(--color-border));
+    margin-bottom: 0.4rem;
+  }
+
+  .theme-picker-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.5rem 0.55rem;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--theme-text, var(--color-text));
+    transition: background 0.12s;
+    text-align: left;
+  }
+
+  .theme-option:hover {
+    background: var(--theme-accent-soft, var(--color-accent-soft));
+  }
+
+  .theme-option.is-active {
+    background: var(--theme-accent-soft, var(--color-accent-soft));
+    font-weight: 600;
+  }
+
+  .theme-option-icon {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .theme-option-label {
+    white-space: nowrap;
+  }
+</style>

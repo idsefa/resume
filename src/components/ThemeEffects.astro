@@ -1,0 +1,330 @@
+---
+// ThemeEffects.astro — Injects per-theme JS behaviors
+// The main applyTheme() function in Layout.astro calls these
+// based on the current theme's effects profile.
+---
+
+<script>
+  // ============================================
+  // Theme Effects Engine
+  // ============================================
+  // Maps theme IDs to their effect profiles
+  const THEME_PROFILES = {
+    'light-tech':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
+    'classic':       { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
+    'dark-olive':    { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade' },
+    'midnight':      { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left' },
+    'rose':          { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
+    'cyber-neon':    { cursor: 'square-follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up' },
+    'frosted-glass': { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade' },
+    'warm-retro':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
+    'arctic-tech':   { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left' },
+    'forest-canopy': { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade' },
+    'abyssal-depths':{ cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up' },
+    'crimson-noir':  { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'zoom' },
+    'matcha-zen':    { cursor: 'none', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade' },
+  };
+
+  // Get current theme from <html> data-theme
+  function getCurrentThemeId() {
+    return document.documentElement.getAttribute('data-theme') || 'light-tech';
+  }
+
+  function getProfile(id) {
+    return THEME_PROFILES[id] || THEME_PROFILES['light-tech'];
+  }
+
+  // Apply theme effects — called by applyTheme() after setting data-theme
+  window.__applyThemeEffects = function(themeId) {
+    const profile = getProfile(themeId);
+
+    // Set reveal style on body
+    document.body.setAttribute('data-reveal-style', profile.revealStyle);
+
+    // Set body class
+    const body = document.body;
+    // Remove all theme-* classes
+    Array.from(body.classList).filter(c => c.startsWith('theme-')).forEach(c => body.classList.remove(c));
+    body.classList.add('theme-' + themeId);
+
+    // Cursor: re-init with the right style
+    initCursor(profile.cursor);
+
+    // Page transition: toggle based on profile
+    const pt = document.querySelector('.page-transition');
+    if (pt) {
+      if (profile.pageTransition) {
+        pt.style.display = '';
+        setupPageTransitions();
+      } else {
+        pt.style.display = 'none';
+      }
+    }
+
+    // Parallax: setup/teardown
+    if (profile.parallax) {
+      setupParallax();
+    } else {
+      teardownParallax();
+    }
+
+    // Re-run reveal observer with new style
+    refreshRevealObserver(profile.revealStyle);
+  };
+
+  // ============================================
+  // CURSOR — modes: 'none', 'trail', 'follower', 'square-follower'
+  // ============================================
+  let cursorRAF = null;
+  let parallaxRAF = null;
+
+  function initCursor(mode) {
+    const cursorEl = document.querySelector('.cursor-trail');
+    if (!cursorEl) return;
+
+    // Cancel any running animation
+    if (cursorRAF) { cancelAnimationFrame(cursorRAF); cursorRAF = null; }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+    const shouldEnable = hasFinePointer && !prefersReducedMotion;
+
+    if (!shouldEnable || mode === 'none') {
+      document.body.classList.remove('has-custom-cursor');
+      cursorEl.style.display = 'none';
+      return;
+    }
+
+    cursorEl.style.display = '';
+    document.body.classList.add('has-custom-cursor');
+
+    let latestX = window.innerWidth / 2;
+    let latestY = window.innerHeight / 2;
+    let renderedX = latestX;
+    let renderedY = latestY;
+    let isActive = false;
+
+    const moveHandler = (e) => {
+      latestX = e.clientX;
+      latestY = e.clientY;
+    };
+    window.addEventListener('pointermove', moveHandler, { passive: true });
+
+    if (mode === 'trail') {
+      // Smooth trail: lerp with glow ring
+      cursorEl.style.width = '48px';
+      cursorEl.style.height = '48px';
+      cursorEl.style.borderRadius = '50%';
+      cursorEl.style.border = '';
+      cursorEl.style.background = '';
+      cursorEl.style.boxShadow = '';
+      cursorEl.style.mixBlendMode = '';
+
+      const animate = () => {
+        renderedX += (latestX - renderedX) * 0.14;
+        renderedY += (latestY - renderedY) * 0.14;
+        cursorEl.style.transform = `translate3d(${renderedX - 24}px, ${renderedY - 24}px, 0)`;
+        cursorRAF = requestAnimationFrame(animate);
+      };
+      cursorRAF = requestAnimationFrame(animate);
+
+      // Active state on interactive elements
+      const interactive = document.querySelectorAll('a, button, .section-tab, .fact-card, .highlight-card, .timeline-item, .pub-card, .social-link');
+      const onEnter = () => cursorEl.classList.add('active');
+      const onLeave = () => cursorEl.classList.remove('active');
+      interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
+
+      // Store cleanup
+      cursorEl._cleanup = () => {
+        window.removeEventListener('pointermove', moveHandler);
+        interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
+      };
+
+    } else if (mode === 'follower') {
+      // Small dot follower (Oliver9011 style)
+      cursorEl.style.width = '12px';
+      cursorEl.style.height = '12px';
+      cursorEl.style.borderRadius = '50%';
+      cursorEl.style.border = 'none';
+      cursorEl.style.background = '';
+      cursorEl.style.boxShadow = '';
+      cursorEl.style.mixBlendMode = '';
+
+      const animate = () => {
+        renderedX += (latestX - renderedX) * 0.10;
+        renderedY += (latestY - renderedY) * 0.10;
+        cursorEl.style.transform = `translate3d(${renderedX - 6}px, ${renderedY - 6}px, 0)`;
+        cursorRAF = requestAnimationFrame(animate);
+      };
+      cursorRAF = requestAnimationFrame(animate);
+
+      // On hover, expand
+      const interactive = document.querySelectorAll('a, button, .section-tab, .fact-card, .highlight-card, .timeline-item, .pub-card, .social-link, .cta-btn');
+      const onEnter = () => cursorEl.classList.add('active');
+      const onLeave = () => cursorEl.classList.remove('active');
+      interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
+
+      cursorEl._cleanup = () => {
+        window.removeEventListener('pointermove', moveHandler);
+        interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
+      };
+
+    } else if (mode === 'square-follower') {
+      // Square follower: 8px square with 1px border-radius, expands on hover
+      cursorEl.style.width = '8px';
+      cursorEl.style.height = '8px';
+      cursorEl.style.borderRadius = '1px';
+      cursorEl.style.border = 'none';
+      cursorEl.style.background = '';
+      cursorEl.style.boxShadow = '';
+      cursorEl.style.mixBlendMode = '';
+
+      const animate = () => {
+        renderedX += (latestX - renderedX) * 0.10;
+        renderedY += (latestY - renderedY) * 0.10;
+        cursorEl.style.transform = `translate3d(${renderedX - 4}px, ${renderedY - 4}px, 0)`;
+        cursorRAF = requestAnimationFrame(animate);
+      };
+      cursorRAF = requestAnimationFrame(animate);
+
+      // On hover, expand to 20px square with neon glow ring
+      const interactive = document.querySelectorAll('a, button, .section-tab, .fact-card, .highlight-card, .timeline-item, .pub-card, .social-link, .cta-btn');
+      const onEnter = () => cursorEl.classList.add('active');
+      const onLeave = () => cursorEl.classList.remove('active');
+      interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
+
+      cursorEl._cleanup = () => {
+        window.removeEventListener('pointermove', moveHandler);
+        interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
+      };
+    }
+
+    // Safe zone for language menu
+    const safeZone = document.querySelector('.lang-menu');
+    if (safeZone) {
+      safeZone.addEventListener('pointerenter', () => document.body.classList.add('system-cursor-mode'));
+      safeZone.addEventListener('pointerleave', () => document.body.classList.remove('system-cursor-mode'));
+    }
+  }
+
+  // ============================================
+  // PAGE TRANSITIONS
+  // ============================================
+  let pageTransitionsSetup = false;
+
+  function setupPageTransitions() {
+    if (pageTransitionsSetup) return;
+    pageTransitionsSetup = true;
+
+    const pt = document.querySelector('.page-transition');
+    if (!pt) return;
+
+    const setState = state => pt.classList.toggle('is-active', state);
+    window.addEventListener('beforeunload', () => setState(true));
+
+    document.querySelectorAll('a[href^="/"], a[href^="."]').forEach(anchor => {
+      anchor.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || anchor.target === '_blank') return;
+        const href = anchor.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        event.preventDefault();
+        setState(true);
+        window.setTimeout(() => { window.location.href = anchor.href; }, 280);
+      });
+    });
+  }
+
+  // ============================================
+  // PARALLAX
+  // ============================================
+  let parallaxActive = false;
+
+  function setupParallax() {
+    if (parallaxActive) return;
+    parallaxActive = true;
+
+    const scrollHandler = () => {
+      if (parallaxRAF) cancelAnimationFrame(parallaxRAF);
+      parallaxRAF = requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-content') || document.querySelector('.hero-inner');
+        if (hero && scrolled < window.innerHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+          hero.style.opacity = 1 - (scrolled / (window.innerHeight * 0.6));
+        }
+        parallaxRAF = null;
+      });
+    };
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    window.__parallaxCleanup = () => window.removeEventListener('scroll', scrollHandler);
+  }
+
+  function teardownParallax() {
+    parallaxActive = false;
+    if (window.__parallaxCleanup) {
+      window.__parallaxCleanup();
+      window.__parallaxCleanup = null;
+    }
+    // Reset hero transform
+    const hero = document.querySelector('.hero-content') || document.querySelector('.hero-inner');
+    if (hero) {
+      hero.style.transform = '';
+      hero.style.opacity = '';
+    }
+  }
+
+  // ============================================
+  // REVEAL OBSERVER
+  // ============================================
+  let revealObserver = null;
+
+  function refreshRevealObserver(style) {
+    // Destroy old observer
+    if (revealObserver) {
+      revealObserver.disconnect();
+      revealObserver = null;
+    }
+
+    // Set data-reveal-style on body for CSS targeting
+    document.body.setAttribute('data-reveal-style', style);
+
+    const targets = document.querySelectorAll('[data-reveal]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasAnimation = typeof window.IntersectionObserver === 'function';
+    const shouldAnimate = hasAnimation && !prefersReducedMotion;
+
+    if (!shouldAnimate) {
+      targets.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
+    revealObserver = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.01, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    targets.forEach((el, i) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(i * 45, 300)}ms`);
+      revealObserver.observe(el);
+    });
+  }
+
+  // ============================================
+  // Initialize on DOM ready
+  // ============================================
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const id = getCurrentThemeId();
+      if (window.__applyThemeEffects) window.__applyThemeEffects(id);
+    });
+  } else {
+    const id = getCurrentThemeId();
+    if (window.__applyThemeEffects) window.__applyThemeEffects(id);
+  }
+</script>

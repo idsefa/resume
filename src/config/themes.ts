@@ -1,0 +1,255 @@
+// Theme system configuration
+// Each theme defines colors, layout, effects, and CSS behavior
+
+import type { LayoutMode } from '../config';
+
+/** Which cursor style a theme uses */
+export type CursorStyle = 'trail' | 'follower' | 'square-follower' | 'none';
+
+/** Effects profile for a theme */
+export interface ThemeEffects {
+  cursor: CursorStyle;
+  pageTransition: boolean;
+  parallax: boolean;
+  countUp: boolean;
+  revealStyle: 'slide-up' | 'fade' | 'zoom' | 'slide-left';
+}
+
+/** Full theme profile */
+export interface Theme {
+  id: string;
+  label: string;
+  labelZh: string;
+  icon: string;
+  description: string;
+  /** Which page layout structure to use */
+  layout: LayoutMode;
+  /** JS behavior effects */
+  effects: ThemeEffects;
+  /** Body class suffix for additional theme-specific CSS */
+  bodyClass: string;
+}
+
+export const THEMES: Theme[] = [
+  // ====== EXISTING 5 THEMES ======
+  {
+    id: 'light-tech',
+    label: 'Light Tech',
+    labelZh: '浅色科技',
+    icon: '☀️',
+    description: 'Clean, modern light theme with indigo accent',
+    layout: 'light-tech',
+    bodyClass: 'theme-light-tech',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+  {
+    id: 'classic',
+    label: 'Classic',
+    labelZh: '经典',
+    icon: '📜',
+    description: 'Warm cream background with blue accent',
+    layout: 'classic',
+    bodyClass: 'theme-classic',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+  {
+    id: 'dark-olive',
+    label: 'Dark Olive',
+    labelZh: '暗色橄榄',
+    icon: '🌿',
+    description: 'Dark theme with olive green — inspired by Oliver Tao',
+    layout: 'light-tech',
+    bodyClass: 'theme-dark-olive',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'fade',
+    },
+  },
+  {
+    id: 'midnight',
+    label: 'Midnight',
+    labelZh: '午夜',
+    icon: '🌙',
+    description: 'Deep navy dark theme with sky blue accent',
+    layout: 'light-tech',
+    bodyClass: 'theme-midnight',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'slide-left',
+    },
+  },
+  {
+    id: 'rose',
+    label: 'Rose',
+    labelZh: '玫瑰',
+    icon: '🌹',
+    description: 'Warm rose-tinted light theme',
+    layout: 'classic',
+    bodyClass: 'theme-rose',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+
+  // ====== 8 NEW THEMES ======
+  {
+    id: 'cyber-neon',
+    label: 'Cyber Neon',
+    labelZh: '赛博霓虹',
+    icon: '🌆',
+    description: 'Cyberpunk magenta-cyan-yellow neon on deep dark',
+    layout: 'light-tech',
+    bodyClass: 'theme-cyber-neon',
+    effects: {
+      cursor: 'square-follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+  {
+    id: 'frosted-glass',
+    label: 'Frosted Glass',
+    labelZh: '毛玻璃',
+    icon: '🫧',
+    description: 'Frosted glassmorphism with violet tones',
+    layout: 'light-tech',
+    bodyClass: 'theme-frosted-glass',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'fade',
+    },
+  },
+  {
+    id: 'warm-retro',
+    label: 'Warm Retro',
+    labelZh: '暖色复古',
+    icon: '🕰️',
+    description: '1970s amber/warm retro with serif typography',
+    layout: 'classic',
+    bodyClass: 'theme-warm-retro',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+  {
+    id: 'arctic-tech',
+    label: 'Arctic Tech',
+    labelZh: '极寒科技',
+    icon: '🧊',
+    description: 'Cold blueprint-style with ice blue and grid lines',
+    layout: 'light-tech',
+    bodyClass: 'theme-arctic-tech',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'slide-left',
+    },
+  },
+  {
+    id: 'forest-canopy',
+    label: 'Forest Canopy',
+    labelZh: '森之Canopy',
+    icon: '🌲',
+    description: 'Deep mossy forest with organic green tones',
+    layout: 'classic',
+    bodyClass: 'theme-forest-canopy',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'fade',
+    },
+  },
+  {
+    id: 'abyssal-depths',
+    label: 'Abyssal Depths',
+    labelZh: '深海深渊',
+    icon: '🐋',
+    description: 'Deep ocean bioluminescent cyan on black-blue',
+    layout: 'light-tech',
+    bodyClass: 'theme-abyssal-depths',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'slide-up',
+    },
+  },
+  {
+    id: 'crimson-noir',
+    label: 'Crimson Noir',
+    labelZh: '暗红哥特',
+    icon: '🥀',
+    description: 'Gothic crimson and dark gold on black',
+    layout: 'classic',
+    bodyClass: 'theme-crimson-noir',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'zoom',
+    },
+  },
+  {
+    id: 'matcha-zen',
+    label: 'Matcha Zen',
+    labelZh: '抹茶极简',
+    icon: '🍵',
+    description: 'Minimalist Japanese wabi-sabi with matcha green',
+    layout: 'classic',
+    bodyClass: 'theme-matcha-zen',
+    effects: {
+      cursor: 'none',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'fade',
+    },
+  },
+];
+
+export const DEFAULT_THEME = 'light-tech';
+export const STORAGE_KEY = 'resume-theme';
+
+export type ThemeId = (typeof THEMES)[number]['id'];
+
+/** Lookup a theme by id */
+export function getTheme(id: string): Theme {
+  return THEMES.find(t => t.id === id) ?? THEMES[0];
+}

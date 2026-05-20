@@ -2,9 +2,13 @@
 import { SITE, SOCIAL_LINKS } from '../config';
 import { t } from '../i18n';
 import { LANGUAGES, LANGUAGE_META, type Lang } from '../config';
+import { DEFAULT_THEME, getTheme } from '../config/themes';
 import type { ResumeSectionKey, ResumeSectionMeta } from '../resume.config';
 import SocialIcon from '../components/SocialIcon.astro';
 import Sprite from '../components/Sprite.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import ThemeEffects from '../components/ThemeEffects.astro';
+import '../styles/theme.css';
 import '../styles/layout.css';
 import '../styles/classic-layout.css';
 
@@ -28,10 +32,14 @@ const navItems = [
   { key: 'nav.education', href: `${base}${lang}/education` },
   { key: 'nav.publications', href: `${base}${lang}/publications` },
 ];
+
+// Server-side: default theme, but JS will restore saved theme on client
+const defaultTheme = DEFAULT_THEME;
+const defaultBodyClass = getTheme(defaultTheme).bodyClass;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-theme={defaultTheme}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,7 +82,7 @@ const navItems = [
       "alumniOf": ["The Hong Kong Polytechnic University", "Guangdong University of Technology"],
     })} />
   </head>
-  <body class={layout === 'classic' ? 'layout-classic' : ''}>
+  <body class={`${layout === 'classic' ? 'layout-classic' : ''} ${defaultBodyClass}`}>
     <Sprite />
     <div class="page-transition" aria-hidden="true">
       <span class="transition-layer layer-a"></span>
@@ -99,6 +107,7 @@ const navItems = [
           ))}
         </ul>
         <div class="nav-right">
+          <ThemeToggle {lang} />
           <ul class="social-links">
             {SOCIAL_LINKS.map(link => (
               <li>
@@ -142,7 +151,14 @@ const navItems = [
         </ul>
       </div>
     </footer>
+
+    <!-- Theme Effects Engine — handles cursor, parallax, transitions, reveals -->
+    <ThemeEffects />
+
     <script>
+      // ============================================
+      // Core UI: mobile nav, language menu
+      // ============================================
       const navElement = document.querySelector('header nav');
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const langMenu = document.querySelector('.lang-menu');
@@ -150,11 +166,8 @@ const navItems = [
       const langMenuPanel = document.querySelector('.lang-menu-panel');
       const pageTransition = document.querySelector('.page-transition');
       const cursorTrail = document.querySelector('.cursor-trail');
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-      const hasAnimationRuntime = typeof window.requestAnimationFrame === 'function';
-      const shouldEnableDynamicEffects = hasFinePointer && !prefersReducedMotion && hasAnimationRuntime;
 
+      // --- Mobile nav ---
       const closeMobileNav = () => {
         if (!navElement || !mobileNavToggle) return;
         navElement.classList.remove('is-mobile-open');
@@ -178,10 +191,7 @@ const navItems = [
         });
 
         const desktopMedia = window.matchMedia('(min-width: 901px)');
-        const handleDesktopChange = event => {
-          if (event.matches) closeMobileNav();
-        };
-
+        const handleDesktopChange = event => { if (event.matches) closeMobileNav(); };
         if (typeof desktopMedia.addEventListener === 'function') {
           desktopMedia.addEventListener('change', handleDesktopChange);
         } else if (typeof desktopMedia.addListener === 'function') {
@@ -189,6 +199,7 @@ const navItems = [
         }
       }
 
+      // --- Language menu ---
       if (langMenu && langToggle) {
         const setLangMenuOpen = isOpen => {
           langMenu.classList.toggle('is-open', isOpen);
@@ -197,8 +208,7 @@ const navItems = [
 
         langToggle.addEventListener('click', event => {
           event.preventDefault();
-          const nextState = !langMenu.classList.contains('is-open');
-          setLangMenuOpen(nextState);
+          setLangMenuOpen(!langMenu.classList.contains('is-open'));
         });
 
         langMenuPanel?.querySelectorAll('a').forEach(link => {
@@ -218,68 +228,72 @@ const navItems = [
         });
       }
 
-      if (cursorTrail && shouldEnableDynamicEffects) {
-        document.body.classList.add('has-custom-cursor');
-        let latestX = window.innerWidth / 2;
-        let latestY = window.innerHeight / 2;
-        let renderedX = latestX;
-        let renderedY = latestY;
+      // ============================================
+      // Theme Switching
+      // ============================================
+      const THEME_ICONS = {
+        'light-tech': '☀️', 'classic': '📜', 'dark-olive': '🌿', 'midnight': '🌙', 'rose': '🌹',
+        'cyber-neon': '🌆', 'frosted-glass': '🫧', 'warm-retro': '🕰️', 'arctic-tech': '🧊',
+        'forest-canopy': '🌲', 'abyssal-depths': '🐋', 'crimson-noir': '🥀', 'matcha-zen': '🍵',
+      };
+      const THEME_STORAGE_KEY = 'resume-theme';
+      const ALL_THEMES = ['light-tech', 'classic', 'dark-olive', 'midnight', 'rose', 'cyber-neon', 'frosted-glass', 'warm-retro', 'arctic-tech', 'forest-canopy', 'abyssal-depths', 'crimson-noir', 'matcha-zen'];
 
-        window.addEventListener('pointermove', event => {
-          latestX = event.clientX;
-          latestY = event.clientY;
-        }, { passive: true });
+      function applyTheme(themeId) {
+        // Set data-theme attribute on <html>
+        document.documentElement.setAttribute('data-theme', themeId);
 
-        const animateCursor = () => {
-          renderedX += (latestX - renderedX) * 0.14;
-          renderedY += (latestY - renderedY) * 0.14;
-          cursorTrail.style.transform = `translate3d(${renderedX - 24}px, ${renderedY - 24}px, 0)`;
-          requestAnimationFrame(animateCursor);
-        };
+        // Update toggle icon
+        const iconEl = document.getElementById('themeToggleIcon');
+        if (iconEl) iconEl.textContent = THEME_ICONS[themeId] || '☀️';
 
-        requestAnimationFrame(animateCursor);
+        // Persist
+        try { localStorage.setItem(THEME_STORAGE_KEY, themeId); } catch (_) {}
 
-        const cursorSafeZone = document.querySelector('.lang-menu');
-        if (cursorSafeZone) {
-          cursorSafeZone.addEventListener('pointerenter', () => document.body.classList.add('system-cursor-mode'));
-          cursorSafeZone.addEventListener('pointerleave', () => document.body.classList.remove('system-cursor-mode'));
+        // Update active state in picker
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.toggle('is-active', opt.getAttribute('data-theme-id') === themeId);
+        });
+
+        // Apply per-theme effects (cursor, parallax, reveal, etc.)
+        if (window.__applyThemeEffects) {
+          window.__applyThemeEffects(themeId);
         }
-      } else {
-        document.body.classList.remove('has-custom-cursor');
-        cursorTrail?.remove();
       }
 
-      if (pageTransition && shouldEnableDynamicEffects) {
-        const setTransitionState = state => pageTransition.classList.toggle('is-active', state);
-        window.addEventListener('beforeunload', () => setTransitionState(true));
+      // Restore saved theme on load
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem(THEME_STORAGE_KEY); } catch (_) {}
+      if (savedTheme && ALL_THEMES.includes(savedTheme)) {
+        // Apply instantly before any flash
+        applyTheme(savedTheme);
+      }
 
-        document.querySelectorAll('a[href^="/"] , a[href^="."]').forEach(anchor => {
-          anchor.addEventListener('click', event => {
-            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || anchor.target === '_blank') return;
-            const href = anchor.getAttribute('href');
-            if (!href || href.startsWith('#')) return;
-            event.preventDefault();
-            setTransitionState(true);
-            window.setTimeout(() => { window.location.href = anchor.href; }, 280);
+      // Theme toggle button
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const themePicker = document.getElementById('themePicker');
+
+      if (themeToggleBtn && themePicker) {
+        themeToggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          themePicker.classList.toggle('is-open');
+        });
+
+        themePicker.querySelectorAll('.theme-option').forEach(opt => {
+          opt.addEventListener('click', () => {
+            applyTheme(opt.getAttribute('data-theme-id'));
+            themePicker.classList.remove('is-open');
           });
         });
-      } else {
-        pageTransition?.remove();
-      }
 
-      const revealTargets = document.querySelectorAll('[data-reveal]');
+        document.addEventListener('click', (e) => {
+          if (!themeToggleBtn.contains(e.target) && !themePicker.contains(e.target)) {
+            themePicker.classList.remove('is-open');
+          }
+        });
 
-      if (!shouldEnableDynamicEffects) {
-        revealTargets.forEach(element => element.classList.add('visible'));
-      } else {
-        const observer = new IntersectionObserver(
-          entries => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible')),
-          { threshold: 0.01, rootMargin: '0px 0px -8% 0px' }
-        );
-
-        revealTargets.forEach((element, index) => {
-          element.style.setProperty('--reveal-delay', `${Math.min(index * 45, 300)}ms`);
-          observer.observe(element);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') themePicker.classList.remove('is-open');
         });
       }
     </script>
@@ -290,20 +304,20 @@ const navItems = [
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --color-bg: #ffffff;
-    --color-surface: #fafbfc;
-    --color-surface-strong: #ffffff;
-    --color-text: #0a0a0b;
-    --color-muted: #6b7280;
-    --color-border: rgba(0,0,0,0.08);
-    --color-accent: #6366f1;
-    --color-accent-soft: rgba(99,102,241,0.08);
-    --color-card: #ffffff;
+    --color-bg: var(--theme-bg, #ffffff);
+    --color-surface: var(--theme-surface, #fafbfc);
+    --color-surface-strong: var(--theme-surface-strong, #ffffff);
+    --color-text: var(--theme-text, #0a0a0b);
+    --color-muted: var(--theme-muted, #6b7280);
+    --color-border: var(--theme-border, rgba(0,0,0,0.08));
+    --color-accent: var(--theme-accent, #6366f1);
+    --color-accent-soft: var(--theme-accent-soft, rgba(99,102,241,0.08));
+    --color-card: var(--theme-card, #ffffff);
     --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --max-w: 1100px;
     --radius: 12px;
-    --shadow-as-border: 0px 0px 0px 1px rgba(0,0,0,0.06);
-    --shadow-elevation: 0px 1px 2px rgba(0,0,0,0.04), 0px 4px 8px -2px rgba(0,0,0,0.04);
+    --shadow-as-border: var(--theme-shadow-border, 0px 0px 0px 1px rgba(0,0,0,0.06));
+    --shadow-elevation: var(--theme-shadow-elevation, 0px 1px 2px rgba(0,0,0,0.04), 0px 4px 8px -2px rgba(0,0,0,0.04));
   }
 
   body {
