@@ -1,3 +1,73 @@
 ---
-return Astro.redirect('/en/');
+// Root page — serves English content directly, no redirect
+import type { Lang } from '../config';
+import { getResumeContent } from '../resume-data';
+import { SECTION_META } from '../resume.config';
+import { t } from '../i18n';
+import PageShell from '../components/PageShell.astro';
+
+const lang: Lang = 'en';
+const content = getResumeContent(lang);
+const config = SECTION_META[lang].about;
+const heroTitle = content.profile.name;
+const heroKicker = config.kicker;
+const heroSummary = content.about.highlights[0]?.description ?? '';
+const expData = getResumeContent(lang).experience;
+const eduData = getResumeContent(lang).education;
 ---
+
+<PageShell
+  {lang}
+  title={heroTitle}
+  currentPage="nav.about"
+  pageKey="about"
+  pageMeta={config}
+  heroKicker={heroKicker}
+  heroTitle={heroTitle}
+  heroSummary={heroSummary}
+  heroRole={content.profile.role}
+  heroLocation={content.profile.location}
+  experienceCount={expData.items.length}
+  educationCount={eduData.items.length}
+  arrowLabels={[config.arrowLabel, t(lang, 'arrow.profile'), t(lang, 'arrow.growth')]}
+  ctaHref={`/${lang}/experience`}
+  ctaLabel={t(lang, 'cta.experience')}
+>
+  <!-- Quick Facts -->
+  <section class="facts-section" data-reveal>
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title-text">{t(lang, 'section.facts')}</span>
+    </div>
+    <dl class="facts-grid">
+      {content.about.facts.map(fact => (
+        <div class="fact-card" data-reveal data-stagger>
+          <dt class="fact-label">{fact.label}</dt>
+          <dd class="fact-value">
+            {fact.href ? (
+              <a href={fact.href}>{fact.value}</a>
+            ) : (
+              fact.value
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <!-- Highlights -->
+  <section class="highlights-section" data-reveal>
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <span class="section-title-text">{t(lang, 'section.highlights')}</span>
+    </div>
+    <div class="highlights-grid">
+      {content.about.highlights.map(highlight => (
+        <article class="highlight-card" data-reveal data-stagger>
+          <h3 class="highlight-title">{highlight.title}</h3>
+          <p class="highlight-description">{highlight.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</PageShell>
