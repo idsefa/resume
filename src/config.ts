@@ -6,6 +6,7 @@ export const SITE = {
 export const NAVIGATION_SITE_URL = 'https://nav.example.com';
 
 export const SOCIAL_LINKS = [
+  { label: 'GitHub', href: 'https://github.com/idsefa', icon: 'github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b', icon: 'linkedin' },
   { label: 'Navigation', href: NAVIGATION_SITE_URL, icon: 'navigation' },
 ];
