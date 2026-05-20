@@ -1,5 +1,5 @@
 // Theme system configuration
-// Each theme defines colors, layout, effects, and CSS behavior
+// Each theme defines colors, layout, effects, CSS behavior, AND page structure
 
 import type { LayoutMode } from '../config';
 
@@ -15,6 +15,16 @@ export interface ThemeEffects {
   revealStyle: 'slide-up' | 'fade' | 'zoom' | 'slide-left';
 }
 
+/**
+ * Page layout variant — controls the HTML structure of the page:
+ * - 'centered':    Current light-tech hero + pill tabs (clean, modern)
+ * - 'classic':     Current classic hero + arrow-stack + list layout
+ * - 'dramatic':    Full-bleed hero with decorative elements, bold section headers
+ * - 'glass':       Overlapping sections with frosted/glass effect, offset cards
+ * - 'zen':         Ultra-minimal, single column, no cards, pure typography
+ */
+export type PageVariant = 'centered' | 'classic' | 'dramatic' | 'glass' | 'zen';
+
 /** Full theme profile */
 export interface Theme {
   id: string;
@@ -24,6 +34,8 @@ export interface Theme {
   description: string;
   /** Which page layout structure to use */
   layout: LayoutMode;
+  /** Page structure variant */
+  pageVariant: PageVariant;
   /** JS behavior effects */
   effects: ThemeEffects;
   /** Body class suffix for additional theme-specific CSS */
@@ -39,6 +51,7 @@ export const THEMES: Theme[] = [
     icon: '☀️',
     description: 'Clean, modern light theme with indigo accent',
     layout: 'light-tech',
+    pageVariant: 'centered',
     bodyClass: 'theme-light-tech',
     effects: {
       cursor: 'trail',
@@ -55,6 +68,7 @@ export const THEMES: Theme[] = [
     icon: '📜',
     description: 'Warm cream background with blue accent',
     layout: 'classic',
+    pageVariant: 'classic',
     bodyClass: 'theme-classic',
     effects: {
       cursor: 'trail',
@@ -71,6 +85,7 @@ export const THEMES: Theme[] = [
     icon: '🌿',
     description: 'Dark theme with olive green — inspired by Oliver Tao',
     layout: 'light-tech',
+    pageVariant: 'dramatic',
     bodyClass: 'theme-dark-olive',
     effects: {
       cursor: 'follower',
@@ -87,6 +102,7 @@ export const THEMES: Theme[] = [
     icon: '🌙',
     description: 'Deep navy dark theme with sky blue accent',
     layout: 'light-tech',
+    pageVariant: 'centered',
     bodyClass: 'theme-midnight',
     effects: {
       cursor: 'follower',
@@ -103,6 +119,7 @@ export const THEMES: Theme[] = [
     icon: '🌹',
     description: 'Warm rose-tinted light theme',
     layout: 'classic',
+    pageVariant: 'classic',
     bodyClass: 'theme-rose',
     effects: {
       cursor: 'trail',
@@ -121,6 +138,7 @@ export const THEMES: Theme[] = [
     icon: '🌆',
     description: 'Cyberpunk magenta-cyan-yellow neon on deep dark',
     layout: 'light-tech',
+    pageVariant: 'dramatic',
     bodyClass: 'theme-cyber-neon',
     effects: {
       cursor: 'square-follower',
@@ -137,6 +155,7 @@ export const THEMES: Theme[] = [
     icon: '🫧',
     description: 'Frosted glassmorphism with violet tones',
     layout: 'light-tech',
+    pageVariant: 'glass',
     bodyClass: 'theme-frosted-glass',
     effects: {
       cursor: 'trail',
@@ -153,6 +172,7 @@ export const THEMES: Theme[] = [
     icon: '🕰️',
     description: '1970s amber/warm retro with serif typography',
     layout: 'classic',
+    pageVariant: 'classic',
     bodyClass: 'theme-warm-retro',
     effects: {
       cursor: 'trail',
@@ -169,6 +189,7 @@ export const THEMES: Theme[] = [
     icon: '🧊',
     description: 'Cold blueprint-style with ice blue and grid lines',
     layout: 'light-tech',
+    pageVariant: 'centered',
     bodyClass: 'theme-arctic-tech',
     effects: {
       cursor: 'follower',
@@ -185,6 +206,7 @@ export const THEMES: Theme[] = [
     icon: '🌲',
     description: 'Deep mossy forest with organic green tones',
     layout: 'classic',
+    pageVariant: 'glass',
     bodyClass: 'theme-forest-canopy',
     effects: {
       cursor: 'follower',
@@ -201,6 +223,7 @@ export const THEMES: Theme[] = [
     icon: '🐋',
     description: 'Deep ocean bioluminescent cyan on black-blue',
     layout: 'light-tech',
+    pageVariant: 'dramatic',
     bodyClass: 'theme-abyssal-depths',
     effects: {
       cursor: 'follower',
@@ -217,6 +240,7 @@ export const THEMES: Theme[] = [
     icon: '🥀',
     description: 'Gothic crimson and dark gold on black',
     layout: 'classic',
+    pageVariant: 'classic',
     bodyClass: 'theme-crimson-noir',
     effects: {
       cursor: 'trail',
@@ -233,6 +257,7 @@ export const THEMES: Theme[] = [
     icon: '🍵',
     description: 'Minimalist Japanese wabi-sabi with matcha green',
     layout: 'classic',
+    pageVariant: 'zen',
     bodyClass: 'theme-matcha-zen',
     effects: {
       cursor: 'none',

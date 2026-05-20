@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import type { Lang } from '../config';
 import { DEFAULT_THEME, getTheme } from '../config/themes';
 import type { LayoutMode } from '../config';
+import type { PageVariant } from '../config/themes';
 import { t } from '../i18n';
 import type { ResumeSectionKey, ResumeSectionMeta } from '../resume.config';
 
@@ -46,6 +47,7 @@ const base = import.meta.env.BASE_URL;
 // SSR uses the default theme's layout mode; client-side JS restores the saved theme
 const defaultTheme = getTheme(DEFAULT_THEME);
 const layout: LayoutMode = defaultTheme.layout;
+const pageVariant: PageVariant = defaultTheme.pageVariant;
 
 const sectionTabs = [
   { href: `${base}${lang}/`, label: t(lang, 'nav.about'), active: currentPage === 'nav.about' },
@@ -55,10 +57,23 @@ const sectionTabs = [
 ];
 ---
 
-<Layout {lang} {title} {currentPage} {pageKey} {pageMeta} layout={layout}>
-  <article class="page-content">
-    {layout === 'classic' ? (
-      <!-- Classic layout: hero + arrow-stack sidebar -->
+<Layout {lang} {title} {currentPage} {pageKey} {pageMeta} {layout}>
+  <article class="page-content" data-page-variant={pageVariant}>
+
+    {pageVariant === 'centered' && (
+      <!-- Centered hero: kicker with ✦ prefix, large title, role, location -->
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">✦ {heroKicker}</p>
+          <h1 class="hero-title">{heroTitle}</h1>
+          {heroRole && <p class="hero-role">{heroRole}</p>}
+          {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+        </div>
+      </section>
+    )}
+
+    {pageVariant === 'classic' && (
+      <!-- Classic hero: left-aligned title, role, summary. Arrow-stack sidebar -->
       <section class="hero">
         <div class="hero-inner">
           <p class="hero-kicker">{heroKicker}</p>
@@ -76,11 +91,32 @@ const sectionTabs = [
           </aside>
         )}
       </section>
-    ) : (
-      <!-- Light-tech layout: centered hero + section nav -->
-      <section class="hero">
+    )}
+
+    {pageVariant === 'dramatic' && (
+      <!-- Dramatic hero: full-bleed centered with decorative badge, divider, gradient circle, scroll indicator -->
+      <section class="hero hero--dramatic">
+        <div class="hero-bg-gradient" aria-hidden="true"></div>
         <div class="hero-inner">
-          <p class="hero-kicker">✦ {heroKicker}</p>
+          <p class="hero-kicker"><span class="kicker-badge">{heroKicker}</span></p>
+          <h1 class="hero-title">{heroTitle}</h1>
+          <div class="hero-divider" aria-hidden="true"></div>
+          {heroRole && <p class="hero-role">{heroRole}</p>}
+          <p class="hero-summary">{heroSummary}</p>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="scroll-line"></span>
+        </div>
+      </section>
+    )}
+
+    {pageVariant === 'glass' && (
+      <!-- Glass hero: centered with kicker, decorative blur shape behind text -->
+      <section class="hero">
+        <div class="hero-blur-shape" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="hero-kicker">{heroKicker}</p>
           <h1 class="hero-title">{heroTitle}</h1>
           {heroRole && <p class="hero-role">{heroRole}</p>}
           {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
@@ -88,7 +124,17 @@ const sectionTabs = [
       </section>
     )}
 
-    {layout === 'light-tech' && (
+    {pageVariant === 'zen' && (
+      <!-- Zen hero: minimal — just the title centered -->
+      <section class="hero hero--zen">
+        <div class="hero-inner">
+          <h1 class="hero-title">{heroTitle}</h1>
+        </div>
+      </section>
+    )}
+
+    <!-- Section navigation: shown only for 'centered' variant -->
+    {pageVariant === 'centered' && (
       <nav class="section-nav">
         {sectionTabs.map(tab => (
           <a href={tab.href} class={`section-tab${tab.active ? ' active' : ''}`}>
@@ -99,20 +145,48 @@ const sectionTabs = [
       </nav>
     )}
 
-    <slot />
+    <!-- Slot content with variant-specific wrappers -->
+    {pageVariant === 'glass' ? (
+      <div class="glass-sections-wrapper">
+        <slot />
+      </div>
+    ) : pageVariant === 'zen' ? (
+      <div class="zen-content-wrapper">
+        <slot />
+      </div>
+    ) : pageVariant === 'dramatic' ? (
+      <div class="dramatic-content-wrapper">
+        <slot />
+      </div>
+    ) : (
+      <slot />
+    )}
 
-    <section class="cta-section" data-reveal>
-      {layout === 'classic' ? (
-        <a href={ctaHref} class="arrow-link">
-          <span>{ctaLabel}</span>
-          <span class="arrow-icon">→</span>
-        </a>
-      ) : (
-        <a href={ctaHref} class="cta-btn">
-          <span>{ctaLabel}</span>
-          <span class="arrow-icon">→</span>
-        </a>
-      )}
-    </section>
+    <!-- CTA section: not shown for 'zen' variant -->
+    {pageVariant !== 'zen' && (
+      <section class="cta-section" data-reveal>
+        {pageVariant === 'classic' ? (
+          <a href={ctaHref} class="arrow-link">
+            <span>{ctaLabel}</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        ) : pageVariant === 'dramatic' ? (
+          <a href={ctaHref} class="cta-btn cta-btn--full">
+            <span>{ctaLabel}</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        ) : pageVariant === 'glass' ? (
+          <a href={ctaHref} class="cta-btn cta-btn--glass">
+            <span>{ctaLabel}</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        ) : (
+          <a href={ctaHref} class="cta-btn">
+            <span>{ctaLabel}</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        )}
+      </section>
+    )}
   </article>
 </Layout>
