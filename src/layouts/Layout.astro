@@ -100,6 +100,79 @@ const roleVariantsJson = JSON.stringify(
     )}
     <div class="cursor-trail" aria-hidden="true"></div>
 
+    <!-- Shared header for all layouts -->
+    <header class={isSidebar ? 'header-compact' : ''}>
+      <nav>
+        {!isSidebar && (
+          <>
+            <a href={`${base}${lang}/`} class="site-title">{SITE.title}</a>
+            <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+              <span class="mobile-nav-toggle-label">{t(lang, 'nav.menu')}</span>
+              <span class="mobile-nav-toggle-icon" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+              {navItems.map(item => (
+                <li>
+                  <a href={item.href} class={currentPage === item.key ? 'active' : ''}>{t(lang, item.key)}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        <div class="nav-right">
+          <div class="nav-role-pills" id="rolePills">
+            {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
+              <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
+                {v.label}
+              </button>
+            ))}
+          </div>
+          <div class="layout-switcher" id="layoutSwitcher">
+            <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
+              <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
+            </button>
+            <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
+              <button type="button" class="layout-option" data-layout="sidebar" role="menuitem"><span class="layout-option-icon">◧</span><span>Sidebar</span></button>
+              <button type="button" class="layout-option" data-layout="centered" role="menuitem"><span class="layout-option-icon">▦</span><span>Centered</span></button>
+              <button type="button" class="layout-option" data-layout="classic" role="menuitem"><span class="layout-option-icon">▤</span><span>Classic</span></button>
+              <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Dramatic</span></button>
+              <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Glass</span></button>
+              <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Zen</span></button>
+            </div>
+          </div>
+          <ThemeToggle {lang} />
+          <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
+            <span class="pdf-icon">⬇</span> PDF
+          </button>
+          {!isSidebar && (
+            <>
+              <ul class="social-links">
+                {SOCIAL_LINKS.map(link => (
+                  <li>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                      <SocialIcon icon={link.icon} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div class="lang-menu">
+                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
+                  {LANGUAGE_META[lang].label}
+                </button>
+                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
+                  {langOptions.map(code => (
+                    <a href={`${base}${code}/`} role="menuitem">
+                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </nav>
+    </header>
+
     {isSidebar ? (
       <>
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -142,69 +215,7 @@ const roleVariantsJson = JSON.stringify(
               </ul>
             </div>
 
-            <div class="sidebar-roles">
-              <div class="sidebar-section-label">Role Focus</div>
-              <div class="role-pills" id="rolePills">
-                {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
-                  <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
-                    {v.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
           </div>
-
-          <div class="sidebar-controls">
-            <ThemeToggle {lang} />
-            <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
-              <span class="pdf-icon">⬇</span> PDF
-            </button>
-            <div class="layout-switcher" id="layoutSwitcher">
-              <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
-                <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
-              </button>
-              <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
-                <button type="button" class="layout-option" data-layout="sidebar" role="menuitem">
-                  <span class="layout-option-icon">◧</span>
-                  <span>Sidebar</span>
-                </button>
-                <button type="button" class="layout-option" data-layout="centered" role="menuitem">
-                  <span class="layout-option-icon">▦</span>
-                  <span>Centered</span>
-                </button>
-                <button type="button" class="layout-option" data-layout="classic" role="menuitem">
-                  <span class="layout-option-icon">▤</span>
-                  <span>Classic</span>
-                </button>
-                <button type="button" class="layout-option" data-layout="dramatic" role="menuitem">
-                  <span class="layout-option-icon">▩</span>
-                  <span>Dramatic</span>
-                </button>
-                <button type="button" class="layout-option" data-layout="glass" role="menuitem">
-                  <span class="layout-option-icon">◌</span>
-                  <span>Glass</span>
-                </button>
-                <button type="button" class="layout-option" data-layout="zen" role="menuitem">
-                  <span class="layout-option-icon">○</span>
-                  <span>Zen</span>
-                </button>
-              </div>
-            </div>
-            <div class="lang-menu">
-              <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
-                {LANGUAGE_META[lang].label}
-              </button>
-              <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
-                {langOptions.map(code => (
-                  <a href={`${base}${code}/`} role="menuitem">
-                    {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
         </aside>
 
         <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
@@ -213,69 +224,6 @@ const roleVariantsJson = JSON.stringify(
       </>
     ) : (
       <>
-        <header>
-          <nav>
-            <a href={`${base}${lang}/`} class="site-title">{SITE.title}</a>
-            <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-              <span class="mobile-nav-toggle-label">{t(lang, 'nav.menu')}</span>
-              <span class="mobile-nav-toggle-icon" aria-hidden="true"></span>
-            </button>
-            <ul class="nav-links" id="primary-nav">
-              {navItems.map(item => (
-                <li>
-                  <a href={item.href} class={currentPage === item.key ? 'active' : ''}>{t(lang, item.key)}</a>
-                </li>
-              ))}
-            </ul>
-            <div class="nav-right">
-              <div class="nav-role-pills" id="rolePills">
-                {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
-                  <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
-                    {v.label}
-                  </button>
-                ))}
-              </div>
-              <div class="layout-switcher" id="layoutSwitcher">
-                <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
-                  <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
-                </button>
-                <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
-                  <button type="button" class="layout-option" data-layout="sidebar" role="menuitem"><span class="layout-option-icon">◧</span><span>Sidebar</span></button>
-                  <button type="button" class="layout-option" data-layout="centered" role="menuitem"><span class="layout-option-icon">▦</span><span>Centered</span></button>
-                  <button type="button" class="layout-option" data-layout="classic" role="menuitem"><span class="layout-option-icon">▤</span><span>Classic</span></button>
-                  <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Dramatic</span></button>
-                  <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Glass</span></button>
-                  <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Zen</span></button>
-                </div>
-              </div>
-              <ThemeToggle {lang} />
-              <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
-                <span class="pdf-icon">⬇</span> PDF
-              </button>
-              <ul class="social-links">
-                {SOCIAL_LINKS.map(link => (
-                  <li>
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                      <SocialIcon icon={link.icon} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div class="lang-menu">
-                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
-                  {LANGUAGE_META[lang].label}
-                </button>
-                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
-                  {langOptions.map(code => (
-                    <a href={`${base}${code}/`} role="menuitem">
-                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </nav>
-        </header>
         <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
           <div class="page-frame"><slot /></div>
         </main>
@@ -293,9 +241,6 @@ const roleVariantsJson = JSON.stringify(
             </ul>
           </div>
         </footer>
-        <button type="button" class="pdf-floating-btn" id="pdfExportBtn" aria-label="Export PDF">
-          <span>⬇</span> Export PDF
-        </button>
       </>
     )}
 
