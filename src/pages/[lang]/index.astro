@@ -39,6 +39,8 @@ const eduData = getResumeContent(lang).education;
   arrowLabels={[config.arrowLabel, t(lang, 'arrow.profile'), t(lang, 'arrow.growth')]}
   ctaHref={`/${lang}/experience`}
   ctaLabel={t(lang, 'cta.experience')}
+  profileName={content.profile.name}
+  profileRole={content.profile.role}
 >
   <!-- Quick Facts -->
   <section class="facts-section" data-reveal>

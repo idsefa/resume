@@ -35,6 +35,8 @@ const eduData = getResumeContent(lang).education;
   arrowLabels={[config.arrowLabel, t(lang, 'arrow.timeline'), t(lang, 'arrow.growth')]}
   ctaHref={`/${lang}/education`}
   ctaLabel={nextLabel}
+  profileName={content.profile.name}
+  profileRole={content.profile.role}
 >
   <section class="timeline-section" data-reveal>
     <div class="section-header">

@@ -35,6 +35,8 @@ const eduData = getResumeContent(lang).education;
   arrowLabels={[config.arrowLabel, t(lang, 'arrow.works'), t(lang, 'arrow.impact')]}
   ctaHref={`/${lang}/`}
   ctaLabel={nextLabel}
+  profileName={content.profile.name}
+  profileRole={content.profile.role}
 >
   <section class="pub-sections" data-reveal>
     <div class="section-header">

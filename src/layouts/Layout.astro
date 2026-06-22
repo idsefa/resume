@@ -11,6 +11,8 @@ import ThemeEffects from '../components/ThemeEffects.astro';
 import '../styles/theme.css';
 import '../styles/layout.css';
 import '../styles/classic-layout.css';
+import '../styles/sidebar-layout.css';
+import { ROLE_VARIANTS } from '../resume-overrides/roles/index';
 
 interface Props {
   lang: Lang;
@@ -19,12 +21,15 @@ interface Props {
   pageKey?: ResumeSectionKey;
   pageMeta?: ResumeSectionMeta;
   layout?: string;
+  profileName?: string;
+  profileRole?: string;
 }
 
-const { lang, title, currentPage, pageKey, pageMeta, layout } = Astro.props;
+const { lang, title, currentPage, pageKey, pageMeta, layout, profileName, profileRole } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const heroAccent = pageMeta?.accent ?? '#6366f1';
 const langOptions = LANGUAGES.filter(code => code !== lang);
+const isSidebar = layout === 'sidebar';
 
 const navItems = [
   { key: 'nav.about', href: `${base}${lang}/` },
@@ -33,9 +38,21 @@ const navItems = [
   { key: 'nav.publications', href: `${base}${lang}/publications` },
 ];
 
-// Server-side: default theme, but JS will restore saved theme on client
 const defaultTheme = DEFAULT_THEME;
 const defaultBodyClass = getTheme(defaultTheme).bodyClass;
+
+const initials = (profileName ?? SITE.title).split(' ').map((w: string) => w[0]).slice(0, 2).join('').toUpperCase();
+
+const roleVariantsJson = JSON.stringify(
+  Object.entries(ROLE_VARIANTS).map(([id, v]) => ({
+    id,
+    label: v.label,
+    profileRole: v.profileRole,
+    highlights: v.highlights,
+    experienceSummary: v.experienceSummary,
+    educationSummary: v.educationSummary,
+  }))
+);
 ---
 
 <!doctype html>
@@ -46,255 +63,298 @@ const defaultBodyClass = getTheme(defaultTheme).bodyClass;
     <meta name="description" content={SITE.description} />
     <title>{title ? `${title} · ${SITE.title}` : SITE.title}</title>
 
-    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;650;700&display=swap" rel="stylesheet" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href={`${import.meta.env.SITE}${base}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
-
-    <!-- Hreflang for all language variants -->
     {LANGUAGES.map(code => (
       <link rel="alternate" hreflang={code === 'zh-hant' ? 'zh-Hant' : code} href={`${import.meta.env.SITE}${base}${code}/${pageKey === 'about' ? '' : pageKey}`} />
     ))}
     <link rel="alternate" hreflang="x-default" href={`${import.meta.env.SITE}${base}${lang}/`} />
 
-    <!-- Open Graph -->
     <meta property="og:title" content={title ? `${title} · ${SITE.title}` : SITE.title} />
     <meta property="og:description" content={pageMeta?.summary ?? SITE.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`${import.meta.env.SITE}${base}${lang}/${pageKey === 'about' ? '' : pageKey}`} />
-    <meta property="og:site_name" content={SITE.title} />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title ? `${title} · ${SITE.title}` : SITE.title} />
     <meta name="twitter:description" content={pageMeta?.summary ?? SITE.description} />
 
-    <!-- JSON-LD Person structured data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
       "name": SITE.title,
       "url": `${import.meta.env.SITE}${base}${lang}/`,
-      "knowsAbout": ["Aviation operations", "AI workflow", "Simulation optimization", "Industrial engineering"],
-      "alumniOf": ["The Hong Kong Polytechnic University", "Guangdong University of Technology"],
     })} />
   </head>
-  <body class={`${layout === 'classic' ? 'layout-classic' : ''} ${defaultBodyClass}`}>
+  <body class={`${isSidebar ? 'layout-sidebar' : layout === 'classic' ? 'layout-classic' : ''} ${defaultBodyClass}`}>
     <Sprite />
-    <div class="page-transition" aria-hidden="true">
-      <span class="transition-layer layer-a"></span>
-      <span class="transition-layer layer-b"></span>
-      <span class="transition-layer layer-c"></span>
-    </div>
+    {!isSidebar && (
+      <div class="page-transition" aria-hidden="true">
+        <span class="transition-layer layer-a"></span>
+        <span class="transition-layer layer-b"></span>
+        <span class="transition-layer layer-c"></span>
+      </div>
+    )}
     <div class="cursor-trail" aria-hidden="true"></div>
-    <header>
-      <nav>
-        <a href={`${base}${lang}/`} class="site-title">{SITE.title}</a>
-        <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-          <span class="mobile-nav-toggle-label">{t(lang, 'nav.menu')}</span>
-          <span class="mobile-nav-toggle-icon" aria-hidden="true"></span>
-        </button>
-        <ul class="nav-links" id="primary-nav">
-          {navItems.map(item => (
-            <li>
-              <a href={item.href} class={currentPage === item.key ? 'active' : ''}>
-                {t(lang, item.key)}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div class="nav-right">
-          <ThemeToggle {lang} />
-          <ul class="social-links">
-            {SOCIAL_LINKS.map(link => (
-              <li>
-                <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                  <SocialIcon icon={link.icon} />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div class="lang-menu">
-            <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
-              {LANGUAGE_META[lang].label}
-            </button>
-            <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
-              {langOptions.map(code => (
-                <a href={`${base}${code}/`} role="menuitem">
-                  {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
-      <div class="page-frame">
-        <slot />
-      </div>
-    </main>
-    <footer>
-      <div class="footer-inner">
-        <span>© {new Date().getFullYear()} {SITE.title}</span>
-        <ul class="footer-social">
-          {SOCIAL_LINKS.map(link => (
-            <li>
-              <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                <SocialIcon icon={link.icon} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </footer>
 
-    <!-- Theme Effects Engine — handles cursor, parallax, transitions, reveals -->
+    {isSidebar ? (
+      <>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+
+            <div class="sidebar-identity">
+              <div class="sidebar-initials" aria-hidden="true">{initials}</div>
+              <div class="sidebar-name">{profileName ?? SITE.title}</div>
+              <div class="sidebar-role" id="sidebarRole">{profileRole ?? ''}</div>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Section navigation">
+              <div class="sidebar-section-label">Navigation</div>
+              <ul class="sidebar-nav-links">
+                {navItems.map(item => (
+                  <li>
+                    <a href={item.href} class={currentPage === item.key ? 'active' : ''}>
+                      <span class="sidebar-nav-dot" aria-hidden="true"></span>
+                      {t(lang, item.key)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div class="sidebar-contact">
+              <div class="sidebar-section-label">Links</div>
+              <ul class="sidebar-contact-list">
+                {SOCIAL_LINKS.map(link => (
+                  <li>
+                    <span class="contact-icon" aria-hidden="true">↗</span>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="sidebar-roles">
+              <div class="sidebar-section-label">Role Focus</div>
+              <div class="role-pills" id="rolePills">
+                {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
+                  <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
+                    {v.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div class="sidebar-controls">
+              <ThemeToggle {lang} />
+              <div class="lang-menu">
+                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
+                  {LANGUAGE_META[lang].label}
+                </button>
+                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
+                  {langOptions.map(code => (
+                    <a href={`${base}${code}/`} role="menuitem">
+                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
+          <div class="page-frame"><slot /></div>
+        </main>
+      </>
+    ) : (
+      <>
+        <header>
+          <nav>
+            <a href={`${base}${lang}/`} class="site-title">{SITE.title}</a>
+            <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+              <span class="mobile-nav-toggle-label">{t(lang, 'nav.menu')}</span>
+              <span class="mobile-nav-toggle-icon" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+              {navItems.map(item => (
+                <li>
+                  <a href={item.href} class={currentPage === item.key ? 'active' : ''}>{t(lang, item.key)}</a>
+                </li>
+              ))}
+            </ul>
+            <div class="nav-right">
+              <ThemeToggle {lang} />
+              <ul class="social-links">
+                {SOCIAL_LINKS.map(link => (
+                  <li>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                      <SocialIcon icon={link.icon} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div class="lang-menu">
+                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
+                  {LANGUAGE_META[lang].label}
+                </button>
+                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
+                  {langOptions.map(code => (
+                    <a href={`${base}${code}/`} role="menuitem">
+                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
+          <div class="page-frame"><slot /></div>
+        </main>
+        <footer>
+          <div class="footer-inner">
+            <span>© {new Date().getFullYear()} {SITE.title}</span>
+            <ul class="footer-social">
+              {SOCIAL_LINKS.map(link => (
+                <li>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                    <SocialIcon icon={link.icon} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </footer>
+      </>
+    )}
+
     <ThemeEffects />
 
-    <script>
-      // ============================================
-      // Core UI: mobile nav, language menu
-      // ============================================
-      const navElement = document.querySelector('header nav');
-      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    <script define:vars={{ roleVariantsJson, isSidebar }}>
+      // ---- Theme ----
+      const THEME_ICONS = {
+        'light-tech':'☀️','classic':'📜','dark-olive':'🌿','midnight':'🌙','rose':'🌹',
+        'cyber-neon':'🌆','frosted-glass':'🫧','warm-retro':'🕰️','arctic-tech':'🧊',
+        'forest-canopy':'🌲','abyssal-depths':'🐋','crimson-noir':'🥀','matcha-zen':'🍵',
+      };
+      const ALL_THEMES = Object.keys(THEME_ICONS);
+      const THEME_KEY = 'resume-theme';
+      const ROLE_KEY = 'resume-role';
+
+      function applyTheme(id) {
+        document.documentElement.setAttribute('data-theme', id);
+        const el = document.getElementById('themeToggleIcon');
+        if (el) el.textContent = THEME_ICONS[id] || '☀️';
+        try { localStorage.setItem(THEME_KEY, id); } catch(_) {}
+        document.querySelectorAll('.theme-option').forEach(o => o.classList.toggle('is-active', o.getAttribute('data-theme-id') === id));
+        if (window.__applyThemeEffects) window.__applyThemeEffects(id);
+      }
+
+      let saved; try { saved = localStorage.getItem(THEME_KEY); } catch(_) {}
+      if (saved && ALL_THEMES.includes(saved)) applyTheme(saved);
+
+      const themeBtn = document.getElementById('themeToggle');
+      const themePicker = document.getElementById('themePicker');
+      if (themeBtn && themePicker) {
+        themeBtn.addEventListener('click', e => { e.stopPropagation(); themePicker.classList.toggle('is-open'); });
+        themePicker.querySelectorAll('.theme-option').forEach(o => {
+          o.addEventListener('click', () => { applyTheme(o.getAttribute('data-theme-id')); themePicker.classList.remove('is-open'); });
+        });
+        document.addEventListener('click', e => { if (!themeBtn.contains(e.target) && !themePicker.contains(e.target)) themePicker.classList.remove('is-open'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') themePicker.classList.remove('is-open'); });
+      }
+
+      // ---- Lang menu ----
       const langMenu = document.querySelector('.lang-menu');
       const langToggle = document.querySelector('.lang-toggle');
-      const langMenuPanel = document.querySelector('.lang-menu-panel');
-      const pageTransition = document.querySelector('.page-transition');
-      const cursorTrail = document.querySelector('.cursor-trail');
-
-      // --- Mobile nav ---
-      const closeMobileNav = () => {
-        if (!navElement || !mobileNavToggle) return;
-        navElement.classList.remove('is-mobile-open');
-        mobileNavToggle.setAttribute('aria-expanded', 'false');
-      };
-
-      if (navElement && mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', () => {
-          const isOpen = navElement.classList.toggle('is-mobile-open');
-          mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        navElement.querySelectorAll('.nav-links a, .lang-menu-panel a').forEach(link => {
-          link.addEventListener('click', () => closeMobileNav());
-        });
-
-        document.addEventListener('click', event => {
-          const target = event.target;
-          if (!(target instanceof Node) || navElement.contains(target)) return;
-          closeMobileNav();
-        });
-
-        const desktopMedia = window.matchMedia('(min-width: 901px)');
-        const handleDesktopChange = event => { if (event.matches) closeMobileNav(); };
-        if (typeof desktopMedia.addEventListener === 'function') {
-          desktopMedia.addEventListener('change', handleDesktopChange);
-        } else if (typeof desktopMedia.addListener === 'function') {
-          desktopMedia.addListener(handleDesktopChange);
-        }
-      }
-
-      // --- Language menu ---
+      const langPanel = document.querySelector('.lang-menu-panel');
       if (langMenu && langToggle) {
-        const setLangMenuOpen = isOpen => {
-          langMenu.classList.toggle('is-open', isOpen);
-          langToggle.setAttribute('aria-expanded', String(isOpen));
-        };
-
-        langToggle.addEventListener('click', event => {
-          event.preventDefault();
-          setLangMenuOpen(!langMenu.classList.contains('is-open'));
-        });
-
-        langMenuPanel?.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => setLangMenuOpen(false));
-        });
-
-        document.addEventListener('click', event => {
-          const target = event.target;
-          if (!(target instanceof Node) || langMenu.contains(target)) return;
-          setLangMenuOpen(false);
-        });
-
-        langMenu.addEventListener('keydown', event => {
-          if (event.key !== 'Escape') return;
-          setLangMenuOpen(false);
-          langToggle.focus();
-        });
+        const setOpen = v => { langMenu.classList.toggle('is-open', v); langToggle.setAttribute('aria-expanded', String(v)); };
+        langToggle.addEventListener('click', e => { e.preventDefault(); setOpen(!langMenu.classList.contains('is-open')); });
+        langPanel?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('click', e => { if (!langMenu.contains(e.target)) setOpen(false); });
+        langMenu.addEventListener('keydown', e => { if (e.key === 'Escape') { setOpen(false); langToggle.focus(); } });
       }
 
-      // ============================================
-      // Theme Switching
-      // ============================================
-      const THEME_ICONS = {
-        'light-tech': '☀️', 'classic': '📜', 'dark-olive': '🌿', 'midnight': '🌙', 'rose': '🌹',
-        'cyber-neon': '🌆', 'frosted-glass': '🫧', 'warm-retro': '🕰️', 'arctic-tech': '🧊',
-        'forest-canopy': '🌲', 'abyssal-depths': '🐋', 'crimson-noir': '🥀', 'matcha-zen': '🍵',
-      };
-      const THEME_STORAGE_KEY = 'resume-theme';
-      const ALL_THEMES = ['light-tech', 'classic', 'dark-olive', 'midnight', 'rose', 'cyber-neon', 'frosted-glass', 'warm-retro', 'arctic-tech', 'forest-canopy', 'abyssal-depths', 'crimson-noir', 'matcha-zen'];
-
-      function applyTheme(themeId) {
-        // Set data-theme attribute on <html>
-        document.documentElement.setAttribute('data-theme', themeId);
-
-        // Update toggle icon
-        const iconEl = document.getElementById('themeToggleIcon');
-        if (iconEl) iconEl.textContent = THEME_ICONS[themeId] || '☀️';
-
-        // Persist
-        try { localStorage.setItem(THEME_STORAGE_KEY, themeId); } catch (_) {}
-
-        // Update active state in picker
-        document.querySelectorAll('.theme-option').forEach(opt => {
-          opt.classList.toggle('is-active', opt.getAttribute('data-theme-id') === themeId);
-        });
-
-        // Apply per-theme effects (cursor, parallax, reveal, etc.)
-        if (window.__applyThemeEffects) {
-          window.__applyThemeEffects(themeId);
+      // ---- Mobile nav (non-sidebar) ----
+      if (!isSidebar) {
+        const navEl = document.querySelector('header nav');
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const closeNav = () => { navEl?.classList.remove('is-mobile-open'); mobileToggle?.setAttribute('aria-expanded', 'false'); };
+        if (navEl && mobileToggle) {
+          mobileToggle.addEventListener('click', () => { const o = navEl.classList.toggle('is-mobile-open'); mobileToggle.setAttribute('aria-expanded', String(o)); });
+          navEl.querySelectorAll('.nav-links a, .lang-menu-panel a').forEach(a => a.addEventListener('click', closeNav));
+          document.addEventListener('click', e => { if (!navEl.contains(e.target)) closeNav(); });
         }
       }
 
-      // Restore saved theme on load
-      let savedTheme = null;
-      try { savedTheme = localStorage.getItem(THEME_STORAGE_KEY); } catch (_) {}
-      if (savedTheme && ALL_THEMES.includes(savedTheme)) {
-        // Apply instantly before any flash
-        applyTheme(savedTheme);
+      // ---- Sidebar mobile toggle ----
+      if (isSidebar) {
+        const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('sidebarToggle');
+        const overlay = document.getElementById('sidebarOverlay');
+        const close = () => { sidebar?.classList.remove('is-open'); overlay?.classList.remove('is-open'); toggle?.classList.remove('is-open'); toggle?.setAttribute('aria-expanded', 'false'); };
+        toggle?.addEventListener('click', () => {
+          const open = sidebar?.classList.toggle('is-open');
+          overlay?.classList.toggle('is-open', open);
+          toggle.classList.toggle('is-open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+        overlay?.addEventListener('click', close);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       }
 
-      // Theme toggle button
-      const themeToggleBtn = document.getElementById('themeToggle');
-      const themePicker = document.getElementById('themePicker');
+      // ---- Role switcher ----
+      if (isSidebar) {
+        const ROLES = JSON.parse(roleVariantsJson);
+        const roleMap = Object.fromEntries(ROLES.map(v => [v.id, v]));
+        let currentRole = 'default';
+        try { const s = localStorage.getItem(ROLE_KEY); if (s && roleMap[s]) currentRole = s; } catch(_) {}
 
-      if (themeToggleBtn && themePicker) {
-        themeToggleBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          themePicker.classList.toggle('is-open');
-        });
+        function applyRole(id) {
+          const v = roleMap[id];
+          if (!v) return;
+          currentRole = id;
+          try { localStorage.setItem(ROLE_KEY, id); } catch(_) {}
 
-        themePicker.querySelectorAll('.theme-option').forEach(opt => {
-          opt.addEventListener('click', () => {
-            applyTheme(opt.getAttribute('data-theme-id'));
-            themePicker.classList.remove('is-open');
+          // Sidebar role line
+          const roleEl = document.getElementById('sidebarRole');
+          if (roleEl) roleEl.textContent = v.profileRole;
+
+          // Active pill
+          document.querySelectorAll('.role-pill').forEach(b => b.classList.toggle('is-active', b.getAttribute('data-role-id') === id));
+
+          // Highlights (about page)
+          document.querySelectorAll('.highlight-card').forEach((card, i) => {
+            if (!v.highlights[i]) return;
+            const t = card.querySelector('.highlight-title');
+            const d = card.querySelector('.highlight-description');
+            if (t) t.textContent = v.highlights[i].title;
+            if (d) d.textContent = v.highlights[i].description;
           });
-        });
 
-        document.addEventListener('click', (e) => {
-          if (!themeToggleBtn.contains(e.target) && !themePicker.contains(e.target)) {
-            themePicker.classList.remove('is-open');
+          // Page header summary (experience / education)
+          const pageKey = document.querySelector('main')?.getAttribute('data-page-key');
+          const summaryEl = document.querySelector('.page-header-summary');
+          if (summaryEl) {
+            if (pageKey === 'experience' && v.experienceSummary?.[0]) summaryEl.textContent = v.experienceSummary[0];
+            else if (pageKey === 'education' && v.educationSummary?.[0]) summaryEl.textContent = v.educationSummary[0];
           }
-        });
 
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') themePicker.classList.remove('is-open');
-        });
+          document.dispatchEvent(new CustomEvent('rolechange', { detail: { id, variant: v } }));
+        }
+
+        if (currentRole !== 'default') applyRole(currentRole);
+        document.querySelectorAll('.role-pill').forEach(b => b.addEventListener('click', () => applyRole(b.getAttribute('data-role-id'))));
       }
     </script>
   </body>
@@ -328,14 +388,5 @@ const defaultBodyClass = getTheme(defaultTheme).bodyClass;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  body.has-custom-cursor,
-  body.has-custom-cursor * {
-    cursor: auto;
-  }
-
-  body.has-custom-cursor.system-cursor-mode .cursor-trail {
-    opacity: 0;
   }
 </style>

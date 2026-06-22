@@ -30,6 +30,9 @@ export type ResumeMode = 'personal' | 'career';
 // Change this value to 'career' to use the career-oriented resume overrides.
 export const RESUME_MODE: ResumeMode = 'career';
 
-export type LayoutMode = 'classic' | 'light-tech';
+export type LayoutMode = 'classic' | 'light-tech' | 'sidebar';
 // Switch between visual layouts
-export const LAYOUT: LayoutMode = 'light-tech';
+export const LAYOUT: LayoutMode = 'sidebar';
+
+export const RESUME_ROLES = ['default', 'aviation', 'consulting', 'engineering', 'ai', 'quant'] as const;
+export type ResumeRole = typeof RESUME_ROLES[number];
