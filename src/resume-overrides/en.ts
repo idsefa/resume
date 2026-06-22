@@ -29,8 +29,8 @@ export const enOverride: ResumeOverride = {
 	},
 	experience: {
 		summary: [
-			'I have worked in R&D, airport simulation research, and factory operations improvement.',
-			'Across these roles, I focused on solving daily workflow and efficiency problems with data and engineering methods.',
+			'Experience spans R&D, airport simulation research, and manufacturing operations improvement across 4 internships.',
+			'Across these roles, I applied data-driven and engineering methods to solve workflow bottlenecks and improve operational efficiency.',
 		],
 		items: [{
 				title: 'Manufacturing Operations Intern',
@@ -38,8 +38,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'Used stopwatch studies and ECRS to track cycle time and waste on the loader assembly line.',
-					'Worked with engineers to solve daily production issues and keep line flow stable.',
+					'Conducted stopwatch time studies and ECRS analysis on the loader assembly line, tracking cycle time and identifying waste patterns.',
+					'Collaborated with production engineers to resolve daily workflow issues and maintain stable line throughput.',
 				],
 			},{
 				title: 'Campus Brand Ambassador',
@@ -47,8 +47,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Dec 2024',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Acted as a bridge between the company and university students.',
-					'Organized campus hiring events and helped graduates in application and interview steps.',
+					'Served as primary liaison between LiuGong and university students, facilitating recruitment pipeline.',
+					'Organized campus hiring events and guided graduates through application and interview processes.',
 				],
 			},{
 				title: 'Research Assistant',
@@ -56,10 +56,10 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Built an AnyLogic simulation model for airport special vehicle traffic.',
-					'Implemented collision avoidance and path planning logic with Java and MySQL.',
-					'Improved simulated traffic flow and safety in busy airside scenarios.',
-					'This project became my bachelor thesis and won Excellent Thesis and Innovation Award.',
+					'Designed and built an AnyLogic simulation model for airport special vehicle traffic operations.',
+					'Implemented collision avoidance and path planning algorithms using Java and MySQL.',
+					'Improved simulated traffic flow and safety metrics in high-density airside scenarios.',
+					'Project成果: bachelor thesis + Excellent Thesis Award + Innovation Award.',
 				],
 			},{
 				title: 'Industrial Engineering Intern',
@@ -67,8 +67,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Apr 2024 - May 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Measured standard time on the dishwasher liner assembly line.',
-					'Used line balancing and motion economy to find bottlenecks and suggest improvements.',
+					'Measured standard time across workstations on the dishwasher liner assembly line.',
+					'Applied line balancing and motion economy principles to identify bottlenecks and propose process improvements.',
 				],
 			},{
 				title: 'R&D and Operations Intern',
@@ -76,17 +76,16 @@ export const enOverride: ResumeOverride = {
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Worked on AI use cases based on Huawei Ascend and workflow optimization tasks.',
-					'Wrote and filed multiple patents from internship projects.',
-					'Used prompt engineering to speed up development and problem solving.',
-					'Supported network and admin tasks in cross-functional teams.',
+					'Developed AI use cases on Huawei Ascend platform and optimized internal workflows.',
+					'Filed 2 patents from AI-driven internship projects.',
+					'Applied prompt engineering techniques to accelerate development and problem-solving workflows.',
 				],
 			}],
 	},
 	education: {
 		summary: [
-			'My background combines aviation, industrial engineering, and law minor training.',
-			'I like using this cross-domain view to solve operations and management problems.',
+			'Cross-disciplinary foundation: aviation operations (MEng), industrial engineering (BE), and legal studies (LLB minor).',
+			'This integrated perspective enables systematic problem-solving across technical, operational, and regulatory domains.',
 		],
 		items: [
 			{
@@ -114,8 +113,8 @@ export const enOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'I do not have formal papers yet, but I have practical outputs from internships and research projects.',
-			'These include patent work and award-winning simulation research.',
+			'Practical research outputs from internships and academic projects, including patent filings and award-winning simulation research.',
+			'Focus areas: airport operations simulation, AI workflow optimization, and industrial engineering applications.',
 		],
 		sections: [
 			{

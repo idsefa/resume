@@ -12,16 +12,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'MEng Student in Aviation Engineering and Operation Management',
     highlights: [
       {
-        title: 'I work on real operations problems',
-        description: 'My main interest is using simulation and AI tools to improve airport and airline operations.',
+        title: 'Simulation-driven operations research',
+        description: 'Main interest: using simulation and AI tools to improve airport and airline operations through data-driven analysis.',
       },
       {
-        title: 'Strong mix of engineering and communication',
-        description: 'I like working with teams, turning complex tasks into clear steps, and pushing ideas into action.',
+        title: 'Cross-functional collaboration across 4 internships',
+        description: 'Experience spans manufacturing, R&D, airport research, and campus recruiting — working with diverse teams to deliver results.',
       },
       {
-        title: 'Hands-on with practical tools',
-        description: 'I often use Python, SQL, AnyLogic, Plant Simulation, and OR-Tools in projects.',
+        title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation',
+        description: 'Hands-on with simulation, optimization, and data tools used in real-world operations and engineering projects.',
       },
     ],
     experienceSummary: [
@@ -39,16 +39,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'Aviation Operations Analyst',
     highlights: [
       {
-        title: 'Airport simulation and airside optimization',
-        description: "Built an AnyLogic simulation model for Guangzhou Baiyun Airport's special vehicle traffic, improving safety and throughput in complex airside scenarios.",
+        title: 'Airport simulation: modeled airside vehicle operations at Baiyun Airport',
+        description: 'Designed an AnyLogic simulation model for Guangzhou Baiyun Airport\'s airside vehicle operations, implementing collision avoidance and path planning algorithms that improved simulated traffic flow and safety metrics.',
       },
       {
-        title: 'MEng tailored for the aviation industry',
-        description: 'The PolyU program is purpose-built for airline operations, airport management, and aviation consulting — giving me the right technical and domain foundation.',
+        title: 'MEng at PolyU — purpose-built for airline and airport operations',
+        description: 'The PolyU MEng program is specifically designed for careers in airline operations, airport management, and aviation consulting — providing deep domain expertise alongside technical skills.',
       },
       {
-        title: 'Systems thinking meets operations',
-        description: 'IE background provides a structured approach to analyzing and redesigning airport and airline workflows at scale.',
+        title: 'IE-trained systems thinking applied to aviation',
+        description: 'Industrial engineering training provides a structured, systematic approach to analyzing and optimizing complex airport and airline operational workflows.',
       },
     ],
     experienceSummary: [
@@ -66,16 +66,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'Operations & Management Consulting Candidate',
     highlights: [
       {
-        title: 'Cross-industry problem-solving',
-        description: 'Experience spans aviation simulation, manufacturing efficiency, and AI workflow — giving me the breadth to approach diverse client problems with a structured lens.',
+        title: 'Cross-industry problem-solving across 4 internships',
+        description: 'Experience spans aviation simulation, manufacturing efficiency, AI workflow, and campus recruiting — providing the breadth to diagnose diverse client problems with structured analytical frameworks.',
       },
       {
-        title: 'Data-driven process improvement',
-        description: 'Applied ECRS, line balancing, and time study methods at LiuGong and Midea to identify bottlenecks and drive measurable improvements on factory floors.',
+        title: 'Data-driven process improvement: ECRS, line balancing, time study',
+        description: 'Applied ECRS, line balancing, and time study across 2 manufacturing internships (LiuGong, Midea) to identify bottlenecks and propose measurable efficiency improvements.',
       },
       {
-        title: 'Communication and stakeholder alignment',
-        description: 'Served as campus brand ambassador and worked in cross-functional R&D teams — I translate technical findings into clear recommendations for non-technical audiences.',
+        title: 'Stakeholder communication: campus recruiting to R&D teams',
+        description: 'Served as campus brand ambassador and cross-functional R&D team member — translating technical findings into clear, actionable recommendations for diverse stakeholders.',
       },
     ],
     experienceSummary: [
@@ -93,16 +93,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'Industrial Engineering / Operations Specialist',
     highlights: [
       {
-        title: 'Time study and line balancing on the shop floor',
-        description: 'Measured cycle time at LiuGong and Midea using stopwatch studies and ECRS; identified bottlenecks and proposed layout and sequence improvements.',
+        title: 'Shop-floor time study and line balancing at 2 major manufacturers',
+        description: 'Measured cycle time across multiple workstations at LiuGong and Midea using stopwatch studies and ECRS analysis; identified critical bottlenecks and proposed layout and sequence improvements.',
       },
       {
-        title: 'Simulation-driven process design',
-        description: 'Built discrete-event and agent-based simulation models in AnyLogic and Plant Simulation to test process changes before implementation.',
+        title: 'Simulation-driven process design: AnyLogic + Plant Simulation',
+        description: 'Built discrete-event and agent-based simulation models in AnyLogic and Plant Simulation to validate process changes before physical implementation, reducing implementation risk.',
       },
       {
-        title: 'OR and Python for optimization',
-        description: 'Uses OR-Tools, Python, and MySQL to model and solve scheduling, routing, and capacity problems in engineering and operations contexts.',
+        title: 'OR and Python for scheduling, routing, and capacity optimization',
+        description: 'Applies OR-Tools, Python, and MySQL to model and solve scheduling, routing, and capacity optimization problems — core skills for operations research and engineering roles.',
       },
     ],
     experienceSummary: [
@@ -120,16 +120,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'AI Engineer / Operations Researcher',
     highlights: [
       {
-        title: 'Practical AI deployment on Huawei Ascend',
-        description: 'Worked on AI use cases and workflow optimization at Shenzhen Wuxian Hongyin; filed multiple patents from AI-driven internship projects.',
+        title: 'AI deployment on Huawei Ascend: use cases + 2 patent filings',
+        description: 'Developed AI use cases on Huawei Ascend platform and optimized workflows at Shenzhen Wuxian Hongyin; filed 2 patents from AI-driven internship projects.',
       },
       {
-        title: 'Simulation + optimization + LLM workflows',
-        description: 'Combines agent-based simulation (AnyLogic), OR-Tools optimization, and prompt engineering to build hybrid AI-operations solutions.',
+        title: 'Hybrid AI: simulation + optimization + LLM prompt engineering',
+        description: 'Combines agent-based simulation (AnyLogic), OR-Tools optimization, and prompt engineering to build hybrid AI-operations solutions — bridging traditional OR with modern AI workflows.',
       },
       {
-        title: 'Fast from idea to working prototype',
-        description: 'Strong in Python, SQL, and prompt engineering; has shipped AI-assisted tools in internship environments and accelerated research with AI workflows.',
+        title: 'Rapid prototyping: Python, SQL, prompt engineering',
+        description: 'Proficient in Python, SQL, and prompt engineering; shipped AI-assisted tools in internship environments and accelerated research workflows with LLM-based automation.',
       },
     ],
     experienceSummary: [
@@ -147,16 +147,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRole: 'Quantitative Analyst / AI Research Candidate',
     highlights: [
       {
-        title: 'Optimization and algorithmic modeling',
-        description: 'Implemented path planning and collision avoidance algorithms for airport vehicle simulation — applying graph search and constraint optimization in a real-world system.',
+        title: 'Algorithmic modeling: path planning + constraint optimization',
+        description: 'Implemented path planning and collision avoidance algorithms for airport vehicle simulation — applying graph search and constraint optimization techniques in a production-relevant system.',
       },
       {
-        title: 'OR-Tools, Python, and simulation for quantitative work',
-        description: 'Hands-on with operations research algorithms (scheduling, routing, optimization) and simulation modeling; these methods transfer directly to quantitative finance and risk.',
+        title: 'OR-Tools, Python, and simulation: transferable to quant finance',
+        description: 'Hands-on with operations research algorithms (scheduling, routing, optimization) and simulation modeling — methods that transfer directly to quantitative finance, risk modeling, and algorithmic trading.',
       },
       {
-        title: 'Analytical rigor across disciplines',
-        description: 'IE background trains systematic decomposition of complex systems; law minor adds regulatory and structured reasoning — useful for model risk and compliance contexts.',
+        title: 'Analytical rigor: IE + law minor = structured reasoning',
+        description: 'IE background trains systematic decomposition of complex systems; law minor adds structured legal reasoning — applicable to model risk, regulatory compliance, and quantitative research.',
       },
     ],
     experienceSummary: [
