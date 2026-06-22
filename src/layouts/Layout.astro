@@ -144,30 +144,28 @@ const roleVariantsJson = JSON.stringify(
           <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
             <span class="pdf-icon">⬇</span> PDF
           </button>
+          <div class="lang-menu">
+            <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
+              {LANGUAGE_META[lang].label}
+            </button>
+            <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
+              {langOptions.map(code => (
+                <a href={`${base}${code}/`} role="menuitem">
+                  {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
+                </a>
+              ))}
+            </div>
+          </div>
           {!isSidebar && (
-            <>
-              <ul class="social-links">
-                {SOCIAL_LINKS.map(link => (
-                  <li>
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                      <SocialIcon icon={link.icon} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div class="lang-menu">
-                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
-                  {LANGUAGE_META[lang].label}
-                </button>
-                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
-                  {langOptions.map(code => (
-                    <a href={`${base}${code}/`} role="menuitem">
-                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </>
+            <ul class="social-links">
+              {SOCIAL_LINKS.map(link => (
+                <li>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                    <SocialIcon icon={link.icon} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </nav>
