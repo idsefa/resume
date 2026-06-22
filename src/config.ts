@@ -1,6 +1,6 @@
 export const SITE = {
-  title: 'He Haocheng',
-  description: 'Personal CV',
+  title: 'Haocheng He',
+  description: 'Resume — Aviation Engineering, Industrial Engineering, AI Workflow',
 };
 
 export const NAVIGATION_SITE_URL = 'https://nav.example.com';
