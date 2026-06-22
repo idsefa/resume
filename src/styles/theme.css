@@ -1806,6 +1806,49 @@ html *::after {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .floating-card {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   FLOATING CARD EFFECT
+   ============================================ */
+
+.floating-card {
+  --drag-x: 0px;
+  --drag-y: 0px;
+  position: relative;
+  animation: cardFloat var(--float-duration, 5s) ease-in-out var(--float-delay, 0s) infinite;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  cursor: grab;
+}
+
+.floating-card.is-dragging {
+  cursor: grabbing;
+  animation: none !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15) !important;
+  z-index: 10;
+}
+
+.floating-card:active:not(.is-dragging) {
+  cursor: grabbing;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translate(var(--drag-x, 0px), var(--drag-y, 0px)) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translate(var(--drag-x, 0px), var(--drag-y, 0px)) translateY(var(--float-offset, -3px)) rotate(calc(var(--rotate-offset, 0.3deg) * 0.5));
+  }
+  50% {
+    transform: translate(var(--drag-x, 0px), var(--drag-y, 0px)) translateY(calc(var(--float-offset, -3px) * -0.6)) rotate(calc(var(--rotate-offset, 0.3deg) * -1));
+  }
+  75% {
+    transform: translate(var(--drag-x, 0px), var(--drag-y, 0px)) translateY(calc(var(--float-offset, -3px) * 0.3)) rotate(calc(var(--rotate-offset, 0.3deg) * 0.8));
+  }
 }
 
 /* ============================================

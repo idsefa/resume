@@ -157,6 +157,9 @@ const roleVariantsJson = JSON.stringify(
 
           <div class="sidebar-controls">
             <ThemeToggle {lang} />
+            <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
+              <span class="pdf-icon">⬇</span> PDF
+            </button>
             <div class="layout-switcher" id="layoutSwitcher">
               <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
                 <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
@@ -225,7 +228,30 @@ const roleVariantsJson = JSON.stringify(
               ))}
             </ul>
             <div class="nav-right">
+              <div class="nav-role-pills" id="rolePills">
+                {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
+                  <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
+                    {v.label}
+                  </button>
+                ))}
+              </div>
+              <div class="layout-switcher" id="layoutSwitcher">
+                <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
+                  <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
+                </button>
+                <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
+                  <button type="button" class="layout-option" data-layout="sidebar" role="menuitem"><span class="layout-option-icon">◧</span><span>Sidebar</span></button>
+                  <button type="button" class="layout-option" data-layout="centered" role="menuitem"><span class="layout-option-icon">▦</span><span>Centered</span></button>
+                  <button type="button" class="layout-option" data-layout="classic" role="menuitem"><span class="layout-option-icon">▤</span><span>Classic</span></button>
+                  <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Dramatic</span></button>
+                  <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Glass</span></button>
+                  <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Zen</span></button>
+                </div>
+              </div>
               <ThemeToggle {lang} />
+              <button type="button" class="pdf-export-btn" id="pdfExportBtn" aria-label="Export PDF">
+                <span class="pdf-icon">⬇</span> PDF
+              </button>
               <ul class="social-links">
                 {SOCIAL_LINKS.map(link => (
                   <li>
@@ -369,10 +395,10 @@ const roleVariantsJson = JSON.stringify(
           setTimeout(() => document.body.classList.remove('is-printing'), 500);
         });
       }
-      if (isSidebar) {
-        const ROLES = JSON.parse(roleVariantsJson);
-        const roleMap = Object.fromEntries(ROLES.map(v => [v.id, v]));
-        let currentRole = 'default';
+      // ---- Role switcher (all layouts) ----
+      const ROLES = JSON.parse(roleVariantsJson);
+      const roleMap = Object.fromEntries(ROLES.map(v => [v.id, v]));
+      let currentRole = 'default';
 
         // Priority: URL param > localStorage > default
         const urlRole = new URLSearchParams(location.search).get('role');
@@ -428,7 +454,6 @@ const roleVariantsJson = JSON.stringify(
 
         if (currentRole !== 'default') applyRole(currentRole);
         document.querySelectorAll('.role-pill').forEach(b => b.addEventListener('click', () => applyRole(b.getAttribute('data-role-id'))));
-      }
 
       // ---- Layout switcher ----
       const LAYOUT_KEY = 'resume-layout';
@@ -614,7 +639,7 @@ const roleVariantsJson = JSON.stringify(
     .sidebar, .sidebar-toggle, .sidebar-overlay,
     .theme-toggle-wrapper, .lang-menu, .pdf-export-btn, .pdf-floating-btn,
     header, footer, .page-transition, .cursor-trail,
-    .section-nav, .cta-section { display: none !important; }
+    .section-nav, .cta-section, .layout-switcher, .nav-role-pills { display: none !important; }
     body { background: #fff !important; color: #000 !important; }
     main { margin: 0 !important; padding: 0 !important; }
     .page-frame { padding: 0 !important; }
@@ -622,7 +647,104 @@ const roleVariantsJson = JSON.stringify(
       break-inside: avoid;
       box-shadow: none !important;
       border: 1px solid #ddd !important;
+      transform: none !important;
     }
     [data-reveal] { opacity: 1 !important; transform: none !important; }
+    .floating-card { position: static !important; transform: none !important; animation: none !important; }
+  }
+
+  /* Nav role pills (non-sidebar header) */
+  .nav-role-pills {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .nav-role-pills .role-pill {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--theme-border, var(--color-border));
+    border-radius: 6px;
+    background: transparent;
+    color: var(--theme-muted, var(--color-muted));
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-role-pills .role-pill:hover {
+    border-color: var(--theme-accent, var(--color-accent));
+    color: var(--theme-accent, var(--color-accent));
+  }
+  .nav-role-pills .role-pill.is-active {
+    background: var(--theme-accent-soft, var(--color-accent-soft));
+    border-color: var(--theme-accent, var(--color-accent));
+    color: var(--theme-accent, var(--color-accent));
+    font-weight: 600;
+  }
+
+  /* Header layout switcher */
+  header .layout-switcher {
+    position: relative;
+  }
+  header .layout-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--theme-border, var(--color-border));
+    background: var(--theme-surface, var(--color-surface));
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: border-color 0.15s;
+  }
+  header .layout-toggle:hover {
+    border-color: var(--theme-accent, var(--color-accent));
+  }
+  header .layout-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    min-width: 10rem;
+    padding: 0.4rem;
+    border: 1px solid var(--theme-border, var(--color-border));
+    border-radius: 10px;
+    background: var(--theme-card, var(--color-card));
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.15s, transform 0.15s;
+    z-index: 100;
+  }
+  header .layout-switcher.is-open .layout-menu-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  header .layout-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: var(--theme-text, var(--color-text));
+    transition: background 0.1s;
+  }
+  header .layout-option:hover {
+    background: var(--theme-accent-soft, var(--color-accent-soft));
+  }
+  header .layout-option.is-active {
+    background: var(--theme-accent-soft, var(--color-accent-soft));
+    font-weight: 600;
   }
 </style>

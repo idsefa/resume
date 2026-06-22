@@ -21,6 +21,8 @@ export interface ThemeEffects {
   scanlines: boolean;
   /** Magnetic cursor attraction to interactive elements */
   magnetic: boolean;
+  /** Floating/drifting cards with subtle animation */
+  floating: boolean;
 }
 
 /** Maps each resume role to a recommended theme */
@@ -81,6 +83,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -102,6 +105,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -123,6 +127,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -144,6 +149,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -165,6 +171,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
 
@@ -188,6 +195,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -209,6 +217,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -230,6 +239,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -251,6 +261,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -272,6 +283,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -293,6 +305,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -314,6 +327,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -335,6 +349,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: false,
+      floating: false,
     },
   },
 
@@ -358,6 +373,7 @@ export const THEMES: Theme[] = [
       noise: true,
       scanlines: false,
       magnetic: true,
+      floating: true,
     },
   },
   {
@@ -379,6 +395,7 @@ export const THEMES: Theme[] = [
       noise: true,
       scanlines: false,
       magnetic: false,
+      floating: true,
     },
   },
   {
@@ -400,6 +417,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: true,
       magnetic: true,
+      floating: true,
     },
   },
   {
@@ -421,6 +439,7 @@ export const THEMES: Theme[] = [
       noise: false,
       scanlines: false,
       magnetic: true,
+      floating: true,
     },
   },
 ];

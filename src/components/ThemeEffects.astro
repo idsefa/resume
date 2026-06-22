@@ -10,23 +10,23 @@
   // ============================================
   // Maps theme IDs to their effect profiles
   const THEME_PROFILES = {
-    'light-tech':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'classic':       { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'dark-olive':    { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'midnight':      { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'rose':          { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'cyber-neon':    { cursor: 'square-follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'frosted-glass': { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'warm-retro':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'arctic-tech':   { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'forest-canopy': { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'abyssal-depths':{ cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'crimson-noir':  { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'zoom', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'matcha-zen':    { cursor: 'none', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
-    'neo-brutal':    { cursor: 'follower', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: true, noise: true, scanlines: false, magnetic: true },
-    'catppuccin':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: true, scanlines: false, magnetic: false },
-    'dracula':       { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: true, magnetic: true },
-    'whiteboard':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: true },
+    'light-tech':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'classic':       { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'dark-olive':    { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'midnight':      { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'rose':          { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'cyber-neon':    { cursor: 'square-follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'frosted-glass': { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'warm-retro':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'arctic-tech':   { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'forest-canopy': { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'abyssal-depths':{ cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'crimson-noir':  { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'zoom', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'matcha-zen':    { cursor: 'none', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false , floating: true },
+    'neo-brutal':    { cursor: 'follower', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: true, noise: true, scanlines: false, magnetic: true , floating: true },
+    'catppuccin':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: true, scanlines: false, magnetic: false , floating: true },
+    'dracula':       { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: true, magnetic: true , floating: true },
+    'whiteboard':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: true , floating: true },
   };
 
   // Maps theme IDs to their page layout variant
@@ -114,6 +114,9 @@
 
     // Magnetic cursor
     toggleMagnetic(profile.magnetic);
+
+    // Floating cards
+    toggleFloating(profile.floating);
   };
 
   // ============================================
@@ -207,6 +210,104 @@
       document.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerleave', onLeave);
       interactives.forEach(el => el.style.transform = '');
+    };
+  }
+
+  // ============================================
+  // FLOATING CARDS — subtle drift animation + drag
+  // ============================================
+  let floatingCleanup = null;
+  function toggleFloating(enable) {
+    if (floatingCleanup) { floatingCleanup(); floatingCleanup = null; }
+    const cards = document.querySelectorAll('.fact-card, .highlight-card, .timeline-item, .pub-card');
+    if (!enable) {
+      cards.forEach(c => { c.classList.remove('floating-card'); c.style.animationDelay = ''; c.style.transform = ''; });
+      return;
+    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    cards.forEach((card, i) => {
+      card.classList.add('floating-card');
+      // Stagger animation delays for organic feel
+      card.style.setProperty('--float-delay', `${i * 0.8}s`);
+      card.style.setProperty('--float-duration', `${4 + (i % 3)}s`);
+      card.style.setProperty('--float-offset', `${(i % 2 === 0 ? 1 : -1) * (2 + i % 3)}px`);
+      card.style.setProperty('--rotate-offset', `${(i % 2 === 0 ? 0.5 : -0.5) * (1 + (i % 3) * 0.3)}deg`);
+    });
+
+    // Drag functionality
+    let dragTarget = null;
+    let dragStartX = 0, dragStartY = 0;
+    let cardStartX = 0, cardStartY = 0;
+    let isDragging = false;
+
+    function onPointerDown(e) {
+      const card = e.target.closest('.floating-card');
+      if (!card) return;
+      // Don't drag if clicking a link or button inside the card
+      if (e.target.closest('a, button')) return;
+      
+      dragTarget = card;
+      const rect = card.getBoundingClientRect();
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      cardStartX = parseFloat(card.style.getPropertyValue('--drag-x')) || 0;
+      cardStartY = parseFloat(card.style.getPropertyValue('--drag-y')) || 0;
+      isDragging = false;
+      
+      card.style.zIndex = '10';
+      card.style.transition = 'none';
+      card.setPointerCapture(e.pointerId);
+    }
+
+    function onPointerMove(e) {
+      if (!dragTarget) return;
+      const dx = e.clientX - dragStartX;
+      const dy = e.clientY - dragStartY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragging = true;
+      if (!isDragging) return;
+      
+      const newX = cardStartX + dx;
+      const newY = cardStartY + dy;
+      dragTarget.style.setProperty('--drag-x', `${newX}px`);
+      dragTarget.style.setProperty('--drag-y', `${newY}px`);
+      dragTarget.style.transform = `translate(${newX}px, ${newY}px)`;
+      dragTarget.classList.add('is-dragging');
+    }
+
+    function onPointerUp(e) {
+      if (!dragTarget) return;
+      dragTarget.style.zIndex = '';
+      dragTarget.style.transition = '';
+      dragTarget.classList.remove('is-dragging');
+      if (!isDragging) {
+        // It was a click, not a drag — reset position
+        dragTarget.style.setProperty('--drag-x', '0px');
+        dragTarget.style.setProperty('--drag-y', '0px');
+        dragTarget.style.transform = '';
+      }
+      dragTarget = null;
+      isDragging = false;
+    }
+
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('pointermove', onPointerMove);
+    document.addEventListener('pointerup', onPointerUp);
+
+    // Reset positions on page navigation
+    const resetOnNav = () => cards.forEach(c => {
+      c.style.setProperty('--drag-x', '0px');
+      c.style.setProperty('--drag-y', '0px');
+      c.style.transform = '';
+    });
+    window.addEventListener('beforeunload', resetOnNav);
+
+    floatingCleanup = () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('pointermove', onPointerMove);
+      document.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('beforeunload', resetOnNav);
+      cards.forEach(c => { c.classList.remove('floating-card'); c.style.transform = ''; });
     };
   }
 
