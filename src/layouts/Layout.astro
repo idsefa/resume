@@ -373,13 +373,27 @@ const roleVariantsJson = JSON.stringify(
         const ROLES = JSON.parse(roleVariantsJson);
         const roleMap = Object.fromEntries(ROLES.map(v => [v.id, v]));
         let currentRole = 'default';
-        try { const s = localStorage.getItem(ROLE_KEY); if (s && roleMap[s]) currentRole = s; } catch(_) {}
+
+        // Priority: URL param > localStorage > default
+        const urlRole = new URLSearchParams(location.search).get('role');
+        if (urlRole && roleMap[urlRole]) {
+          currentRole = urlRole;
+          try { localStorage.setItem(ROLE_KEY, urlRole); } catch(_) {}
+        } else {
+          try { const s = localStorage.getItem(ROLE_KEY); if (s && roleMap[s]) currentRole = s; } catch(_) {}
+        }
 
         function applyRole(id) {
           const v = roleMap[id];
           if (!v) return;
           currentRole = id;
           try { localStorage.setItem(ROLE_KEY, id); } catch(_) {}
+
+          // Update URL without reload
+          const url = new URL(location.href);
+          if (id === 'default') url.searchParams.delete('role');
+          else url.searchParams.set('role', id);
+          history.replaceState(null, '', url);
 
           // Auto-switch theme to match role
           const recommendedTheme = ROLE_THEME_MAP[id];
