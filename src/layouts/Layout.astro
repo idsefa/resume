@@ -434,6 +434,9 @@ const roleVariantsJson = JSON.stringify(
           currentLayout = id;
           try { localStorage.setItem(LAYOUT_KEY, id); } catch(_) {}
 
+          // Mark that user has manually chosen a layout (prevents theme override)
+          document.body.setAttribute('data-user-layout', id);
+
           // Update icon
           if (layoutIcon) layoutIcon.textContent = LAYOUT_ICONS[id] || '◧';
 

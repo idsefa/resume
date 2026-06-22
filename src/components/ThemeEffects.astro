@@ -10,28 +10,33 @@
   // ============================================
   // Maps theme IDs to their effect profiles
   const THEME_PROFILES = {
-    'light-tech':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
-    'classic':       { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
-    'dark-olive':    { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade' },
-    'midnight':      { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left' },
-    'rose':          { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
-    'cyber-neon':    { cursor: 'square-follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up' },
-    'frosted-glass': { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade' },
-    'warm-retro':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up' },
-    'arctic-tech':   { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left' },
-    'forest-canopy': { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade' },
-    'abyssal-depths':{ cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up' },
-    'crimson-noir':  { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'zoom' },
-    'matcha-zen':    { cursor: 'none', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade' },
+    'light-tech':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'classic':       { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'dark-olive':    { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'midnight':      { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'rose':          { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'cyber-neon':    { cursor: 'square-follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'frosted-glass': { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'warm-retro':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'arctic-tech':   { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'forest-canopy': { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'abyssal-depths':{ cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-up', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'crimson-noir':  { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'zoom', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'matcha-zen':    { cursor: 'none', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: false },
+    'neo-brutal':    { cursor: 'follower', pageTransition: true, parallax: false, countUp: true, revealStyle: 'slide-up', glitch: true, noise: true, scanlines: false, magnetic: true },
+    'catppuccin':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: true, scanlines: false, magnetic: false },
+    'dracula':       { cursor: 'follower', pageTransition: true, parallax: true, countUp: true, revealStyle: 'slide-left', glitch: false, noise: false, scanlines: true, magnetic: true },
+    'whiteboard':    { cursor: 'trail', pageTransition: true, parallax: false, countUp: true, revealStyle: 'fade', glitch: false, noise: false, scanlines: false, magnetic: true },
   };
 
   // Maps theme IDs to their page layout variant
   const THEME_VARIANTS = {
-    'light-tech': 'centered', 'midnight': 'centered', 'arctic-tech': 'centered',
-    'classic': 'classic', 'rose': 'classic', 'warm-retro': 'classic', 'crimson-noir': 'classic',
+    'light-tech': 'centered', 'midnight': 'centered', 'arctic-tech': 'centered', 'catppuccin': 'centered', 'dracula': 'centered',
+    'classic': 'classic', 'rose': 'classic', 'warm-retro': 'classic', 'crimson-noir': 'classic', 'neo-brutal': 'classic',
     'dark-olive': 'dramatic', 'cyber-neon': 'dramatic', 'abyssal-depths': 'dramatic',
     'frosted-glass': 'glass', 'forest-canopy': 'glass',
     'matcha-zen': 'zen',
+    'whiteboard': 'whiteboard',
   };
 
   // Get current theme from <html> data-theme
@@ -47,9 +52,18 @@
   window.__applyThemeEffects = function(themeId) {
     const profile = getProfile(themeId);
 
-    // Set page layout variant on article
-    const variant = THEME_VARIANTS[themeId] || 'centered';
-    document.querySelector('.page-content')?.setAttribute('data-page-variant', variant);
+    // Set page layout variant on article (but don't override user's layout choice)
+    const pageContent = document.querySelector('.page-content');
+    if (pageContent) {
+      const userLayout = document.body.getAttribute('data-user-layout');
+      if (!userLayout) {
+        const currentVariant = pageContent.getAttribute('data-page-variant');
+        if (currentVariant !== 'sidebar') {
+          const variant = THEME_VARIANTS[themeId] || 'centered';
+          pageContent.setAttribute('data-page-variant', variant);
+        }
+      }
+    }
 
     // Set reveal style on body
     document.body.setAttribute('data-reveal-style', profile.revealStyle);
@@ -83,7 +97,113 @@
 
     // Re-run reveal observer with new style
     refreshRevealObserver(profile.revealStyle);
+
+    // Glitch effect on hero title
+    toggleGlitch(profile.glitch);
+
+    // Noise overlay
+    toggleNoise(profile.noise);
+
+    // Scanlines overlay
+    toggleScanlines(profile.scanlines);
+
+    // Magnetic cursor
+    toggleMagnetic(profile.magnetic);
   };
+
+  // ============================================
+  // GLITCH TEXT EFFECT
+  // ============================================
+  let glitchActive = false;
+  function toggleGlitch(enable) {
+    const heroTitle = document.querySelector('.hero-title, .page-header-title');
+    if (!heroTitle) return;
+    if (enable) {
+      heroTitle.classList.add('glitch-text');
+      heroTitle.setAttribute('data-text', heroTitle.textContent);
+      glitchActive = true;
+    } else {
+      heroTitle.classList.remove('glitch-text');
+      glitchActive = false;
+    }
+  }
+
+  // ============================================
+  // NOISE/GRAIN OVERLAY
+  // ============================================
+  function toggleNoise(enable) {
+    let noiseEl = document.getElementById('noise-overlay');
+    if (enable) {
+      if (!noiseEl) {
+        noiseEl = document.createElement('div');
+        noiseEl.id = 'noise-overlay';
+        noiseEl.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(noiseEl);
+      }
+      noiseEl.style.display = '';
+    } else if (noiseEl) {
+      noiseEl.style.display = 'none';
+    }
+  }
+
+  // ============================================
+  // SCANLINES OVERLAY
+  // ============================================
+  function toggleScanlines(enable) {
+    let scanEl = document.getElementById('scanlines-overlay');
+    if (enable) {
+      if (!scanEl) {
+        scanEl = document.createElement('div');
+        scanEl.id = 'scanlines-overlay';
+        scanEl.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(scanEl);
+      }
+      scanEl.style.display = '';
+    } else if (scanEl) {
+      scanEl.style.display = 'none';
+    }
+  }
+
+  // ============================================
+  // MAGNETIC CURSOR (attracts to interactive elements)
+  // ============================================
+  let magneticCleanup = null;
+  function toggleMagnetic(enable) {
+    if (magneticCleanup) { magneticCleanup(); magneticCleanup = null; }
+    if (!enable) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    const MAGNETIC_RADIUS = 80;
+    const MAGNETIC_STRENGTH = 0.3;
+    const interactives = document.querySelectorAll('a, button, .section-tab, .fact-card, .highlight-card, .timeline-item, .cta-btn');
+
+    const onMove = (e) => {
+      interactives.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAGNETIC_RADIUS) {
+          const strength = (1 - dist / MAGNETIC_RADIUS) * MAGNETIC_STRENGTH;
+          el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+        } else {
+          el.style.transform = '';
+        }
+      });
+    };
+    const onLeave = () => interactives.forEach(el => el.style.transform = '');
+
+    document.addEventListener('pointermove', onMove, { passive: true });
+    document.addEventListener('pointerleave', onLeave);
+    magneticCleanup = () => {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerleave', onLeave);
+      interactives.forEach(el => el.style.transform = '');
+    };
+  }
 
   // ============================================
   // CURSOR — modes: 'none', 'trail', 'follower', 'square-follower'
