@@ -279,6 +279,12 @@ body.layout-sidebar > header nav {
   align-items: center;
   width: 100%;
   gap: 0.75rem;
+  height: 100%;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 body.layout-sidebar > header .site-title,
 body.layout-sidebar > header .mobile-nav-toggle,
@@ -291,6 +297,18 @@ body.layout-sidebar > header .nav-right {
   align-items: center;
   gap: 0.5rem;
   margin-left: auto;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  max-width: 100%;
+}
+body.layout-sidebar > header .nav-right::-webkit-scrollbar { display: none; }
+body.layout-sidebar > header .nav-role-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 body.layout-sidebar main {
   padding-top: 48px;
