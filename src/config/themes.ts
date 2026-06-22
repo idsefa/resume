@@ -13,7 +13,25 @@ export interface ThemeEffects {
   parallax: boolean;
   countUp: boolean;
   revealStyle: 'slide-up' | 'fade' | 'zoom' | 'slide-left';
+  /** Glitch text effect on hero title hover */
+  glitch: boolean;
+  /** Noise/grain texture overlay */
+  noise: boolean;
+  /** CRT scanline overlay */
+  scanlines: boolean;
+  /** Magnetic cursor attraction to interactive elements */
+  magnetic: boolean;
 }
+
+/** Maps each resume role to a recommended theme */
+export const ROLE_THEME_MAP: Record<string, string> = {
+  default: 'light-tech',
+  aviation: 'arctic-tech',
+  consulting: 'classic',
+  engineering: 'dark-olive',
+  ai: 'cyber-neon',
+  quant: 'midnight',
+};
 
 /**
  * Page layout variant — controls the HTML structure of the page:
@@ -23,7 +41,7 @@ export interface ThemeEffects {
  * - 'glass':       Overlapping sections with frosted/glass effect, offset cards
  * - 'zen':         Ultra-minimal, single column, no cards, pure typography
  */
-export type PageVariant = 'centered' | 'classic' | 'dramatic' | 'glass' | 'zen';
+export type PageVariant = 'centered' | 'classic' | 'dramatic' | 'glass' | 'zen' | 'whiteboard';
 
 /** Full theme profile */
 export interface Theme {
@@ -59,6 +77,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -76,6 +98,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -93,6 +119,10 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'fade',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -110,6 +140,10 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'slide-left',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -127,6 +161,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
 
@@ -146,6 +184,10 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -163,6 +205,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'fade',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -180,6 +226,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -197,12 +247,16 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'slide-left',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
     id: 'forest-canopy',
     label: 'Forest Canopy',
-    labelZh: '森之Canopy',
+    labelZh: '森林树冠',
     icon: '🌲',
     description: 'Deep mossy forest with organic green tones',
     layout: 'classic',
@@ -214,6 +268,10 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'fade',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -231,6 +289,10 @@ export const THEMES: Theme[] = [
       parallax: true,
       countUp: true,
       revealStyle: 'slide-up',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -248,6 +310,10 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'zoom',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
     },
   },
   {
@@ -265,6 +331,96 @@ export const THEMES: Theme[] = [
       parallax: false,
       countUp: true,
       revealStyle: 'fade',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: false,
+    },
+  },
+
+  // ====== 3 NEW THEMES (2026-06) ======
+  {
+    id: 'neo-brutal',
+    label: 'Neo Brutal',
+    labelZh: '新野蛮主义',
+    icon: '⬛',
+    description: 'Bold borders, raw typography, high contrast — 2025-26 trend',
+    layout: 'classic',
+    pageVariant: 'classic',
+    bodyClass: 'theme-neo-brutal',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'slide-up',
+      glitch: true,
+      noise: true,
+      scanlines: false,
+      magnetic: true,
+    },
+  },
+  {
+    id: 'catppuccin',
+    label: 'Catppuccin',
+    labelZh: '卡布奇诺',
+    icon: '🐱',
+    description: 'Soothing pastel dark theme based on Catppuccin Mocha palette',
+    layout: 'light-tech',
+    pageVariant: 'centered',
+    bodyClass: 'theme-catppuccin',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'fade',
+      glitch: false,
+      noise: true,
+      scanlines: false,
+      magnetic: false,
+    },
+  },
+  {
+    id: 'dracula',
+    label: 'Dracula',
+    labelZh: '德古拉',
+    icon: '🧛',
+    description: 'Iconic purple-tinted dark theme — the most famous theme ever',
+    layout: 'light-tech',
+    pageVariant: 'centered',
+    bodyClass: 'theme-dracula',
+    effects: {
+      cursor: 'follower',
+      pageTransition: true,
+      parallax: true,
+      countUp: true,
+      revealStyle: 'slide-left',
+      glitch: false,
+      noise: false,
+      scanlines: true,
+      magnetic: true,
+    },
+  },
+  {
+    id: 'whiteboard',
+    label: 'Whiteboard',
+    labelZh: '无限白板',
+    icon: '📋',
+    description: 'Infinite canvas style — sticky notes, pins, hand-drawn feel',
+    layout: 'classic',
+    pageVariant: 'whiteboard',
+    bodyClass: 'theme-whiteboard',
+    effects: {
+      cursor: 'trail',
+      pageTransition: true,
+      parallax: false,
+      countUp: true,
+      revealStyle: 'fade',
+      glitch: false,
+      noise: false,
+      scanlines: false,
+      magnetic: true,
     },
   },
 ];

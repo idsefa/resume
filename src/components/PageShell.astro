@@ -131,6 +131,17 @@ const sectionTabs = [
           </section>
         )}
 
+        {pageVariant === 'whiteboard' && (
+          <section class="hero">
+            <div class="hero-inner">
+              <p class="hero-kicker">{heroKicker}</p>
+              <h1 class="hero-title">{heroTitle}</h1>
+              {heroRole && <p class="hero-role">{heroRole}</p>}
+              {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+            </div>
+          </section>
+        )}
+
         {pageVariant === 'centered' && (
           <nav class="section-nav">
             {sectionTabs.map(tab => (
@@ -150,6 +161,8 @@ const sectionTabs = [
       <div class="zen-content-wrapper"><slot /></div>
     ) : pageVariant === 'dramatic' && !isSidebar ? (
       <div class="dramatic-content-wrapper"><slot /></div>
+    ) : pageVariant === 'whiteboard' && !isSidebar ? (
+      <div class="whiteboard-content-wrapper"><slot /></div>
     ) : (
       <slot />
     )}
