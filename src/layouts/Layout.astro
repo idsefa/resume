@@ -13,6 +13,7 @@ import '../styles/layout.css';
 import '../styles/classic-layout.css';
 import '../styles/sidebar-layout.css';
 import { ROLE_VARIANTS } from '../resume-overrides/roles/index';
+import { ROLE_THEME_MAP } from '../config/themes';
 
 interface Props {
   lang: Lang;
@@ -152,23 +153,55 @@ const roleVariantsJson = JSON.stringify(
               </div>
             </div>
 
-            <div class="sidebar-controls">
-              <ThemeToggle {lang} />
-              <div class="lang-menu">
-                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
-                  {LANGUAGE_META[lang].label}
+          </div>
+
+          <div class="sidebar-controls">
+            <ThemeToggle {lang} />
+            <div class="layout-switcher" id="layoutSwitcher">
+              <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
+                <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
+              </button>
+              <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
+                <button type="button" class="layout-option" data-layout="sidebar" role="menuitem">
+                  <span class="layout-option-icon">◧</span>
+                  <span>Sidebar</span>
                 </button>
-                <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
-                  {langOptions.map(code => (
-                    <a href={`${base}${code}/`} role="menuitem">
-                      {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
-                    </a>
-                  ))}
-                </div>
+                <button type="button" class="layout-option" data-layout="centered" role="menuitem">
+                  <span class="layout-option-icon">▦</span>
+                  <span>Centered</span>
+                </button>
+                <button type="button" class="layout-option" data-layout="classic" role="menuitem">
+                  <span class="layout-option-icon">▤</span>
+                  <span>Classic</span>
+                </button>
+                <button type="button" class="layout-option" data-layout="dramatic" role="menuitem">
+                  <span class="layout-option-icon">▩</span>
+                  <span>Dramatic</span>
+                </button>
+                <button type="button" class="layout-option" data-layout="glass" role="menuitem">
+                  <span class="layout-option-icon">◌</span>
+                  <span>Glass</span>
+                </button>
+                <button type="button" class="layout-option" data-layout="zen" role="menuitem">
+                  <span class="layout-option-icon">○</span>
+                  <span>Zen</span>
+                </button>
               </div>
             </div>
-
+            <div class="lang-menu">
+              <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="lang-menu-panel">
+                {LANGUAGE_META[lang].label}
+              </button>
+              <div class="lang-menu-panel" id="lang-menu-panel" role="menu">
+                {langOptions.map(code => (
+                  <a href={`${base}${code}/`} role="menuitem">
+                    {LANGUAGE_META[code].label} · {LANGUAGE_META[code].name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
+
         </aside>
 
         <main data-page-key={pageKey} style={`--page-accent: ${heroAccent};`}>
@@ -234,6 +267,9 @@ const roleVariantsJson = JSON.stringify(
             </ul>
           </div>
         </footer>
+        <button type="button" class="pdf-floating-btn" id="pdfExportBtn" aria-label="Export PDF">
+          <span>⬇</span> Export PDF
+        </button>
       </>
     )}
 
@@ -245,10 +281,21 @@ const roleVariantsJson = JSON.stringify(
         'light-tech':'☀️','classic':'📜','dark-olive':'🌿','midnight':'🌙','rose':'🌹',
         'cyber-neon':'🌆','frosted-glass':'🫧','warm-retro':'🕰️','arctic-tech':'🧊',
         'forest-canopy':'🌲','abyssal-depths':'🐋','crimson-noir':'🥀','matcha-zen':'🍵',
+        'neo-brutal':'⬛','catppuccin':'🐱','dracula':'🧛','whiteboard':'📋',
       };
       const ALL_THEMES = Object.keys(THEME_ICONS);
       const THEME_KEY = 'resume-theme';
       const ROLE_KEY = 'resume-role';
+
+      // Role → recommended theme mapping
+      const ROLE_THEME_MAP = {
+        'default': 'light-tech',
+        'aviation': 'arctic-tech',
+        'consulting': 'classic',
+        'engineering': 'dark-olive',
+        'ai': 'cyber-neon',
+        'quant': 'midnight',
+      };
 
       function applyTheme(id) {
         document.documentElement.setAttribute('data-theme', id);
@@ -313,7 +360,15 @@ const roleVariantsJson = JSON.stringify(
         document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       }
 
-      // ---- Role switcher ----
+      // ---- PDF Export ----
+      const pdfBtn = document.getElementById('pdfExportBtn');
+      if (pdfBtn) {
+        pdfBtn.addEventListener('click', () => {
+          document.body.classList.add('is-printing');
+          window.print();
+          setTimeout(() => document.body.classList.remove('is-printing'), 500);
+        });
+      }
       if (isSidebar) {
         const ROLES = JSON.parse(roleVariantsJson);
         const roleMap = Object.fromEntries(ROLES.map(v => [v.id, v]));
@@ -325,6 +380,10 @@ const roleVariantsJson = JSON.stringify(
           if (!v) return;
           currentRole = id;
           try { localStorage.setItem(ROLE_KEY, id); } catch(_) {}
+
+          // Auto-switch theme to match role
+          const recommendedTheme = ROLE_THEME_MAP[id];
+          if (recommendedTheme) applyTheme(recommendedTheme);
 
           // Sidebar role line
           const roleEl = document.getElementById('sidebarRole');
@@ -355,6 +414,100 @@ const roleVariantsJson = JSON.stringify(
 
         if (currentRole !== 'default') applyRole(currentRole);
         document.querySelectorAll('.role-pill').forEach(b => b.addEventListener('click', () => applyRole(b.getAttribute('data-role-id'))));
+      }
+
+      // ---- Layout switcher ----
+      const LAYOUT_KEY = 'resume-layout';
+      const LAYOUT_ICONS = { sidebar: '◧', centered: '▦', classic: '▤', dramatic: '▩', glass: '◌', zen: '○' };
+
+      const layoutSwitcher = document.getElementById('layoutSwitcher');
+      const layoutToggle = document.getElementById('layoutToggle');
+      const layoutPanel = document.getElementById('layout-menu-panel');
+      const layoutIcon = document.getElementById('layoutToggleIcon');
+
+      if (layoutSwitcher && layoutToggle && layoutPanel) {
+        // Load saved layout
+        let currentLayout = 'sidebar';
+        try { const s = localStorage.getItem(LAYOUT_KEY); if (s && LAYOUT_ICONS[s]) currentLayout = s; } catch(_) {}
+
+        function applyLayout(id) {
+          currentLayout = id;
+          try { localStorage.setItem(LAYOUT_KEY, id); } catch(_) {}
+
+          // Update icon
+          if (layoutIcon) layoutIcon.textContent = LAYOUT_ICONS[id] || '◧';
+
+          // Update active state
+          layoutPanel.querySelectorAll('.layout-option').forEach(o => {
+            o.classList.toggle('is-active', o.getAttribute('data-layout') === id);
+          });
+
+          const sidebar = document.getElementById('sidebar');
+          const sidebarOv = document.getElementById('sidebarOverlay');
+          const sidebarTg = document.getElementById('sidebarToggle');
+          const header = document.querySelector('header');
+          const footer = document.querySelector('footer');
+          const main = document.querySelector('main');
+          const pageContent = document.querySelector('.page-content');
+
+          if (id === 'sidebar') {
+            // Show sidebar, hide header/footer
+            sidebar?.style.removeProperty('display');
+            sidebarOv?.style.removeProperty('display');
+            sidebarTg?.style.removeProperty('display');
+            document.body.classList.add('layout-sidebar');
+            document.body.classList.remove('layout-classic');
+            if (header) header.style.display = 'none';
+            if (footer) footer.style.display = 'none';
+            if (main) { main.style.maxWidth = ''; main.style.margin = ''; main.style.padding = ''; }
+            if (pageContent) { pageContent.setAttribute('data-page-variant', 'sidebar'); pageContent.style.maxWidth = ''; pageContent.style.margin = ''; }
+          } else {
+            // Hide sidebar, show header/footer
+            if (sidebar) sidebar.style.display = 'none';
+            if (sidebarOv) sidebarOv.style.display = 'none';
+            if (sidebarTg) sidebarTg.style.display = 'none';
+            document.body.classList.remove('layout-sidebar');
+            if (header) header.style.display = '';
+            if (footer) footer.style.display = '';
+            if (main) { main.style.maxWidth = '1100px'; main.style.margin = '0 auto'; main.style.padding = '0 1.5rem'; }
+            if (pageContent) {
+              pageContent.setAttribute('data-page-variant', id);
+              pageContent.style.maxWidth = '860px';
+              pageContent.style.margin = '0 auto';
+            }
+            // Re-trigger reveal animations
+            document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+          }
+
+          document.dispatchEvent(new CustomEvent('layoutchange', { detail: { id } }));
+        }
+
+        // Apply saved layout on load
+        if (currentLayout !== 'sidebar') applyLayout(currentLayout);
+        else {
+          // Set initial active state for sidebar
+          layoutPanel.querySelectorAll('.layout-option').forEach(o => {
+            o.classList.toggle('is-active', o.getAttribute('data-layout') === 'sidebar');
+          });
+        }
+
+        // Toggle panel
+        layoutToggle.addEventListener('click', e => {
+          e.stopPropagation();
+          layoutSwitcher.classList.toggle('is-open');
+        });
+        layoutPanel.querySelectorAll('.layout-option').forEach(o => {
+          o.addEventListener('click', () => {
+            applyLayout(o.getAttribute('data-layout'));
+            layoutSwitcher.classList.remove('is-open');
+          });
+        });
+        document.addEventListener('click', e => {
+          if (!layoutSwitcher.contains(e.target)) layoutSwitcher.classList.remove('is-open');
+        });
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') { layoutSwitcher.classList.remove('is-open'); layoutToggle.focus(); }
+        });
       }
     </script>
   </body>
@@ -388,5 +541,71 @@ const roleVariantsJson = JSON.stringify(
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* PDF export button */
+  .pdf-export-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--theme-border, var(--color-border));
+    background: var(--theme-surface, var(--color-surface));
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--theme-text, var(--color-text));
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .pdf-export-btn:hover {
+    border-color: var(--theme-accent, var(--color-accent));
+    transform: scale(1.05);
+  }
+  .pdf-icon { font-size: 0.85rem; }
+
+  /* Floating PDF button for non-sidebar layouts */
+  .pdf-floating-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--theme-border, var(--color-border));
+    background: var(--theme-card, var(--color-card));
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--theme-text, var(--color-text));
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transition: all 0.2s;
+  }
+  .pdf-floating-btn:hover {
+    border-color: var(--theme-accent, var(--color-accent));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+  }
+
+  /* Print styles */
+  @media print {
+    .sidebar, .sidebar-toggle, .sidebar-overlay,
+    .theme-toggle-wrapper, .lang-menu, .pdf-export-btn, .pdf-floating-btn,
+    header, footer, .page-transition, .cursor-trail,
+    .section-nav, .cta-section { display: none !important; }
+    body { background: #fff !important; color: #000 !important; }
+    main { margin: 0 !important; padding: 0 !important; }
+    .page-frame { padding: 0 !important; }
+    .fact-card, .highlight-card, .timeline-item, .pub-card {
+      break-inside: avoid;
+      box-shadow: none !important;
+      border: 1px solid #ddd !important;
+    }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
   }
 </style>
