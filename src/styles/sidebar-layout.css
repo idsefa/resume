@@ -12,29 +12,30 @@ body.layout-sidebar {
 
 /* ---- Sidebar ---- */
 .sidebar {
-  width: 260px;
+  width: 240px;
   flex-shrink: 0;
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: 0;
-  scrollbar-width: none;
 }
-.sidebar::-webkit-scrollbar { display: none; }
 
 .sidebar-inner {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 1.5rem 1rem 1.5rem;
   min-height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  scrollbar-width: none;
 }
+.sidebar-inner::-webkit-scrollbar { display: none; }
 
 /* Identity block */
 .sidebar-identity {
@@ -100,14 +101,15 @@ body.layout-sidebar {
 .sidebar-nav-links a {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
+  gap: 0.4rem;
+  padding: 0.38rem 0.5rem;
+  border-radius: 7px;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--color-muted);
   text-decoration: none;
   transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
 }
 
 .sidebar-nav-links a:hover,
@@ -212,12 +214,43 @@ body.layout-sidebar {
 /* Controls: lang + theme */
 .sidebar-controls {
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+/* Fix: theme picker escapes sidebar overflow */
+body.layout-sidebar .theme-toggle-wrapper {
+  position: static;
+}
+body.layout-sidebar .theme-picker {
+  position: fixed;
+  left: 248px;
+  bottom: 1.5rem;
+  top: auto;
+  min-width: 12rem;
+  transform: none;
+}
+body.layout-sidebar .theme-picker.is-open {
+  transform: none;
+}
+
+/* Fix: lang menu panel escapes sidebar overflow */
+body.layout-sidebar .lang-menu {
+  position: static;
+}
+body.layout-sidebar .lang-menu-panel {
+  position: fixed;
+  left: 248px;
+  bottom: 1.5rem;
+  top: auto;
+  transform: none;
+}
+body.layout-sidebar .lang-menu.is-open .lang-menu-panel {
+  transform: none;
 }
 
 /* ---- Main content area ---- */
