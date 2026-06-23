@@ -333,9 +333,8 @@ const roleVariantsJson = JSON.stringify(
       const pdfBtn = document.getElementById('pdfExportBtn');
       if (pdfBtn) {
         pdfBtn.addEventListener('click', () => {
-          document.body.classList.add('is-printing');
-          window.print();
-          setTimeout(() => document.body.classList.remove('is-printing'), 500);
+          const lang = location.pathname.split('/')[1] || 'en';
+          window.open('/' + lang + '/pdf', '_blank');
         });
       }
       // ---- Role switcher (all layouts) ----
@@ -368,28 +367,35 @@ const roleVariantsJson = JSON.stringify(
           const recommendedTheme = ROLE_THEME_MAP[id];
           if (recommendedTheme) applyTheme(recommendedTheme);
 
+          // Detect current language from URL
+          const currentLang = location.pathname.split('/')[1] || 'en';
+          const langSuffix = currentLang === 'zh' ? 'Zh' : currentLang === 'zh-hant' ? 'ZhHant' : currentLang === 'de' ? 'De' : currentLang === 'fr' ? 'Fr' : '';
+
           // Sidebar role line
           const roleEl = document.getElementById('sidebarRole');
-          if (roleEl) roleEl.textContent = v.profileRole;
+          if (roleEl) roleEl.textContent = v['profileRole' + langSuffix] || v.profileRole;
 
           // Active pill
           document.querySelectorAll('.role-pill').forEach(b => b.classList.toggle('is-active', b.getAttribute('data-role-id') === id));
 
           // Highlights (about page)
+          const highlights = v['highlights' + langSuffix] || v.highlights;
           document.querySelectorAll('.highlight-card').forEach((card, i) => {
-            if (!v.highlights[i]) return;
+            if (!highlights[i]) return;
             const t = card.querySelector('.highlight-title');
             const d = card.querySelector('.highlight-description');
-            if (t) t.textContent = v.highlights[i].title;
-            if (d) d.textContent = v.highlights[i].description;
+            if (t) t.textContent = highlights[i].title;
+            if (d) d.textContent = highlights[i].description;
           });
 
           // Page header summary (experience / education)
           const pageKey = document.querySelector('main')?.getAttribute('data-page-key');
           const summaryEl = document.querySelector('.page-header-summary');
           if (summaryEl) {
-            if (pageKey === 'experience' && v.experienceSummary?.[0]) summaryEl.textContent = v.experienceSummary[0];
-            else if (pageKey === 'education' && v.educationSummary?.[0]) summaryEl.textContent = v.educationSummary[0];
+            const expSummary = v['experienceSummary' + langSuffix] || v.experienceSummary;
+            const eduSummary = v['educationSummary' + langSuffix] || v.educationSummary;
+            if (pageKey === 'experience' && expSummary?.[0]) summaryEl.textContent = expSummary[0];
+            else if (pageKey === 'education' && eduSummary?.[0]) summaryEl.textContent = eduSummary[0];
           }
 
           document.dispatchEvent(new CustomEvent('rolechange', { detail: { id, variant: v } }));

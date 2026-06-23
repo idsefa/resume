@@ -1,17 +1,43 @@
 export type RoleVariant = {
   label: string;
   labelZh?: string;
+  labelZhHant?: string;
+  labelDe?: string;
+  labelFr?: string;
   profileRole: string;
+  profileRoleZh?: string;
+  profileRoleZhHant?: string;
+  profileRoleDe?: string;
+  profileRoleFr?: string;
   highlights: Array<{ title: string; description: string }>;
+  highlightsZh?: Array<{ title: string; description: string }>;
+  highlightsZhHant?: Array<{ title: string; description: string }>;
+  highlightsDe?: Array<{ title: string; description: string }>;
+  highlightsFr?: Array<{ title: string; description: string }>;
   experienceSummary: string[];
+  experienceSummaryZh?: string[];
+  experienceSummaryZhHant?: string[];
+  experienceSummaryDe?: string[];
+  experienceSummaryFr?: string[];
   educationSummary: string[];
+  educationSummaryZh?: string[];
+  educationSummaryZhHant?: string[];
+  educationSummaryDe?: string[];
+  educationSummaryFr?: string[];
 };
 
 export const ROLE_VARIANTS: Record<string, RoleVariant> = {
   default: {
     label: 'General',
     labelZh: '通用',
+    labelZhHant: '通用',
+    labelDe: 'Allgemein',
+    labelFr: 'Général',
     profileRole: 'MEng Student in Aviation Engineering and Operation Management',
+    profileRoleZh: '航空工程与运营管理硕士研究生',
+    profileRoleZhHant: '航空工程與運營管理碩士研究生',
+    profileRoleDe: 'MSc-Student in Luftfahrttechnik und Betriebsmanagement',
+    profileRoleFr: 'Étudiant MSc en Ingénierie Aéronautique et Management des Opérations',
     highlights: [
       {
         title: 'Simulation-driven operations research',
@@ -26,20 +52,108 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
         description: 'Hands-on with simulation, optimization, and data tools used in real-world operations and engineering projects.',
       },
     ],
+    highlightsZh: [
+      { title: '仿真驱动的运筹学研究', description: '主要兴趣：利用仿真和AI工具，通过数据驱动分析改善机场和航空公司运营。' },
+      { title: '4段实习中的跨职能协作', description: '经历涵盖制造业、研发、机场研究和校园招聘——与多元团队合作交付成果。' },
+      { title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation', description: '熟练使用仿真、优化和数据工具，应用于实际运营和工程项目。' },
+    ],
+    highlightsZhHant: [
+      { title: '仿真驅動的運籌學研究', description: '主要興趣：利用仿真和AI工具，通過數據驅動分析改善機場和航空公司運營。' },
+      { title: '4段實習中的跨職能協作', description: '經歷涵蓋製造業、研發、機場研究和校園招聘——與多元團隊合作交付成果。' },
+      { title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation', description: '熟練使用仿真、優化和數據工具，應用於實際運營和工程項目。' },
+    ],
+    highlightsDe: [
+      { title: 'Simulationgestützte Operationsforschung', description: 'Hauptinteresse: Einsatz von Simulations- und KI-Tools zur Verbesserung des Flughafen- und Flugbetriebs durch datengetriebene Analyse.' },
+      { title: 'Funktionsübergreifende Zusammenarbeit in 4 Praktika', description: 'Erfahrung in Fertigung, F&E, Flughafenforschung und Campus-Recruiting — Arbeit in diversen Teams zur Ergebnislieferung.' },
+      { title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation', description: 'Praktische Erfahrung mit Simulations-, Optimierungs- und Datenwerkzeugen für reale Betriebs- und Ingenieurprojekte.' },
+    ],
+    highlightsFr: [
+      { title: 'Recherche opérationnelle pilotée par la simulation', description: 'Intérêt principal : utiliser la simulation et les outils IA pour améliorer les opérations aéroportuaires et aériennes par l\'analyse basée sur les données.' },
+      { title: 'Collaboration interfonctionnelle à travers 4 stages', description: 'Expérience en fabrication, R&D, recherche aéroportuaire et recrutement campus — travail en équipes diversifiées pour produire des résultats.' },
+      { title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation', description: 'Maîtrise des outils de simulation, d\'optimisation et de données appliqués aux projets d\'opérations et d\'ingénierie.' },
+    ],
     experienceSummary: [
       'I have worked in R&D, airport simulation research, and factory operations improvement.',
       'Across these roles, I focused on solving daily workflow and efficiency problems with data and engineering methods.',
+    ],
+    experienceSummaryZh: [
+      '我在研发、机场仿真研究和工厂运营改善方面有实践经验。',
+      '在这些角色中，我专注于用数据和工程方法解决日常工作流程和效率问题。',
+    ],
+    experienceSummaryZhHant: [
+      '我在研發、機場仿真研究和工廠運營改善方面有實踐經驗。',
+      '在這些角色中，我專注於用數據和工程方法解決日常工作流程和效率問題。',
+    ],
+    experienceSummaryDe: [
+      'Ich habe in F&E, Flughafen-Simulationsforschung und Fabrikbetriebsoptimierung gearbeitet.',
+      'In diesen Rollen konzentrierte ich mich auf die Lösung täglicher Workflow- und Effizienzprobleme mit Daten- und Ingenieurmethoden.',
+    ],
+    experienceSummaryFr: [
+      'J\'ai travaillé en R&D, en recherche de simulation aéroportuaire et en amélioration des opérations d\'usine.',
+      'Dans ces rôles, je me suis concentré sur la résolution des problèmes quotidiens de flux de travail et d\'efficacité grâce aux données et aux méthodes d\'ingénierie.',
     ],
     educationSummary: [
       'My background combines aviation, industrial engineering, and law minor training.',
       'I like using this cross-domain view to solve operations and management problems.',
     ],
+    educationSummaryZh: [
+      '我的背景结合了航空、工业工程和法学辅修训练。',
+      '我喜欢用这种跨领域视角来解决运营和管理问题。',
+    ],
+    educationSummaryZhHant: [
+      '我的背景結合了航空、工業工程和法學輔修訓練。',
+      '我喜歡用這種跨領域視角來解決運營和管理問題。',
+    ],
+    educationSummaryDe: [
+      'Mein Hintergrund verbindet Luftfahrt, Industrieingenieurwesen und ein Nebenfach Rechtswissenschaften.',
+      'Ich nutze gerne diese bereichsübergreifende Perspektive zur Lösung von Betriebs- und Managementproblemen.',
+    ],
+    educationSummaryFr: [
+      'Mon parcours combine l\'aéronautique, l\'ingénierie industrielle et une mineure en droit.',
+      'J\'aime utiliser cette perspective interdisciplinaire pour résoudre les problèmes d\'opérations et de gestion.',
+    ],
+    highlightsZh: [
+      { title: "仿真驱动的运筹学研究", description: "主要兴趣：利用仿真和AI工具，通过数据驱动分析改善机场和航空公司运营。" },
+      { title: "4段实习中的跨职能协作", description: "经历涵盖制造业、研发、机场研究和校园招聘——与多元团队合作交付成果。" },
+      { title: "Python, SQL, AnyLogic, OR-Tools, Plant Simulation", description: "熟练使用仿真、优化和数据工具，应用于实际运营和工程项目。" },
+    ],
+    highlightsZhHant: [
+      { title: "仿真驅動的運籌學研究", description: "主要興趣：利用仿真和AI工具，通過數據驅動分析改善機場和航空公司運營。" },
+      { title: "4段實習中的跨職能協作", description: "經歷涵蓋製造業、研發、機場研究和校園招聘——與多元團隊合作交付成果。" },
+      { title: "Python, SQL, AnyLogic, OR-Tools, Plant Simulation", description: "熟練使用仿真、優化和數據工具，應用於實際運營和工程項目。" },
+    ],
+    highlightsDe: [
+      { title: "Simulationgestützte Operationsforschung", description: "Hauptinteresse: Einsatz von Simulations- und KI-Tools zur Verbesserung des Flughafenbetriebs." },
+      { title: "Funktionsübergreifende Zusammenarbeit in 4 Praktika", description: "Erfahrung in Fertigung, F&E, Flughafenforschung und Campus-Recruiting." },
+      { title: "Python, SQL, AnyLogic, OR-Tools, Plant Simulation", description: "Praktische Erfahrung mit Simulations- und Optimierungswerkzeugen." },
+    ],
+    highlightsFr: [
+      { title: "Recherche opérationnelle pilotée par la simulation", description: "Intérêt principal : simulation et outils IA pour améliorer les opérations aéroportuaires." },
+      { title: "Collaboration interfonctionnelle via 4 stages", description: "Expérience en fabrication, R&D, recherche aéroportuaire et recrutement campus." },
+      { title: "Python, SQL, AnyLogic, OR-Tools, Plant Simulation", description: "Maîtrise des outils de simulation et d'optimisation pour les opérations." },
+    ],
+    experienceSummaryZh: ["我在研发、机场仿真研究和工厂运营改善方面有实践经验。", "在这些角色中，我专注于用数据和工程方法解决日常工作流程和效率问题。"],
+    experienceSummaryZhHant: ["我在研發、機場仿真研究和工廠運營改善方面有實踐經驗。", "在這些角色中，我專注於用數據和工程方法解決日常工作流程和效率問題。"],
+    experienceSummaryDe: ["Ich habe in F&E, Flughafen-Simulationsforschung und Fabrikbetriebsoptimierung gearbeitet.", "In diesen Rollen konzentrierte ich mich auf Workflow- und Effizienzprobleme mit Daten- und Ingenieurmethoden."],
+    experienceSummaryFr: ["J'ai travaillé en R&D, en recherche de simulation aéroportuaire et en amélioration des opérations d'usine.", "Dans ces rôles, je me suis concentré sur les problèmes de flux de travail et d'efficacité."],
+    educationSummaryZh: ["我的背景结合了航空、工业工程和法学辅修训练。", "我喜欢用这种跨领域视角来解决运营和管理问题。"],
+    educationSummaryZhHant: ["我的背景結合了航空、工業工程和法學輔修訓練。", "我喜歡用這種跨領域視角來解決運營和管理問題。"],
+    educationSummaryDe: ["Mein Hintergrund verbindet Luftfahrt, Industrieingenieurwesen und ein Nebenfach Rechtswissenschaften.", "Ich nutze gerne diese bereichsübergreifende Perspektive zur Lösung von Betriebsproblemen."],
+    educationSummaryFr: ["Mon parcours combine l'aéronautique, l'ingénierie industrielle et une mineure en droit.", "J'aime utiliser cette perspective interdisciplinaire pour résoudre les problèmes d'opérations."],
+
   },
 
   aviation: {
     label: 'Aviation',
     labelZh: '航空',
+    labelZhHant: '航空',
+    labelDe: 'Luftfahrt',
+    labelFr: 'Aéronautique',
     profileRole: 'Aviation Operations Analyst',
+    profileRoleZh: '航空运营分析师',
+    profileRoleZhHant: '航空運營分析師',
+    profileRoleDe: 'Luftfahrtbetriebsanalyst',
+    profileRoleFr: 'Analyste des opérations aéronautiques',
     highlights: [
       {
         title: 'Airport simulation: modeled airside vehicle operations at Baiyun Airport',
@@ -62,12 +176,101 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'The MEng in Aviation Engineering and Operation Management at PolyU is directly aligned with airline operations, airport management, and aviation consulting careers.',
       'My IE bachelor and law minor add structured problem-solving and regulatory awareness to the aviation domain foundation.',
     ],
+    highlightsZh: [
+      { title: "机场仿真：白云机场地面车辆运营建模", description: "为广州白云机场地面车辆运营设计AnyLogic仿真模型，实现避碰和路径规划算法，改善模拟交通流和安全指标。" },
+      { title: "理工大学航空工程硕士——专为航空公司和机场运营设计", description: "港理工MEng课程专门面向航空公司运营、机场管理和航空咨询职业设计——在技术能力之外提供深入的领域专业知识。" },
+      { title: "工业工程训练的系统思维应用于航空", description: "工业工程训练提供了结构化、系统化的方法来分析和优化复杂的机场和航空公司运营工作流。" },
+    ],
+    highlightsZhHant: [
+      { title: "機場仿真：白雲機場地面車輛運營建模", description: "為廣州白雲機場地面車輛運營設計AnyLogic仿真模型，實現避碰和路徑規劃算法，改善模擬交通流和安全指標。" },
+      { title: "理工大學航空工程碩士——專為航空公司和機場運營設計", description: "港理工MEng課程專門面向航空公司運營、機場管理和航空諮詢職業設計——在技術能力之外提供深入的領域專業知識。" },
+      { title: "工業工程訓練的系統思維應用於航空", description: "工業工程訓練提供了結構化、系統化的方法來分析和優化複雜的機場和航空公司運營工作流。" },
+    ],
+    highlightsDe: [
+      { title: "Flughafensimulation: Modellierung des Airside-Fahrzeugbetriebs", description: "Entwurf eines AnyLogic-Simulationsmodells für den Airside-Fahrzeugbetrieb am Flughafen Guangzhou Baiyun mit Kollisionsvermeidung und Pfadplanungsalgorithmen." },
+      { title: "MEng an der PolyU — maßgeschneidert für Luftfahrtbetrieb", description: "Das PolyU MEng-Programm ist speziell auf Karrieren im Flugbetrieb, Flughafenmanagement und Luftfahrtberatung ausgerichtet." },
+      { title: "IE-geschultes systemisches Denken in der Luftfahrt", description: "Das IE-Training bietet einen strukturierten Ansatz zur Analyse und Optimierung komplexer Flughafen- und Flugbetriebsabläufe." },
+    ],
+    highlightsFr: [
+      { title: "Simulation aéroportuaire : modélisation des opérations airside", description: "Conception d\'un modèle de simulation AnyLogic pour les opérations de véhicules airside à l\'aéroport de Guangzhou Baiyun, avec évitement de collisions et algorithmes de planification de trajectoire." },
+      { title: "MEng à PolyU — conçue pour les opérations aériennes", description: "Le programme MEng de PolyU est spécialement conçu pour les carrières en opérations aériennes, gestion aéroportuaire et conseil aéronautique." },
+      { title: "Pensée systémique IE appliquée à l'aéronautique", description: "La formation IE fournit une approche structurée pour analyser et optimiser les flux opérationnels complexes des aéroportuaires et aériens." },
+    ],
+    experienceSummaryZh: [
+      "我最相关的角色是与广州白云国际机场合作的一年期研究项目，设计地面车辆运营仿真模型。",
+      "该项目结合了路径规划、避碰和数据驱动优化——获得优秀论文和创新奖。",
+    ],
+    experienceSummaryZhHant: [
+      "我最相關的角色是與廣州白雲國際機場合作的一年期研究項目，設計地面車輛運營仿真模型。",
+      "該項目結合了路徑規劃、避碰和數據驅動優化——獲得優秀論文和創新獎。",
+    ],
+    experienceSummaryDe: [
+      "Meine relevanteste Rolle ist ein einjähriges Forschungsprojekt mit dem Flughafen Guangzhou Baiyun für den Airside-Fahrzeugbetrieb.",
+      "Dieses Projekt verband Pfadplanung, Kollisionsvermeidung und datengetriebene Optimierung — und erhielt den Innovationspreis.",
+    ],
+    experienceSummaryFr: [
+      "Mon rôle le plus pertinent est un projet de recherche d\'un an avec l\'aéroport de Guangzhou Baiyun pour les opérations de véhicules airside.",
+      "Ce projet combinait planification de trajectoire, évitement de collisions et optimisation basée sur les données — prix de l\'innovation obtenu.",
+    ],
+    educationSummaryZh: [
+      "港理工的航空工程与运营管理硕士与航空公司运营、机场管理和航空咨询职业直接对口。",
+      "我的工业工程本科和法学辅修为航空领域基础增加了结构化问题解决能力和法规意识。",
+    ],
+    educationSummaryZhHant: [
+      "港理工的航空工程與運營管理碩士與航空公司運營、機場管理和航空諮詢職業直接對口。",
+      "我的工業工程本科和法學輔修為航空領域基礎增加了結構化問題解決能力和法規意識。",
+    ],
+    educationSummaryDe: [
+      "Der MEng in Aviation Engineering an der PolyU ist direkt auf Flugbetrieb und Flughafenmanagement ausgerichtet.",
+      "Mein IE-Bachelor und Nebenfach Recht ergänzen die Luftfahrtbasis um strukturierte Problemlösung und regulatorisches Bewusstsein.",
+    ],
+    educationSummaryFr: [
+      "Le MSc en Ingénierie Aéronautique à PolyU est directement aligné sur les opérations aériennes et la gestion aéroportuaire.",
+      "Ma licence IE et mineure en droit ajoutent résolution structurée des problèmes et conscience réglementaire au domaine aéronautique.",
+    ],
+
+    highlightsZh: [
+      { title: "机场仿真：白云机场地面车辆运营建模", description: "为广州白云机场地面车辆运营设计AnyLogic仿真模型，实现避碰和路径规划算法。" },
+      { title: "理工大学航空工程硕士", description: "港理工MEng课程专门面向航空公司运营、机场管理和航空咨询职业设计。" },
+      { title: "工业工程系统思维应用于航空", description: "工业工程训练提供了结构化方法来分析和优化复杂的机场运营工作流。" },
+    ],
+    highlightsZhHant: [
+      { title: "機場仿真：白雲機場地面車輛運營建模", description: "為廣州白雲機場地面車輛運營設計AnyLogic仿真模型，實現避碰和路徑規劃算法。" },
+      { title: "理工大學航空工程碩士", description: "港理工MEng課程專門面向航空公司運營、機場管理和航空諮詢職業設計。" },
+      { title: "工業工程系統思維應用於航空", description: "工業工程訓練提供了結構化方法來分析和優化複雜的機場運營工作流。" },
+    ],
+    highlightsDe: [
+      { title: "Flughafensimulation: Airside-Fahrzeugbetrieb", description: "Entwurf eines AnyLogic-Simulationsmodells für den Airside-Fahrzeugbetrieb am Flughafen Guangzhou Baiyun." },
+      { title: "MEng an der PolyU für Luftfahrtbetrieb", description: "Das PolyU MEng-Programm ist speziell auf Karrieren im Flugbetrieb ausgerichtet." },
+      { title: "IE-geschultes systemisches Denken in der Luftfahrt", description: "Das IE-Training bietet einen strukturierten Ansatz zur Optimierung komplexer Flughafenabläufe." },
+    ],
+    highlightsFr: [
+      { title: "Simulation aéroportuaire : opérations airside", description: "Conception d'un modèle de simulation AnyLogic pour les opérations de véhicules airside." },
+      { title: "MEng à PolyU pour les opérations aériennes", description: "Le programme MEng de PolyU est conçu pour les carrières en opérations aériennes." },
+      { title: "Pensée systémique IE appliquée à l'aéronautique", description: "La formation IE fournit une approche structurée pour optimiser les flux aéroportuaires." },
+    ],
+    experienceSummaryZh: ["我最相关的角色是与广州白云国际机场合作的一年期研究项目，设计地面车辆运营仿真模型。", "该项目结合了路径规划、避碰和数据驱动优化——获得优秀论文和创新奖。"],
+    experienceSummaryZhHant: ["我最相關的角色是與廣州白雲國際機場合作的一年期研究項目，設計地面車輛運營仿真模型。", "該項目結合了路徑規劃、避碰和數據驅動優化——獲得優秀論文和創新獎。"],
+    experienceSummaryDe: ["Meine relevanteste Rolle ist ein einjähriges Forschungsprojekt mit dem Flughafen Guangzhou Baiyun.", "Dieses Projekt verband Pfadplanung, Kollisionsvermeidung und datengetriebene Optimierung."],
+    experienceSummaryFr: ["Mon rôle le plus pertinent est un projet de recherche d'un an avec l'aéroport de Guangzhou Baiyun.", "Ce projet combinait planification de trajectoire, évitement de collisions et optimisation."],
+    educationSummaryZh: ["港理工的航空工程与运营管理硕士与航空公司运营、机场管理和航空咨询职业直接对口。", "我的工业工程本科和法学辅修为航空领域基础增加了结构化问题解决能力和法规意识。"],
+    educationSummaryZhHant: ["港理工的航空工程與運營管理碩士與航空公司運營、機場管理和航空諮詢職業直接對口。", "我的工業工程本科和法學輔修為航空領域基礎增加了結構化問題解決能力和法規意識。"],
+    educationSummaryDe: ["Der MEng in Aviation Engineering an der PolyU ist direkt auf Flugbetrieb und Flughafenmanagement ausgerichtet.", "Mein IE-Bachelor und Nebenfach Recht ergänzen die Luftfahrtbasis um strukturierte Problemlösung."],
+    educationSummaryFr: ["Le MSc en Ingénierie Aéronautique à PolyU est aligné sur les opérations aériennes et la gestion aéroportuaire.", "Ma licence IE et mineure en droit ajoutent résolution structurée des problèmes au domaine aéronautique."],
+
   },
 
   consulting: {
     label: 'Consulting',
     labelZh: '咨询',
+    labelZhHant: '諮詢',
+    labelDe: 'Beratung',
+    labelFr: 'Conseil',
     profileRole: 'Operations & Management Consulting Candidate',
+    profileRoleZh: '运营与管理咨询候选人',
+    profileRoleZhHant: '運營與管理諮詢候選人',
+    profileRoleDe: 'Kandidat für Betriebs- und Managementberatung',
+    profileRoleFr: 'Candidat Conseil en Opérations et Management',
     highlights: [
       {
         title: 'Cross-industry problem-solving across 4 internships',
@@ -90,12 +293,48 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'The combination of IE engineering, aviation operations (MEng), and law minor is unusual — it gives me multiple analytical frameworks for diagnosing complex business problems.',
       'This cross-domain background is exactly what management consulting demands: structured thinking applied across industries.',
     ],
+    highlightsZh: [
+      { title: "跨行业问题解决：4段实习经验", description: "经历涵盖航空仿真、制造业效率、AI工作流和校园招聘。" },
+      { title: "数据驱动的流程改善：ECRS、线平衡、工时研究", description: "在柳工和美的应用ECRS、线平衡和工时研究，识别瓶颈并提出效率改善方案。" },
+      { title: "利益相关方沟通", description: "担任校园品牌大使和跨职能研发团队成员——将技术发现转化为清晰建议。" },
+    ],
+    highlightsZhHant: [
+      { title: "跨行業問題解決：4段實習經驗", description: "經歷涵蓋航空仿真、製造業效率、AI工作流和校園招聘。" },
+      { title: "數據驅動的流程改善：ECRS、線平衡、工時研究", description: "在柳工和美的應用ECRS、線平衡和工時研究，識別瓶頸並提出效率改善方案。" },
+      { title: "利益相關方溝通", description: "擔任校園品牌大使和跨職能研發團隊成員——將技術發現轉化為清晰建議。" },
+    ],
+    highlightsDe: [
+      { title: "Branchenübergreifende Problemlösung in 4 Praktika", description: "Erfahrung in Luftfahrtsimulation, Fertigungseffizienz, KI-Workflow und Campus-Recruiting." },
+      { title: "Datengetriebene Prozessverbesserung: ECRS, Linienbalance", description: "Anwendung von ECRS und Zeitstudie in 2 Fertigungspraktika." },
+      { title: "Stakeholder-Kommunikation", description: "Campus-Markenbotschafter und F&E-Teammitglied — Übersetzung technischer Erkenntnisse in Empfehlungen." },
+    ],
+    highlightsFr: [
+      { title: "Résolution de problèmes intersectorielle via 4 stages", description: "Expérience en simulation aéronautique, efficacité manufacturière et recrutement campus." },
+      { title: "Amélioration des processus par les données : ECRS, équilibrage", description: "Application de l'ECRS et de l'étude de temps lors de 2 stages en fabrication." },
+      { title: "Communication avec les parties prenantes", description: "Ambassadeur de marque campus et membre d'équipe R&D — recommandations claires." },
+    ],
+    experienceSummaryZh: ["我的实习涵盖制造业运营、研发和机场研究——每个都需要结构化分析和可操作的建议。", "这些多样化角色构建了咨询工具箱：快速上下文切换、客户沟通和约束下的方案交付。"],
+    experienceSummaryZhHant: ["我的實習涵蓋製造業運營、研發和機場研究——每個都需要結構化分析和可操作的建議。", "這些多樣化角色構建了諮詢工具箱：快速上下文切換、客戶溝通和約束下的方案交付。"],
+    experienceSummaryDe: ["Meine Praktika decken Fertigungsoperationen, F&E und Flughafenforschung ab.", "Diese vielfältigen Rollen bilden das Berater-Toolkit."],
+    experienceSummaryFr: ["Mes stages couvrent les opérations, la R&D et la recherche aéroportuaire.", "Ces rôles diversifiés construisent la boîte à outils du consultant."],
+    educationSummaryZh: ["工业工程、航空运营和法学辅修的组合给了我多个分析框架来诊断复杂的商业问题。", "这种跨领域背景正是管理咨询所需要的。"],
+    educationSummaryZhHant: ["工業工程、航空運營和法學輔修的組合給了我多個分析框架來診斷複雜的商業問題。", "這種跨領域背景正是管理諮詢所需要的。"],
+    educationSummaryDe: ["Die Kombination aus IE, Luftfahrt und Recht gibt mir mehrere analytische Frameworks.", "Dieser bereichsübergreifende Hintergrund ist genau das, was Managementberatung verlangt."],
+    educationSummaryFr: ["La combinaison IE, aéronautique et droit me donne plusieurs cadres analytiques.", "Ce parcours interdisciplinaire est ce que le conseil en management exige."],
+
   },
 
   engineering: {
     label: 'Engineering',
     labelZh: '工程',
+    labelZhHant: '工程',
+    labelDe: 'Ingenieurwesen',
+    labelFr: 'Ingénierie',
     profileRole: 'Industrial Engineering / Operations Specialist',
+    profileRoleZh: '工业工程 / 运营专家',
+    profileRoleZhHant: '工業工程 / 運營專家',
+    profileRoleDe: 'Industrieingenieur / Betriebsspezialist',
+    profileRoleFr: 'Ingénieur Industriel / Spécialiste des Opérations',
     highlights: [
       {
         title: 'Shop-floor time study and line balancing at 2 major manufacturers',
@@ -118,16 +357,105 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'Bachelor of Engineering in Industrial Engineering from Guangdong University of Technology — with strong coursework in operations research, simulation, and quality engineering.',
       'The MEng in Aviation adds systems-level thinking to the IE toolkit, applicable to complex logistics and operations problems.',
     ],
+    highlightsZh: [
+      { title: "两家制造企业的车间工时研究和线平衡", description: "在柳工和美的测量节拍时间，识别瓶颈并提出布局改善方案。" },
+      { title: "仿真驱动的流程设计：AnyLogic + Plant Simulation", description: "构建离散事件和基于代理的仿真模型，在实施前验证流程变更。" },
+      { title: "运筹学和Python用于排程、路径和产能优化", description: "应用OR-Tools、Python和MySQL解决排程和优化问题。" },
+    ],
+    highlightsZhHant: [
+      { title: "兩家製造企業的車間工時研究和線平衡", description: "在柳工和美的測量節拍時間，識別瓶頸並提出布局改善方案。" },
+      { title: "仿真驅動的流程設計：AnyLogic + Plant Simulation", description: "構建離散事件和基於代理的仿真模型，在實施前驗證流程變更。" },
+      { title: "運籌學和Python用於排程、路徑和產能優化", description: "應用OR-Tools、Python和MySQL解決排程和優化問題。" },
+    ],
+    highlightsDe: [
+      { title: "Zeitstudie und Linienbalance bei 2 Herstellern", description: "Messung der Zykluszeit bei LiuGong und Midea; Identifikation kritischer Engpässe." },
+      { title: "Simulationsgestützte Prozessgestaltung", description: "Erstellung von Simulationsmodellen zur Validierung von Prozessänderungen." },
+      { title: "OR und Python für Optimierung", description: "Einsatz von OR-Tools, Python und MySQL zur Lösung von Optimierungsproblemen." },
+    ],
+    highlightsFr: [
+      { title: "Étude de temps et équilibrage chez 2 fabricants", description: "Mesure du temps de cycle chez LiuGong et Midea ; identification des goulots." },
+      { title: "Conception de processus par simulation", description: "Construction de modèles de simulation pour valider les changements avant implémentation." },
+      { title: "RO et Python pour optimisation", description: "Utilisation d'OR-Tools, Python et MySQL pour résoudre les problèmes d'optimisation." },
+    ],
+    experienceSummaryZh: ["在柳工和美的的制造业实习给了我实战IE经验：工时研究、动作经济和线平衡。", "机场仿真实验将这些技能扩展到更复杂的动态系统。"],
+    experienceSummaryZhHant: ["在柳工和美的的製造業實習給了我實戰IE經驗：工時研究、動作經濟和線平衡。", "機場仿真實驗將這些技能擴展到更複雜的動態系統。"],
+    experienceSummaryDe: ["Zwei Fertigungspraktika gaben mir praktische IE-Erfahrung: Zeitstudie und Linienbalance.", "Meine Flughafensimulation erweiterte diese Fähigkeiten auf komplexere Systeme."],
+    experienceSummaryFr: ["Deux stages en fabrication m'ont donné une expérience pratique de l'IE.", "Ma recherche en simulation aéroportuaire a étendu ces compétences à des systèmes plus complexes."],
+    educationSummaryZh: ["广东工业大学工业工程学士——运筹学、仿真和质量工程课程扎实。", "航空硕士为IE工具包增加了系统层面思维。"],
+    educationSummaryZhHant: ["廣東工業大學工業工程學士——運籌學、仿真和質量工程課程紮實。", "航空碩士為IE工具包增加了系統層面思維。"],
+    educationSummaryDe: ["Bachelor in Industrieingenieurwesen — fundierte Kurse in OR und Simulation.", "Der MEng in Luftfahrt ergänzt das IE-Toolkit um systemisches Denken."],
+    educationSummaryFr: ["Licence en Ingénierie Industrielle — cours solides en RO et simulation.", "Le MSc en Aéronautique ajoute une pensée systémique à la boîte à outils IE."],
+
   },
 
   ai: {
     label: 'AI / Data',
     labelZh: 'AI/数据',
+    labelZhHant: 'AI/數據',
+    labelDe: 'KI / Daten',
+    labelFr: 'IA / Données',
     profileRole: 'AI Engineer / Operations Researcher',
+    profileRoleZh: 'AI工程师 / 运筹研究员',
+    profileRoleZhHant: 'AI工程師 / 運籌研究員',
+    profileRoleDe: 'KI-Ingenieur / Operations-Researcher',
+    profileRoleFr: 'Ingénieur IA / Chercheur en Recherche Opérationnelle',
     highlights: [
       {
         title: 'AI deployment on Huawei Ascend: use cases + 2 patent filings',
         description: 'Developed AI use cases on Huawei Ascend platform and optimized workflows at Shenzhen Wuxian Hongyin; filed 2 patents from AI-driven internship projects.',
+    highlightsZh: [
+      { title: "跨行业问题解决：4段实习经验", description: "经历涵盖航空仿真、制造业效率、AI工作流和校园招聘。" },
+      { title: "数据驱动的流程改善：ECRS、线平衡、工时研究", description: "在柳工和美的应用ECRS、线平衡和工时研究，识别瓶颈并提出效率改善方案。" },
+      { title: "利益相关方沟通", description: "担任校园品牌大使和跨职能研发团队成员——将技术发现转化为清晰建议。" },
+    ],
+    highlightsZhHant: [
+      { title: "跨行業問題解決：4段實習經驗", description: "經歷涵蓋航空仿真、製造業效率、AI工作流和校園招聘。" },
+      { title: "數據驅動的流程改善：ECRS、線平衡、工時研究", description: "在柳工和美的應用ECRS、線平衡和工時研究，識別瓶頸並提出效率改善方案。" },
+      { title: "利益相關方溝通", description: "擔任校園品牌大使和跨職能研發團隊成員——將技術發現轉化為清晰建議。" },
+    ],
+    highlightsDe: [
+      { title: "Branchenübergreifende Problemlösung in 4 Praktika", description: "Erfahrung in Luftfahrtsimulation, Fertigungseffizienz, KI-Workflow und Campus-Recruiting." },
+      { title: "Datengetriebene Prozessverbesserung: ECRS, Linienbalance, Zeitstudie", description: "Anwendung von ECRS und Zeitstudie in 2 Fertigungspraktika zur Engpassidentifikation." },
+      { title: "Stakeholder-Kommunikation", description: "Campus-Markenbotschafter und funktionsübergreifendes F&E-Teammitglied — Übersetzung technischer Erkenntnisse in klare Empfehlungen." },
+    ],
+    highlightsFr: [
+      { title: "Résolution de problèmes intersectorielle via 4 stages", description: "Expérience en simulation aéronautique, efficacité manufacturière, flux IA et recrutement campus." },
+      { title: "Amélioration des processus par les données : ECRS, équilibrage, étude de temps", description: "Application de l\'ECRS et de l\'étude de temps lors de 2 stages en fabrication pour identifier les goulots." },
+      { title: "Communication avec les parties prenantes", description: "Ambassadeur de marque campus et membre d\'équipe R&D interfonctionnelle — traduction des résultats techniques en recommandations claires." },
+    ],
+    experienceSummaryZh: [
+      "我的实习涵盖制造业运营、研发和机场研究——每个都需要结构化分析和可操作的建议。",
+      "这些多样化角色构建了咨询工具箱：快速上下文切换、客户沟通和约束下的方案交付。",
+    ],
+    experienceSummaryZhHant: [
+      "我的實習涵蓋製造業運營、研發和機場研究——每個都需要結構化分析和可操作的建議。",
+      "這些多樣化角色構建了諮詢工具箱：快速上下文切換、客戶溝通和約束下的方案交付。",
+    ],
+    experienceSummaryDe: [
+      "Meine Praktika decken Fertigungsoperationen, F&E und Flughafenforschung ab — jeweils mit strukturierter Analyse und umsetzbaren Empfehlungen.",
+      "Diese vielfältigen Rollen bilden das Berater-Toolkit: schneller Kontextwechsel und kundenorientierte Kommunikation.",
+    ],
+    experienceSummaryFr: [
+      "Mes stages couvrent les opérations, la R&D et la recherche aéroportuaire — chacun nécessitant analyse structurée et recommandations exploitables.",
+      "Ces rôles diversifiés construisent la boîte à outils du consultant : changement de contexte rapide et communication client.",
+    ],
+    educationSummaryZh: [
+      "工业工程、航空运营和法学辅修的组合给了我多个分析框架来诊断复杂的商业问题。",
+      "这种跨领域背景正是管理咨询所需要的：跨行业的结构化思维。",
+    ],
+    educationSummaryZhHant: [
+      "工業工程、航空運營和法學輔修的組合給了我多個分析框架來診斷複雜的商業問題。",
+      "這種跨領域背景正是管理諮詢所需要的：跨行業的結構化思維。",
+    ],
+    educationSummaryDe: [
+      "Die Kombination aus IE, Luftfahrt und Recht gibt mir mehrere analytische Frameworks zur Diagnose komplexer Geschäftsprobleme.",
+      "Dieser bereichsübergreifende Hintergrund ist genau das, was Managementberatung verlangt.",
+    ],
+    educationSummaryFr: [
+      "La combinaison IE, aéronautique et droit me donne plusieurs cadres analytiques pour diagnostiquer des problèmes commerciaux complexes.",
+      "Ce parcours interdisciplinaire est ce que le conseil en management exige : pensée structurée intersectorielle.",
+    ],
+
       },
       {
         title: 'Hybrid AI: simulation + optimization + LLM prompt engineering',
@@ -146,12 +474,48 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'Industrial Engineering provides the operations research foundation (optimization, modeling, algorithms) that underpins applied AI work.',
       'The MEng in Aviation Engineering extends this to real-world systems with complex operational constraints — a natural context for AI applications.',
     ],
+    highlightsZh: [
+      { title: "华为昇腾AI部署：用例开发 + 2项专利", description: "开发华为昇腾平台AI用例并优化工作流；申请2项专利。" },
+      { title: "混合AI：仿真 + 优化 + LLM提示工程", description: "结合AnyLogic仿真、OR-Tools优化和提示工程构建混合AI-运营解决方案。" },
+      { title: "快速原型：Python、SQL、提示工程", description: "精通Python、SQL和提示工程；交付AI辅助工具并加速研究工作流。" },
+    ],
+    highlightsZhHant: [
+      { title: "華為昇騰AI部署：用例開發 + 2項專利", description: "開發華為昇騰平台AI用例並優化工作流；申請2項專利。" },
+      { title: "混合AI：仿真 + 優化 + LLM提示工程", description: "結合AnyLogic仿真、OR-Tools優化和提示工程構建混合AI-運營解決方案。" },
+      { title: "快速原型：Python、SQL、提示工程", description: "精通Python、SQL和提示工程；交付AI輔助工具並加速研究工作流。" },
+    ],
+    highlightsDe: [
+      { title: "KI-Bereitstellung auf Huawei Ascend + 2 Patente", description: "Entwicklung von KI-Anwendungsfällen auf Huawei Ascend; Einreichung von 2 Patenten." },
+      { title: "Hybride KI: Simulation + Optimierung + Prompt-Engineering", description: "Kombination von Simulation, OR-Tools und Prompt-Engineering für hybride KI-Lösungen." },
+      { title: "Schnelles Prototyping: Python, SQL, Prompt-Engineering", description: "Versiert in Python, SQL und Prompt-Engineering; Lieferung KI-unterstützter Tools." },
+    ],
+    highlightsFr: [
+      { title: "Déploiement IA sur Huawei Ascend + 2 brevets", description: "Développement de cas d'usage IA sur Huawei Ascend ; dépôt de 2 brevets." },
+      { title: "IA hybride : simulation + optimisation + prompt engineering", description: "Combinaison de simulation, OR-Tools et prompt engineering pour des solutions hybrides IA." },
+      { title: "Prototypage rapide : Python, SQL, prompt engineering", description: "Maîtrise de Python, SQL et prompt engineering ; livraison d'outils assistés par IA." },
+    ],
+    experienceSummaryZh: ["在深圳无限宏音参与华为昇腾AI用例开发，撰写专利，使用提示工程加速开发。", "白云机场仿真实验结合路径规划算法和数据建模——与AI系统设计直接相关。"],
+    experienceSummaryZhHant: ["在深圳無限宏音參與華為昇騰AI用例開發，撰寫專利，使用提示工程加速開發。", "白雲機場仿真實驗結合路徑規劃算法和數據建模——與AI系統設計直接相關。"],
+    experienceSummaryDe: ["Bei Shenzhen Wuxian Hongyin arbeitete ich an KI-Anwendungsfällen auf Huawei Ascend und schrieb Patente.", "Meine Flughafensimulation verband Pfadplanungsalgorithmen und Datenmodellierung."],
+    experienceSummaryFr: ["Chez Shenzhen Wuxian Hongyin, j'ai travaillé sur des cas d'usage IA sur Huawei Ascend et rédigé des brevets.", "Ma recherche en simulation aéroportuaire combinait algorithmes et modélisation."],
+    educationSummaryZh: ["工业工程提供运筹学基础（优化、建模、算法），这是应用AI的基石。", "航空硕士将其扩展到具有复杂运营约束的真实系统。"],
+    educationSummaryZhHant: ["工業工程提供運籌學基礎（優化、建模、算法），這是應用AI的基石。", "航空碩士將其擴展到具有複雜運營約束的真實系統。"],
+    educationSummaryDe: ["Industrieingenieurwesen bietet die OR-Grundlage für angewandte KI.", "Der MEng erweitert dies auf reale Systeme mit komplexen Einschränkungen."],
+    educationSummaryFr: ["L'ingénierie industrielle fournit le fondement RO pour l'IA appliquée.", "Le MSc l'étend aux systèmes réels avec des contraintes opérationnelles complexes."],
+
   },
 
   quant: {
     label: 'Quant',
     labelZh: '量化',
+    labelZhHant: '量化',
+    labelDe: 'Quantitativ',
+    labelFr: 'Quantitatif',
     profileRole: 'Quantitative Analyst / AI Research Candidate',
+    profileRoleZh: '量化分析师 / AI研究候选人',
+    profileRoleZhHant: '量化分析師 / AI研究候選人',
+    profileRoleDe: 'Quantitativer Analyst / KI-Forschungskandidat',
+    profileRoleFr: 'Analyste Quantitatif / Candidat Recherche IA',
     highlights: [
       {
         title: 'Algorithmic modeling: path planning + constraint optimization',
@@ -174,6 +538,35 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'Industrial Engineering is deeply quantitative: operations research, stochastic modeling, and data-driven decision-making are core to the curriculum.',
       'The MEng adds systems complexity and real-world operational constraints — valuable context for quantitative modeling in finance and risk.',
     ],
+    highlightsZh: [
+      { title: "算法建模：路径规划 + 约束优化", description: "为机场车辆仿真实现路径规划和避碰算法——应用图搜索和约束优化。" },
+      { title: "OR-Tools、Python和仿真：可转移到量化金融", description: "熟练使用运筹学算法和仿真建模——可直接转移到量化金融和风险建模。" },
+      { title: "分析严谨性：IE + 法学辅修", description: "IE训练系统性分解能力；法学辅修增加结构化推理——适用于模型风险和合规。" },
+    ],
+    highlightsZhHant: [
+      { title: "算法建模：路徑規劃 + 約束優化", description: "為機場車輛仿真實現路徑規劃和避碰算法——應用圖搜索和約束優化。" },
+      { title: "OR-Tools、Python和仿真：可轉移到量化金融", description: "熟練使用運籌學算法和仿真建模——可直接轉移到量化金融和風險建模。" },
+      { title: "分析嚴謹性：IE + 法學輔修", description: "IE訓練系統性分解能力；法學輔修增加結構化推理——適用於模型風險和合規。" },
+    ],
+    highlightsDe: [
+      { title: "Algorithmische Modellierung: Pfadplanung + Constraint-Optimierung", description: "Implementierung von Pfadplanungsalgorithmen für Flughafenfahrzeugsimulation." },
+      { title: "OR-Tools, Python und Simulation: übertragbar auf Quant-Finanzen", description: "Praktische Erfahrung mit OR-Algorithmen — übertragbar auf quantitative Finanzen." },
+      { title: "Analytische Rigorosität: IE + Nebenfach Recht", description: "IE-Hintergrund trainiert systematische Zerlegung komplexer Systeme." },
+    ],
+    highlightsFr: [
+      { title: "Modélisation algorithmique : planification + optimisation sous contraintes", description: "Implémentation d'algorithmes de planification pour la simulation de véhicules aéroportuaires." },
+      { title: "OR-Tools, Python et simulation : transférable à la finance quantitative", description: "Maîtrise des algorithmes de RO — transférable à la finance quantitative." },
+      { title: "Rigueur analytique : IE + mineure en droit", description: "La formation IE développe la décomposition systématique des systèmes complexes." },
+    ],
+    experienceSummaryZh: ["我的研究和实习以算法问题解决为中心：仿真中的路径规划、AI项目和运营优化。", "这些经验量化研究岗位所需的数学和编程基础。"],
+    experienceSummaryZhHant: ["我的研究和實習以算法問題解決為中心：仿真中的路徑規劃、AI項目和運營優化。", "這些經驗量化研究崗位所需的數學和編程基礎。"],
+    experienceSummaryDe: ["Meine Forschung konzentrierte sich auf algorithmische Problemlösung: Pfadplanung und Betriebsoptimierung.", "Diese Erfahrungen demonstrieren die mathematische Grundlage für quantitative Forschungsstellen."],
+    experienceSummaryFr: ["Mes travaux se sont concentrés sur la résolution algorithmique : planification de trajectoire et optimisation.", "Ces expériences démontrent les fondements mathématiques pour les postes de recherche quantitative."],
+    educationSummaryZh: ["工业工程具有深厚的定量性：运筹学、随机建模和数据驱动决策是课程核心。", "航空硕士增加了系统复杂性和真实运营约束——对量化建模很有价值。"],
+    educationSummaryZhHant: ["工業工程具有深厚的定量性：運籌學、隨機建模和數據驅動決策是課程核心。", "航空碩士增加了系統複雜性和真實運營約束——對量化建模很有價值。"],
+    educationSummaryDe: ["Industrieingenieurwesen ist zutiefst quantitativ: OR und stochastische Modellierung sind Kern des Lehrplans.", "Der MEng ergänzt Systemkomplexität — wertvoll für quantitative Modellierung."],
+    educationSummaryFr: ["L'ingénierie industrielle est profondément quantitative : RO et modélisation stochastique sont au cœur du programme.", "Le MSc ajoute la complexité des systèmes — précieux pour la modélisation quantitative."],
+
   },
 };
 
