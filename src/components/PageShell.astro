@@ -55,147 +55,108 @@ const sectionTabs = [
 <Layout {lang} {title} {currentPage} {pageKey} {pageMeta} layout={layout} {profileName} {profileRole}>
   <article class="page-content" data-page-variant={isSidebar ? 'sidebar' : pageVariant}>
 
-    {isSidebar ? (
-      <!-- Sidebar layout: compact page header -->
-      <header class="page-header">
-        <p class="page-header-kicker">{heroKicker}</p>
-        <h1 class="page-header-title">{heroTitle}</h1>
-        <p class="page-header-summary">{heroSummary}</p>
-      </header>
-    ) : (
-      <>
-        {pageVariant === 'centered' && (
-          <section class="hero">
-            <div class="hero-inner">
-              <p class="hero-kicker">✦ {heroKicker}</p>
-              <h1 class="hero-title">{heroTitle}</h1>
-              {heroRole && <p class="hero-role">{heroRole}</p>}
-              {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
-            </div>
-          </section>
-        )}
+    <!-- Always render page-header (sidebar mode) -->
+    <header class="page-header" data-variant-show="sidebar">
+      <p class="page-header-kicker">{heroKicker}</p>
+      <h1 class="page-header-title">{heroTitle}</h1>
+      <p class="page-header-summary">{heroSummary}</p>
+    </header>
 
-        {pageVariant === 'classic' && (
-          <section class="hero">
-            <div class="hero-inner">
-              <p class="hero-kicker">{heroKicker}</p>
-              <h1 class="hero-title">{heroTitle}</h1>
-              {heroRole && <p class="hero-role">{heroRole}</p>}
-              <p class="hero-summary">{heroSummary}</p>
-            </div>
-            {arrowLabels && (
-              <aside class="arrow-stack" aria-hidden="true">
-                <div class="arrow-stack-inner">
-                  <div class="arrow-layer"><span>{arrowLabels[0]}</span><span class="arrow-line"></span></div>
-                  <div class="arrow-layer"><span>{arrowLabels[1]}</span><span class="arrow-line"></span></div>
-                  <div class="arrow-layer"><span>{arrowLabels[2]}</span><span class="arrow-line"></span></div>
-                </div>
-              </aside>
-            )}
-          </section>
-        )}
+    <!-- Always render centered hero -->
+    <section class="hero" data-variant-show="centered">
+      <div class="hero-inner">
+        <p class="hero-kicker">✦ {heroKicker}</p>
+        <h1 class="hero-title">{heroTitle}</h1>
+        {heroRole && <p class="hero-role">{heroRole}</p>}
+        {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+      </div>
+    </section>
 
-        {pageVariant === 'dramatic' && (
-          <section class="hero hero--dramatic">
-            <div class="hero-bg-gradient" aria-hidden="true"></div>
-            <div class="hero-inner">
-              <p class="hero-kicker"><span class="kicker-badge">{heroKicker}</span></p>
-              <h1 class="hero-title">{heroTitle}</h1>
-              <div class="hero-divider" aria-hidden="true"></div>
-              {heroRole && <p class="hero-role">{heroRole}</p>}
-              <p class="hero-summary">{heroSummary}</p>
-            </div>
-            <div class="hero-scroll-indicator" aria-hidden="true">
-              <span>Scroll</span><span class="scroll-line"></span>
-            </div>
-          </section>
-        )}
+    <!-- Always render classic hero -->
+    <section class="hero" data-variant-show="classic">
+      <div class="hero-inner">
+        <p class="hero-kicker">{heroKicker}</p>
+        <h1 class="hero-title">{heroTitle}</h1>
+        {heroRole && <p class="hero-role">{heroRole}</p>}
+        <p class="hero-summary">{heroSummary}</p>
+      </div>
+      {arrowLabels && (
+        <aside class="arrow-stack" aria-hidden="true">
+          <div class="arrow-stack-inner">
+            <div class="arrow-layer"><span>{arrowLabels[0]}</span><span class="arrow-line"></span></div>
+            <div class="arrow-layer"><span>{arrowLabels[1]}</span><span class="arrow-line"></span></div>
+            <div class="arrow-layer"><span>{arrowLabels[2]}</span><span class="arrow-line"></span></div>
+          </div>
+        </aside>
+      )}
+    </section>
 
-        {pageVariant === 'glass' && (
-          <section class="hero">
-            <div class="hero-blur-shape" aria-hidden="true"></div>
-            <div class="hero-inner">
-              <p class="hero-kicker">{heroKicker}</p>
-              <h1 class="hero-title">{heroTitle}</h1>
-              {heroRole && <p class="hero-role">{heroRole}</p>}
-              {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
-            </div>
-          </section>
-        )}
+    <!-- Always render dramatic hero -->
+    <section class="hero hero--dramatic" data-variant-show="dramatic">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-kicker"><span class="kicker-badge">{heroKicker}</span></p>
+        <h1 class="hero-title">{heroTitle}</h1>
+        <div class="hero-divider" aria-hidden="true"></div>
+        {heroRole && <p class="hero-role">{heroRole}</p>}
+        <p class="hero-summary">{heroSummary}</p>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span>Scroll</span><span class="scroll-line"></span>
+      </div>
+    </section>
 
-        {pageVariant === 'zen' && (
-          <section class="hero hero--zen">
-            <div class="hero-inner">
-              <h1 class="hero-title">{heroTitle}</h1>
-            </div>
-          </section>
-        )}
+    <!-- Always render glass hero -->
+    <section class="hero" data-variant-show="glass">
+      <div class="hero-blur-shape" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-kicker">{heroKicker}</p>
+        <h1 class="hero-title">{heroTitle}</h1>
+        {heroRole && <p class="hero-role">{heroRole}</p>}
+        {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+      </div>
+    </section>
 
-        {pageVariant === 'whiteboard' && (
-          <section class="hero">
-            <div class="hero-inner">
-              <p class="hero-kicker">{heroKicker}</p>
-              <h1 class="hero-title">{heroTitle}</h1>
-              {heroRole && <p class="hero-role">{heroRole}</p>}
-              {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
-            </div>
-          </section>
-        )}
+    <!-- Always render zen hero -->
+    <section class="hero hero--zen" data-variant-show="zen">
+      <div class="hero-inner">
+        <h1 class="hero-title">{heroTitle}</h1>
+      </div>
+    </section>
 
-        {pageVariant === 'centered' && (
-          <nav class="section-nav">
-            {sectionTabs.map(tab => (
-              <a href={tab.href} class={`section-tab${tab.active ? ' active' : ''}`}>
-                {tab.label}
-                {tab.count !== undefined && <span class="tab-count">{tab.count}</span>}
-              </a>
-            ))}
-          </nav>
-        )}
-      </>
-    )}
+    <!-- Always render whiteboard hero -->
+    <section class="hero" data-variant-show="whiteboard">
+      <div class="hero-inner">
+        <p class="hero-kicker">{heroKicker}</p>
+        <h1 class="hero-title">{heroTitle}</h1>
+        {heroRole && <p class="hero-role">{heroRole}</p>}
+        {heroLocation && <p class="hero-location">📍 {heroLocation}</p>}
+      </div>
+    </section>
 
-    {pageVariant === 'glass' && !isSidebar ? (
-      <div class="glass-sections-wrapper"><slot /></div>
-    ) : pageVariant === 'zen' && !isSidebar ? (
-      <div class="zen-content-wrapper"><slot /></div>
-    ) : pageVariant === 'dramatic' && !isSidebar ? (
-      <div class="dramatic-content-wrapper"><slot /></div>
-    ) : pageVariant === 'whiteboard' && !isSidebar ? (
-      <div class="whiteboard-content-wrapper"><slot /></div>
-    ) : (
-      <slot />
-    )}
+    <!-- Section nav: always render for non-sidebar variants -->
+    <nav class="section-nav" data-variant-show="centered">
+      {sectionTabs.map(tab => (
+        <a href={tab.href} class={`section-tab${tab.active ? ' active' : ''}`}>
+          {tab.label}
+          {tab.count !== undefined && <span class="tab-count">{tab.count}</span>}
+        </a>
+      ))}
+    </nav>
 
-    {(isSidebar || pageVariant !== 'zen') && (
-      <section class="cta-section" data-reveal>
-        {isSidebar ? (
-          <a href={ctaHref} class="cta-btn">
-            <span>{ctaLabel}</span>
-            <span class="arrow-icon">→</span>
-          </a>
-        ) : pageVariant === 'classic' ? (
-          <a href={ctaHref} class="arrow-link">
-            <span>{ctaLabel}</span>
-            <span class="arrow-icon">→</span>
-          </a>
-        ) : pageVariant === 'dramatic' ? (
-          <a href={ctaHref} class="cta-btn cta-btn--full">
-            <span>{ctaLabel}</span>
-            <span class="arrow-icon">→</span>
-          </a>
-        ) : pageVariant === 'glass' ? (
-          <a href={ctaHref} class="cta-btn cta-btn--glass">
-            <span>{ctaLabel}</span>
-            <span class="arrow-icon">→</span>
-          </a>
-        ) : (
-          <a href={ctaHref} class="cta-btn">
-            <span>{ctaLabel}</span>
-            <span class="arrow-icon">→</span>
-          </a>
-        )}
-      </section>
-    )}
+    <!-- Slot content with all variant wrappers (CSS controls visibility) -->
+    <div class="glass-sections-wrapper" data-variant-show="glass"><slot /></div>
+    <div class="zen-content-wrapper" data-variant-show="zen"><slot /></div>
+    <div class="dramatic-content-wrapper" data-variant-show="dramatic"><slot /></div>
+    <div class="whiteboard-content-wrapper" data-variant-show="whiteboard"><slot /></div>
+    <div data-variant-show="sidebar,centered,classic"><slot /></div>
+
+    <!-- CTA section: always render, CSS controls visibility -->
+    <section class="cta-section" data-reveal data-variant-hide="zen">
+      <a href={ctaHref} class="cta-btn">
+        <span>{ctaLabel}</span>
+        <span class="arrow-icon">→</span>
+      </a>
+    </section>
   </article>
 </Layout>

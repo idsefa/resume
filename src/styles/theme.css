@@ -1785,6 +1785,38 @@ body.theme-midnight .cursor-trail.active {
 }
 
 /* ============================================
+   VARIANT VISIBILITY SYSTEM
+   Elements with [data-variant-show] are hidden by default
+   and shown only when the page-content variant matches.
+   ============================================ */
+
+/* Hide all variant-specific elements by default */
+[data-variant-show] { display: none !important; }
+[data-variant-hide] { display: revert; }
+
+/* Show elements matching current variant */
+[data-page-variant="sidebar"] > [data-variant-show~="sidebar"],
+[data-page-variant="centered"] > [data-variant-show~="centered"],
+[data-page-variant="classic"] > [data-variant-show~="classic"],
+[data-page-variant="dramatic"] > [data-variant-show~="dramatic"],
+[data-page-variant="glass"] > [data-variant-show~="glass"],
+[data-page-variant="zen"] > [data-variant-show~="zen"],
+[data-page-variant="whiteboard"] > [data-variant-show~="whiteboard"] {
+  display: revert !important;
+}
+
+/* Hide elements that should not show in current variant */
+[data-page-variant="sidebar"] > [data-variant-hide~="sidebar"],
+[data-page-variant="centered"] > [data-variant-hide~="centered"],
+[data-page-variant="classic"] > [data-variant-hide~="classic"],
+[data-page-variant="dramatic"] > [data-variant-hide~="dramatic"],
+[data-page-variant="glass"] > [data-variant-hide~="glass"],
+[data-page-variant="zen"] > [data-variant-hide~="zen"],
+[data-page-variant="whiteboard"] > [data-variant-hide~="whiteboard"] {
+  display: none !important;
+}
+
+/* ============================================
    TRANSITION for smooth theme switching
    ============================================ */
 html,
