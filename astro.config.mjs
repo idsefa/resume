@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://gh.idsefa.top',
+  site: 'https://cv.idsefa.top',
   output: 'static',
   integrations: [
     sitemap({
