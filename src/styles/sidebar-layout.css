@@ -278,13 +278,8 @@ body.layout-sidebar > header .nav-right {
   gap: 0.4rem;
   margin-left: auto;
   flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: visible;
-  scrollbar-width: none;
-  max-width: 100%;
   height: 48px;
 }
-body.layout-sidebar > header .nav-right::-webkit-scrollbar { display: none; }
 body.layout-sidebar > header .nav-role-pills {
   display: flex;
   gap: 3px;
