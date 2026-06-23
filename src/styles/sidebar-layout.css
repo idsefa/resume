@@ -245,7 +245,7 @@ body.layout-sidebar > header {
   top: 0;
   left: 240px;
   right: 0;
-  z-index: 50;
+  z-index: 200;
   background: var(--theme-header-bg, rgba(255,255,255,0.95));
   border-bottom: 1px solid var(--theme-header-border, rgba(0,0,0,0.06));
   padding: 0 1.5rem;
@@ -325,6 +325,7 @@ body.layout-sidebar footer { display: none; }
 /* Layout switcher */
 .layout-switcher {
   position: relative;
+  z-index: 9999;
 }
 
 .layout-toggle {
@@ -413,6 +414,7 @@ body.layout-sidebar footer { display: none; }
 /* Role switcher dropdown */
 .role-switcher {
   position: relative;
+  z-index: 9999;
 }
 .role-toggle {
   display: flex;
@@ -504,6 +506,8 @@ body.layout-sidebar .page-content {
   padding: 0 0 2.5rem;
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 2.5rem;
+  position: static;
+  z-index: auto;
 }
 
 .page-header-kicker {
