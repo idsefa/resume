@@ -136,14 +136,16 @@ const roleVariantsJson = JSON.stringify(
           <div class="layout-switcher" id="layoutSwitcher">
             <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
               <span class="layout-toggle-icon" id="layoutToggleIcon">◧</span>
+              <span class="layout-toggle-label" id="layoutToggleLabel">Sidebar</span>
+              <span class="role-toggle-arrow">▾</span>
             </button>
             <div class="layout-menu-panel" id="layout-menu-panel" role="menu">
               <button type="button" class="layout-option" data-layout="sidebar" role="menuitem"><span class="layout-option-icon">◧</span><span>Sidebar</span></button>
-              <button type="button" class="layout-option" data-layout="centered" role="menuitem"><span class="layout-option-icon">▦</span><span>Centered</span></button>
-              <button type="button" class="layout-option" data-layout="classic" role="menuitem"><span class="layout-option-icon">▤</span><span>Classic</span></button>
-              <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Dramatic</span></button>
-              <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Glass</span></button>
-              <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Zen</span></button>
+              <button type="button" class="layout-option" data-layout="centered" role="menuitem"><span class="layout-option-icon">▦</span><span>Centered Hero</span></button>
+              <button type="button" class="layout-option" data-layout="classic" role="menuitem"><span class="layout-option-icon">▤</span><span>Classic List</span></button>
+              <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Full-bleed Hero</span></button>
+              <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Overlapping Sections</span></button>
+              <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Minimal Zen</span></button>
             </div>
           </div>
           <ThemeToggle {lang} />
@@ -427,6 +429,7 @@ const roleVariantsJson = JSON.stringify(
       // ---- Layout switcher ----
       const LAYOUT_KEY = 'resume-layout';
       const LAYOUT_ICONS = { sidebar: '◧', centered: '▦', classic: '▤', dramatic: '▩', glass: '◌', zen: '○' };
+      const LAYOUT_LABELS = { sidebar: 'Sidebar', centered: 'Centered Hero', classic: 'Classic List', dramatic: 'Full-bleed Hero', glass: 'Overlapping', zen: 'Minimal Zen' };
 
       const layoutSwitcher = document.getElementById('layoutSwitcher');
       const layoutToggle = document.getElementById('layoutToggle');
@@ -447,6 +450,8 @@ const roleVariantsJson = JSON.stringify(
 
           // Update icon
           if (layoutIcon) layoutIcon.textContent = LAYOUT_ICONS[id] || '◧';
+          const layoutLabel = document.getElementById('layoutToggleLabel');
+          if (layoutLabel) layoutLabel.textContent = LAYOUT_LABELS[id] || 'Sidebar';
 
           // Update active state
           layoutPanel.querySelectorAll('.layout-option').forEach(o => {

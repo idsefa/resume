@@ -331,17 +331,21 @@ body.layout-sidebar footer { display: none; }
 .layout-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 36px;
+  gap: 0.3rem;
+  width: auto;
   height: 36px;
+  padding: 0 0.55rem;
   border: 1px solid var(--theme-border, var(--color-border));
   background: var(--theme-surface, var(--color-surface));
   border-radius: 8px;
   cursor: pointer;
   transition: border-color 0.15s, transform 0.15s;
-  font-size: 1rem;
+  font-size: 0.72rem;
   line-height: 1;
-  padding: 0;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--theme-text, var(--color-text));
+  white-space: nowrap;
 }
 
 .layout-toggle:hover {
