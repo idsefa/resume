@@ -225,37 +225,18 @@ body.layout-sidebar {
 }
 
 /* Fix: theme picker — pop up above button, inside sidebar */
-body.layout-sidebar .theme-toggle-wrapper {
-  position: relative;
-}
-body.layout-sidebar .theme-picker {
-  position: absolute;
-  left: 0;
+/* Dropdowns in header should open downward */
+body.layout-sidebar > header .theme-picker {
+  top: calc(100% + 0.5rem);
+  bottom: auto;
   right: 0;
-  bottom: calc(100% + 0.5rem);
-  top: auto;
-  min-width: 100%;
-  transform: none;
+  left: auto;
 }
-body.layout-sidebar .theme-picker.is-open {
-  transform: none;
-}
-
-/* Fix: lang menu panel — pop up above, inside sidebar */
-body.layout-sidebar .lang-menu {
-  position: relative;
-}
-body.layout-sidebar .lang-menu-panel {
-  position: absolute;
-  left: 0;
+body.layout-sidebar > header .lang-menu-panel {
+  top: calc(100% + 0.35rem);
+  bottom: auto;
   right: 0;
-  bottom: calc(100% + 0.5rem);
-  top: auto;
-  min-width: 100%;
-  transform: none;
-}
-body.layout-sidebar .lang-menu.is-open .lang-menu-panel {
-  transform: none;
+  left: auto;
 }
 
 /* ---- Main content area ---- */
