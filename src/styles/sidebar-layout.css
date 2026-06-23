@@ -266,8 +266,6 @@ body.layout-sidebar > header {
   right: 0;
   z-index: 30;
   background: var(--theme-header-bg, rgba(255,255,255,0.92));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--theme-header-border, rgba(0,0,0,0.06));
   padding: 0 1.5rem;
   height: 48px;
