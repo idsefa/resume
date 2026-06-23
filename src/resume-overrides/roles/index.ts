@@ -1,5 +1,6 @@
 export type RoleVariant = {
   label: string;
+  labelZh?: string;
   profileRole: string;
   highlights: Array<{ title: string; description: string }>;
   experienceSummary: string[];
@@ -9,6 +10,7 @@ export type RoleVariant = {
 export const ROLE_VARIANTS: Record<string, RoleVariant> = {
   default: {
     label: 'General',
+    labelZh: '通用',
     profileRole: 'MEng Student in Aviation Engineering and Operation Management',
     highlights: [
       {
@@ -36,6 +38,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
 
   aviation: {
     label: 'Aviation',
+    labelZh: '航空',
     profileRole: 'Aviation Operations Analyst',
     highlights: [
       {
@@ -63,6 +66,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
 
   consulting: {
     label: 'Consulting',
+    labelZh: '咨询',
     profileRole: 'Operations & Management Consulting Candidate',
     highlights: [
       {
@@ -90,6 +94,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
 
   engineering: {
     label: 'Engineering',
+    labelZh: '工程',
     profileRole: 'Industrial Engineering / Operations Specialist',
     highlights: [
       {
@@ -117,6 +122,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
 
   ai: {
     label: 'AI / Data',
+    labelZh: 'AI/数据',
     profileRole: 'AI Engineer / Operations Researcher',
     highlights: [
       {
@@ -144,6 +150,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
 
   quant: {
     label: 'Quant',
+    labelZh: '量化',
     profileRole: 'Quantitative Analyst / AI Research Candidate',
     highlights: [
       {

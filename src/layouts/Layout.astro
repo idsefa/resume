@@ -122,8 +122,8 @@ const roleVariantsJson = JSON.stringify(
         <div class="nav-right">
           <div class="nav-role-pills" id="rolePills">
             {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
-              <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id}>
-                {v.label}
+              <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id} data-label-en={v.label} data-label-zh={v.labelZh || v.label}>
+                {(lang === 'zh' || lang === 'zh-hant') ? (v.labelZh || v.label) : v.label}
               </button>
             ))}
           </div>
@@ -442,23 +442,25 @@ const roleVariantsJson = JSON.stringify(
             sidebarTg?.style.removeProperty('display');
             document.body.classList.add('layout-sidebar');
             document.body.classList.remove('layout-classic');
-            if (header) header.style.display = '';
+            if (header) header.style.cssText = '';
             if (footer) footer.style.display = 'none';
-            if (main) { main.style.maxWidth = ''; main.style.margin = ''; main.style.padding = ''; }
-            if (pageContent) { pageContent.setAttribute('data-page-variant', 'sidebar'); pageContent.style.maxWidth = ''; pageContent.style.margin = ''; }
+            if (main) main.style.cssText = '';
+            if (pageContent) {
+              pageContent.setAttribute('data-page-variant', 'sidebar');
+              pageContent.style.cssText = '';
+            }
           } else {
             // Hide sidebar, show header/footer
             if (sidebar) sidebar.style.display = 'none';
             if (sidebarOv) sidebarOv.style.display = 'none';
             if (sidebarTg) sidebarTg.style.display = 'none';
             document.body.classList.remove('layout-sidebar');
-            if (header) header.style.display = '';
+            if (header) header.style.cssText = '';
             if (footer) footer.style.display = '';
-            if (main) { main.style.maxWidth = '1100px'; main.style.margin = '0 auto'; main.style.padding = '0 1.5rem'; }
+            if (main) main.style.cssText = '';
             if (pageContent) {
               pageContent.setAttribute('data-page-variant', id);
-              pageContent.style.maxWidth = '860px';
-              pageContent.style.margin = '0 auto';
+              pageContent.style.cssText = '';
             }
             // Re-trigger reveal animations
             document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
