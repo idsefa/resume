@@ -14,13 +14,14 @@ const exp = content.experience;
 const edu = content.education;
 const pubs = content.publications;
 const facts = content.about.facts;
+const highlights = content.about.highlights;
 
 const labels: Record<string, Record<string, string>> = {
-  en: { experience: 'Experience', education: 'Education', publications: 'Publications', summary: 'Summary', contact: 'Contact', skills: 'Skills' },
-  zh: { experience: '工作经历', education: '教育背景', publications: '学术发表', summary: '个人简介', contact: '联系方式', skills: '技能' },
-  'zh-hant': { experience: '工作經歷', education: '教育背景', publications: '學術發表', summary: '個人簡介', contact: '聯繫方式', skills: '技能' },
-  de: { experience: 'Berufserfahrung', education: 'Ausbildung', publications: 'Publikationen', summary: 'Zusammenfassung', contact: 'Kontakt', skills: 'Fähigkeiten' },
-  fr: { experience: 'Expérience', education: 'Formation', publications: 'Publications', summary: 'Résumé', contact: 'Contact', skills: 'Compétences' },
+  en: { experience: 'Experience', education: 'Education', publications: 'Publications', summary: 'Summary', contact: 'Contact', highlights: 'Highlights' },
+  zh: { experience: '工作经历', education: '教育背景', publications: '学术发表', summary: '个人简介', contact: '联系方式', highlights: '亮点' },
+  'zh-hant': { experience: '工作經歷', education: '教育背景', publications: '學術發表', summary: '個人簡介', contact: '聯繫方式', highlights: '亮點' },
+  de: { experience: 'Berufserfahrung', education: 'Ausbildung', publications: 'Publikationen', summary: 'Zusammenfassung', contact: 'Kontakt', highlights: 'Höhepunkte' },
+  fr: { experience: 'Expérience', education: 'Formation', publications: 'Publications', summary: 'Résumé', contact: 'Contact', highlights: 'Points forts' },
 };
 const l = labels[lang] || labels.en;
 ---
@@ -32,16 +33,14 @@ const l = labels[lang] || labels.en;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{p.name} — Resume</title>
   <style>
-    @page {
-      size: A4;
-      margin: 1.5cm 2cm;
-    }
+    @page { size: A4; margin: 1.5cm 2cm; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif', serif;
       font-size: 10.5pt;
-      line-height: 1.45;
-      color: #1a1a1a;
+      line-height: 1.5;
+      color: #000;
+      background: #fff;
       max-width: 700px;
       margin: 0 auto;
       padding: 2rem 2.5rem;
@@ -51,240 +50,111 @@ const l = labels[lang] || labels.en;
       .no-print { display: none !important; }
     }
 
-    /* Header */
-    .header {
-      text-align: center;
-      margin-bottom: 1.2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1.5pt solid #1a1a1a;
-    }
-    .header h1 {
-      font-size: 20pt;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.2rem;
-    }
-    .header .role {
-      font-size: 11pt;
-      color: #444;
-      font-style: italic;
-      margin-bottom: 0.4rem;
-    }
-    .header .contact-line {
-      font-size: 9pt;
-      color: #555;
-    }
-    .header .contact-line span + span::before {
-      content: ' | ';
-      color: #999;
-    }
+    .header { text-align: center; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1.5pt solid #000; }
+    .header h1 { font-size: 20pt; font-weight: 700; margin-bottom: 0.15rem; }
+    .header .role { font-size: 11pt; margin-bottom: 0.3rem; }
+    .header .contact { font-size: 9pt; }
+    .header .contact span + span::before { content: ' | '; }
 
-    /* Section */
-    .section {
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-size: 12pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-bottom: 0.75pt solid #999;
-      padding-bottom: 0.15rem;
-      margin-bottom: 0.5rem;
-      color: #1a1a1a;
-    }
+    .section { margin-bottom: 0.8rem; }
+    .section-title { font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 0.75pt solid #000; padding-bottom: 0.1rem; margin-bottom: 0.4rem; }
 
-    /* Entry (experience, education) */
-    .entry {
-      margin-bottom: 0.65rem;
-    }
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .entry-title {
-      font-size: 10.5pt;
-      font-weight: 700;
-    }
-    .entry-org {
-      font-size: 10pt;
-      color: #444;
-      font-style: italic;
-    }
-    .entry-meta {
-      font-size: 9pt;
-      color: #666;
-      white-space: nowrap;
-    }
-    .entry-bullets {
-      margin-top: 0.25rem;
-      padding-left: 1.2rem;
-    }
-    .entry-bullets li {
-      font-size: 10pt;
-      margin-bottom: 0.15rem;
-      line-height: 1.4;
-    }
+    .entry { margin-bottom: 0.55rem; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
+    .entry-title { font-size: 10.5pt; font-weight: 700; }
+    .entry-org { font-size: 10pt; }
+    .entry-meta { font-size: 9pt; white-space: nowrap; }
+    .entry-bullets { margin-top: 0.2rem; padding-left: 1.2rem; }
+    .entry-bullets li { font-size: 10pt; margin-bottom: 0.1rem; line-height: 1.4; }
 
-    /* Skills / Facts */
-    .facts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.2rem 1.5rem;
-      font-size: 10pt;
-    }
-    .fact-item {
-      display: flex;
-      gap: 0.4rem;
-    }
-    .fact-label {
-      font-weight: 700;
-      min-width: 5rem;
-    }
-    .fact-value {
-      color: #333;
-    }
-    .fact-value a {
-      color: #333;
-      text-decoration: underline;
-    }
+    .highlight-item { margin-bottom: 0.25rem; font-size: 10pt; }
+    .highlight-title { font-weight: 700; }
 
-    /* Publications */
-    .pub-item {
-      margin-bottom: 0.3rem;
-      font-size: 10pt;
-    }
-    .pub-title {
-      font-weight: 600;
-    }
-    .pub-authors {
-      color: #444;
-    }
-    .pub-venue {
-      font-style: italic;
-      color: #555;
-    }
+    .pub-item { margin-bottom: 0.25rem; font-size: 10pt; }
+    .pub-title { font-weight: 600; }
 
-    /* Print button */
+    .contact-grid { font-size: 10pt; }
+    .contact-row { margin-bottom: 0.1rem; }
+    .contact-label { font-weight: 700; }
     .print-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem 1.2rem;
-      background: #1a1a1a;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-family: inherit;
-      z-index: 100;
+      position: fixed; top: 1rem; right: 1rem;
+      padding: 0.5rem 1.2rem; background: #000; color: #fff;
+      border: none; border-radius: 3px; font-size: 0.85rem; cursor: pointer; z-index: 100;
     }
-    .print-btn:hover { background: #333; }
-
-    @media print {
-      .print-btn { display: none; }
-    }
+    @media print { .print-btn { display: none; } }
   </style>
 </head>
 <body>
   <button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
 
-  <!-- Header: Name, Role, Contact -->
   <div class="header">
     <h1>{p.name}</h1>
     <div class="role">{p.role}</div>
-    <div class="contact-line">
-      {p.email && <span>{p.email}</span>}
-      {p.location && <span>{p.location}</span>}
-      {facts.filter(f => f.href).map(f => (
-        <span><a href={f.href}>{f.value}</a></span>
-      ))}
+    <div class="contact">
+      <span>{p.email}</span>
+      <span>{p.location}</span>
+      {facts.filter(f => f.href).map(f => <span><a href={f.href} style="color:#000">{f.value}</a></span>)}
     </div>
   </div>
 
-  <!-- Summary -->
   <div class="section">
     <div class="section-title">{l.summary}</div>
-    <p style="font-size: 10pt; line-height: 1.5;">
-      {exp.summary[0] || ''}
-    </p>
+    <p>{exp.summary.join(' ')}</p>
   </div>
 
-  <!-- Experience -->
+  <div class="section">
+    <div class="section-title">{l.highlights}</div>
+    {highlights.map(h => (
+      <div class="highlight-item">
+        <span class="highlight-title">{h.title}</span> — {h.description}
+      </div>
+    ))}
+  </div>
+
   <div class="section">
     <div class="section-title">{l.experience}</div>
     {exp.items.map(item => (
       <div class="entry">
         <div class="entry-header">
-          <div>
-            <span class="entry-title">{item.title}</span>
-            {' — '}
-            <span class="entry-org">{item.org}</span>
-          </div>
-          <div class="entry-meta">{item.period} · {item.location}</div>
+          <div><span class="entry-title">{item.title}</span>, <span class="entry-org">{item.org}</span></div>
+          <div class="entry-meta">{item.period} | {item.location}</div>
         </div>
-        <ul class="entry-bullets">
-          {item.bullets.map(b => <li>{b}</li>)}
-        </ul>
+        <ul class="entry-bullets">{item.bullets.map(b => <li>{b}</li>)}</ul>
       </div>
     ))}
   </div>
 
-  <!-- Education -->
   <div class="section">
     <div class="section-title">{l.education}</div>
     {edu.items.map(item => (
       <div class="entry">
         <div class="entry-header">
-          <div>
-            <span class="entry-title">{item.title}</span>
-            {' — '}
-            <span class="entry-org">{item.org}</span>
-          </div>
-          <div class="entry-meta">{item.period} · {item.location}</div>
+          <div><span class="entry-title">{item.title}</span>, <span class="entry-org">{item.org}</span></div>
+          <div class="entry-meta">{item.period} | {item.location}</div>
         </div>
-        <ul class="entry-bullets">
-          {item.bullets.map(b => <li>{b}</li>)}
-        </ul>
+        <ul class="entry-bullets">{item.bullets.map(b => <li>{b}</li>)}</ul>
       </div>
     ))}
   </div>
 
-  <!-- Publications -->
   {pubs.sections.length > 0 && (
     <div class="section">
       <div class="section-title">{l.publications}</div>
-      {pubs.sections.map(section => (
-        <div>
-          {section.items.map(pub => (
-            <div class="pub-item">
-              <span class="pub-title">{pub.title}</span>
-              {'. '}
-              <span class="pub-authors">{pub.authors}</span>
-              {' '}
-              <span class="pub-venue">({pub.year}) {pub.venue}</span>
-              {pub.links.map(link => (
-                <> [<a href={link.href}>{link.label}</a>]</>
-              ))}
-            </div>
-          ))}
+      {pubs.sections.map(section => section.items.map(pub => (
+        <div class="pub-item">
+          {pub.authors} ({pub.year}). <span class="pub-title">{pub.title}</span>. <em>{pub.venue}</em>
+          {pub.links.length > 0 && pub.links.map(link => <> [{link.label}]</>)}
         </div>
-      ))}
+      )))}
     </div>
   )}
 
-  <!-- Contact / Skills from facts -->
   <div class="section">
     <div class="section-title">{l.contact}</div>
-    <div class="facts-grid">
-      {facts.filter(f => !f.href).map(f => (
-        <div class="fact-item">
-          <span class="fact-label">{f.label}:</span>
-          <span class="fact-value">{f.value}</span>
+    <div class="contact-grid">
+      {facts.map(f => (
+        <div class="contact-row">
+          <span class="contact-label">{f.label}:</span> {f.value}
         </div>
       ))}
     </div>
