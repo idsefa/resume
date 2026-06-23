@@ -120,12 +120,18 @@ const roleVariantsJson = JSON.stringify(
           </>
         )}
         <div class="nav-right">
-          <div class="nav-role-pills" id="rolePills">
-            {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
-              <button type="button" class={`role-pill${id === 'default' ? ' is-active' : ''}`} data-role-id={id} data-label-en={v.label} data-label-zh={v.labelZh || v.label}>
-                {(lang === 'zh' || lang === 'zh-hant') ? (v.labelZh || v.label) : v.label}
-              </button>
-            ))}
+          <div class="role-switcher" id="roleSwitcher">
+            <button type="button" class="role-toggle" id="roleToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="role-menu-panel">
+              <span class="role-toggle-label" id="roleToggleLabel">{(lang === 'zh' || lang === 'zh-hant') ? '通用' : 'General'}</span>
+              <span class="role-toggle-arrow">▾</span>
+            </button>
+            <div class="role-menu-panel" id="role-menu-panel" role="menu">
+              {Object.entries(ROLE_VARIANTS).map(([id, v]) => (
+                <button type="button" class={`role-option${id === 'default' ? ' is-active' : ''}`} data-role-id={id} role="menuitem">
+                  <span class="role-option-label">{(lang === 'zh' || lang === 'zh-hant') ? (v.labelZh || v.label) : v.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
           <div class="layout-switcher" id="layoutSwitcher">
             <button type="button" class="layout-toggle" id="layoutToggle" aria-expanded="false" aria-haspopup="menu" aria-controls="layout-menu-panel">
@@ -376,7 +382,9 @@ const roleVariantsJson = JSON.stringify(
           if (roleEl) roleEl.textContent = v['profileRole' + langSuffix] || v.profileRole;
 
           // Active pill
-          document.querySelectorAll('.role-pill').forEach(b => b.classList.toggle('is-active', b.getAttribute('data-role-id') === id));
+          document.querySelectorAll('.role-option').forEach(b => b.classList.toggle('is-active', b.getAttribute('data-role-id') === id));
+          const roleLabel = document.getElementById('roleToggleLabel');
+          if (roleLabel) roleLabel.textContent = v['label' + (langSuffix === 'Zh' ? 'Zh' : langSuffix === 'ZhHant' ? 'ZhHant' : '')] || v.label;
 
           // Highlights (about page)
           const highlights = v['highlights' + langSuffix] || v.highlights;
@@ -402,7 +410,19 @@ const roleVariantsJson = JSON.stringify(
         }
 
         if (currentRole !== 'default') applyRole(currentRole);
-        document.querySelectorAll('.role-pill').forEach(b => b.addEventListener('click', () => applyRole(b.getAttribute('data-role-id'))));
+        document.querySelectorAll('.role-option').forEach(b => b.addEventListener('click', () => {
+          applyRole(b.getAttribute('data-role-id'));
+          document.getElementById('roleSwitcher')?.classList.remove('is-open');
+        }));
+
+        // Role toggle dropdown
+        const roleSwitcher = document.getElementById('roleSwitcher');
+        const roleToggle = document.getElementById('roleToggle');
+        if (roleSwitcher && roleToggle) {
+          roleToggle.addEventListener('click', e => { e.stopPropagation(); roleSwitcher.classList.toggle('is-open'); });
+          document.addEventListener('click', e => { if (!roleSwitcher.contains(e.target)) roleSwitcher.classList.remove('is-open'); });
+          document.addEventListener('keydown', e => { if (e.key === 'Escape') roleSwitcher.classList.remove('is-open'); });
+        }
 
       // ---- Layout switcher ----
       const LAYOUT_KEY = 'resume-layout';
@@ -590,7 +610,7 @@ const roleVariantsJson = JSON.stringify(
     .sidebar, .sidebar-toggle, .sidebar-overlay,
     .theme-toggle-wrapper, .lang-menu, .pdf-export-btn, .pdf-floating-btn,
     header, footer, .page-transition, .cursor-trail,
-    .section-nav, .cta-section, .layout-switcher, .nav-role-pills { display: none !important; }
+    .section-nav, .cta-section, .layout-switcher, .role-switcher { display: none !important; }
     body { background: #fff !important; color: #000 !important; }
     main { margin: 0 !important; padding: 0 !important; }
     .page-frame { padding: 0 !important; }
