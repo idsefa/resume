@@ -59,7 +59,7 @@
 header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
   background: var(--theme-header-bg, rgba(255,255,255,0.85));
   border-bottom: 1px solid var(--theme-header-border, rgba(0,0,0,0.06));
 }
@@ -135,7 +135,7 @@ nav {
 
 .lang-menu {
   position: relative;
-  z-index: 30;
+  z-index: 9999;
 }
 
 .lang-toggle {

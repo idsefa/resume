@@ -36,7 +36,7 @@ const l = labels[lang] || labels.en;
     @page { size: A4; margin: 1.5cm 2cm; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Georgia', 'Times New Roman', 'Noto Serif', serif;
+      font-family: 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
       font-size: 10.5pt;
       line-height: 1.5;
       color: #000;
@@ -73,9 +73,6 @@ const l = labels[lang] || labels.en;
     .pub-item { margin-bottom: 0.25rem; font-size: 10pt; }
     .pub-title { font-weight: 600; }
 
-    .contact-grid { font-size: 10pt; }
-    .contact-row { margin-bottom: 0.1rem; }
-    .contact-label { font-weight: 700; }
     .print-btn {
       position: fixed; top: 1rem; right: 1rem;
       padding: 0.5rem 1.2rem; background: #000; color: #fff;
@@ -148,16 +145,5 @@ const l = labels[lang] || labels.en;
       )))}
     </div>
   )}
-
-  <div class="section">
-    <div class="section-title">{l.contact}</div>
-    <div class="contact-grid">
-      {facts.map(f => (
-        <div class="contact-row">
-          <span class="contact-label">{f.label}:</span> {f.value}
-        </div>
-      ))}
-    </div>
-  </div>
 </body>
 </html>
