@@ -33,44 +33,44 @@ const l = labels[lang] || labels.en;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{p.name} — Resume</title>
   <style>
-    @page { size: A4; margin: 1.5cm 2cm; }
+    @page { size: A4; margin: 1cm 1.5cm; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.5;
+      font-size: 10pt;
+      line-height: 1.4;
       color: #000;
       background: #fff;
       max-width: 700px;
       margin: 0 auto;
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 2rem;
     }
     @media print {
       body { padding: 0; max-width: none; }
       .no-print { display: none !important; }
     }
 
-    .header { text-align: center; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1.5pt solid #000; }
-    .header h1 { font-size: 20pt; font-weight: 700; margin-bottom: 0.15rem; }
-    .header .role { font-size: 11pt; margin-bottom: 0.3rem; }
-    .header .contact { font-size: 9pt; }
+    .header { text-align: center; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1.5pt solid #000; }
+    .header h1 { font-size: 18pt; font-weight: 700; margin-bottom: 0.1rem; }
+    .header .role { font-size: 10pt; margin-bottom: 0.2rem; }
+    .header .contact { font-size: 8.5pt; }
     .header .contact span + span::before { content: ' | '; }
 
-    .section { margin-bottom: 0.8rem; }
-    .section-title { font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 0.75pt solid #000; padding-bottom: 0.1rem; margin-bottom: 0.4rem; }
+    .section { margin-bottom: 0.6rem; }
+    .section-title { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 0.75pt solid #000; padding-bottom: 0.08rem; margin-bottom: 0.3rem; }
 
-    .entry { margin-bottom: 0.55rem; }
-    .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
-    .entry-title { font-size: 10.5pt; font-weight: 700; }
-    .entry-org { font-size: 10pt; }
-    .entry-meta { font-size: 9pt; white-space: nowrap; }
-    .entry-bullets { margin-top: 0.2rem; padding-left: 1.2rem; }
-    .entry-bullets li { font-size: 10pt; margin-bottom: 0.1rem; line-height: 1.4; }
+    .entry { margin-bottom: 0.4rem; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
+    .entry-title { font-size: 10pt; font-weight: 700; }
+    .entry-org { font-size: 9.5pt; }
+    .entry-meta { font-size: 8.5pt; white-space: nowrap; }
+    .entry-bullets { margin-top: 0.15rem; padding-left: 1rem; }
+    .entry-bullets li { font-size: 9.5pt; margin-bottom: 0.05rem; line-height: 1.35; }
 
-    .highlight-item { margin-bottom: 0.25rem; font-size: 10pt; }
+    .highlight-item { margin-bottom: 0.15rem; font-size: 9.5pt; }
     .highlight-title { font-weight: 700; }
 
-    .pub-item { margin-bottom: 0.25rem; font-size: 10pt; }
+    .pub-item { margin-bottom: 0.2rem; font-size: 9.5pt; }
     .pub-title { font-weight: 600; }
 
     .print-btn {
