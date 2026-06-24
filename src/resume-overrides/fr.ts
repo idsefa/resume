@@ -74,7 +74,7 @@ export const frOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			"MSc en ingénierie aéronautique (PolyU) + Licence en génie industriel + Mineure en droit — perspectives techniques, opérationnelles et réglementaires dans un seul profil.",
+			"MSc en ingénierie aéronautique (PolyU) + Licence en génie industriel (GPA 3,67, Top 20 %) + Mineure en droit — avec des cours en recherche opérationnelle, processus stochastiques, contrôle qualité statistique et cadres réglementaires.",
 		],
 		items: [
 			{
