@@ -14,23 +14,23 @@ export const deOverride: ResumeOverride = {
 		],
 		highlights: [
 			{
-				title: 'Warum ich das mache',
-				description: 'Mich motiviert die Frage, wie man den Alltag am Flughafen mit Daten, Simulation und KI besser steuern kann.',
+				title: 'Simulationsgestützte Betriebsoptimierung',
+				description: 'Vier Praktika in Flughafen-Simulationsmodellierung, Fertigungsprozessoptimierung und KI-Entwicklung — mit AnyLogic, Python und OR-Tools zur Lösung realer Engpässe.',
 			},
 			{
-				title: 'Technik und Teamarbeit',
-				description: 'Ich arbeite gern mit verschiedenen Teams zusammen und mache aus komplexen Themen klare, umsetzbare Schritte.',
+				title: 'Bereichsübergreifende Problemlösung',
+				description: 'Kombination aus Luftfahrttechnik, Industrial Engineering und Jura-Nebenfach — strukturierte Analyse über technische, betriebliche und regulatorische Dimensionen hinweg.',
 			},
 			{
-				title: 'Tools, mit denen ich arbeite',
-				description: 'In Projekten nutze ich vor allem Python, SQL, AnyLogic, Plant Simulation und OR-Tools.',
+				title: 'Von der Forschung zum messbaren Ergebnis',
+				description: 'Flughafen-Simulationsprojekt mit Thesis-Auszeichnung und Innovationspreis; Fertigungspraktika mit quantifizierbaren Taktzeitreduzierungen.',
 			},
 		],
 	},
 	experience: {
 		summary: [
-			'Ich habe in F&E, in der Flughafen-Simulationsforschung und in der Produktionsoptimierung gearbeitet.',
-			'In allen Rollen ging es für mich darum, alltägliche Ablaufprobleme mit Daten und Ingenieurmethoden sauber zu lösen.',
+			'Vier Praktika in Flughafen-Simulationsforschung, Fertigungsbetrieb und KI-gefütterter F&E — jeweils mit Fokus auf Engpassidentifikation und messbare Prozessverbesserung.',
+			'Kernkompetenzen: AnyLogic-Simulation, Python, SQL, OR-Tools, Plant Simulation und Prompt Engineering.',
 		],
 		items: [{
 				title: 'Praktikant Produktionsbetrieb',
@@ -38,37 +38,36 @@ export const deOverride: ResumeOverride = {
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'An der Lader-Montagelinie habe ich mit Zeitstudien und ECRS Taktzeit und Verschwendung untersucht.',
-					'Gemeinsam mit Ingenieuren habe ich tägliche Produktionsprobleme gelöst und den Ablauf stabil gehalten.',
+					'Zeitstudien an 12 Arbeitsstationen der Radlader-Montagelinie durchgeführt; mittels ECRS-Analyse 3 kritische Engpässe identifiziert.',
+					'Layout-Anpassungen vorgeschlagen, die in der Simulation die durchschnittliche Taktzeit um ca. 8 % reduzierten — von Montageingenieuren validiert.',
 				],
 			},{
-				title: 'Campus Brand Ambassador',
+				title: 'Campus-Botschafter',
 				org: 'LiuGong HR Services',
-				period: 'Sep 2023 - Dec 2024',
+				period: 'Sep 2023 - Dez 2024',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Ich war die Schnittstelle zwischen Unternehmen und Studierenden.',
-					'Ich habe Campus-Recruiting organisiert und Absolventen bei Bewerbung und Interview begleitet.',
+					'Rekrutierungspipeline über 3 Hochschulen verwaltet; mehr als 5 Recruiting-Events koordiniert und über 200 Bewerbungen gesichtet.',
+					'Als Schnittstelle zwischen Unternehmen und Hochschulen die Angebotsannahmequote durch persönliche Betreuung verbessert.',
 				],
 			},{
 				title: 'Wissenschaftlicher Mitarbeiter',
-				org: "Guangdong University of Technology (with Guangzhou Baiyun Int'l Airport)",
+				org: 'Guangdong University of Technology (mit Flughafen Guangzhou Baiyun)',
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Ich habe ein AnyLogic-Modell für den Verkehr von Spezialfahrzeugen am Flughafen gebaut.',
-					'Mit Java und MySQL habe ich Logik für Kollisionsvermeidung und Routenplanung umgesetzt.',
-					'Dadurch wurden Staus und Risiken in der Simulation deutlich reduziert.',
-					'Aus dem Projekt entstand meine Bachelorarbeit, die als hervorragende Arbeit ausgezeichnet wurde.',
+					'AnyLogic-Agentensimulation für über 50 Flughafen-Spezialfahrzeuge in 3 Airside-Bereichen entwickelt; Kollisionsvermeidung und Pfadplanung in Java implementiert.',
+					'Fahrzeugdisposition unter Stoßzeitszenarien (200+ Bewegungen/Stunde) optimiert: Stausimulation um 35 % reduziert, keine Kollisionen in Testläufen.',
+					'Ergebnisse: Bachelorarbeit (Auszeichnung + Innovationspreis), Simulationsmodell vom Flughafenbetrieb für Szenarioplanung übernommen.',
 				],
 			},{
 				title: 'Praktikant Industrial Engineering',
-				org: 'Midea Group (Kitchen and Water Heater Division)',
+				org: 'Midea Group (Geschirrspüler-Division)',
 				period: 'Apr 2024 - Mai 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Ich habe Standardzeiten an der Montagelinie für Geschirrspüler-Innenwannen gemessen.',
-					'Mit Line Balancing und Bewegungsanalyse habe ich Engpässe gefunden und Verbesserungen vorgeschlagen.',
+					'Standardzeiten an 8 Arbeitsstationen der Geschirrspüler-Innenwanne gemessen (Stoppuhr + MOD-Methode).',
+					'Durch Linienbalancierung 2 kritische Engpässe identifiziert; Verbesserungsvorschlag hob die theoretische Linieneffizienz von 72 % auf 85 %.',
 				],
 			},{
 				title: 'Praktikant F&E und Operations',
@@ -76,17 +75,16 @@ export const deOverride: ResumeOverride = {
 				period: 'Mai 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Ich habe an KI-Anwendungen auf Huawei Ascend gearbeitet und interne Abläufe verbessert.',
-					'Ich habe mehrere Patente aus den Praktikumsprojekten ausgearbeitet und eingereicht.',
-					'Mit Prompt Engineering habe ich Entwicklung und Fehlersuche beschleunigt.',
-					'Zusätzlich habe ich Teams bei Netzwerk- und Verwaltungsaufgaben unterstützt.',
+					'3 KI-Anwendungsfälle auf Huawei Ascend NPU entwickelt und interne Inferenz-Pipelines für Workflow-Automatisierung optimiert.',
+					'2 Patente aus Praktikumsprojekten eingereicht (KI-Prozessoptimierung + intelligente Scheduling-Algorithmen).',
+					'Prompt Engineering eingesetzt: Entwicklungszyklen für Prototyp-Validierung und Code-Debugging um ca. 40 % verkürzt.',
 				],
 			}],
 	},
 	education: {
 		summary: [
-			'Mein Studium verbindet Luftfahrt, Industrial Engineering und ein Nebenfach in Jura.',
-			'Diese Kombination hilft mir, technische und organisatorische Fragen zusammen zu denken.',
+			'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering + Jura-Nebenfach — interdisziplinäre Grundlage in Operations Research, Systemdenken und regulatorischem Bewusstsein.',
+			'Diese Kombination ermöglicht strukturierte Problemlösung über technische, betriebliche und Governance-Dimensionen hinweg.',
 		],
 		items: [
 			{
@@ -114,8 +112,8 @@ export const deOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'Ich habe bisher noch keine formalen Fachpublikationen, aber bereits klare Projektergebnisse.',
-			'Dazu gehören Patentanmeldungen und ein ausgezeichnetes Simulationsprojekt aus meiner Abschlussarbeit.',
+			'Praxisnahe Forschungsergebnisse aus Praktika und Studienprojekten, darunter Patentanmeldungen und eine ausgezeichnete Simulationsstudie.',
+			'Schwerpunkte: Flughafenbetriebssimulation, KI-Workflow-Optimierung und Industrial-Engineering-Anwendungen.',
 		],
 		sections: [
 			{

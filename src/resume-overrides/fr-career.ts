@@ -4,29 +4,29 @@ export const frCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Cherche des opportunités en opérations aéronautiques et transformation digitale',
-        description: 'Je recherche des postes dans les opérations des compagnies aériennes, le management aéroportuaire, la transformation digitale et le conseil en opérations.',
+        title: 'Recherche de postes en opérations aéronautiques et transformation digitale',
+        description: "En recherche active de postes en opérations aériennes, gestion aéroportuaire, transformation digitale et conseil en opérations — soutenu par une recherche en simulation et 4 stages en industrie.",
       },
       {
-        title: 'Ce que je peux offrir',
-        description: 'Une combinaison de profondeur technique (simulation, IA, outils de données) et une solide compréhension opérationnelle. Je transforme les problèmes métier en solutions engineering.',
+        title: 'Ce que j\'apporte',
+        description: "Profondeur technique en simulation (AnyLogic), optimisation (OR-Tools) et workflows IA, combinée à une solide compréhension opérationnelle des contextes industriels et aéronautiques.",
       },
       {
-        title: 'Prêt à avoir un vrai impact',
-        description: 'Avec expérience pratique et recherche primée, je veux travailler dans un environnement opérations ou conseil dynamique et innovant.',
+        title: 'Prêt à produire des résultats mesurables',
+        description: "Recherche en simulation aéroportuaire primée, améliorations quantifiées sur lignes de production, dépôts de brevets issus de stages IA — prêt à appliquer ces acquis dans un environnement opérationnel dynamique.",
       },
     ],
   },
   experience: {
     summary: [
-      "J'ai une expérience pratique en R&D, recherche de simulation aéroportuaire et amélioration des opérations de production.",
-      "Dans chaque rôle, je me suis concentré sur l'identification des goulots, la conception de solutions données et la réalisation d'améliorations mesurables.",
+      "Quatre stages en simulation aéroportuaire, opérations industrielles et R&D IA — chacun centré sur l'identification de goulots et l'amélioration mesurable des processus.",
+      "Compétences clés : simulation AnyLogic, Python, SQL, OR-Tools, Plant Simulation et prompt engineering.",
     ],
   },
   education: {
     summary: [
-      'Master en ingénierie aéronautique et management des opérations — ce programme est directement orienté vers les carrières en opérations de compagnies aériennes, management aéroportuaire et conseil aéronautique.',
-      'Bachelor en génie industriel plus mineure en droit — cette combinaison me donne les outils pour comprendre les défis opérationnels et commerciaux.',
+      "MSc en ingénierie aéronautique (PolyU) — directement orienté vers les opérations aériennes, la gestion aéroportuaire et le conseil aéronautique.",
+      "Licence en génie industriel + mineure en droit — résolution structurée de problèmes avec conscience réglementaire, applicable à tous les secteurs.",
     ],
   },
 };

@@ -4,29 +4,29 @@ export const deCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Chancen im Luftfahrtbetrieb und Digital Transformation',
-        description: 'Ich suche nach Rollen im Airline-Betrieb, Flughafenmanagement, Digital Transformation und Operations Consulting.',
+        title: 'Auf der Suche nach Rollen im Luftfahrtbetrieb und Digitalisierung',
+        description: 'Aktiv auf der Suche nach Positionen in Airline-Betrieb, Flughafenmanagement, digitaler Transformation und Operations Consulting — unterstützt durch Simulationsforschung und 4 Industriepraktika.',
       },
       {
-        title: 'Das bringe ich mit',
-        description: 'Tiefes technisches Verständnis (Simulation, KI, Datentools) kombiniert mit praktischen Betriebserfahrungen. Ich kann Geschäftsprobleme in Ingenieurnlösungen verwandeln.',
+        title: 'Was ich mitbringe',
+        description: 'Technische Tiefe in Simulation (AnyLogic), Optimierung (OR-Tools) und KI-Workflows, kombiniert mit praktischem Verständnis aus Fertigung und Luftfahrt.',
       },
       {
-        title: 'Bereit, wirkliche Auswirkungen zu erzielen',
-        description: 'Mit praktischen Erfahrungen und ausgezeichneter Forschung möchte ich in einem schnelllebigen Betrieb- oder Consulting-Umfeld arbeiten.',
+        title: 'Bereit für messbare Ergebnisse',
+        description: 'Ausgezeichnete Flughafen-Simulationsforschung, quantifizierbare Verbesserungen an Produktionslinien und Patentanmeldungen aus KI-Praktika — jetzt bereit für einen dynamischen Betriebsumfeld.',
       },
     ],
   },
   experience: {
     summary: [
-      'Ich habe praktische Erfahrung in F&E, Flughafensimulation und Produktionsoptimierung.',
-      'In jeder Rolle lag mein Fokus darauf, Engpässe zu finden, Lösungen datengestützt zu entwerfen und messbare Verbesserungen zu erreichen.',
+      'Vier Praktika in Flughafen-Simulation, Fertigungsbetrieb und KI-F&E — jeweils mit Fokus auf Engpassidentifikation und messbare Prozessverbesserung.',
+      'Kernkompetenzen: AnyLogic-Simulation, Python, SQL, OR-Tools, Plant Simulation und Prompt Engineering.',
     ],
   },
   education: {
     summary: [
-      'Master in Luftfahrttechnik und Operations Management — dieses Programm bereitet direkt auf Rollen in Airline-Betrieb, Flughafenmanagement und Luftfahrt-Consulting vor.',
-      'Bachelor in Industrial Engineering plus Nebenfach Jura — diese Kombination gibt mir die Werkzeuge, um sowohl operative als auch geschäftliche Herausforderungen zu verstehen.',
+      'MEng Luftfahrttechnik (PolyU) — maßgeschneidert für Karrieren im Flugbetrieb, Flughafenmanagement und Luftfahrt-Consulting.',
+      'BE Industrial Engineering + Jura-Nebenfach — strukturierte Problemlösung mit regulatorischem Bewusstsein, branchenübergreifend einsetzbar.',
     ],
   },
 };
