@@ -583,6 +583,11 @@ body.layout-sidebar .page-content {
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1200px) {
+  body.layout-sidebar main { padding: 3.5rem 2rem 2rem; }
+  body.layout-sidebar .page-content { max-width: 100%; }
+}
+
 @media (max-width: 860px) {
   .sidebar {
     position: fixed;
@@ -594,6 +599,89 @@ body.layout-sidebar .page-content {
     transition: left 0.28s cubic-bezier(0.2, 0.7, 0.1, 1);
     box-shadow: none;
   }
+
+  .sidebar.is-open {
+    left: 0;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+  }
+
+  .sidebar-overlay.is-open { display: block; }
+
+  .sidebar-toggle { display: flex; }
+
+  body.layout-sidebar > header {
+    left: 0;
+    padding: 0 0.75rem;
+    height: auto;
+    min-height: 44px;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  body.layout-sidebar > header nav {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  body.layout-sidebar > header .nav-right {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    overflow-x: visible;
+  }
+  body.layout-sidebar > header .nav-role-pills {
+    display: none;
+  }
+  body.layout-sidebar > header .role-switcher {
+    order: -1;
+  }
+  body.layout-sidebar > header .role-toggle {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+  body.layout-sidebar > header .layout-toggle,
+  body.layout-sidebar > header .theme-toggle-btn,
+  body.layout-sidebar > header .pdf-export-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+  }
+  body.layout-sidebar > header .pdf-export-btn {
+    padding: 0.3rem 0.5rem;
+  }
+  body.layout-sidebar > header .lang-toggle {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+  body.layout-sidebar main {
+    padding: 5.5rem 1rem 2rem;
+  }
+  body.layout-sidebar > header .theme-picker,
+  body.layout-sidebar > header .lang-menu-panel,
+  body.layout-sidebar > header .layout-menu-panel,
+  body.layout-sidebar > header .role-menu-panel {
+    position: fixed;
+    left: 0.5rem;
+    right: 0.5rem;
+    top: auto;
+    min-width: auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body.layout-sidebar main {
+    padding: 5.5rem 0.85rem 2rem;
+  }
+  body.layout-sidebar > header {
+    padding: 0 0.5rem;
+  }
+  .page-header-title { font-size: 1.3rem !important; }
+  .page-header-summary { font-size: 0.8rem; }
+  .fact-card, .highlight-card, .timeline-item { padding: 0.8rem; }
+  .section-header { margin-bottom: 1rem; }
+}
 
   .sidebar.is-open {
     left: 0;

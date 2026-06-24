@@ -393,6 +393,48 @@ footer {
   main {
     padding: 0 0.75rem;
   }
+
+  /* Header controls: compact on small screens */
+  .nav-right {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .nav-role-pills {
+    display: none;
+  }
+  .role-toggle,
+  .layout-toggle,
+  .theme-toggle-btn,
+  .pdf-export-btn {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+  .lang-toggle {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+}
+
+/* --- Responsive: 480px --- */
+@media (max-width: 480px) {
+  .page-header-title,
+  .hero-title {
+    font-size: 1.3rem !important;
+  }
+  .page-header-summary,
+  .hero-summary {
+    font-size: 0.8rem;
+  }
+  .fact-card,
+  .highlight-card,
+  .timeline-item {
+    padding: 0.8rem;
+  }
+  .section-header {
+    margin-bottom: 1rem;
+  }
 }
 
 /* --- Reduced motion --- */
