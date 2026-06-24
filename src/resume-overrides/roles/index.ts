@@ -265,7 +265,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryZhHant: ["港理工的航空工程與運營管理碩士與航空公司運營、機場管理和航空諮詢職業直接對口。", "我的工業工程本科和法學輔修為航空領域基礎增加了結構化問題解決能力和法規意識。"],
     educationSummaryDe: ["Der MEng in Aviation Engineering an der PolyU ist direkt auf Flugbetrieb und Flughafenmanagement ausgerichtet.", "Mein IE-Bachelor und Nebenfach Recht ergänzen die Luftfahrtbasis um strukturierte Problemlösung."],
     educationSummaryFr: ["Le MSc en Ingénierie Aéronautique à PolyU est aligné sur les opérations aériennes et la gestion aéroportuaire.", "Ma licence IE et mineure en droit ajoutent résolution structurée des problèmes au domaine aéronautique."],
-    experienceOrder: [1, 0, 3, 2],
+    experienceOrder: [0, 1, 3, 2],
     experienceBullets: {
       0: ['Built 3 AI use cases on Huawei Ascend NPU — optimized inference pipelines for internal workflow automation.', '2 patents filed: AI-driven process optimization and intelligent scheduling algorithms.'],
       1: ['AnyLogic agent-based simulation for 50+ airport vehicles across 3 airside zones; collision avoidance and path-planning in Java.', 'Optimized dispatch under peak-hour load (200+ movements/hour): 35% congestion reduction, zero collisions.', 'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.'],
@@ -342,7 +342,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryDe: ["Die Kombination aus IE, Luftfahrt und Recht gibt mir mehrere analytische Frameworks.", "Dieser bereichsübergreifende Hintergrund ist genau das, was Managementberatung verlangt."],
     educationSummaryFr: ["La combinaison IE, aéronautique et droit me donne plusieurs cadres analytiques.", "Ce parcours interdisciplinaire est ce que le conseil en management exige."],
 
-    experienceOrder: [3, 2, 1, 0],
+    experienceOrder: [0, 3, 2, 1],
   },
 
   engineering: {
@@ -407,7 +407,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryDe: ["Bachelor in Industrieingenieurwesen — fundierte Kurse in OR und Simulation.", "Der MEng in Luftfahrt ergänzt das IE-Toolkit um systemisches Denken."],
     educationSummaryFr: ["Licence en Ingénierie Industrielle — cours solides en RO et simulation.", "Le MSc en Aéronautique ajoute une pensée systémique à la boîte à outils IE."],
 
-    experienceOrder: [2, 3, 1, 0],
+    experienceOrder: [0, 2, 3, 1],
   },
 
   ai: {
@@ -676,7 +676,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       "L'ingénierie industrielle fournit le fondement quantitatif pour la modélisation des risques — RO, processus stochastiques et contrôle qualité statistique sont des compétences clés pour l'audit.",
       "La mineure en droit ajoute une conscience réglementaire et un raisonnement juridique structuré — directement applicable à l'audit financier et à la gestion des risques.",
     ],
-    experienceOrder: [2, 1, 0, 3],
+    experienceOrder: [0, 2, 1, 3],
   },
 
   'risk-tech': {
