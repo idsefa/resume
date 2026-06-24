@@ -4,29 +4,27 @@ export const zhCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: '关注航空运营与数字化转型方向',
-        description: '对航司运营、机场管理、数字化转型和运营咨询感兴趣——有仿真研究和4段行业实习作为基础。',
+        title: '工程 + AI + 合规的复合背景',
+        description: '工业工程训练（流程优化、仿真建模、统计分析）+ AI 部署经验 + 法学辅修中的法规与合规课程。',
       },
       {
-        title: '我能做什么',
-        description: '搭建仿真模型、跑优化算法、用 AI 工具，同时也了解实际运营现场——从工厂车间到机场机坪。',
+        title: '流程审计与内控经验',
+        description: '在 2 家制造企业做过工时测量和流程审计，识别控制缺陷并提出有量化改善效果的纠正措施。',
       },
       {
-        title: '能拿出来的成果',
-        description: '机场仿真项目拿了优秀论文和创新奖，制造业实习产线上有可量化的节拍改善，AI 实习提交了 2 项专利。',
+        title: 'IT 系统与数据分析能力',
+        description: '搭建过仿真模型（AnyLogic）、开发过 AI 应用（华为昇腾 NPU）、用过 SQL/MySQL 数据库，以及 Python 做数据分析和工作流自动化。',
       },
     ],
   },
   experience: {
     summary: [
-      '4段实习横跨航空仿真、制造运营和 AI 研发，核心围绕"识别瓶颈→数据建模→量化改善"。',
-      '技术栈：AnyLogic 仿真、Python、SQL、OR-Tools、Plant Simulation、Prompt Engineering。',
+      '运营分析与科技风控方向，有流程优化、仿真建模、计算机视觉模型支持和法学合规课程的实践经验。',
     ],
   },
   education: {
     summary: [
-      '航空工程硕士（港理工）——专为航司运营、机场管理和航空咨询设计。',
-      '工业工程学士 + 法学辅修——结构化问题解决 + 法规意识，跨行业通用。',
+      '航空工程硕士（港理工）+ 工业工程学士 + 法学辅修——技术、运营和法规视角集于一身。',
     ],
   },
 };

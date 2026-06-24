@@ -3,88 +3,77 @@ import type { ResumeOverride } from './types';
 export const deOverride: ResumeOverride = {
 	profile: {
 		name: 'Haocheng He',
-		role: 'Masterstudent in Luftfahrttechnik und Operations Management',
+		role: 'Kandidat für Operations Analytics und Technology Risk',
 		location: 'Hongkong, China',
 	},
 	about: {
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Ort', value: 'Hongkong, China' },
-			{ label: 'Schwerpunkt', value: 'Luftfahrtbetrieb, KI-Workflows und Simulation' },
+			{ label: 'Schwerpunkt', value: 'Technology Risk, Risk Assurance, Data Governance, KI-Governance' },
 		],
 		highlights: [
 			{
-				title: 'Simulationsgestützte Betriebsoptimierung',
-				description: 'Vier Praktika in Flughafen-Simulationsmodellierung, Fertigungsprozessoptimierung und KI-Entwicklung — mit AnyLogic, Python und OR-Tools zur Lösung realer Engpässe.',
+				title: 'Ingenieurwesen + KI + Compliance-Hintergrund',
+				description: 'Industrieingenieur-Training (Prozessoptimierung, Simulationsmodellierung, statistische Analyse) kombiniert mit KI-Erfahrung und Jura-Kursen zu Regulierung und Compliance.',
 			},
 			{
-				title: 'Bereichsübergreifende Problemlösung',
-				description: 'Kombination aus Luftfahrttechnik, Industrial Engineering und Jura-Nebenfach — strukturierte Analyse über technische, betriebliche und regulatorische Dimensionen hinweg.',
+				title: 'Prozessprüfung und interne Kontrollerfahrung',
+				description: 'Zeitstudien und Prozessaudits in 2 Fertigungsbetrieben durchgeführt; Kontrolllücken identifiziert und Korrekturmaßnahmen mit quantifizierten Verbesserungen vorgeschlagen.',
 			},
 			{
-				title: 'Von der Forschung zum messbaren Ergebnis',
-				description: 'Flughafen-Simulationsprojekt mit Thesis-Auszeichnung und Innovationspreis; Fertigungspraktika mit quantifizierbaren Taktzeitreduzierungen.',
+				title: 'IT-Systeme und Datenanalyse',
+				description: 'Simulationsmodelle gebaut (AnyLogic), KI-Anwendungen entwickelt (Huawei Ascend NPU), mit SQL/MySQL-Datenbanken gearbeitet und Python für Datenanalyse und Workflow-Automatisierung eingesetzt.',
 			},
 		],
 	},
 	experience: {
 		summary: [
-			'Vier Praktika in Flughafen-Simulationsforschung, Fertigungsbetrieb und KI-gefütterter F&E — jeweils mit Fokus auf Engpassidentifikation und messbare Prozessverbesserung.',
-			'Kernkompetenzen: AnyLogic-Simulation, Python, SQL, OR-Tools, Plant Simulation und Prompt Engineering.',
+			'Kandidat für Operations Analytics und Technology Risk mit Erfahrung in Prozessoptimierung, Simulationsmodellierung, Computer-Vision-Modellunterstützung und Jura/Compliance-Kursen.',
 		],
 		items: [{
+				title: 'KI-Operations-Praktikant',
+				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
+				period: 'Mai 2025 - Apr 2026',
+				location: 'Shenzhen, China',
+				bullets: [
+					'3 KI-Anwendungsfälle auf Huawei Ascend NPU für interne Workflow-Automatisierung entwickelt; Inferenz-Pipelines optimiert und Verarbeitungslatenz um ~30 % gesenkt.',
+					'2 Patente eingereicht: KI-gestützte Prozessoptimierung und intelligente Scheduling-Algorithmen.',
+					'Prompt Engineering beschleunigte Prototyp-Validierung und Code-Debugging um ~40 %.',
+				],
+			},{
+				title: 'Wissenschaftlicher Mitarbeiter — Flughafen-Simulation',
+				org: 'Guangdong University of Technology (mit Flughafen Guangzhou Baiyun)',
+				period: 'Sep 2023 - Jun 2025',
+				location: 'Guangzhou, China',
+				bullets: [
+					'Agentensimulation (AnyLogic) für 50+ Flughafen-Spezialfahrzeuge in 3 Airside-Bereichen gebaut; Kollisionsvermeidung und Pfadplanung in Java + MySQL implementiert.',
+					'Disposition unter Stoßzeiten (200+ Bewegungen/Stunde) optimiert: Stausimulation um 35 % reduziert, keine Kollisionen in Testläufen.',
+					'Abschlussarbeit mit Thesis-Auszeichnung + Innovationspreis ausgezeichnet; Flughafenbetrieb hat das Modell für Szenarioplanung übernommen.',
+				],
+			},{
+				title: 'Praktikant Industrial Engineering',
+				org: 'Midea Group — Küchen- und Warmwassergeräte-Division',
+				period: 'Apr 2024 - Mai 2024',
+				location: 'Foshan, China',
+				bullets: [
+					'Standardzeiten an 8 Arbeitsstationen der Geschirrspüler-Innenwanne gemessen (Stoppuhr + MOD-Methode).',
+					'Linienbalancierung identifizierte 2 kritische Engpässe; Verbesserungsvorschlag hob die theoretische Effizienz von 72 % auf 85 %.',
+				],
+			},{
 				title: 'Praktikant Produktionsbetrieb',
 				org: 'Guangxi LiuGong Machinery Co., Ltd.',
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'Zeitstudien an 12 Arbeitsstationen der Radlader-Montagelinie durchgeführt; mittels ECRS-Analyse 3 kritische Engpässe identifiziert.',
-					'Layout-Anpassungen vorgeschlagen, die in der Simulation die durchschnittliche Taktzeit um ca. 8 % reduzierten — von Montageingenieuren validiert.',
-				],
-			},{
-				title: 'Campus-Botschafter',
-				org: 'LiuGong HR Services',
-				period: 'Sep 2023 - Dez 2024',
-				location: 'Guangzhou, China',
-				bullets: [
-					'Rekrutierungspipeline über 3 Hochschulen verwaltet; mehr als 5 Recruiting-Events koordiniert und über 200 Bewerbungen gesichtet.',
-					'Als Schnittstelle zwischen Unternehmen und Hochschulen die Angebotsannahmequote durch persönliche Betreuung verbessert.',
-				],
-			},{
-				title: 'Wissenschaftlicher Mitarbeiter',
-				org: 'Guangdong University of Technology (mit Flughafen Guangzhou Baiyun)',
-				period: 'Sep 2023 - Jun 2025',
-				location: 'Guangzhou, China',
-				bullets: [
-					'AnyLogic-Agentensimulation für über 50 Flughafen-Spezialfahrzeuge in 3 Airside-Bereichen entwickelt; Kollisionsvermeidung und Pfadplanung in Java implementiert.',
-					'Fahrzeugdisposition unter Stoßzeitszenarien (200+ Bewegungen/Stunde) optimiert: Stausimulation um 35 % reduziert, keine Kollisionen in Testläufen.',
-					'Ergebnisse: Bachelorarbeit (Auszeichnung + Innovationspreis), Simulationsmodell vom Flughafenbetrieb für Szenarioplanung übernommen.',
-				],
-			},{
-				title: 'Praktikant Industrial Engineering',
-				org: 'Midea Group (Geschirrspüler-Division)',
-				period: 'Apr 2024 - Mai 2024',
-				location: 'Foshan, China',
-				bullets: [
-					'Standardzeiten an 8 Arbeitsstationen der Geschirrspüler-Innenwanne gemessen (Stoppuhr + MOD-Methode).',
-					'Durch Linienbalancierung 2 kritische Engpässe identifiziert; Verbesserungsvorschlag hob die theoretische Linieneffizienz von 72 % auf 85 %.',
-				],
-			},{
-				title: 'Praktikant F&E und Operations',
-				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
-				period: 'Mai 2025 - Apr 2026',
-				location: 'Shenzhen, China',
-				bullets: [
-					'3 KI-Anwendungsfälle auf Huawei Ascend NPU entwickelt und interne Inferenz-Pipelines für Workflow-Automatisierung optimiert.',
-					'2 Patente aus Praktikumsprojekten eingereicht (KI-Prozessoptimierung + intelligente Scheduling-Algorithmen).',
-					'Prompt Engineering eingesetzt: Entwicklungszyklen für Prototyp-Validierung und Code-Debugging um ca. 40 % verkürzt.',
+					'Zeitstudien an 12 Arbeitsstationen der Radlader-Montagelinie; ECRS-Analyse identifizierte 3 Hauptengpässe.',
+					'Layout-Anpassungen reduzierten die durchschnittliche Taktzeit in der Simulation um ~8 %, von Montageingenieuren validiert.',
 				],
 			}],
 	},
 	education: {
 		summary: [
-			'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering + Jura-Nebenfach — interdisziplinäre Grundlage in Operations Research, Systemdenken und regulatorischem Bewusstsein.',
-			'Diese Kombination ermöglicht strukturierte Problemlösung über technische, betriebliche und Governance-Dimensionen hinweg.',
+			'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering + Jura-Minor — technische, betriebliche und regulatorische Perspektiven in einem Profil.',
 		],
 		items: [
 			{
@@ -102,7 +91,7 @@ export const deOverride: ResumeOverride = {
 				bullets: [],
 			},
 			{
-				title: 'Bachelor of Laws (Nebenfach)',
+				title: 'Minor in Law',
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2022 - Jun 2025',
 				location: 'Guangzhou, China',
@@ -112,18 +101,17 @@ export const deOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'Praxisnahe Forschungsergebnisse aus Praktika und Studienprojekten, darunter Patentanmeldungen und eine ausgezeichnete Simulationsstudie.',
-			'Schwerpunkte: Flughafenbetriebssimulation, KI-Workflow-Optimierung und Industrial-Engineering-Anwendungen.',
+			'Patentanmeldungen und ausgezeichnete Simulationsforschung aus Praktika und Studienprojekten.',
 		],
 		sections: [
 			{
 				title: 'Patente',
 				items: [
 					{
-						title: 'Mehrere Patentanmeldungen im Praktikum',
+						title: 'KI-gestützte Prozessoptimierung und intelligente Scheduling-Algorithmen',
 						year: '2025-2026',
 						authors: 'Haocheng He und Team',
-						venue: 'F&E-Praktikumsprojekte in Shenzhen',
+						venue: 'F&E-Praktikum — Shenzhen Wuxian Hongyin Technology',
 						links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' }],
 					},
 				],
@@ -132,14 +120,14 @@ export const deOverride: ResumeOverride = {
 				title: 'Forschung und Auszeichnungen',
 				items: [
 					{
-						title: 'Simulations- und Optimierungsprojekt für Spezialfahrzeuge am Flughafen',
+						title: 'Flughafen-Spezialfahrzeug-Simulation und -Optimierung',
 						year: '2025',
 						authors: 'Haocheng He',
 						venue: 'Kooperationsprojekt mit dem Flughafen Guangzhou Baiyun',
 						links: [],
 					},
 					{
-						title: 'Auszeichnung: Hervorragende Bachelorarbeit und Innovationspreis',
+						title: 'Hervorragende Bachelorarbeit und Innovationspreis',
 						year: '2025',
 						authors: 'Haocheng He',
 						venue: 'Guangdong University of Technology',

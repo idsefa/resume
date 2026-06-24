@@ -4,29 +4,27 @@ export const deCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Interesse an Luftfahrtbetrieb und Digitalisierung',
-        description: 'Auf der Suche nach Positionen in Airline-Betrieb, Flughafenmanagement, Digitalisierung und Operations Consulting — mit Simulationsforschung und 4 Industriepraktika als Grundlage.',
+        title: 'Ingenieurwesen + KI + Compliance-Hintergrund',
+        description: 'Industrieingenieur-Training (Prozessoptimierung, Simulationsmodellierung, statistische Analyse) kombiniert mit KI-Erfahrung und Jura-Kursen zu Regulierung und Compliance.',
       },
       {
-        title: 'Was ich kann',
-        description: 'Ich baue Simulationsmodelle, optimiere mit Algorithmen und arbeite mit KI-Tools. Gleichzeitig kenne ich den Betrieb vor Ort — vom Werkstattboden bis zum Rollfeld.',
+        title: 'Prozessprüfung und interne Kontrollerfahrung',
+        description: 'Zeitstudien und Prozessaudits in 2 Fertigungsbetrieben durchgeführt; Kontrolllücken identifiziert und Korrekturmaßnahmen mit quantifizierten Verbesserungen vorgeschlagen.',
       },
       {
-        title: 'Ergebnisse, die ich vorweisen kann',
-        description: 'Flughafen-Simulationsprojekt mit Thesis- und Innovationspreis ausgezeichnet. Fertigungspraktika brachten messbare Taktzeitverbesserungen. KI-Praktikum ergab 2 Patentanmeldungen.',
+        title: 'IT-Systeme und Datenanalyse',
+        description: 'Simulationsmodelle gebaut (AnyLogic), KI-Anwendungen entwickelt (Huawei Ascend NPU), mit SQL/MySQL-Datenbanken gearbeitet und Python für Datenanalyse und Workflow-Automatisierung eingesetzt.',
       },
     ],
   },
   experience: {
     summary: [
-      'Vier Praktika in Flughafen-Simulation, Fertigungsbetrieb und KI-F&E — jeweils mit Fokus auf Engpassidentifikation und messbare Prozessverbesserung.',
-      'Kernkompetenzen: AnyLogic-Simulation, Python, SQL, OR-Tools, Plant Simulation und Prompt Engineering.',
+      'Kandidat für Operations Analytics und Technology Risk mit Erfahrung in Prozessoptimierung, Simulationsmodellierung, Computer-Vision-Modellunterstützung und Jura/Compliance-Kursen.',
     ],
   },
   education: {
     summary: [
-      'MEng Luftfahrttechnik (PolyU) — maßgeschneidert für Karrieren im Flugbetrieb, Flughafenmanagement und Luftfahrt-Consulting.',
-      'BE Industrial Engineering + Jura-Nebenfach — strukturierte Problemlösung mit regulatorischem Bewusstsein, branchenübergreifend einsetzbar.',
+      'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering + Jura-Minor — technische, betriebliche und regulatorische Perspektiven in einem Profil.',
     ],
   },
 };

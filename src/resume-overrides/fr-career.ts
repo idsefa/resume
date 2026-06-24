@@ -4,29 +4,27 @@ export const frCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Intéressé par les opérations aéronautiques et la transformation digitale',
-        description: "À la recherche de postes en opérations aériennes, gestion aéroportuaire, transformation digitale et conseil en opérations — avec une recherche en simulation et 4 stages en industrie comme base.",
+        title: 'Profil ingénierie + IA + conformité',
+        description: "Formation en génie industriel (optimisation de processus, modélisation par simulation, analyse statistique) combinée à une expérience en déploiement IA et des cours de droit sur la réglementation et la conformité.",
       },
       {
-        title: 'Ce que je sais faire',
-        description: "Je construis des modèles de simulation, j'optimise avec des algorithmes et j'utilise des outils IA. Je connais aussi le fonctionnement concret des opérations — de l'atelier au tarmac.",
+        title: 'Audit de processus et contrôles internes',
+        description: "Études de temps et audits de processus dans 2 usines de fabrication ; identification de lacunes dans les contrôles et propositions d'actions correctives avec des améliorations quantifiées.",
       },
       {
-        title: 'Des résultats concrets',
-        description: "Projet de simulation aéroportuaire primé (thèse + innovation). Stages en industrie avec des réductions mesurables du temps de cycle. Stage IA ayant donné lieu à 2 dépôts de brevets.",
+        title: 'Systèmes IT et analyse de données',
+        description: "Construction de modèles de simulation (AnyLogic), développement d'applications IA (Huawei Ascend NPU), travail avec des bases SQL/MySQL, et utilisation de Python pour l'analyse de données et l'automatisation des workflows.",
       },
     ],
   },
   experience: {
     summary: [
-      "Quatre stages en simulation aéroportuaire, opérations industrielles et R&D IA — chacun centré sur l'identification de goulots et l'amélioration mesurable des processus.",
-      "Compétences clés : simulation AnyLogic, Python, SQL, OR-Tools, Plant Simulation et prompt engineering.",
+      "Candidat en analyse des opérations et risk technology, avec expérience en optimisation de processus, modélisation par simulation, support de modèles de vision par ordinateur et cours de droit/conformité.",
     ],
   },
   education: {
     summary: [
-      "MSc en ingénierie aéronautique (PolyU) — directement orienté vers les opérations aériennes, la gestion aéroportuaire et le conseil aéronautique.",
-      "Licence en génie industriel + mineure en droit — résolution structurée de problèmes avec conscience réglementaire, applicable à tous les secteurs.",
+      "MSc en ingénierie aéronautique (PolyU) + Licence en génie industriel + Mineure en droit — perspectives techniques, opérationnelles et réglementaires dans un seul profil.",
     ],
   },
 };
