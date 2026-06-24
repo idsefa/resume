@@ -77,9 +77,6 @@ export const enOverride: ResumeOverride = {
 			'MEng in Aviation Engineering (PolyU) + BE in Industrial Engineering + Minor in Law — technical, operational, and regulatory perspectives in one profile.',
 		],
 		items: [
- + Minor in Law — technical, operational, and regulatory perspectives in one profile.',
-		],
-		items: [
 			{
 				title: 'Master of Engineering in Aviation Engineering and Operation Management',
 				org: 'The Hong Kong Polytechnic University',
