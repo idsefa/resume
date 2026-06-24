@@ -570,49 +570,49 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
   },
 
   audit: {
-    label: 'Audit / Risk',
-    labelZh: '审计/风控',
-    labelZhHant: '審計/風控',
-    labelDe: 'Audit / Risiko',
-    labelFr: 'Audit / Risque',
-    profileRole: 'Financial Risk & IT Audit Analyst',
-    profileRoleZh: '金融风险与IT审计分析师',
-    profileRoleZhHant: '金融風險與IT審計分析師',
-    profileRoleDe: 'Finanzrisiko- und IT-Audit-Analyst',
-    profileRoleFr: 'Analyste en Risque Financier et Audit IT',
+    label: 'Tech Risk',
+    labelZh: '科技风控',
+    labelZhHant: '科技風控',
+    labelDe: 'Tech-Risiko',
+    labelFr: 'Risk Tech',
+    profileRole: 'Risk Assurance & Technology Risk Analyst',
+    profileRoleZh: '风险鉴证与科技风控分析师',
+    profileRoleZhHant: '風險鑑證與科技風控分析師',
+    profileRoleDe: 'Risk Assurance & Technology Risk Analyst',
+    profileRoleFr: 'Analyste Risk Assurance & Technology Risk',
     highlights: [
       {
-        title: 'Structured risk assessment through systems thinking',
-        description: 'Industrial engineering training provides systematic frameworks for identifying, quantifying, and mitigating operational and financial risks — core to audit methodology.',
+        title: 'Engineering + AI + Compliance background',
+        description: 'Industrial engineering training (process optimization, simulation modeling, statistical analysis) combined with AI deployment experience and law minor coursework in regulatory frameworks and compliance.',
       },
       {
-        title: 'Data-driven process audit and internal controls',
-        description: 'Applied ECRS, time study, and line balancing across 2 manufacturing internships to identify process inefficiencies and control gaps — directly transferable to internal audit workflows.',
+        title: 'Process audit and internal controls experience',
+        description: 'Conducted time studies and process audits across 2 manufacturing plants, identifying control gaps and proposing corrective actions with quantified efficiency improvements.',
       },
       {
-        title: 'IT systems understanding: simulation, databases, Python',
-        description: 'I build systems with AnyLogic, MySQL, Python, and OR-Tools — I understand how data flows through systems and where things can break, which matters for IT audit.',
+        title: 'IT systems and data analysis',
+        description: 'Built simulation models (AnyLogic), developed AI applications (Huawei Ascend NPU), worked with SQL/MySQL databases, and applied Python for data analysis and workflow automation.',
       },
     ],
     highlightsZh: [
-      { title: '系统思维驱动的结构化风险评估', description: '工业工程训练提供了识别、量化和缓解运营与财务风险的系统化框架——这是审计方法论的核心。' },
-      { title: '数据驱动的流程审计与内部控制', description: '在两段制造业实习中应用ECRS、工时研究和线平衡，识别流程低效和控制缺陷——可直接迁移到内部审计工作流。' },
-      { title: 'IT系统理解：仿真、数据库、Python', description: '熟练使用AnyLogic、MySQL、Python和OR-Tools；理解系统架构、数据流和计算逻辑——IT审计和数字风险评估的关键能力。' },
+      { title: '工程 + AI + 合规的复合背景', description: '工业工程训练（流程优化、仿真建模、统计分析）+ AI 部署经验 + 法学辅修中的法规与合规课程。' },
+      { title: '流程审计与内控经验', description: '在 2 家制造企业做过工时测量和流程审计，识别控制缺陷并提出有量化改善效果的纠正措施。' },
+      { title: 'IT 系统与数据分析能力', description: '搭建过仿真模型（AnyLogic）、开发过 AI 应用（华为昇腾 NPU）、用过 SQL/MySQL 数据库，以及 Python 做数据分析和工作流自动化。' },
     ],
     highlightsZhHant: [
-      { title: '系統思維驅動的結構化風險評估', description: '工業工程訓練提供了識別、量化和緩解運營與財務風險的系統化框架——這是審計方法論的核心。' },
-      { title: '數據驅動的流程審計與內部控制', description: '在兩段製造業實習中應用ECRS、工時研究和線平衡，識別流程低效和控制缺陷——可直接遷移到內部審計工作流。' },
-      { title: 'IT系統理解：仿真、數據庫、Python', description: '熟練使用AnyLogic、MySQL、Python和OR-Tools；理解系統架構、數據流和計算邏輯——IT審計和數字風險評估的關鍵能力。' },
+      { title: '工程 + AI + 合規的複合背景', description: '工業工程訓練（流程優化、仿真建模、統計分析）+ AI 部署經驗 + 法學輔修中的法規與合規課程。' },
+      { title: '流程審計與內控經驗', description: '在 2 家製造企業做過工時測量和流程審計，識別控制缺陷並提出有量化改善效果的糾正措施。' },
+      { title: 'IT 系統與數據分析能力', description: '搭建過仿真模型（AnyLogic）、開發過 AI 應用（華為昇騰 NPU）、用過 SQL/MySQL 數據庫，以及 Python 做數據分析和工作流自動化。' },
     ],
     highlightsDe: [
-      { title: 'Strukturierte Risikobewertung durch Systemdenken', description: 'Das IE-Training bietet systematische Frameworks zur Identifizierung, Quantifizierung und Minderung operativer und finanzieller Risiken — Kern der Audit-Methodik.' },
-      { title: 'Datengetriebene Prozessprüfung und interne Kontrollen', description: 'Anwendung von ECRS, Zeitstudie und Linienbalance in 2 Fertigungspraktika zur Identifizierung von Prozessineffizienzen — direkt übertragbar auf interne Audit-Workflows.' },
-      { title: 'IT-Systemverständnis: Simulation, Datenbanken, Python', description: 'Praktische Erfahrung mit AnyLogic, MySQL, Python und OR-Tools; Verständnis von Systemarchitektur und Datenflüssen — essenziell für IT-Audit und digitale Risikobewertung.' },
+      { title: 'Ingenieurwesen + KI + Compliance-Hintergrund', description: 'Industrieingenieur-Training (Prozessoptimierung, Simulationsmodellierung, statistische Analyse) kombiniert mit KI-Erfahrung und Jura-Kursen zu Regulierung und Compliance.' },
+      { title: 'Prozessprüfung und interne Kontrollerfahrung', description: 'Zeitstudien und Prozessaudits in 2 Fertigungsbetrieben durchgeführt; Kontrolllücken identifiziert und Korrekturmaßnahmen mit quantifizierten Verbesserungen vorgeschlagen.' },
+      { title: 'IT-Systeme und Datenanalyse', description: 'Simulationsmodelle gebaut (AnyLogic), KI-Anwendungen entwickelt (Huawei Ascend NPU), mit SQL/MySQL-Datenbanken gearbeitet und Python für Datenanalyse und Workflow-Automatisierung eingesetzt.' },
     ],
     highlightsFr: [
-      { title: 'Évaluation structurée des risques par la pensée systémique', description: 'La formation IE fournit des cadres systématiques pour identifier, quantifier et atténuer les risques opérationnels et financiers — cœur de la méthodologie d\'audit.' },
-      { title: 'Audit de processus et contrôles internes pilotés par les données', description: 'Application de l\'ECRS, de l\'étude de temps et de l\'équilibrage lors de 2 stages en fabrication pour identifier les inefficacités — transférable aux workflows d\'audit interne.' },
-      { title: 'Compréhension des systèmes IT : simulation, bases de données, Python', description: 'Maîtrise d\'AnyLogic, MySQL, Python et OR-Tools ; compréhension de l\'architecture système et des flux de données — essentiel pour l\'audit IT et l\'évaluation des risques numériques.' },
+      { title: 'Profil ingénierie + IA + conformité', description: "Formation en génie industriel (optimisation, modélisation par simulation, analyse statistique) combinée à une expérience en déploiement IA et des cours de droit sur la réglementation et la conformité." },
+      { title: 'Audit de processus et contrôles internes', description: "Études de temps et audits de processus dans 2 usines de fabrication ; identification de lacunes dans les contrôles et propositions d'actions correctives avec des améliorations quantifiées." },
+      { title: 'Systèmes IT et analyse de données', description: "Construction de modèles de simulation (AnyLogic), développement d'applications IA (Huawei Ascend NPU), travail avec des bases SQL/MySQL, et utilisation de Python pour l'analyse de données et l'automatisation des workflows." },
     ],
     experienceSummary: [
       'My internships in manufacturing operations required systematic process auditing — identifying bottlenecks, verifying compliance with standards, and recommending corrective actions.',
@@ -632,7 +632,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     ],
     experienceSummaryFr: [
       'Mes stages en opérations de fabrication nécessitaient un audit de processus systématique — identification des goulets, vérification de conformité et recommandations correctives.',
-      'Ma recherche en simulation aéroportuaire impliquait la modélisation de systèmes complexes avec multiples points de contrôle — applicable à l\'évaluation des risques et à la méthodologie d\'audit.',
+      "Ma recherche en simulation aéroportuaire impliquait la modélisation de systèmes complexes avec multiples points de contrôle — applicable à l'évaluation des risques et à la méthodologie d'audit.",
     ],
     educationSummary: [
       'Industrial engineering provides the quantitative foundation for risk modeling — operations research, stochastic processes, and statistical quality control are core audit-relevant skills.',
@@ -653,6 +653,93 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryFr: [
       "L'ingénierie industrielle fournit le fondement quantitatif pour la modélisation des risques — RO, processus stochastiques et contrôle qualité statistique sont des compétences clés pour l'audit.",
       "La mineure en droit ajoute une conscience réglementaire et un raisonnement juridique structuré — directement applicable à l'audit financier et à la gestion des risques.",
+    ],
+  },
+
+  'risk-tech': {
+    label: 'AI Risk',
+    labelZh: 'AI风控',
+    labelZhHant: 'AI風控',
+    labelDe: 'KI-Risiko',
+    labelFr: 'Risque IA',
+    profileRole: 'AI Risk & Fraud Analytics Analyst',
+    profileRoleZh: 'AI风控与反欺诈分析师',
+    profileRoleZhHant: 'AI風控與反欺詐分析師',
+    profileRoleDe: 'KI-Risiko- und Betrugsanalyse-Analyst',
+    profileRoleFr: 'Analyste Risque IA et Fraude',
+    highlights: [
+      {
+        title: 'AI deployment and model development experience',
+        description: 'Built 3 AI use cases on Huawei Ascend NPU, filed 2 patents on AI-driven process optimization — I understand how AI models are built, deployed, and where they can fail.',
+      },
+      {
+        title: 'Data analysis and simulation for risk modeling',
+        description: 'Airport simulation with 50+ vehicles, collision avoidance algorithms, and statistical optimization — same mathematical foundations as fraud detection and model risk.',
+      },
+      {
+        title: 'Quantitative background from industrial engineering',
+        description: 'Operations research, stochastic modeling, and data-driven decision-making from my IE degree — directly applicable to AML/KYC analytics, model validation, and risk quantification.',
+      },
+    ],
+    highlightsZh: [
+      { title: 'AI 部署与模型开发经验', description: '在华为昇腾 NPU 上搭建了 3 个 AI 应用场景，提交了 2 项 AI 流程优化专利——我理解 AI 模型怎么建、怎么部署、哪里会出问题。' },
+      { title: '数据分析与仿真用于风险建模', description: '50+ 辆车的机场仿真、避碰算法和统计优化——和反欺诈检测、模型风险的数学基础是一样的。' },
+      { title: '工业工程的量化背景', description: '运筹学、随机建模、数据驱动决策——直接适用于 AML/KYC 分析、模型验证和风险量化。' },
+    ],
+    highlightsZhHant: [
+      { title: 'AI 部署與模型開發經驗', description: '在華為昇騰 NPU 上搭建了 3 個 AI 應用場景，提交了 2 項 AI 流程優化專利——我理解 AI 模型怎麼建、怎麼部署、哪裡會出問題。' },
+      { title: '數據分析與仿真用於風險建模', description: '50+ 輛車的機場仿真、避碰算法和統計優化——和反欺詐檢測、模型風險的數學基礎是一樣的。' },
+      { title: '工業工程的量化背景', description: '運籌學、隨機建模、數據驅動決策——直接適用於 AML/KYC 分析、模型驗證和風險量化。' },
+    ],
+    highlightsDe: [
+      { title: 'KI-Bereitstellung und Modellerfahrung', description: '3 KI-Anwendungsfälle auf Huawei Ascend NPU gebaut, 2 Patente zur KI-gestützten Prozessoptimierung — ich verstehe, wie KI-Modelle gebaut, bereitgestellt werden und wo sie versagen können.' },
+      { title: 'Datenanalyse und Simulation für Risikomodellierung', description: 'Flughafen-Simulation mit 50+ Fahrzeugen, Kollisionsvermeidungsalgorithmen und statistische Optimierung — dieselben mathematischen Grundlagen wie bei Betrugserkennung und Modellrisiko.' },
+      { title: 'Quantitativer Hintergrund aus dem Industrieingenieurwesen', description: 'OR, stochastische Modellierung und datengetriebene Entscheidungsfindung — direkt anwendbar auf AML/KYC-Analyse, Modellvalidierung und Risikoquantifizierung.' },
+    ],
+    highlightsFr: [
+      { title: "Expérience en déploiement IA et développement de modèles", description: "3 cas d'usage IA sur Huawei Ascend NPU, 2 brevets sur l'optimisation de processus par IA — je comprends comment les modèles IA sont construits, déployés et où ils peuvent échouer." },
+      { title: "Analyse de données et simulation pour la modélisation des risques", description: "Simulation aéroportuaire avec 50+ véhicules, algorithmes d'évitement de collision et optimisation statistique — mêmes fondements mathématiques que la détection de fraude et le risque de modèle." },
+      { title: "Background quantitatif du génie industriel", description: "RO, modélisation stochastique et prise de décision basée sur les données — directement applicable à l'analyse AML/KYC, la validation de modèles et la quantification des risques." },
+    ],
+    experienceSummary: [
+      'My AI internship on Huawei Ascend NPU gave me hands-on experience with model development, deployment pipelines, and failure modes — directly relevant to AI risk and model governance.',
+      'My airport simulation research involved building predictive models with real operational data — the same skills needed for fraud analytics and risk quantification.',
+    ],
+    experienceSummaryZh: [
+      '我的华为昇腾 AI 实习让我亲手做过模型开发、部署管线和故障模式——直接适用于 AI 风险和模型治理。',
+      '我的机场仿真实验用真实运营数据构建预测模型——和反欺诈分析、风险量化需要的技能一样。',
+    ],
+    experienceSummaryZhHant: [
+      '我的華為昇騰 AI 實習讓我親手做過模型開發、部署管線和故障模式——直接適用於 AI 風險和模型治理。',
+      '我的機場仿真實驗用真實運營數據構建預測模型——和反欺詐分析、風險量化需要的技能一樣。',
+    ],
+    experienceSummaryDe: [
+      'Mein KI-Praktikum auf Huawei Ascend NPU gab mir praktische Erfahrung mit Modellentwicklung, Deployment-Pipelines und Fehlermoden — direkt relevant für KI-Risiko und Modell-Governance.',
+      'Meine Flughafen-Simulationsforschung umfasste die Erstellung prädiktiver Modelle mit echten Betriebsdaten — dieselben Fähigkeiten wie bei Betrugsanalyse und Risikoquantifizierung.',
+    ],
+    experienceSummaryFr: [
+      "Mon stage IA sur Huawei Ascend NPU m'a donné une expérience concrète du développement de modèles, des pipelines de déploiement et des modes de défaillance — directement pertinent pour le risque IA et la gouvernance des modèles.",
+      "Ma recherche en simulation aéroportuaire impliquait la construction de modèles prédictifs avec des données opérationnelles réelles — les mêmes compétences que pour l'analyse de fraude et la quantification des risques.",
+    ],
+    educationSummary: [
+      'Industrial engineering provides the quantitative foundation — operations research, stochastic modeling, and statistical analysis are core to risk modeling and fraud detection.',
+      'The law minor adds understanding of regulatory frameworks, compliance requirements, and governance structures — essential for AI governance and model risk management.',
+    ],
+    educationSummaryZh: [
+      '工业工程提供了量化基础——运筹学、随机建模和统计分析是风险建模和反欺诈的核心。',
+      '法学辅修增加了对监管框架、合规要求和治理结构的理解——对 AI 治理和模型风险管理至关重要。',
+    ],
+    educationSummaryZhHant: [
+      '工業工程提供了量化基礎——運籌學、隨機建模和統計分析是風險建模和反欺詐的核心。',
+      '法學輔修增加了對監管框架、合規要求和治理結構的理解——對 AI 治理和模型風險管理至關重要。',
+    ],
+    educationSummaryDe: [
+      'Industrieingenieurwesen bietet die quantitative Grundlage — OR, stochastische Modellierung und statistische Analyse sind Kern der Risikomodellierung und Betrugserkennung.',
+      'Das Nebenfach Recht ergänzt Verständnis für regulatorische Frameworks, Compliance-Anforderungen und Governance-Strukturen — essenziell für KI-Governance und Modellrisikomanagement.',
+    ],
+    educationSummaryFr: [
+      "L'ingénierie industrielle fournit le fondement quantitatif — RO, modélisation stochastique et analyse statistique sont au cœur de la modélisation des risques et de la détection de fraude.",
+      "La mineure en droit ajoute la compréhension des cadres réglementaires, des exigences de conformité et des structures de gouvernance — essentiels pour la gouvernance IA et la gestion du risque de modèle.",
     ],
   },
 };
