@@ -146,6 +146,7 @@ const roleVariantsJson = JSON.stringify(
               <button type="button" class="layout-option" data-layout="dramatic" role="menuitem"><span class="layout-option-icon">▩</span><span>Full-bleed Hero</span></button>
               <button type="button" class="layout-option" data-layout="glass" role="menuitem"><span class="layout-option-icon">◌</span><span>Overlapping Sections</span></button>
               <button type="button" class="layout-option" data-layout="zen" role="menuitem"><span class="layout-option-icon">○</span><span>Minimal Zen</span></button>
+              <button type="button" class="layout-option" data-layout="whiteboard" role="menuitem"><span class="layout-option-icon">📋</span><span>Whiteboard</span></button>
             </div>
           </div>
           <ThemeToggle {lang} />
@@ -429,8 +430,8 @@ const roleVariantsJson = JSON.stringify(
 
       // ---- Layout switcher ----
       const LAYOUT_KEY = 'resume-layout';
-      const LAYOUT_ICONS = { sidebar: '◧', centered: '▦', classic: '▤', dramatic: '▩', glass: '◌', zen: '○' };
-      const LAYOUT_LABELS = { sidebar: 'Sidebar', centered: 'Centered Hero', classic: 'Classic List', dramatic: 'Full-bleed Hero', glass: 'Overlapping', zen: 'Minimal Zen' };
+      const LAYOUT_ICONS = { sidebar: '◧', centered: '▦', classic: '▤', dramatic: '▩', glass: '◌', zen: '○', whiteboard: '📋' };
+      const LAYOUT_LABELS = { sidebar: 'Sidebar', centered: 'Centered Hero', classic: 'Classic List', dramatic: 'Full-bleed Hero', glass: 'Overlapping', zen: 'Minimal Zen', whiteboard: 'Whiteboard' };
 
       const layoutSwitcher = document.getElementById('layoutSwitcher');
       const layoutToggle = document.getElementById('layoutToggle');
