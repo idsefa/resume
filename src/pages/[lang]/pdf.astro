@@ -120,13 +120,13 @@ const sk = skills[lang] || skills.en;
     </div>
   </div>
 
-  <!-- SUMMARY: 1-2 lines -->
+  <!-- SUMMARY -->
   <div class="section">
     <div class="section-title">{l.summary}</div>
-    <p class="summary">{exp.summary[0]}</p>
+    {exp.summary.map(s => <p class="summary">{s}</p>)}
   </div>
 
-  <!-- SKILLS: inline list for ATS keyword matching -->
+  <!-- SKILLS -->
   <div class="section">
     <div class="section-title">{l.skills}</div>
     <div class="skills-list">
@@ -157,6 +157,11 @@ const sk = skills[lang] || skills.en;
           <div><span class="edu-title">{item.title}</span>, <span class="edu-org">{item.org}</span></div>
           <div class="edu-meta">{item.period} | {item.location}</div>
         </div>
+        {item.bullets.length > 0 && (
+          <ul class="entry-bullets">{item.bullets.map(b => <li>{b}</li>)}</ul>
+        )}
+      </div>
+    ))}
       </div>
     ))}
   </div>
