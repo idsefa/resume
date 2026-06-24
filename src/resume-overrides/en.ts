@@ -156,6 +156,13 @@ export const enOverride: ResumeOverride = {
 						venue: 'Registration No. 2024SR0146827',
 						links: [],
 					},
+					{
+						title: 'Urban Flood Intelligent Mobile Emergency Command Dispatch System V1.0',
+						year: '2024',
+						authors: 'Lin Chengfeng, Li Zeyin, Yang Hua, He Haocheng',
+						venue: 'Registration No. 2024SR0549247',
+						links: [],
+					},
 				],
 			},
 			{

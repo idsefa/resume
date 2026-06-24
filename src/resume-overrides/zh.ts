@@ -152,6 +152,13 @@ export const zhOverride: ResumeOverride = {
 						venue: '登记号：2024SR0146827',
 						links: [],
 					},
+					{
+						title: '城市防汛智能移动应急指挥调度系统 V1.0',
+						year: '2024',
+						authors: '林诚丰; 李泽茵; 杨华; 何昊程',
+						venue: '登记号：2024SR0549247',
+						links: [],
+					},
 				],
 			},
 			{
