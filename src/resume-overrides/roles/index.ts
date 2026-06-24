@@ -44,12 +44,12 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
         description: 'Main interest: using simulation and AI tools to improve airport and airline operations through data-driven analysis.',
       },
       {
-        title: 'Cross-functional collaboration across 4 internships',
-        description: 'Experience spans manufacturing, R&D, airport research, and campus recruiting — working with diverse teams to deliver results.',
+        title: 'Worked across 4 different internships',
+        description: 'Manufacturing, R&D, airport research, and campus recruiting — each one taught me something different about how teams get things done.',
       },
       {
         title: 'Python, SQL, AnyLogic, OR-Tools, Plant Simulation',
-        description: 'Hands-on with simulation, optimization, and data tools used in real-world operations and engineering projects.',
+        description: 'I use Python, SQL, AnyLogic, Plant Simulation, and OR-Tools regularly in projects — tools that matter in real operations and engineering work.',
       },
     ],
     highlightsZh: [
@@ -282,7 +282,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
       {
         title: 'Stakeholder communication: campus recruiting to R&D teams',
-        description: 'Served as campus brand ambassador and cross-functional R&D team member — translating technical findings into clear, actionable recommendations for diverse stakeholders.',
+        description: 'Worked as campus brand ambassador and on R&D teams — learned to explain technical findings clearly to people outside my field.',
       },
     ],
     experienceSummary: [
@@ -477,12 +477,12 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     highlightsZh: [
       { title: "华为昇腾AI部署：用例开发 + 2项专利", description: "开发华为昇腾平台AI用例并优化工作流；申请2项专利。" },
       { title: "混合AI：仿真 + 优化 + LLM提示工程", description: "结合AnyLogic仿真、OR-Tools优化和提示工程构建混合AI-运营解决方案。" },
-      { title: "快速原型：Python、SQL、提示工程", description: "精通Python、SQL和提示工程；交付AI辅助工具并加速研究工作流。" },
+      { title: "快速原型：Python、SQL、提示工程", description: "常用 Python、SQL 和 Prompt Engineering，在实习中交付过 AI 辅助工具，能把开发周期压下来。" },
     ],
     highlightsZhHant: [
       { title: "華為昇騰AI部署：用例開發 + 2項專利", description: "開發華為昇騰平台AI用例並優化工作流；申請2項專利。" },
       { title: "混合AI：仿真 + 優化 + LLM提示工程", description: "結合AnyLogic仿真、OR-Tools優化和提示工程構建混合AI-運營解決方案。" },
-      { title: "快速原型：Python、SQL、提示工程", description: "精通Python、SQL和提示工程；交付AI輔助工具並加速研究工作流。" },
+      { title: "快速原型：Python、SQL、提示工程", description: "常用 Python、SQL 和 Prompt Engineering，在實習中交付過 AI 輔助工具，能把開發週期壓下來。" },
     ],
     highlightsDe: [
       { title: "KI-Bereitstellung auf Huawei Ascend + 2 Patente", description: "Entwicklung von KI-Anwendungsfällen auf Huawei Ascend; Einreichung von 2 Patenten." },
@@ -523,7 +523,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
       {
         title: 'OR-Tools, Python, and simulation: transferable to quant finance',
-        description: 'Hands-on with operations research algorithms (scheduling, routing, optimization) and simulation modeling — methods that transfer directly to quantitative finance, risk modeling, and algorithmic trading.',
+        description: 'I work with scheduling, routing, and optimization algorithms plus simulation — these same methods apply to quant finance and risk modeling.',
       },
       {
         title: 'Analytical rigor: IE + law minor = structured reasoning',
@@ -562,8 +562,8 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     experienceSummaryZhHant: ["我的研究和實習以算法問題解決為中心：仿真中的路徑規劃、AI項目和運營優化。", "這些經驗量化研究崗位所需的數學和編程基礎。"],
     experienceSummaryDe: ["Meine Forschung konzentrierte sich auf algorithmische Problemlösung: Pfadplanung und Betriebsoptimierung.", "Diese Erfahrungen demonstrieren die mathematische Grundlage für quantitative Forschungsstellen."],
     experienceSummaryFr: ["Mes travaux se sont concentrés sur la résolution algorithmique : planification de trajectoire et optimisation.", "Ces expériences démontrent les fondements mathématiques pour les postes de recherche quantitative."],
-    educationSummaryZh: ["工业工程具有深厚的定量性：运筹学、随机建模和数据驱动决策是课程核心。", "航空硕士增加了系统复杂性和真实运营约束——对量化建模很有价值。"],
-    educationSummaryZhHant: ["工業工程具有深厚的定量性：運籌學、隨機建模和數據驅動決策是課程核心。", "航空碩士增加了系統複雜性和真實運營約束——對量化建模很有價值。"],
+    educationSummaryZh: ["工业工程的课程本身就偏量化——运筹学、随机建模、数据驱动决策都是主课。", "航空硕士增加了系统复杂性和真实运营约束——对量化建模很有价值。"],
+    educationSummaryZhHant: ["工業工程的課程本身就偏量化——運籌學、隨機建模、數據驅動決策都是主課。", "航空碩士增加了系統複雜性和真實運營約束——對量化建模很有價值。"],
     educationSummaryDe: ["Industrieingenieurwesen ist zutiefst quantitativ: OR und stochastische Modellierung sind Kern des Lehrplans.", "Der MEng ergänzt Systemkomplexität — wertvoll für quantitative Modellierung."],
     educationSummaryFr: ["L'ingénierie industrielle est profondément quantitative : RO et modélisation stochastique sont au cœur du programme.", "Le MSc ajoute la complexité des systèmes — précieux pour la modélisation quantitative."],
 
@@ -591,7 +591,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
       {
         title: 'IT systems understanding: simulation, databases, Python',
-        description: 'Hands-on with AnyLogic, MySQL, Python, and OR-Tools; understands system architecture, data flows, and computational logic — essential for IT audit and digital risk assessment.',
+        description: 'I build systems with AnyLogic, MySQL, Python, and OR-Tools — I understand how data flows through systems and where things can break, which matters for IT audit.',
       },
     ],
     highlightsZh: [

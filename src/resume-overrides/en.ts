@@ -38,8 +38,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'Conducted stopwatch time studies across 12 workstations on the wheel loader assembly line, applying ECRS analysis to identify 3 major bottleneck points.',
-					'Proposed layout adjustments that reduced average cycle time by ~8% in simulation, validated with line engineers before implementation.',
+					'Stopwatch time studies on 12 workstations of the wheel loader line — used ECRS to find 3 main bottleneck points.',
+					'Suggested layout changes that cut cycle time by ~8% in simulation. Line engineers validated the results before we implemented.',
 				],
 			},{
 				title: 'Campus Brand Ambassador',
@@ -47,8 +47,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Dec 2024',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Managed recruitment pipeline across 3 university campuses, coordinating 5+ hiring events and screening 200+ candidate applications.',
-					'Served as primary liaison between corporate HR and university career centers, improving offer acceptance rate through personalized candidate engagement.',
+					'Ran the recruitment pipeline across 3 campuses: organized 5+ hiring events, screened 200+ applications.',
+					'Main contact between corporate HR and university career centers — helped improve offer acceptance by staying in touch with candidates personally.',
 				],
 			},{
 				title: 'Research Assistant',
@@ -56,9 +56,9 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Designed an AnyLogic agent-based simulation model for 50+ airport special vehicles operating across 3 airside zones, with collision avoidance and path-planning algorithms implemented in Java.',
-					'Optimized vehicle dispatch schedules under peak-hour scenarios (200+ movements/hour), reducing simulated congestion by 35% and eliminating collision events in test runs.',
-					'Project deliverables: bachelor thesis (awarded Excellent Thesis + Innovation Award), simulation model adopted by airport operations team for scenario planning.',
+					'Built an AnyLogic simulation of 50+ airport vehicles across 3 airside zones. The collision avoidance and path-planning logic was written in Java.',
+					'Under peak-hour load (200+ movements/hour), the optimized dispatch schedule cut simulated congestion by 35% — zero collisions in test runs.',
+					'The thesis won Excellent Thesis + Innovation Award. The airport operations team now uses the model for scenario planning.',
 				],
 			},{
 				title: 'Industrial Engineering Intern',
@@ -66,8 +66,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Apr 2024 - May 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Measured standard times across 8 workstations on the dishwasher inner-liner assembly line using stopwatch studies and predetermined motion time systems.',
-					'Identified 2 critical bottlenecks through line balancing analysis; proposed rebalancing方案 that improved theoretical line efficiency from 72% to 85%.',
+					'Standard time measurement on 8 workstations of the dishwasher inner-liner line — stopwatch plus MOD method.',
+					'Line balancing analysis found 2 key bottlenecks. My rebalancing proposal raised theoretical line efficiency from 72% to 85%.',
 				],
 			},{
 				title: 'R&D and Operations Intern',
@@ -75,16 +75,16 @@ export const enOverride: ResumeOverride = {
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Developed 3 AI application use cases on Huawei Ascend NPU platform, optimizing inference pipelines for internal workflow automation.',
-					'Filed 2 patents from internship projects covering AI-driven process optimization and intelligent scheduling algorithms.',
-					'Applied prompt engineering techniques to reduce development cycle time by ~40% for prototype validation and code debugging tasks.',
+					'Built 3 AI use cases on Huawei Ascend NPU — optimized inference pipelines for internal workflow automation.',
+					'2 patents filed from internship work: AI-driven process optimization and intelligent scheduling algorithms.',
+					'Prompt engineering cut prototype validation and debugging cycles by ~40%.',
 				],
 			}],
 	},
 	education: {
 		summary: [
-			'MEng in Aviation Engineering (PolyU) + BE in Industrial Engineering + Law minor — a cross-disciplinary foundation spanning operations research, systems thinking, and regulatory awareness.',
-			'This combination enables structured problem-solving across technical, operational, and governance dimensions.',
+			'Aviation engineering (MEng) + industrial engineering (BE) + law minor — I can approach problems from technical, operational, and regulatory angles.',
+			'This mix has been useful for structured thinking across different kinds of challenges.',
 		],
 		items: [
 			{

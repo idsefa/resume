@@ -4,16 +4,16 @@ export const frCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Recherche de postes en opérations aéronautiques et transformation digitale',
-        description: "En recherche active de postes en opérations aériennes, gestion aéroportuaire, transformation digitale et conseil en opérations — soutenu par une recherche en simulation et 4 stages en industrie.",
+        title: 'Intéressé par les opérations aéronautiques et la transformation digitale',
+        description: "À la recherche de postes en opérations aériennes, gestion aéroportuaire, transformation digitale et conseil en opérations — avec une recherche en simulation et 4 stages en industrie comme base.",
       },
       {
-        title: 'Ce que j\'apporte',
-        description: "Profondeur technique en simulation (AnyLogic), optimisation (OR-Tools) et workflows IA, combinée à une solide compréhension opérationnelle des contextes industriels et aéronautiques.",
+        title: 'Ce que je sais faire',
+        description: "Je construis des modèles de simulation, j'optimise avec des algorithmes et j'utilise des outils IA. Je connais aussi le fonctionnement concret des opérations — de l'atelier au tarmac.",
       },
       {
-        title: 'Prêt à produire des résultats mesurables',
-        description: "Recherche en simulation aéroportuaire primée, améliorations quantifiées sur lignes de production, dépôts de brevets issus de stages IA — prêt à appliquer ces acquis dans un environnement opérationnel dynamique.",
+        title: 'Des résultats concrets',
+        description: "Projet de simulation aéroportuaire primé (thèse + innovation). Stages en industrie avec des réductions mesurables du temps de cycle. Stage IA ayant donné lieu à 2 dépôts de brevets.",
       },
     ],
   },

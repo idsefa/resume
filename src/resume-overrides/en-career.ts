@@ -4,16 +4,16 @@ export const enCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Seeking roles in aviation operations and digital transformation',
-        description: 'Actively pursuing opportunities in airline operations, airport management, digital transformation, and operations consulting — backed by hands-on simulation research and 4 industry internships.',
+        title: 'Looking for roles in aviation operations and digital transformation',
+        description: 'Interested in airline operations, airport management, digital transformation, and operations consulting — backed by simulation research and 4 industry internships.',
       },
       {
-        title: 'What I bring to the table',
-        description: 'Technical depth in simulation (AnyLogic), optimization (OR-Tools), and AI workflows, combined with strong operational understanding from manufacturing and aviation contexts.',
+        title: 'What I can do',
+        description: 'I build simulation models, run optimization algorithms, and work with AI tools. I also understand how operations work on the ground — from factory floors to airport tarmacs.',
       },
       {
-        title: 'Ready to drive measurable impact',
-        description: 'Award-winning airport simulation research, quantifiable improvements on production lines, and patent filings from AI internship projects — now looking to apply this in a fast-paced operations environment.',
+        title: 'Results I can point to',
+        description: 'Airport simulation project won thesis and innovation awards. Manufacturing internships delivered measurable cycle-time improvements. AI internship produced 2 patent filings.',
       },
     ],
   },

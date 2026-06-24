@@ -4,16 +4,16 @@ export const deCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Auf der Suche nach Rollen im Luftfahrtbetrieb und Digitalisierung',
-        description: 'Aktiv auf der Suche nach Positionen in Airline-Betrieb, Flughafenmanagement, digitaler Transformation und Operations Consulting — unterstützt durch Simulationsforschung und 4 Industriepraktika.',
+        title: 'Interesse an Luftfahrtbetrieb und Digitalisierung',
+        description: 'Auf der Suche nach Positionen in Airline-Betrieb, Flughafenmanagement, Digitalisierung und Operations Consulting — mit Simulationsforschung und 4 Industriepraktika als Grundlage.',
       },
       {
-        title: 'Was ich mitbringe',
-        description: 'Technische Tiefe in Simulation (AnyLogic), Optimierung (OR-Tools) und KI-Workflows, kombiniert mit praktischem Verständnis aus Fertigung und Luftfahrt.',
+        title: 'Was ich kann',
+        description: 'Ich baue Simulationsmodelle, optimiere mit Algorithmen und arbeite mit KI-Tools. Gleichzeitig kenne ich den Betrieb vor Ort — vom Werkstattboden bis zum Rollfeld.',
       },
       {
-        title: 'Bereit für messbare Ergebnisse',
-        description: 'Ausgezeichnete Flughafen-Simulationsforschung, quantifizierbare Verbesserungen an Produktionslinien und Patentanmeldungen aus KI-Praktika — jetzt bereit für einen dynamischen Betriebsumfeld.',
+        title: 'Ergebnisse, die ich vorweisen kann',
+        description: 'Flughafen-Simulationsprojekt mit Thesis- und Innovationspreis ausgezeichnet. Fertigungspraktika brachten messbare Taktzeitverbesserungen. KI-Praktikum ergab 2 Patentanmeldungen.',
       },
     ],
   },
