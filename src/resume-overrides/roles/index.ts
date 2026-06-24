@@ -568,6 +568,93 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryFr: ["L'ingénierie industrielle est profondément quantitative : RO et modélisation stochastique sont au cœur du programme.", "Le MSc ajoute la complexité des systèmes — précieux pour la modélisation quantitative."],
 
   },
+
+  audit: {
+    label: 'Audit / Risk',
+    labelZh: '审计/风控',
+    labelZhHant: '審計/風控',
+    labelDe: 'Audit / Risiko',
+    labelFr: 'Audit / Risque',
+    profileRole: 'Financial Risk & IT Audit Analyst',
+    profileRoleZh: '金融风险与IT审计分析师',
+    profileRoleZhHant: '金融風險與IT審計分析師',
+    profileRoleDe: 'Finanzrisiko- und IT-Audit-Analyst',
+    profileRoleFr: 'Analyste en Risque Financier et Audit IT',
+    highlights: [
+      {
+        title: 'Structured risk assessment through systems thinking',
+        description: 'Industrial engineering training provides systematic frameworks for identifying, quantifying, and mitigating operational and financial risks — core to audit methodology.',
+      },
+      {
+        title: 'Data-driven process audit and internal controls',
+        description: 'Applied ECRS, time study, and line balancing across 2 manufacturing internships to identify process inefficiencies and control gaps — directly transferable to internal audit workflows.',
+      },
+      {
+        title: 'IT systems understanding: simulation, databases, Python',
+        description: 'Hands-on with AnyLogic, MySQL, Python, and OR-Tools; understands system architecture, data flows, and computational logic — essential for IT audit and digital risk assessment.',
+      },
+    ],
+    highlightsZh: [
+      { title: '系统思维驱动的结构化风险评估', description: '工业工程训练提供了识别、量化和缓解运营与财务风险的系统化框架——这是审计方法论的核心。' },
+      { title: '数据驱动的流程审计与内部控制', description: '在两段制造业实习中应用ECRS、工时研究和线平衡，识别流程低效和控制缺陷——可直接迁移到内部审计工作流。' },
+      { title: 'IT系统理解：仿真、数据库、Python', description: '熟练使用AnyLogic、MySQL、Python和OR-Tools；理解系统架构、数据流和计算逻辑——IT审计和数字风险评估的关键能力。' },
+    ],
+    highlightsZhHant: [
+      { title: '系統思維驅動的結構化風險評估', description: '工業工程訓練提供了識別、量化和緩解運營與財務風險的系統化框架——這是審計方法論的核心。' },
+      { title: '數據驅動的流程審計與內部控制', description: '在兩段製造業實習中應用ECRS、工時研究和線平衡，識別流程低效和控制缺陷——可直接遷移到內部審計工作流。' },
+      { title: 'IT系統理解：仿真、數據庫、Python', description: '熟練使用AnyLogic、MySQL、Python和OR-Tools；理解系統架構、數據流和計算邏輯——IT審計和數字風險評估的關鍵能力。' },
+    ],
+    highlightsDe: [
+      { title: 'Strukturierte Risikobewertung durch Systemdenken', description: 'Das IE-Training bietet systematische Frameworks zur Identifizierung, Quantifizierung und Minderung operativer und finanzieller Risiken — Kern der Audit-Methodik.' },
+      { title: 'Datengetriebene Prozessprüfung und interne Kontrollen', description: 'Anwendung von ECRS, Zeitstudie und Linienbalance in 2 Fertigungspraktika zur Identifizierung von Prozessineffizienzen — direkt übertragbar auf interne Audit-Workflows.' },
+      { title: 'IT-Systemverständnis: Simulation, Datenbanken, Python', description: 'Praktische Erfahrung mit AnyLogic, MySQL, Python und OR-Tools; Verständnis von Systemarchitektur und Datenflüssen — essenziell für IT-Audit und digitale Risikobewertung.' },
+    ],
+    highlightsFr: [
+      { title: 'Évaluation structurée des risques par la pensée systémique', description: 'La formation IE fournit des cadres systématiques pour identifier, quantifier et atténuer les risques opérationnels et financiers — cœur de la méthodologie d\'audit.' },
+      { title: 'Audit de processus et contrôles internes pilotés par les données', description: 'Application de l\'ECRS, de l\'étude de temps et de l\'équilibrage lors de 2 stages en fabrication pour identifier les inefficacités — transférable aux workflows d\'audit interne.' },
+      { title: 'Compréhension des systèmes IT : simulation, bases de données, Python', description: 'Maîtrise d\'AnyLogic, MySQL, Python et OR-Tools ; compréhension de l\'architecture système et des flux de données — essentiel pour l\'audit IT et l\'évaluation des risques numériques.' },
+    ],
+    experienceSummary: [
+      'My internships in manufacturing operations required systematic process auditing — identifying bottlenecks, verifying compliance with standards, and recommending corrective actions.',
+      'My airport simulation research involved modeling complex systems with multiple control points and risk scenarios — directly applicable to risk assessment and audit methodology.',
+    ],
+    experienceSummaryZh: [
+      '我的制造业运营实习需要系统化的流程审计——识别瓶颈、验证标准合规性、提出纠正措施。',
+      '我的机场仿真实验涉及对多控制点和风险场景的复杂系统建模——可直接应用于风险评估和审计方法论。',
+    ],
+    experienceSummaryZhHant: [
+      '我的製造業運營實習需要系統化的流程審計——識別瓶頸、驗證標準合規性、提出糾正措施。',
+      '我的機場仿真實驗涉及對多控制點和風險場景的複雜系統建模——可直接應用於風險評估和審計方法論。',
+    ],
+    experienceSummaryDe: [
+      'Meine Praktika in der Fertigungsoperation erforderten systematische Prozessprüfung — Engpassidentifikation, Compliance-Überprüfung und Korrekturmaßnahmen.',
+      'Meine Flughafensimulation umfasste die Modellierung komplexer Systeme mit mehreren Kontrollpunkten und Risikoszenarien — direkt anwendbar auf Risikobewertung und Audit-Methodik.',
+    ],
+    experienceSummaryFr: [
+      'Mes stages en opérations de fabrication nécessitaient un audit de processus systématique — identification des goulets, vérification de conformité et recommandations correctives.',
+      'Ma recherche en simulation aéroportuaire impliquait la modélisation de systèmes complexes avec multiples points de contrôle — applicable à l\'évaluation des risques et à la méthodologie d\'audit.',
+    ],
+    educationSummary: [
+      'Industrial engineering provides the quantitative foundation for risk modeling — operations research, stochastic processes, and statistical quality control are core audit-relevant skills.',
+      'The law minor adds regulatory and compliance awareness, structured legal reasoning, and understanding of governance frameworks — directly applicable to financial audit and risk management.',
+    ],
+    educationSummaryZh: [
+      '工业工程为风险建模提供了定量基础——运筹学、随机过程和统计质量控制是审计相关的核心技能。',
+      '法学辅修增加了法规合规意识、结构化法律推理和治理框架理解——直接适用于金融审计和风险管理。',
+    ],
+    educationSummaryZhHant: [
+      '工業工程為風險建模提供了定量基礎——運籌學、隨機過程和統計質量控制是審計相關的核心技能。',
+      '法學輔修增加了法規合規意識、結構化法律推理和治理框架理解——直接適用於金融審計和風險管理。',
+    ],
+    educationSummaryDe: [
+      'Industrieingenieurwesen bietet die quantitative Grundlage für Risikomodellierung — OR, stochastische Prozesse und statistische Qualitätskontrolle sind audit-relevante Kernkompetenzen.',
+      'Das Nebenfach Recht ergänzt regulatorisches Bewusstsein und strukturiertes juristisches Reasoning — direkt anwendbar auf Finanzaudit und Risikomanagement.',
+    ],
+    educationSummaryFr: [
+      "L'ingénierie industrielle fournit le fondement quantitatif pour la modélisation des risques — RO, processus stochastiques et contrôle qualité statistique sont des compétences clés pour l'audit.",
+      "La mineure en droit ajoute une conscience réglementaire et un raisonnement juridique structuré — directement applicable à l'audit financier et à la gestion des risques.",
+    ],
+  },
 };
 
 export const ROLE_IDS = Object.keys(ROLE_VARIANTS) as string[];

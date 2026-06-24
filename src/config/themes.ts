@@ -33,6 +33,7 @@ export const ROLE_THEME_MAP: Record<string, string> = {
   engineering: 'dark-olive',
   ai: 'cyber-neon',
   quant: 'midnight',
+  audit: 'matcha-zen',
 };
 
 /**

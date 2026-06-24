@@ -34,5 +34,5 @@ export type LayoutMode = 'classic' | 'light-tech' | 'sidebar';
 // Switch between visual layouts
 export const LAYOUT: LayoutMode = 'sidebar';
 
-export const RESUME_ROLES = ['default', 'aviation', 'consulting', 'engineering', 'ai', 'quant'] as const;
+export const RESUME_ROLES = ['default', 'aviation', 'consulting', 'engineering', 'ai', 'quant', 'audit'] as const;
 export type ResumeRole = typeof RESUME_ROLES[number];
