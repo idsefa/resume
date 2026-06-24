@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../config';
-import { LANGUAGES, SITE } from '../../config';
+import { LANGUAGES } from '../../config';
 import { getResumeContent } from '../../resume-data';
 
 export function getStaticPaths() {
@@ -14,63 +14,88 @@ const exp = content.experience;
 const edu = content.education;
 const pubs = content.publications;
 const facts = content.about.facts;
-const highlights = content.about.highlights;
 
 const labels: Record<string, Record<string, string>> = {
-  en: { experience: 'Experience', education: 'Education', publications: 'Publications', summary: 'Summary', contact: 'Contact', highlights: 'Highlights' },
-  zh: { experience: '工作经历', education: '教育背景', publications: '学术发表', summary: '个人简介', contact: '联系方式', highlights: '亮点' },
-  'zh-hant': { experience: '工作經歷', education: '教育背景', publications: '學術發表', summary: '個人簡介', contact: '聯繫方式', highlights: '亮點' },
-  de: { experience: 'Berufserfahrung', education: 'Ausbildung', publications: 'Publikationen', summary: 'Zusammenfassung', contact: 'Kontakt', highlights: 'Höhepunkte' },
-  fr: { experience: 'Expérience', education: 'Formation', publications: 'Publications', summary: 'Résumé', contact: 'Contact', highlights: 'Points forts' },
+  en: { experience: 'Experience', education: 'Education', publications: 'Publications', summary: 'Summary', skills: 'Skills' },
+  zh: { experience: '工作经历', education: '教育背景', publications: '学术发表', summary: '个人简介', skills: '技能' },
+  'zh-hant': { experience: '工作經歷', education: '教育背景', publications: '學術發表', summary: '個人簡介', skills: '技能' },
+  de: { experience: 'Berufserfahrung', education: 'Ausbildung', publications: 'Publikationen', summary: 'Zusammenfassung', skills: 'Fähigkeiten' },
+  fr: { experience: 'Expérience', education: 'Formation', publications: 'Publications', summary: 'Résumé', skills: 'Compétences' },
 };
 const l = labels[lang] || labels.en;
+
+const skills: Record<string, string[]> = {
+  en: ['Python', 'SQL / MySQL', 'Java', 'AnyLogic', 'Plant Simulation', 'OR-Tools', 'Excel / PowerPoint', 'Prompt Engineering', 'Process Optimization', 'Simulation Modeling', 'Time Study / Line Balancing', 'Data Analysis'],
+  zh: ['Python', 'SQL / MySQL', 'Java', 'AnyLogic', 'Plant Simulation', 'OR-Tools', 'Excel / PowerPoint', 'Prompt Engineering', '流程优化', '仿真建模', '工时测量 / 线平衡', '数据分析'],
+  'zh-hant': ['Python', 'SQL / MySQL', 'Java', 'AnyLogic', 'Plant Simulation', 'OR-Tools', 'Excel / PowerPoint', 'Prompt Engineering', '流程優化', '仿真建模', '工時測量 / 線平衡', '數據分析'],
+  de: ['Python', 'SQL / MySQL', 'Java', 'AnyLogic', 'Plant Simulation', 'OR-Tools', 'Excel / PowerPoint', 'Prompt Engineering', 'Prozessoptimierung', 'Simulationsmodellierung', 'Zeitstudie / Linienbalance', 'Datenanalyse'],
+  fr: ['Python', 'SQL / MySQL', 'Java', 'AnyLogic', 'Plant Simulation', 'OR-Tools', 'Excel / PowerPoint', 'Prompt Engineering', 'Optimisation de processus', 'Modélisation par simulation', 'Étude de temps / Équilibrage', 'Analyse de données'],
+};
+const sk = skills[lang] || skills.en;
 ---
 
 <!doctype html>
 <html lang={lang}>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{p.name} — Resume</title>
   <style>
-    @page { size: A4; margin: 1cm 1.5cm; }
+    @page { size: A4; margin: 1.2cm 1.5cm 1.2cm 1.5cm; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
-      font-size: 10pt;
-      line-height: 1.4;
+      font-family: 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-size: 9pt;
+      line-height: 1.35;
       color: #000;
       background: #fff;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 0;
     }
     @media print {
-      body { padding: 0; max-width: none; }
+      body { padding: 0; }
       .no-print { display: none !important; }
     }
 
-    .header { text-align: center; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1.5pt solid #000; }
-    .header h1 { font-size: 18pt; font-weight: 700; margin-bottom: 0.1rem; }
-    .header .role { font-size: 10pt; margin-bottom: 0.2rem; }
-    .header .contact { font-size: 8.5pt; }
-    .header .contact span + span::before { content: ' | '; }
+    /* Header — single line, compact */
+    .header { text-align: center; margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 1.5pt solid #000; }
+    .header h1 { font-size: 16pt; font-weight: 700; margin: 0; letter-spacing: 0.02em; }
+    .header .role { font-size: 9pt; margin: 0.1rem 0; }
+    .header .contact { font-size: 8pt; }
+    .header .contact span + span::before { content: ' · '; }
 
-    .section { margin-bottom: 0.6rem; }
-    .section-title { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 0.75pt solid #000; padding-bottom: 0.08rem; margin-bottom: 0.3rem; }
+    /* Sections */
+    .section { margin-bottom: 0.4rem; }
+    .section-title {
+      font-size: 9.5pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; border-bottom: 0.5pt solid #000;
+      padding-bottom: 0.05rem; margin-bottom: 0.2rem;
+    }
 
-    .entry { margin-bottom: 0.4rem; }
-    .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
-    .entry-title { font-size: 10pt; font-weight: 700; }
-    .entry-org { font-size: 9.5pt; }
-    .entry-meta { font-size: 8.5pt; white-space: nowrap; }
-    .entry-bullets { margin-top: 0.15rem; padding-left: 1rem; }
-    .entry-bullets li { font-size: 9.5pt; margin-bottom: 0.05rem; line-height: 1.35; }
+    /* Summary */
+    .summary { font-size: 9pt; line-height: 1.35; margin-bottom: 0.1rem; }
 
-    .highlight-item { margin-bottom: 0.15rem; font-size: 9.5pt; }
-    .highlight-title { font-weight: 700; }
+    /* Skills — inline tags */
+    .skills-list { font-size: 8.5pt; line-height: 1.5; }
+    .skills-list span { display: inline; }
+    .skills-list span + span::before { content: ' · '; }
 
-    .pub-item { margin-bottom: 0.2rem; font-size: 9.5pt; }
+    /* Experience entries */
+    .entry { margin-bottom: 0.3rem; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .entry-title { font-size: 9pt; font-weight: 700; }
+    .entry-org { font-size: 8.5pt; }
+    .entry-meta { font-size: 8pt; white-space: nowrap; color: #333; }
+    .entry-bullets { padding-left: 1rem; margin-top: 0.05rem; }
+    .entry-bullets li { font-size: 8.5pt; margin-bottom: 0; line-height: 1.3; }
+
+    /* Education — compact */
+    .edu-entry { margin-bottom: 0.15rem; }
+    .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .edu-title { font-size: 9pt; font-weight: 700; }
+    .edu-org { font-size: 8.5pt; }
+    .edu-meta { font-size: 8pt; color: #333; }
+
+    /* Publications */
+    .pub-item { font-size: 8.5pt; margin-bottom: 0.1rem; }
     .pub-title { font-weight: 600; }
 
     .print-btn {
@@ -84,30 +109,32 @@ const l = labels[lang] || labels.en;
 <body>
   <button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
 
+  <!-- HEADER: Name, Role, Contact — one line -->
   <div class="header">
     <h1>{p.name}</h1>
     <div class="role">{p.role}</div>
     <div class="contact">
       <span>{p.email}</span>
       <span>{p.location}</span>
-      {facts.filter(f => f.href).map(f => <span><a href={f.href} style="color:#000">{f.value}</a></span>)}
+      {facts.filter(f => f.href).map(f => <span><a href={f.href} style="color:#000;text-decoration:none">{f.value}</a></span>)}
     </div>
   </div>
 
+  <!-- SUMMARY: 1-2 lines -->
   <div class="section">
     <div class="section-title">{l.summary}</div>
-    <p>{exp.summary.join(' ')}</p>
+    <p class="summary">{exp.summary[0]}</p>
   </div>
 
+  <!-- SKILLS: inline list for ATS keyword matching -->
   <div class="section">
-    <div class="section-title">{l.highlights}</div>
-    {highlights.map(h => (
-      <div class="highlight-item">
-        <span class="highlight-title">{h.title}</span> — {h.description}
-      </div>
-    ))}
+    <div class="section-title">{l.skills}</div>
+    <div class="skills-list">
+      {sk.map(s => <span>{s}</span>)}
+    </div>
   </div>
 
+  <!-- EXPERIENCE -->
   <div class="section">
     <div class="section-title">{l.experience}</div>
     {exp.items.map(item => (
@@ -121,26 +148,26 @@ const l = labels[lang] || labels.en;
     ))}
   </div>
 
+  <!-- EDUCATION -->
   <div class="section">
     <div class="section-title">{l.education}</div>
     {edu.items.map(item => (
-      <div class="entry">
-        <div class="entry-header">
-          <div><span class="entry-title">{item.title}</span>, <span class="entry-org">{item.org}</span></div>
-          <div class="entry-meta">{item.period} | {item.location}</div>
+      <div class="edu-entry">
+        <div class="edu-header">
+          <div><span class="edu-title">{item.title}</span>, <span class="edu-org">{item.org}</span></div>
+          <div class="edu-meta">{item.period} | {item.location}</div>
         </div>
-        <ul class="entry-bullets">{item.bullets.map(b => <li>{b}</li>)}</ul>
       </div>
     ))}
   </div>
 
-  {pubs.sections.length > 0 && (
+  <!-- PUBLICATIONS (compact) -->
+  {pubs.sections.length > 0 && pubs.sections.some(s => s.items.length > 0) && (
     <div class="section">
       <div class="section-title">{l.publications}</div>
       {pubs.sections.map(section => section.items.map(pub => (
         <div class="pub-item">
-          {pub.authors} ({pub.year}). <span class="pub-title">{pub.title}</span>. <em>{pub.venue}</em>
-          {pub.links.length > 0 && pub.links.map(link => <> [{link.label}]</>)}
+          {pub.authors} ({pub.year}). <span class="pub-title">{pub.title}</span>. {pub.venue}
         </div>
       )))}
     </div>
