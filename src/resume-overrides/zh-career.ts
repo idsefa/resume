@@ -24,7 +24,7 @@ export const zhCareerOverride: ResumeOverride = {
   },
   education: {
     summary: [
-      '航空工程硕士（港理工）+ 工业工程学士 + 法学辅修——技术、运营和法规视角集于一身。',
+      '航空工程硕士（港理工，GPA 3.95/4.3）+ 工业工程学士（GPA 3.67，前 20%）+ 法学辅修（GPA 3.61）——技术、运营和法规视角集于一身。',
     ],
   },
 };

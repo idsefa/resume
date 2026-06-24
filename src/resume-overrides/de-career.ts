@@ -24,7 +24,7 @@ export const deCareerOverride: ResumeOverride = {
   },
   education: {
     summary: [
-      'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering + Jura-Minor — technische, betriebliche und regulatorische Perspektiven in einem Profil.',
+      'MEng Luftfahrttechnik (PolyU, GPA 3,95/4,3) + BE Industrial Engineering (GPA 3,67, Top 20 %) + Jura-Minor (GPA 3,61) — technische, betriebliche und regulatorische Perspektiven in einem Profil.',
     ],
   },
 };

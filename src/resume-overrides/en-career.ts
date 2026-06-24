@@ -24,7 +24,7 @@ export const enCareerOverride: ResumeOverride = {
   },
   education: {
     summary: [
-      'MEng in Aviation Engineering (PolyU) + BE in Industrial Engineering + Minor in Law — technical, operational, and regulatory perspectives in one profile.',
+      'MEng in Aviation Engineering (PolyU, GPA 3.95/4.3) + BE in Industrial Engineering (GPA 3.67, Top 20%) + Minor in Law (GPA 3.61) — technical, operational, and regulatory perspectives in one profile.',
     ],
   },
 };
