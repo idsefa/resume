@@ -101,31 +101,50 @@ export const zhOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'实习和学术项目的专利申请和获奖仿真研究。',
+			'广东工业大学学术研究成果：3 项发明专利 + 1 项实用新型。',
 		],
 		sections: [
 			{
-				title: '专利',
+				title: '发明专利',
 				items: [
 					{
-						title: 'AI 驱动的流程优化与智能排程算法',
-						year: '2025-2026',
-						authors: '何昊程及团队',
-						venue: '深圳研发实习 — 深圳市五线宏音科技',
-						links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' }],
+						title: '一种基于蒙特卡洛马尔科夫链采样的PI涂布机控制器的运动控制方法',
+						year: '2026',
+						authors: '周贤中; 何昊程; 贺致远',
+						venue: 'CN122085794A — 广东工业大学',
+						links: [],
+					},
+					{
+						title: '一种涂布控制方法及涂布系统（深度强化学习）',
+						year: '2025',
+						authors: '周贤中; 何昊程; 贺致远',
+						venue: 'CN121325552A — 广东工业大学',
+						links: [],
+					},
+					{
+						title: '一种家用太阳能储能系统的能量调控方法及系统',
+						year: '2024',
+						authors: '周贤中; 曾黄涛; 余达明; 何昊程',
+						venue: 'CN117767437A — 广东工业大学',
+						links: [],
 					},
 				],
 			},
 			{
-				title: '研究与奖项',
+				title: '实用新型',
 				items: [
 					{
-						title: '机场特种车辆仿真与优化',
-						year: '2025',
-						authors: '何昊程',
-						venue: '广州白云国际机场联合项目',
+						title: '一种线束生产一体化设备',
+						year: '2024',
+						authors: '赵翔; 何昊程; 胡波锋',
+						venue: 'CN221352455U — 广东工业大学',
 						links: [],
 					},
+				],
+			},
+			{
+				title: '获奖',
+				items: [
 					{
 						title: '本科优秀毕业论文与创新奖',
 						year: '2025',

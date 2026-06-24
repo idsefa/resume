@@ -76,6 +76,9 @@ export const enOverride: ResumeOverride = {
 			'MEng in Aviation Engineering (PolyU) + BE in Industrial Engineering + Minor in Law — technical, operational, and regulatory perspectives in one profile.',
 		],
 		items: [
+ + Minor in Law — technical, operational, and regulatory perspectives in one profile.',
+		],
+		items: [
 			{
 				title: 'Master of Engineering in Aviation Engineering and Operation Management',
 				org: 'The Hong Kong Polytechnic University',
@@ -101,31 +104,50 @@ export const enOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'Patent filings and award-winning simulation research from internships and academic projects.',
+			'3 invention patents + 1 utility model from academic research at Guangdong University of Technology.',
 		],
 		sections: [
 			{
-				title: 'Patents',
+				title: 'Invention Patents',
 				items: [
 					{
-						title: 'AI-driven process optimization and intelligent scheduling algorithms',
-						year: '2025-2026',
-						authors: 'Haocheng He and team',
-						venue: 'R&D internship — Shenzhen Wuxian Hongyin Technology',
-						links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' }],
+						title: 'PI Coating Machine Motion Control via MCMC Sampling',
+						year: '2026',
+						authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan',
+						venue: 'CN122085794A — Guangdong University of Technology',
+						links: [],
+					},
+					{
+						title: 'Coating Control Method and System (Deep Reinforcement Learning)',
+						year: '2025',
+						authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan',
+						venue: 'CN121325552A — Guangdong University of Technology',
+						links: [],
+					},
+					{
+						title: 'Home Solar Energy Storage System — Adaptive Energy Regulation',
+						year: '2024',
+						authors: 'Zhou Xianzhong, Zeng Huangtao, Yu Daming, He Haocheng',
+						venue: 'CN117767437A — Guangdong University of Technology',
+						links: [],
 					},
 				],
 			},
 			{
-				title: 'Research and Awards',
+				title: 'Utility Model',
 				items: [
 					{
-						title: 'Airport special vehicle simulation and optimization',
-						year: '2025',
-						authors: 'Haocheng He',
-						venue: 'Collaboration with Guangzhou Baiyun International Airport',
+						title: 'Integrated Wire Harness Production Equipment',
+						year: '2024',
+						authors: 'Zhao Xiang, He Haocheng, Hu Bofeng',
+						venue: 'CN221352455U — Guangdong University of Technology',
 						links: [],
 					},
+				],
+			},
+			{
+				title: 'Awards',
+				items: [
 					{
 						title: 'Excellent Bachelor Thesis and Innovation Award',
 						year: '2025',

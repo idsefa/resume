@@ -101,38 +101,27 @@ export const frOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			"Dépôts de brevets et recherche en simulation primée issus de stages et projets académiques.",
+			"3 brevets d'invention + 1 modèle d'utilité issus de la recherche académique à l'Université de Technologie du Guangdong.",
 		],
 		sections: [
 			{
-				title: 'Brevets',
+				title: "Brevets d'invention",
 				items: [
-					{
-						title: "Optimisation de processus pilotée par IA et algorithmes de planification intelligente",
-						year: '2025-2026',
-						authors: 'Haocheng He et équipe',
-						venue: 'Stage R&D — Shenzhen Wuxian Hongyin Technology',
-						links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' }],
-					},
+					{ title: "Contrôle de mouvement de machine de revêtement PI via échantillonnage MCMC", year: '2026', authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan', venue: 'CN122085794A — Université de Technologie du Guangdong', links: [] },
+					{ title: "Méthode et système de contrôle de revêtement (Deep Reinforcement Learning)", year: '2025', authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan', venue: 'CN121325552A — Université de Technologie du Guangdong', links: [] },
+					{ title: "Système de stockage d'énergie solaire domestique — Régulation adaptative", year: '2024', authors: 'Zhou Xianzhong, Zeng Huangtao, Yu Daming, He Haocheng', venue: 'CN117767437A — Université de Technologie du Guangdong', links: [] },
 				],
 			},
 			{
-				title: 'Recherche et distinctions',
+				title: "Modèle d'utilité",
 				items: [
-					{
-						title: "Simulation et optimisation des véhicules spéciaux aéroportuaires",
-						year: '2025',
-						authors: 'Haocheng He',
-						venue: "Projet en collaboration avec l'aéroport de Guangzhou Baiyun",
-						links: [],
-					},
-					{
-						title: "Mémoire de licence primé et prix de l'innovation",
-						year: '2025',
-						authors: 'Haocheng He',
-						venue: 'Université de Technologie du Guangdong',
-						links: [],
-					},
+					{ title: "Équipement intégré de production de faisceaux de câbles", year: '2024', authors: 'Zhao Xiang, He Haocheng, Hu Bofeng', venue: 'CN221352455U — Université de Technologie du Guangdong', links: [] },
+				],
+			},
+			{
+				title: 'Distinctions',
+				items: [
+					{ title: "Mémoire de licence primé et prix de l'innovation", year: '2025', authors: 'Haocheng He', venue: 'Université de Technologie du Guangdong', links: [] },
 				],
 			},
 		],
