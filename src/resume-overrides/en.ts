@@ -37,7 +37,7 @@ export const enOverride: ResumeOverride = {
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Developed 3 AI application use cases on Huawei Ascend NPU platform for internal workflow automation; optimized inference pipelines reducing processing latency by ~30%.',
+					'Built 3 AI application use cases on Huawei Ascend NPU platform for internal workflow automation; optimized inference pipelines reducing processing latency by ~30%.',
 					'Filed 2 patents covering AI-driven process optimization and intelligent scheduling algorithms.',
 					'Applied prompt engineering to accelerate prototype validation and code debugging, cutting development cycles by ~40%.',
 				],
@@ -48,7 +48,7 @@ export const enOverride: ResumeOverride = {
 				location: 'Guangzhou, China',
 				bullets: [
 					'Built an AnyLogic agent-based simulation of Guangzhou Baiyun Airport ground vehicle operations — modeled road networks, service lanes, and vehicle dispatch logic using Java + MySQL.',
-					'Implemented path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing; validated road network topology and optimized dispatch under peak-hour scenarios.',
+					'Built path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing; validated road network topology and optimized dispatch under peak-hour scenarios.',
 					'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.',
 				],
 			},{
