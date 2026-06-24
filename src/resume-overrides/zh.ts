@@ -88,7 +88,7 @@ export const zhOverride: ResumeOverride = {
 				org: '广东工业大学',
 				period: '2021年9月 - 2025年6月',
 				location: '广州',
-				bullets: [],
+				bullets: ['GPA：3.67 / 4.0（前 20%）—— 优秀毕业论文 + 创新奖。'],
 			},
 			{
 				title: '法学辅修',

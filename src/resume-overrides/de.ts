@@ -88,7 +88,7 @@ export const deOverride: ResumeOverride = {
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2021 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: [],
+				bullets: ['GPA: 3,67 / 4,0 (Top 20 %) — Hervorragende Abschlussarbeit + Innovationspreis.'],
 			},
 			{
 				title: 'Minor in Law',
