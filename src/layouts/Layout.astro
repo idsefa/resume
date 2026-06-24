@@ -391,14 +391,26 @@ const roleVariantsJson = JSON.stringify(
           const roleLabel = document.getElementById('roleToggleLabel');
           if (roleLabel) roleLabel.textContent = v['label' + (langSuffix === 'Zh' ? 'Zh' : langSuffix === 'ZhHant' ? 'ZhHant' : '')] || v.label;
 
-          // Highlights (about page)
+          // Highlights (about page) — only update cards in visible wrappers
           const highlights = v['highlights' + langSuffix] || v.highlights;
           document.querySelectorAll('.highlight-card').forEach((card, i) => {
-            if (!highlights[i]) return;
+            // Skip cards inside hidden variant wrappers
+            let node = card;
+            let hidden = false;
+            while (node && node !== document.body) {
+              if (node.hasAttribute?.('data-variant-show') && getComputedStyle(node).display === 'none') {
+                hidden = true;
+                break;
+              }
+              node = node.parentElement;
+            }
+            if (hidden) return;
+            const idx = Array.from(card.parentElement?.querySelectorAll('.highlight-card') || []).indexOf(card);
+            if (!highlights[idx]) return;
             const t = card.querySelector('.highlight-title');
             const d = card.querySelector('.highlight-description');
-            if (t) t.textContent = highlights[i].title;
-            if (d) d.textContent = highlights[i].description;
+            if (t) t.textContent = highlights[idx].title;
+            if (d) d.textContent = highlights[idx].description;
           });
 
           // Page header summary (experience / education)
