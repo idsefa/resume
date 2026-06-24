@@ -11,6 +11,7 @@ export const frOverride: ResumeOverride = {
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Lieu', value: 'Hong Kong, Chine' },
 			{ label: 'Focus', value: 'Risk Technology, Risk Assurance, Gouvernance des données, Gouvernance IA' },
+			{ label: 'Langues', value: 'Anglais (IELTS 6.5), Mandarin (Langue maternelle), Cantonais (Conversationnel)' },
 		],
 		highlights: [
 			{

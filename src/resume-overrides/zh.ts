@@ -11,6 +11,7 @@ export const zhOverride: ResumeOverride = {
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: '所在地', value: '中国香港' },
 			{ label: '方向', value: '科技风控、风险鉴证、数据治理、AI 治理' },
+			{ label: '语言', value: '英语（雅思 6.5）、普通话（母语）、粤语（日常会话）' },
 		],
 		highlights: [
 			{
