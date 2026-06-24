@@ -123,7 +123,11 @@ const sk = skills[lang] || skills.en;
   <!-- SUMMARY -->
   <div class="section">
     <div class="section-title">{l.summary}</div>
-    {exp.summary.map(s => <p class="summary">{s}</p>)}
+    {content.about.bio ? (
+      <p class="summary">{content.about.bio}</p>
+    ) : (
+      exp.summary.map(s => <p class="summary">{s}</p>)
+    )}
   </div>
 
   <!-- SKILLS -->
