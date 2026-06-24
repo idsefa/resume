@@ -7,6 +7,7 @@ export const enOverride: ResumeOverride = {
 		location: 'Hong Kong SAR, China',
 	},
 	about: {
+		bio: 'I build things that bridge engineering, AI, and real-world operations. Currently studying Aviation Engineering at PolyU while working on smart piano hardware/software at a Shenzhen startup. Previously modeled airport ground vehicle dispatch at Guangzhou Baiyun Airport (thesis won awards) and did process optimization at Midea and LiuGong factories. Interested in how data, simulation, and AI can make complex systems run better — whether that\'s an airport, a factory floor, or a financial institution.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Location', value: 'Hong Kong SAR, China' },

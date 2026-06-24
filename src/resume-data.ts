@@ -43,6 +43,7 @@ export type ResumeContent = {
     location: string;
   };
   about: {
+    bio?: string;
     facts: FactItem[];
     highlights: HighlightItem[];
   };

@@ -7,6 +7,7 @@ export const frOverride: ResumeOverride = {
 		location: 'Hong Kong, Chine',
 	},
 	about: {
+		bio: "Je construis des choses qui relient l'ingénierie, l'IA et les opérations réelles. Actuellement en MSc d'ingénierie aéronautique à PolyU tout en travaillant sur le matériel/logiciel d'un piano intelligent dans une startup de Shenzhen. Auparavant, j'ai modélisé la disposition des véhicules au sol à l'aéroport de Guangzhou Baiyun (mémoire primé) et optimisé les processus chez Midea et LiuGong. Ce qui m'intéresse : comment les données, la simulation et l'IA peuvent améliorer les systèmes complexes — qu'il s'agisse d'un aéroport, d'un atelier ou d'une institution financière.",
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Lieu', value: 'Hong Kong, Chine' },

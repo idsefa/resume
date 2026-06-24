@@ -7,6 +7,7 @@ export const zhOverride: ResumeOverride = {
 		location: '中国香港',
 	},
 	about: {
+		bio: '我做的事情是把工程、AI 和真实运营连接起来。目前在港理工读航空工程，同时在深圳一家创业公司做智能钢琴的软硬件开发。之前在广州白云机场做过地面车辆调度仿真（毕业论文拿了奖），也在美的和柳工的工厂做过流程优化。我对数据、仿真和 AI 如何让复杂系统跑得更好很感兴趣——不管是机场、工厂车间还是金融机构。',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: '所在地', value: '中国香港' },

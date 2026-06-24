@@ -7,6 +7,7 @@ export const deOverride: ResumeOverride = {
 		location: 'Hongkong, China',
 	},
 	about: {
+		bio: 'Ich baue Dinge, die Ingenieurwesen, KI und reale Betriebsabläufe verbinden. Derzeit studiere ich Luftfahrttechnik an der PolyU und arbeite gleichzeitig an Smart-Piano-Hardware/-Software in einem Shenzhen-Startup. Zuvor modellierte ich die Bodenfahrzeugdisposition am Flughafen Guangzhou Baiyun (Arbeit ausgezeichnet) und optimierte Prozesse bei Midea und LiuGong. Mich fasziniert, wie Daten, Simulation und KI komplexe Systeme verbessern können — ob Flughafen, Fabrikhalle oder Finanzinstitut.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Ort', value: 'Hongkong, China' },

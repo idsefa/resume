@@ -42,6 +42,13 @@ const eduData = getResumeContent(lang).education;
   profileName={content.profile.name}
   profileRole={content.profile.role}
 >
+  <!-- Bio -->
+  {content.about.bio && (
+    <section class="bio-section" data-reveal>
+      <p class="bio-text">{content.about.bio}</p>
+    </section>
+  )}
+
   <!-- Quick Facts -->
   <section class="facts-section" data-reveal>
     <div class="section-header">
