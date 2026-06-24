@@ -48,10 +48,36 @@ const roleVariantsJson = JSON.stringify(
   Object.entries(ROLE_VARIANTS).map(([id, v]) => ({
     id,
     label: v.label,
+    labelZh: v.labelZh,
+    labelZhHant: v.labelZhHant,
+    labelDe: v.labelDe,
+    labelFr: v.labelFr,
     profileRole: v.profileRole,
+    profileRoleZh: v.profileRoleZh,
+    profileRoleZhHant: v.profileRoleZhHant,
+    profileRoleDe: v.profileRoleDe,
+    profileRoleFr: v.profileRoleFr,
     highlights: v.highlights,
+    highlightsZh: v.highlightsZh,
+    highlightsZhHant: v.highlightsZhHant,
+    highlightsDe: v.highlightsDe,
+    highlightsFr: v.highlightsFr,
     experienceSummary: v.experienceSummary,
+    experienceSummaryZh: v.experienceSummaryZh,
+    experienceSummaryZhHant: v.experienceSummaryZhHant,
+    experienceSummaryDe: v.experienceSummaryDe,
+    experienceSummaryFr: v.experienceSummaryFr,
     educationSummary: v.educationSummary,
+    educationSummaryZh: v.educationSummaryZh,
+    educationSummaryZhHant: v.educationSummaryZhHant,
+    educationSummaryDe: v.educationSummaryDe,
+    educationSummaryFr: v.educationSummaryFr,
+    experienceOrder: v.experienceOrder,
+    experienceBullets: v.experienceBullets,
+    experienceBulletsZh: v.experienceBulletsZh,
+    experienceBulletsZhHant: v.experienceBulletsZhHant,
+    experienceBulletsDe: v.experienceBulletsDe,
+    experienceBulletsFr: v.experienceBulletsFr,
   }))
 );
 ---
@@ -421,6 +447,73 @@ const roleVariantsJson = JSON.stringify(
             const eduSummary = v['educationSummary' + langSuffix] || v.educationSummary;
             if (pageKey === 'experience' && expSummary?.[0]) summaryEl.textContent = expSummary[0];
             else if (pageKey === 'education' && eduSummary?.[0]) summaryEl.textContent = eduSummary[0];
+          }
+
+          // Reorder experience timeline items
+          const timelineSections = document.querySelectorAll('.timeline');
+          timelineSections.forEach(timeline => {
+            // Skip timelines inside hidden variant wrappers
+            let node = timeline;
+            let hidden = false;
+            while (node && node !== document.body) {
+              if (node.hasAttribute?.('data-variant-show') && getComputedStyle(node).display === 'none') {
+                hidden = true;
+                break;
+              }
+              node = node.parentElement;
+            }
+            if (hidden) return;
+
+            const items = Array.from(timeline.querySelectorAll('.timeline-item'));
+            // Always restore original order first using data attribute
+            items.forEach((item, i) => {
+              if (!item.hasAttribute('data-original-order')) {
+                item.setAttribute('data-original-order', String(i));
+              }
+            });
+            // Sort by original order to reset
+            const sorted = Array.from(timeline.querySelectorAll('.timeline-item'));
+            sorted.sort((a, b) => Number(a.getAttribute('data-original-order')) - Number(b.getAttribute('data-original-order')));
+            sorted.forEach(item => timeline.appendChild(item));
+
+            // Now apply role-specific reorder
+            if (v.experienceOrder) {
+              const order = v.experienceOrder;
+              const reordered = Array.from(timeline.querySelectorAll('.timeline-item'));
+              if (reordered.length === order.length) {
+                order.forEach((origIdx) => {
+                  if (reordered[origIdx]) timeline.appendChild(reordered[origIdx]);
+                });
+              }
+            }
+          });
+
+          // Override experience bullet points per role
+          const bulletsKey = 'experienceBullets' + langSuffix;
+          const bullets = v[bulletsKey] || v.experienceBullets;
+          if (bullets) {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, i) => {
+              // Find original index (before reorder)
+              const origIdx = v.experienceOrder ? v.experienceOrder[i] : i;
+              const roleBullets = bullets[origIdx];
+              if (!roleBullets) return;
+              // Only update visible items
+              let node = item;
+              let hidden = false;
+              while (node && node !== document.body) {
+                if (node.hasAttribute?.('data-variant-show') && getComputedStyle(node).display === 'none') {
+                  hidden = true;
+                  break;
+                }
+                node = node.parentElement;
+              }
+              if (hidden) return;
+              const bulletEls = item.querySelectorAll('.timeline-bullets li');
+              roleBullets.forEach((text, bi) => {
+                if (bulletEls[bi]) bulletEls[bi].textContent = text;
+              });
+            });
           }
 
           document.dispatchEvent(new CustomEvent('rolechange', { detail: { id, variant: v } }));
