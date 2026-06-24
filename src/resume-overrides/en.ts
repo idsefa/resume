@@ -47,9 +47,9 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Built an agent-based simulation model (AnyLogic) for 50+ airport special vehicles across 3 airside zones; collision avoidance and path-planning algorithms implemented in Java + MySQL.',
-					'Optimized dispatch schedules under peak-hour load (200+ movements/hour): reduced simulated congestion by 35%, zero collision events in test runs.',
-					'Thesis won Excellent Thesis Award + Innovation Award; airport operations team adopted the model for scenario planning.',
+					'Built an AnyLogic agent-based simulation of Guangzhou Baiyun Airport ground vehicle operations — modeled road networks, service lanes, and vehicle dispatch logic using Java + MySQL.',
+					'Implemented path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing; validated road network topology and optimized dispatch under peak-hour scenarios.',
+					'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.',
 				],
 			},{
 				title: 'Industrial Engineering Intern',
@@ -57,17 +57,18 @@ export const enOverride: ResumeOverride = {
 				period: 'Apr 2024 - May 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Conducted standard time measurement across 8 workstations on the dishwasher inner-liner assembly line using stopwatch studies and MOD method.',
-					'Line balancing analysis identified 2 critical bottlenecks; proposed rebalancing that improved theoretical line efficiency from 72% to 85%.',
+					'Measured manual operation times on dishwasher inner-liner sheet metal line; built operator workload charts and identified 5 processes exceeding takt time.',
+					'Found 22 improvement opportunities using lean methods (ECRS, motion economy, safety); simulation showed line balance rate improving from 58% to 70% with headcount reduced from 20 to 18.',
 				],
 			},{
-				title: 'Manufacturing Operations Intern',
-				org: 'Guangxi LiuGong Machinery Co., Ltd.',
-				period: 'Jul 2023 - Aug 2023',
-				location: 'Liuzhou, China',
+				title: 'R&D and Operations Intern',
+				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
+				period: 'May 2025 - Apr 2026',
+				location: 'Shenzhen, China',
 				bullets: [
-					'Stopwatch time studies on 12 workstations of the wheel loader assembly line; applied ECRS analysis to identify 3 major bottleneck points.',
-					'Proposed layout adjustments that reduced average cycle time by ~8% in simulation, validated by line engineers before implementation.',
+					'Worked on smart piano project using Huawei Ascend 310B NPU — hardware testing (oscilloscope, multimeter, logic analyzer), full-bridge motor driver circuit design (LCEDA), and STM32 firmware development.',
+					'Built computer vision pipeline for piano finger gesture recognition on Ascend NPU; also wrote technical documentation for Ascend SDK usage.',
+					'Handled server ops (Ubuntu Linux), network administration (Huawei switches/routers), office procurement, and served as interviewer for new hires — full-stack operational role in a startup.',
 				],
 			}],
 	},
@@ -141,6 +142,18 @@ export const enOverride: ResumeOverride = {
 						year: '2024',
 						authors: 'Zhao Xiang, He Haocheng, Hu Bofeng',
 						venue: 'CN221352455U — Guangdong University of Technology',
+						links: [],
+					},
+				],
+			},
+			{
+				title: 'Software Copyright',
+				items: [
+					{
+						title: 'Enterprise Financial Data Analysis Software V1.0',
+						year: '2024',
+						authors: 'Li Yisi, He Haocheng',
+						venue: 'Registration No. 2024SR0146827',
 						links: [],
 					},
 				],
