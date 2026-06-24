@@ -74,7 +74,7 @@ export const frOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			"MSc en ingénierie aéronautique (PolyU) + Licence en génie industriel (GPA 3,67, Top 20 %) + Mineure en droit — avec des cours en recherche opérationnelle, processus stochastiques, contrôle qualité statistique et cadres réglementaires.",
+			"MSc en ingénierie aéronautique (PolyU, GPA 3,95/4,3) + Licence en génie industriel (GPA 3,67, Top 20 %) + Mineure en droit (GPA 3,61) — avec des cours en recherche opérationnelle, processus stochastiques, contrôle qualité statistique et cadres réglementaires.",
 		],
 		items: [
 			{
@@ -82,21 +82,21 @@ export const frOverride: ResumeOverride = {
 				org: 'The Hong Kong Polytechnic University',
 				period: 'Sep 2025 - Jan 2027',
 				location: 'Hong Kong, Chine',
-				bullets: [],
+				bullets: ['GPA : 3,95 / 4,3 (en cours)'],
 			},
 			{
 				title: 'Licence en génie industriel',
 				org: 'Université de Technologie du Guangdong',
 				period: 'Sep 2021 - Juin 2025',
 				location: 'Guangzhou, Chine',
-				bullets: ['GPA : 3,67 / 4,0 (Top 20 %) — Mémoire de licence primé + Prix de l\'innovation.'],
+				bullets: ['GPA : 3,67 (Top 20 %) — Mémoire de licence primé + Prix de l\'innovation.'],
 			},
 			{
 				title: 'Mineure en droit',
 				org: 'Université de Technologie du Guangdong',
 				period: 'Sep 2022 - Juin 2025',
 				location: 'Guangzhou, Chine',
-				bullets: [],
+				bullets: ['GPA : 3,61'],
 			},
 		],
 	},

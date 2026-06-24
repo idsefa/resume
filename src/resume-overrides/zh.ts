@@ -74,7 +74,7 @@ export const zhOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			'航空工程硕士（港理工）+ 工业工程学士（GPA 3.67，前 20%）+ 法学辅修——核心课程涵盖运筹学、随机过程、统计质量控制和法规框架。',
+			'航空工程硕士（港理工，GPA 3.95/4.3）+ 工业工程学士（GPA 3.67，前 20%）+ 法学辅修（GPA 3.61）——核心课程涵盖运筹学、随机过程、统计质量控制和法规框架。',
 		],
 		items: [
 			{
@@ -82,21 +82,21 @@ export const zhOverride: ResumeOverride = {
 				org: '香港理工大学',
 				period: '2025年9月 - 2027年1月',
 				location: '中国香港',
-				bullets: [],
+				bullets: ['GPA：3.95 / 4.3（在读）'],
 			},
 			{
 				title: '工业工程 学士',
 				org: '广东工业大学',
 				period: '2021年9月 - 2025年6月',
 				location: '广州',
-				bullets: ['GPA：3.67 / 4.0（前 20%）—— 优秀毕业论文 + 创新奖。'],
+				bullets: ['GPA：3.67（前 20%）—— 优秀毕业论文 + 创新奖。'],
 			},
 			{
 				title: '法学辅修',
 				org: '广东工业大学',
 				period: '2022年9月 - 2025年6月',
 				location: '广州',
-				bullets: [],
+				bullets: ['GPA：3.61'],
 			},
 		],
 	},

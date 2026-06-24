@@ -74,7 +74,7 @@ export const deOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			'MEng Luftfahrttechnik (PolyU) + BE Industrial Engineering (GPA 3,67, Top 20 %) + Jura-Minor — mit Lehrveranstaltungen in Operations Research, stochastischen Prozessen, statistischer Qualitätskontrolle und Regulierungsrahmen.',
+			'MEng Luftfahrttechnik (PolyU, GPA 3,95/4,3) + BE Industrial Engineering (GPA 3,67, Top 20 %) + Jura-Minor (GPA 3,61) — mit Lehrveranstaltungen in Operations Research, stochastischen Prozessen, statistischer Qualitätskontrolle und Regulierungsrahmen.',
 		],
 		items: [
 			{
@@ -82,21 +82,21 @@ export const deOverride: ResumeOverride = {
 				org: 'The Hong Kong Polytechnic University',
 				period: 'Sep 2025 - Jan 2027',
 				location: 'Hongkong, China',
-				bullets: [],
+				bullets: ['GPA: 3,95 / 4,3 (derzeit)'],
 			},
 			{
 				title: 'Bachelor of Engineering, Industrial Engineering',
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2021 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: ['GPA: 3,67 / 4,0 (Top 20 %) — Hervorragende Abschlussarbeit + Innovationspreis.'],
+				bullets: ['GPA: 3,67 (Top 20 %) — Hervorragende Abschlussarbeit + Innovationspreis.'],
 			},
 			{
 				title: 'Minor in Law',
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2022 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: [],
+				bullets: ['GPA: 3,61'],
 			},
 		],
 	},
