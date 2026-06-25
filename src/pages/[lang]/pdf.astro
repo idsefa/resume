@@ -40,12 +40,12 @@ const sk = skills[lang] || skills.en;
   <meta charset="UTF-8" />
   <title>{p.name} — Resume</title>
   <style>
-    @page { size: A4; margin: 1.2cm 1.5cm 1.2cm 1.5cm; }
+    @page { size: A4; margin: 1.5cm 2cm 1.5cm 2cm; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      font-size: 9pt;
-      line-height: 1.35;
+      font-size: 10pt;
+      line-height: 1.45;
       color: #000;
       background: #fff;
       padding: 0;
@@ -56,46 +56,46 @@ const sk = skills[lang] || skills.en;
     }
 
     /* Header — single line, compact */
-    .header { text-align: center; margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 1.5pt solid #000; }
-    .header h1 { font-size: 16pt; font-weight: 700; margin: 0; letter-spacing: 0.02em; }
-    .header .role { font-size: 9pt; margin: 0.1rem 0; }
-    .header .contact { font-size: 8pt; }
+    .header { text-align: center; margin-bottom: 0.7rem; padding-bottom: 0.4rem; border-bottom: 1.5pt solid #000; }
+    .header h1 { font-size: 18pt; font-weight: 700; margin: 0; letter-spacing: 0.02em; }
+    .header .role { font-size: 10pt; margin: 0.15rem 0; }
+    .header .contact { font-size: 9pt; }
     .header .contact span + span::before { content: ' · '; }
 
     /* Sections */
-    .section { margin-bottom: 0.4rem; }
+    .section { margin-bottom: 0.6rem; }
     .section-title {
-      font-size: 9.5pt; font-weight: 700; text-transform: uppercase;
+      font-size: 10.5pt; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.08em; border-bottom: 0.5pt solid #000;
-      padding-bottom: 0.05rem; margin-bottom: 0.2rem;
+      padding-bottom: 0.08rem; margin-bottom: 0.3rem;
     }
 
     /* Summary */
-    .summary { font-size: 9pt; line-height: 1.35; margin-bottom: 0.1rem; }
+    .summary { font-size: 10pt; line-height: 1.45; margin-bottom: 0.15rem; }
 
     /* Skills — inline tags */
-    .skills-list { font-size: 8.5pt; line-height: 1.5; }
+    .skills-list { font-size: 9.5pt; line-height: 1.6; }
     .skills-list span { display: inline; }
     .skills-list span + span::before { content: ' · '; }
 
     /* Experience entries */
-    .entry { margin-bottom: 0.3rem; }
+    .entry { margin-bottom: 0.5rem; }
     .entry-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .entry-title { font-size: 9pt; font-weight: 700; }
-    .entry-org { font-size: 8.5pt; }
-    .entry-meta { font-size: 8pt; white-space: nowrap; color: #333; }
-    .entry-bullets { padding-left: 1rem; margin-top: 0.05rem; }
-    .entry-bullets li { font-size: 8.5pt; margin-bottom: 0; line-height: 1.3; }
+    .entry-title { font-size: 10pt; font-weight: 700; }
+    .entry-org { font-size: 9.5pt; }
+    .entry-meta { font-size: 9pt; white-space: nowrap; color: #333; }
+    .entry-bullets { padding-left: 1.2rem; margin-top: 0.08rem; }
+    .entry-bullets li { font-size: 9.5pt; margin-bottom: 0.05rem; line-height: 1.4; }
 
     /* Education — compact */
-    .edu-entry { margin-bottom: 0.15rem; }
+    .edu-entry { margin-bottom: 0.3rem; }
     .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .edu-title { font-size: 9pt; font-weight: 700; }
-    .edu-org { font-size: 8.5pt; }
-    .edu-meta { font-size: 8pt; color: #333; }
+    .edu-title { font-size: 10pt; font-weight: 700; }
+    .edu-org { font-size: 9.5pt; }
+    .edu-meta { font-size: 9pt; color: #333; }
 
     /* Publications */
-    .pub-item { font-size: 8.5pt; margin-bottom: 0.1rem; }
+    .pub-item { font-size: 9pt; margin-bottom: 0.1rem; }
     .pub-title { font-weight: 600; }
 
     .print-btn {
