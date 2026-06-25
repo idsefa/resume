@@ -7,7 +7,7 @@ export const enOverride: ResumeOverride = {
 		location: 'Hong Kong SAR, China',
 	},
 	about: {
-		bio: 'I like making complex systems work better — whether that means modeling airport vehicle dispatch, optimizing a factory assembly line, or building a smart piano with AI chips. Currently finishing my MEng at PolyU (aviation operations) while doing R&D at a Shenzhen startup that makes AI-powered musical instruments. Before that, I spent time at Midea and LiuGong factories learning how things actually get built on the ground. My undergrad thesis on airport simulation won awards, and I have a few patents from my current work. I think the most interesting problems sit where engineering, data, and real-world operations overlap.',
+		bio: 'IE undergrad at GDUT, now doing an MEng in aviation at PolyU. Along the way I did 4 internships — a Shenzhen startup where I worked on smart piano hardware and AI chips, an airport simulation project with Guangzhou Baiyun that won a thesis award, and two factory stints at Midea and LiuGong doing time studies and line balancing. Filed a few patents along the way. I like figuring out how things actually work and making them run better.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Location', value: 'Hong Kong SAR, China' },

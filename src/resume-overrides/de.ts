@@ -7,7 +7,7 @@ export const deOverride: ResumeOverride = {
 		location: 'Hongkong, China',
 	},
 	about: {
-		bio: 'Ich mag es, komplexe Systeme besser zum Laufen zu bringen — ob das jetzt Flughafenfahrzeug-Dispatch, eine Fabrik-Montageline oder ein Klavier mit KI-Chip ist. Zurzeit mache ich meinen MEng an der PolyU (Luftfahrtbetrieb) und arbeite gleichzeitig in einem Shenzhen-Startup, das KI-musikalische Instrumente baut. Davor habe ich bei Midea und LiuGong in den Fabriken gelernt, wie Dinge wirklich gebaut werden. Meine Bachelorarbeit über Flughafen-Simulation hat Preise gewonnen, und ich habe ein paar Patente aus meiner jetzigen Arbeit. Die spannendsten Probleme liegen dort, wo sich Ingenieurwesen, Daten und reale Betriebsabläufe treffen.',
+		bio: 'IE-Bachelor an der GDUT, jetzt MEng Luftfahrt an der PolyU. Unterwegs 4 Praktika gemacht — ein Shenzhen-Startup mit intelligentem Klavier und KI-Chips, ein Flughafen-Simulationsprojekt mit Guangzhou Baiyun (Thesis-Preis gewonnen), und zwei Fabrikpraktika bei Midea und LiuGong mit Zeitstudien und Linienbalance. Ein paar Patente dabei entstanden. Ich mag es, Dinge zu verstehen und besser laufen zu lassen.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Ort', value: 'Hongkong, China' },
