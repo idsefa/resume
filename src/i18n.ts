@@ -1,4 +1,4 @@
-import type { Lang } from '../config';
+import type { Lang } from './config';
 
 export const ui: Record<Lang, Record<string, string>> = {
   en: {
