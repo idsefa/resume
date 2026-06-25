@@ -44,8 +44,8 @@
     return document.documentElement.getAttribute('data-theme') || 'light-tech';
   }
 
-  function getProfile(id) {
-    return THEME_PROFILES[id] || THEME_PROFILES['light-tech'];
+  function getProfile(id: string) {
+    return (THEME_PROFILES as Record<string, typeof THEME_PROFILES['light-tech']>)[id] || THEME_PROFILES['light-tech'];
   }
 
   // Apply theme effects — called by applyTheme() after setting data-theme
@@ -59,7 +59,7 @@
       if (!userLayout) {
         const currentVariant = pageContent.getAttribute('data-page-variant');
         if (currentVariant !== 'sidebar') {
-          const variant = THEME_VARIANTS[themeId] || 'centered';
+          const variant = (THEME_VARIANTS as Record<string, string>)[themeId] || 'centered';
           pageContent.setAttribute('data-page-variant', variant);
         }
       }
@@ -83,7 +83,7 @@
     initCursor(profile.cursor);
 
     // Page transition: toggle based on profile
-    const pt = document.querySelector('.page-transition');
+    const pt = document.querySelector('.page-transition') as HTMLElement | null;
     if (pt) {
       if (profile.pageTransition) {
         pt.style.display = '';
@@ -123,7 +123,7 @@
   // GLITCH TEXT EFFECT
   // ============================================
   let glitchActive = false;
-  function toggleGlitch(enable) {
+  function toggleGlitch(enable: boolean) {
     const heroTitle = document.querySelector('.hero-title, .page-header-title');
     if (!heroTitle) return;
     if (enable) {
@@ -139,7 +139,7 @@
   // ============================================
   // NOISE/GRAIN OVERLAY
   // ============================================
-  function toggleNoise(enable) {
+  function toggleNoise(enable: boolean) {
     let noiseEl = document.getElementById('noise-overlay');
     if (enable) {
       if (!noiseEl) {
@@ -157,7 +157,7 @@
   // ============================================
   // SCANLINES OVERLAY
   // ============================================
-  function toggleScanlines(enable) {
+  function toggleScanlines(enable: boolean) {
     let scanEl = document.getElementById('scanlines-overlay');
     if (enable) {
       if (!scanEl) {
@@ -175,8 +175,8 @@
   // ============================================
   // MAGNETIC CURSOR (attracts to interactive elements)
   // ============================================
-  let magneticCleanup = null;
-  function toggleMagnetic(enable) {
+  let magneticCleanup: (() => void) | null = null;
+  function toggleMagnetic(enable: boolean) {
     if (magneticCleanup) { magneticCleanup(); magneticCleanup = null; }
     if (!enable) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -186,7 +186,7 @@
     const MAGNETIC_STRENGTH = 0.3;
     const interactives = document.querySelectorAll('a, button, .section-tab, .fact-card, .highlight-card, .timeline-item, .cta-btn');
 
-    const onMove = (e) => {
+    const onMove = (e: PointerEvent) => {
       interactives.forEach(el => {
         const rect = el.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
@@ -196,32 +196,32 @@
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < MAGNETIC_RADIUS) {
           const strength = (1 - dist / MAGNETIC_RADIUS) * MAGNETIC_STRENGTH;
-          el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+          (el as HTMLElement).style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
         } else {
-          el.style.transform = '';
+          (el as HTMLElement).style.transform = '';
         }
       });
     };
-    const onLeave = () => interactives.forEach(el => el.style.transform = '');
+    const onLeave = () => interactives.forEach(el => (el as HTMLElement).style.transform = '');
 
     document.addEventListener('pointermove', onMove, { passive: true });
     document.addEventListener('pointerleave', onLeave);
     magneticCleanup = () => {
       document.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerleave', onLeave);
-      interactives.forEach(el => el.style.transform = '');
+      interactives.forEach(el => (el as HTMLElement).style.transform = '');
     };
   }
 
   // ============================================
   // FLOATING CARDS — subtle drift animation + drag
   // ============================================
-  let floatingCleanup = null;
-  function toggleFloating(enable) {
+  let floatingCleanup: (() => void) | null = null;
+  function toggleFloating(enable: boolean) {
     if (floatingCleanup) { floatingCleanup(); floatingCleanup = null; }
     const cards = document.querySelectorAll('.fact-card, .highlight-card, .timeline-item, .pub-card');
     if (!enable) {
-      cards.forEach(c => { c.classList.remove('floating-card'); c.style.animationDelay = ''; c.style.transform = ''; });
+      cards.forEach(c => { c.classList.remove('floating-card'); (c as HTMLElement).style.animationDelay = ''; (c as HTMLElement).style.transform = ''; });
       return;
     }
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -229,26 +229,25 @@
     cards.forEach((card, i) => {
       card.classList.add('floating-card');
       // Stagger animation delays for organic feel
-      card.style.setProperty('--float-delay', `${i * 0.8}s`);
-      card.style.setProperty('--float-duration', `${4 + (i % 3)}s`);
-      card.style.setProperty('--float-offset', `${(i % 2 === 0 ? 1 : -1) * (2 + i % 3)}px`);
-      card.style.setProperty('--rotate-offset', `${(i % 2 === 0 ? 0.5 : -0.5) * (1 + (i % 3) * 0.3)}deg`);
+      (card as HTMLElement).style.setProperty('--float-delay', `${i * 0.8}s`);
+      (card as HTMLElement).style.setProperty('--float-duration', `${4 + (i % 3)}s`);
+      (card as HTMLElement).style.setProperty('--float-offset', `${(i % 2 === 0 ? 1 : -1) * (2 + i % 3)}px`);
+      (card as HTMLElement).style.setProperty('--rotate-offset', `${(i % 2 === 0 ? 0.5 : -0.5) * (1 + (i % 3) * 0.3)}deg`);
     });
 
     // Drag functionality
-    let dragTarget = null;
+    let dragTarget: HTMLElement | null = null;
     let dragStartX = 0, dragStartY = 0;
     let cardStartX = 0, cardStartY = 0;
     let isDragging = false;
 
-    function onPointerDown(e) {
-      const card = e.target.closest('.floating-card');
+    function onPointerDown(e: PointerEvent) {
+      const card = (e.target as HTMLElement).closest('.floating-card') as HTMLElement | null;
       if (!card) return;
       // Don't drag if clicking a link or button inside the card
-      if (e.target.closest('a, button')) return;
+      if ((e.target as HTMLElement).closest('a, button')) return;
       
       dragTarget = card;
-      const rect = card.getBoundingClientRect();
       dragStartX = e.clientX;
       dragStartY = e.clientY;
       cardStartX = parseFloat(card.style.getPropertyValue('--drag-x')) || 0;
@@ -260,7 +259,7 @@
       card.setPointerCapture(e.pointerId);
     }
 
-    function onPointerMove(e) {
+    function onPointerMove(e: PointerEvent) {
       if (!dragTarget) return;
       const dx = e.clientX - dragStartX;
       const dy = e.clientY - dragStartY;
@@ -275,7 +274,7 @@
       dragTarget.classList.add('is-dragging');
     }
 
-    function onPointerUp(e) {
+    function onPointerUp(_e: PointerEvent) {
       if (!dragTarget) return;
       dragTarget.style.zIndex = '';
       dragTarget.style.transition = '';
@@ -296,9 +295,9 @@
 
     // Reset positions on page navigation
     const resetOnNav = () => cards.forEach(c => {
-      c.style.setProperty('--drag-x', '0px');
-      c.style.setProperty('--drag-y', '0px');
-      c.style.transform = '';
+      (c as HTMLElement).style.setProperty('--drag-x', '0px');
+      (c as HTMLElement).style.setProperty('--drag-y', '0px');
+      (c as HTMLElement).style.transform = '';
     });
     window.addEventListener('beforeunload', resetOnNav);
 
@@ -307,18 +306,18 @@
       document.removeEventListener('pointermove', onPointerMove);
       document.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('beforeunload', resetOnNav);
-      cards.forEach(c => { c.classList.remove('floating-card'); c.style.transform = ''; });
+      cards.forEach(c => { c.classList.remove('floating-card'); (c as HTMLElement).style.transform = ''; });
     };
   }
 
   // ============================================
   // CURSOR — modes: 'none', 'trail', 'follower', 'square-follower'
   // ============================================
-  let cursorRAF = null;
-  let parallaxRAF = null;
+  let cursorRAF: number | null = null;
+  let parallaxRAF: number | null = null;
 
-  function initCursor(mode) {
-    const cursorEl = document.querySelector('.cursor-trail');
+  function initCursor(mode: string) {
+    const cursorEl = document.querySelector('.cursor-trail') as HTMLElement | null;
     if (!cursorEl) return;
 
     // Cancel any running animation
@@ -346,7 +345,7 @@
     let renderedY = latestY;
     let isActive = false;
 
-    const moveHandler = (e) => {
+    const moveHandler = (e: PointerEvent) => {
       latestX = e.clientX;
       latestY = e.clientY;
     };
@@ -461,17 +460,19 @@
     const pt = document.querySelector('.page-transition');
     if (!pt) return;
 
-    const setState = state => pt.classList.toggle('is-active', state);
+    const setState = (state: boolean) => pt.classList.toggle('is-active', state);
     window.addEventListener('beforeunload', () => setState(true));
 
     document.querySelectorAll('a[href^="/"], a[href^="."]').forEach(anchor => {
       anchor.addEventListener('click', event => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || anchor.target === '_blank') return;
-        const href = anchor.getAttribute('href');
+        const e = event as MouseEvent;
+        const a = anchor as HTMLAnchorElement;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return;
+        const href = a.getAttribute('href');
         if (!href || href.startsWith('#')) return;
-        event.preventDefault();
+        e.preventDefault();
         setState(true);
-        window.setTimeout(() => { window.location.href = anchor.href; }, 280);
+        window.setTimeout(() => { window.location.href = a.href; }, 280);
       });
     });
   }
@@ -489,10 +490,10 @@
       if (parallaxRAF) cancelAnimationFrame(parallaxRAF);
       parallaxRAF = requestAnimationFrame(() => {
         const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-content') || document.querySelector('.hero-inner');
+        const hero = (document.querySelector('.hero-content') || document.querySelector('.hero-inner')) as HTMLElement | null;
         if (hero && scrolled < window.innerHeight) {
           hero.style.transform = `translateY(${scrolled * 0.2}px)`;
-          hero.style.opacity = 1 - (scrolled / (window.innerHeight * 0.6));
+          hero.style.opacity = String(1 - (scrolled / (window.innerHeight * 0.6)));
         }
         parallaxRAF = null;
       });
@@ -509,7 +510,7 @@
       window.__parallaxCleanup = null;
     }
     // Reset hero transform
-    const hero = document.querySelector('.hero-content') || document.querySelector('.hero-inner');
+    const hero = (document.querySelector('.hero-content') || document.querySelector('.hero-inner')) as HTMLElement | null;
     if (hero) {
       hero.style.transform = '';
       hero.style.opacity = '';
@@ -519,9 +520,9 @@
   // ============================================
   // REVEAL OBSERVER
   // ============================================
-  let revealObserver = null;
+  let revealObserver: IntersectionObserver | null = null;
 
-  function refreshRevealObserver(style) {
+  function refreshRevealObserver(style: string) {
     // Destroy old observer
     if (revealObserver) {
       revealObserver.disconnect();
@@ -545,15 +546,15 @@
       entries => entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+          revealObserver!.unobserve(entry.target);
         }
       }),
       { threshold: 0.01, rootMargin: '0px 0px -8% 0px' }
     );
 
     targets.forEach((el, i) => {
-      el.style.setProperty('--reveal-delay', `${Math.min(i * 45, 300)}ms`);
-      revealObserver.observe(el);
+      (el as HTMLElement).style.setProperty('--reveal-delay', `${Math.min(i * 45, 300)}ms`);
+      revealObserver!.observe(el);
     });
   }
 
