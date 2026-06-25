@@ -39,9 +39,11 @@ export const deOverride: ResumeOverride = {
 				period: 'Mai 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'3 KI-Anwendungsfälle auf Huawei Ascend NPU für interne Workflow-Automatisierung entwickelt; Inferenz-Pipelines optimiert und Verarbeitungslatenz um ~30 % gesenkt.',
+					'3 KI-Anwendungsfälle auf Huawei Ascend 310B NPU für interne Workflow-Automatisierung entwickelt; Inferenz-Pipelines optimiert und Verarbeitungslatenz um ~30 % gesenkt.',
+					'Klavier-Hardware entwickelt: Vollbrücken-Motortreiberschaltung (LCEDA), STM32-Firmware, Oszilloskop-/Logikanalysator-Tests.',
+					'CV-Pipeline für Klavier-Fingergestenerkennung auf Ascend NPU aufgebaut; Ascend-SDK-Dokumentation erstellt.',
 					'2 Patente eingereicht: KI-gestützte Prozessoptimierung und intelligente Scheduling-Algorithmen.',
-					'Prompt Engineering beschleunigte Prototyp-Validierung und Code-Debugging um ~40 %.',
+					'Server-Operationen (Ubuntu Linux), Netzwerkadministration (Huawei Switches/Router) und als Interviewer für Neueinstellungen tätig.',
 				],
 			},{
 				title: 'Wissenschaftlicher Mitarbeiter — Flughafen-Simulation',

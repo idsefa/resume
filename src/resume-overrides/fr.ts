@@ -39,9 +39,11 @@ export const frOverride: ResumeOverride = {
 				period: 'Mai 2025 - Avr 2026',
 				location: 'Shenzhen, Chine',
 				bullets: [
-					"Développement de 3 cas d'usage IA sur NPU Huawei Ascend pour l'automatisation des workflows internes ; optimisation des pipelines d'inférence réduisant la latence de traitement d'environ 30 %.",
+					"Développement de 3 cas d'usage IA sur NPU Huawei Ascend 310B pour l'automatisation des workflows internes ; optimisation des pipelines d'inférence réduisant la latence d'environ 30 %.",
+					"Développement matériel piano intelligent : conception de circuit moteur pont complet (LCEDA), firmware STM32, tests oscilloscope/analyseur logique.",
+					"Pipeline de vision par ordinateur pour la reconnaissance de gestes de doigts de piano sur Ascend NPU ; rédaction de documentation technique Ascend SDK.",
 					"Dépôt de 2 brevets : optimisation de processus pilotée par IA et algorithmes de planification intelligente.",
-					"Prompt engineering appliqué pour accélérer la validation de prototypes et le débogage, réduisant les cycles de développement d'environ 40 %.",
+					"Administration serveur (Ubuntu Linux), réseau (commutateurs/routeurs Huawei), et participation aux entretiens d'embauche.",
 				],
 			},{
 				title: 'Assistant de recherche — Simulation des opérations aéroportuaires',
