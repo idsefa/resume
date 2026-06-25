@@ -39,11 +39,11 @@ export const frOverride: ResumeOverride = {
 				period: 'Mai 2025 - Avr 2026',
 				location: 'Shenzhen, Chine',
 				bullets: [
-					"Développement de 3 cas d'usage IA sur NPU Huawei Ascend 310B pour l'automatisation des workflows internes ; optimisation des pipelines d'inférence réduisant la latence d'environ 30 %.",
-					"Développement matériel piano intelligent : conception de circuit moteur pont complet (LCEDA), firmware STM32, tests oscilloscope/analyseur logique.",
-					"Pipeline de vision par ordinateur pour la reconnaissance de gestes de doigts de piano sur Ascend NPU ; rédaction de documentation technique Ascend SDK.",
-					"Dépôt de 2 brevets : optimisation de processus pilotée par IA et algorithmes de planification intelligente.",
-					"Administration serveur (Ubuntu Linux), réseau (commutateurs/routeurs Huawei), et participation aux entretiens d'embauche.",
+					"Installé 3 outils IA sur des puces Huawei Ascend 310B pour l'équipe interne ; temps de réponse réduit d'environ 30 %.",
+					"Conçu des circuits de commande moteur (LCEDA) et écrit le firmware STM32 pour un piano intelligent ; testé avec oscilloscopes et analyseurs logiques.",
+					"Monté un système de suivi des doigts pour le piano avec une caméra et la puce Ascend ; rédigé la documentation SDK pour l'équipe.",
+					"Déposé 2 brevets issus de ce travail — un sur l'optimisation de processus, un sur la planification par IA.",
+					"Géré les serveurs (Ubuntu), le réseau (commutateurs/routeurs Huawei) et participé aux entretiens d'embauche.",
 				],
 			},{
 				title: 'Assistant de recherche — Simulation des opérations aéroportuaires',
@@ -51,9 +51,9 @@ export const frOverride: ResumeOverride = {
 				period: 'Sep 2023 - Juin 2025',
 				location: 'Guangzhou, Chine',
 				bullets: [
-					"Modèle de simulation multi-agents (AnyLogic) pour 50+ véhicules spéciaux sur 3 zones airside ; algorithmes d'évitement de collision et de planification de trajectoire en Java + MySQL.",
-					"Optimisation de la disposition des véhicules sous charge de pointe (200+ mouvements/heure) : réduction de 35 % de la congestion simulée, zéro collision en tests.",
-					"Mémoire primé (thèse d'excellence + prix de l'innovation) ; modèle adopté par l'équipe opérationnelle de l'aéroport pour la planification de scénarios.",
+					"Modélisé les déplacements des véhicules au sol à l'aéroport de Guangzhou Baiyun — routes, voies de service, règles de dispatch — avec AnyLogic, Java et MySQL.",
+					"Écrit des algorithmes de routage (Dijkstra, A*, BFS, génétique) pour guider 50+ véhicules sur 3 zones sans collision.",
+					"Réduit la congestion simulée de 35 % aux heures de pointe (200+ mouvements/heure) ; mémoire primé (thèse d'excellence + prix de l'innovation).",
 				],
 			},{
 				title: 'Stagiaire en génie industriel',
@@ -61,8 +61,8 @@ export const frOverride: ResumeOverride = {
 				period: 'Avr 2024 - Mai 2024',
 				location: 'Foshan, Chine',
 				bullets: [
-					"Mesure des temps standards sur 8 postes de la ligne d'assemblage des cuves de lave-vaisselle (chronométrage + méthode MOD).",
-					"Analyse d'équilibrage identifiant 2 goulots critiques ; proposition de rééquilibrage portant l'efficacité théorique de 72 % à 85 %.",
+					"Chronométré chaque poste sur une ligne de tôlerie de lave-vaisselle à la main ; identifié 5 postes trop lents.",
+					"Proposé 22 améliorations avec des méthodes lean ; simulation : équilibrage de 58 % à 70 %, effectif réduit de 20 à 18.",
 				],
 			},{
 				title: 'Stagiaire en opérations de production',
@@ -70,8 +70,8 @@ export const frOverride: ResumeOverride = {
 				period: 'Juil 2023 - Août 2023',
 				location: 'Liuzhou, Chine',
 				bullets: [
-					"Études chronométriques sur 12 postes de la ligne d'assemblage de chargeuses ; analyse ECRS identifiant 3 points de goulot majeurs.",
-					"Propositions de réorganisation réduisant le temps de cycle moyen d'environ 8 % en simulation, validées par les ingénieurs de production.",
+					"Chronométré 12 postes sur la ligne d'assemblage de chargeuses ; trouvé les 3 plus gros goulots avec l'ECRS.",
+					"Proposé des changements de layout réduisant le temps de cycle de ~8 % en simulation. Les ingénieurs de production ont validé.",
 				],
 			}],
 	},

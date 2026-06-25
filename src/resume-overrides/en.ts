@@ -39,11 +39,11 @@ export const enOverride: ResumeOverride = {
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Built 3 AI application use cases on Huawei Ascend 310B NPU for internal workflow automation; optimized inference pipelines reducing processing latency by ~30%.',
-					'Developed smart piano hardware: full-bridge motor driver circuit design (LCEDA), STM32 firmware, and oscilloscope/logic analyzer testing.',
-					'Built computer vision pipeline for piano finger gesture recognition on Ascend NPU; wrote technical documentation for Ascend SDK.',
-					'Filed 2 patents covering AI-driven process optimization and intelligent scheduling algorithms.',
-					'Handled server ops (Ubuntu Linux), network administration (Huawei switches/routers), and served as interviewer for new hires.',
+					'Set up 3 AI tools on Huawei Ascend 310B chips for internal team use; sped up response time by ~30%.',
+					'Designed motor driver circuits (LCEDA) and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.',
+					'Built a finger-position tracking system for the piano using a camera and the Ascend chip; documented the SDK for the team.',
+					'Filed 2 patents from this work — one on process optimization, one on scheduling with AI.',
+					'Kept the servers running (Ubuntu), managed the network (Huawei switches and routers), and interviewed candidates for new roles.',
 				],
 			},{
 				title: 'Research Assistant — Airport Operations Simulation',
@@ -51,10 +51,10 @@ export const enOverride: ResumeOverride = {
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Built an AnyLogic agent-based simulation of Guangzhou Baiyun Airport ground vehicle operations — modeled road networks, service lanes, and vehicle dispatch logic using Java + MySQL.',
-					'Implemented path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing across 3 airside zones with 50+ vehicles.',
-					'Optimized dispatch under peak-hour scenarios (200+ movements/hour): achieved 35% congestion reduction with zero simulated collisions.',
-					'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.',
+					'Modeled how ground vehicles move around Guangzhou Baiyun Airport — roads, service lanes, dispatch rules — using AnyLogic, Java, and MySQL.',
+					'Wrote routing algorithms (Dijkstra, A*, BFS, genetic) so 50+ vehicles across 3 zones could find collision-free paths.',
+					'Cut simulated congestion by 35% during peak hours (200+ movements/hour) with zero collisions.',
+					'Thesis won Excellent Thesis + Innovation Award; the airport team now uses the model for planning.',
 				],
 			},{
 				title: 'Industrial Engineering Intern',
@@ -62,8 +62,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Apr 2024 - May 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Measured manual operation times on dishwasher inner-liner sheet metal line; built operator workload charts and identified 5 processes exceeding takt time.',
-					'Found 22 improvement opportunities using lean methods (ECRS, motion economy, safety); simulation showed line balance rate improving from 58% to 70% with headcount reduced from 20 to 18.',
+					'Timed every step on a dishwasher sheet metal line by hand; found 5 steps that were too slow.',
+					'Suggested 22 changes using lean methods; simulation showed the line would go from 58% to 70% balanced, with 2 fewer workers (20→18).',
 				],
 			},{
 				title: 'Manufacturing Operations Intern',
@@ -71,8 +71,8 @@ export const enOverride: ResumeOverride = {
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'Conducted stopwatch time studies across 12 workstations of the wheel loader assembly line; applied ECRS analysis to identify 3 main bottleneck points.',
-					'Proposed layout and sequence changes that reduced cycle time by ~8% in simulation; validated by line engineers before implementation.',
+					'Timed 12 workstations on the wheel loader assembly line with a stopwatch; found the 3 biggest bottlenecks using ECRS.',
+					'Suggested layout tweaks that cut cycle time by ~8% in simulation. The line engineers confirmed it worked.',
 				],
 			}],
 	},

@@ -39,11 +39,11 @@ export const deOverride: ResumeOverride = {
 				period: 'Mai 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'3 KI-Anwendungsfälle auf Huawei Ascend 310B NPU für interne Workflow-Automatisierung entwickelt; Inferenz-Pipelines optimiert und Verarbeitungslatenz um ~30 % gesenkt.',
-					'Klavier-Hardware entwickelt: Vollbrücken-Motortreiberschaltung (LCEDA), STM32-Firmware, Oszilloskop-/Logikanalysator-Tests.',
-					'CV-Pipeline für Klavier-Fingergestenerkennung auf Ascend NPU aufgebaut; Ascend-SDK-Dokumentation erstellt.',
-					'2 Patente eingereicht: KI-gestützte Prozessoptimierung und intelligente Scheduling-Algorithmen.',
-					'Server-Operationen (Ubuntu Linux), Netzwerkadministration (Huawei Switches/Router) und als Interviewer für Neueinstellungen tätig.',
+					'3 KI-Tools auf Huawei Ascend 310B-Chips für das Team eingerichtet; Antwortzeit um ~30 % verkürzt.',
+					'Motortreiberschaltungen entworfen (LCEDA) und STM32-Firmware für ein intelligentes Klavier geschrieben; mit Oszilloskopen und Logikanalysatoren getestet.',
+					'Fingerpositionserkennung für das Klavier per Kamera und Ascend-Chip aufgebaut; SDK-Dokumentation für das Team erstellt.',
+					'2 Patente aus dieser Arbeit eingereicht — eines zur Prozessoptimierung, eines zur KI-gestützten Planung.',
+					'Server betrieben (Ubuntu), Netzwerk verwaltet (Huawei Switches/Router) und Bewerbungsgespräche geführt.',
 				],
 			},{
 				title: 'Wissenschaftlicher Mitarbeiter — Flughafen-Simulation',
@@ -51,9 +51,9 @@ export const deOverride: ResumeOverride = {
 				period: 'Sep 2023 - Jun 2025',
 				location: 'Guangzhou, China',
 				bullets: [
-					'Agentensimulation (AnyLogic) für 50+ Flughafen-Spezialfahrzeuge in 3 Airside-Bereichen gebaut; Kollisionsvermeidung und Pfadplanung in Java + MySQL implementiert.',
-					'Disposition unter Stoßzeiten (200+ Bewegungen/Stunde) optimiert: Stausimulation um 35 % reduziert, keine Kollisionen in Testläufen.',
-					'Abschlussarbeit mit Thesis-Auszeichnung + Innovationspreis ausgezeichnet; Flughafenbetrieb hat das Modell für Szenarioplanung übernommen.',
+					'Simulationsmodell für Bodenfahrzeuge am Flughafen Guangzhou Baiyun gebaut — Straßen, Servicewege, Dispositionsregeln — mit AnyLogic, Java und MySQL.',
+					'Routenalgorithmen (Dijkstra, A*, BFS, Genetik) geschrieben, damit 50+ Fahrzeuge in 3 Zonen kollisionsfrei fahren.',
+					'Staugefälle zur Stoßzeit (200+ Bewegungen/Stunde) um 35 % gesenkt, keine Kollisionen; Abschlussarbeit mit Preis + Innovationspreis ausgezeichnet.',
 				],
 			},{
 				title: 'Praktikant Industrial Engineering',
@@ -61,8 +61,8 @@ export const deOverride: ResumeOverride = {
 				period: 'Apr 2024 - Mai 2024',
 				location: 'Foshan, China',
 				bullets: [
-					'Standardzeiten an 8 Arbeitsstationen der Geschirrspüler-Innenwanne gemessen (Stoppuhr + MOD-Methode).',
-					'Linienbalancierung identifizierte 2 kritische Engpässe; Verbesserungsvorschlag hob die theoretische Effizienz von 72 % auf 85 %.',
+					'Jeden Arbeitsschritt an einer Geschirrspüler-Blechlinie per Stoppuhr gemessen; 5 zu langsame Schritte gefunden.',
+					'22 Verbesserungsvorschläge mit Lean-Methoden erarbeitet; Simulation: Linienbalance von 58 % auf 70 %, 2 statt 20 Mitarbeiter eingespart.',
 				],
 			},{
 				title: 'Praktikant Produktionsbetrieb',
@@ -70,8 +70,8 @@ export const deOverride: ResumeOverride = {
 				period: 'Jul 2023 - Aug 2023',
 				location: 'Liuzhou, China',
 				bullets: [
-					'Zeitstudien an 12 Arbeitsstationen der Radlader-Montagelinie; ECRS-Analyse identifizierte 3 Hauptengpässe.',
-					'Layout-Anpassungen reduzierten die durchschnittliche Taktzeit in der Simulation um ~8 %, von Montageingenieuren validiert.',
+					'12 Arbeitsstationen an der Radlader-Montagelinie per Stoppuhr gemessen; mit ECRS die 3 größten Engpässe gefunden.',
+					'Layoutänderungen vorgeschlagen, die die Taktzeit in der Simulation um ~8 % senkten. Die Montageingenieure haben es bestätigt.',
 				],
 			}],
 	},
