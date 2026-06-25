@@ -207,18 +207,16 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       "Le MSc en Ingénierie Aéronautique à PolyU est directement aligné sur les opérations aériennes et la gestion aéroportuaire.",
       "Ma licence IE et mineure en droit ajoutent résolution structurée des problèmes et conscience réglementaire au domaine aéronautique.",
     ],
-    experienceOrder: [0, 1, 3, 2],
+    experienceOrder: [0, 1, 2],
     experienceBullets: {
       0: ['Built 3 AI use cases on Huawei Ascend NPU — optimized inference pipelines for internal workflow automation.', '2 patents filed: AI-driven process optimization and intelligent scheduling algorithms.'],
       1: ['AnyLogic agent-based simulation for 50+ airport vehicles across 3 airside zones; collision avoidance and path-planning in Java.', 'Optimized dispatch under peak-hour load (200+ movements/hour): 35% congestion reduction, zero collisions.', 'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.'],
-      2: ['Standard time measurement on 8 workstations of dishwasher inner-liner line — stopwatch plus MOD method.', 'Line balancing found 2 key bottlenecks; rebalancing proposal raised theoretical efficiency from 72% to 85%.'],
-      3: ['Stopwatch time studies on 12 workstations of the wheel loader line — used ECRS to find 3 main bottleneck points.', 'Suggested layout changes that cut cycle time by ~8% in simulation. Line engineers validated the results.'],
+      2: ['Stopwatch time studies on 12 workstations of the wheel loader line — used ECRS to find 3 main bottleneck points.', 'Suggested layout changes that cut cycle time by ~8% in simulation. Line engineers validated the results.'],
     },
     experienceBulletsZh: {
       0: ['基于华为昇腾 NPU 开发 3 个 AI 应用场景，优化推理管线。', '提交 2 项专利：AI 流程优化和智能排程算法。'],
       1: ['基于 AnyLogic 搭建 50+ 辆机场车辆的多智能体仿真模型，避碰与路径规划用 Java 实现。', '高峰场景（200+ 次/小时）下优化调度，拥堵降低 35%，零碰撞。', '论文获优秀论文 + 创新奖，机场运营团队采纳模型。'],
-      2: ['对洗碗机内胆装配线 8 个工位进行标准工时测量。', '线平衡分析识别 2 个瓶颈，再平衡方案将效率从 72% 提升至 85%。'],
-      3: ['对装载机装配线 12 个工位做秒表测时，用 ECRS 识别 3 个主要瓶颈。', '布局调整方案在仿真中将节拍时间降低约 8%。'],
+      2: ['对装载机装配线 12 个工位做秒表测时，用 ECRS 识别 3 个主要瓶颈。', '布局调整方案在仿真中将节拍时间降低约 8%。'],
     },
   },
 
@@ -284,7 +282,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryDe: ["Die Kombination aus IE, Luftfahrt und Recht gibt mir mehrere analytische Frameworks.", "Dieser bereichsübergreifende Hintergrund ist genau das, was Managementberatung verlangt."],
     educationSummaryFr: ["La combinaison IE, aéronautique et droit me donne plusieurs cadres analytiques.", "Ce parcours interdisciplinaire est ce que le conseil en management exige."],
 
-    experienceOrder: [0, 3, 2, 1],
+    experienceOrder: [0, 2, 1],
   },
 
   engineering: {
@@ -349,7 +347,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     educationSummaryDe: ["Bachelor in Industrieingenieurwesen — fundierte Kurse in OR und Simulation.", "Der MEng in Luftfahrt ergänzt das IE-Toolkit um systemisches Denken."],
     educationSummaryFr: ["Licence en Ingénierie Industrielle — cours solides en RO et simulation.", "Le MSc en Aéronautique ajoute une pensée systémique à la boîte à outils IE."],
 
-    experienceOrder: [0, 2, 3, 1],
+    experienceOrder: [0, 2, 1],
   },
 
   ai: {
@@ -564,7 +562,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       "L'ingénierie industrielle fournit le fondement quantitatif pour la modélisation des risques — RO, processus stochastiques et contrôle qualité statistique sont des compétences clés pour l'audit.",
       "La mineure en droit ajoute une conscience réglementaire et un raisonnement juridique structuré — directement applicable à l'audit financier et à la gestion des risques.",
     ],
-    experienceOrder: [0, 2, 1, 3],
+    experienceOrder: [0, 2, 1],
   },
 
   'risk-tech': {
@@ -652,7 +650,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       "L'ingénierie industrielle fournit le fondement quantitatif — RO, modélisation stochastique et analyse statistique sont au cœur de la modélisation des risques et de la détection de fraude.",
       "La mineure en droit ajoute la compréhension des cadres réglementaires, des exigences de conformité et des structures de gouvernance — essentiels pour la gouvernance IA et la gestion du risque de modèle.",
     ],
-    experienceOrder: [0, 1, 2, 3],
+    experienceOrder: [0, 1, 2],
   },
 };
 
