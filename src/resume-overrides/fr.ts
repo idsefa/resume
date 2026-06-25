@@ -16,22 +16,22 @@ export const frOverride: ResumeOverride = {
 		],
 		highlights: [
 			{
-				title: 'Profil ingénierie + IA + conformité',
-				description: "Formation en génie industriel (optimisation de processus, modélisation par simulation, analyse statistique) combinée à une expérience en déploiement IA et des cours de droit sur la réglementation et la conformité.",
+				title: 'Ingénierie + IA + droit',
+				description: "Formation IE (chronométrage, équilibrage, simulation) plus déploiement IA et mineure en droit — technique, opérationnel et réglementaire dans un seul profil.",
 			},
 			{
-				title: 'Audit de processus et contrôles internes',
-				description: "Études de temps et audits de processus dans 2 usines de fabrication ; identification de lacunes dans les contrôles et propositions d'actions correctives avec des améliorations quantifiées.",
+				title: 'Audits de processus en usine',
+				description: "Chronométrage et revue de processus dans 2 usines (Midea, LiuGong) — goulots identifiés, solutions proposées, chiffrées.",
 			},
 			{
-				title: 'Systèmes IT et analyse de données',
-				description: "Construction de modèles de simulation (AnyLogic), développement d'applications IA (Huawei Ascend NPU), travail avec des bases SQL/MySQL, et utilisation de Python pour l'analyse de données et l'automatisation des workflows.",
+				title: 'Compétences IT et données',
+				description: "Modèles de simulation (AnyLogic), déploiement IA sur puces Huawei Ascend, SQL/MySQL, Python pour l'analyse de données.",
 			},
 		],
 	},
 	experience: {
 		summary: [
-			"Candidat en analyse des opérations et risk technology, avec expérience en optimisation de processus, modélisation par simulation, support de modèles de vision par ordinateur et cours de droit/conformité.",
+			"Profil opérations analytics et tech risk — optimisation de processus, simulation et déploiement IA sur 4 stages.",
 		],
 		items: [{
 				title: 'Stagiaire Opérations IA',
@@ -105,7 +105,7 @@ export const frOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			"3 brevets d'invention + 1 modèle d'utilité issus de la recherche académique à l'Université de Technologie du Guangdong.",
+			"3 brevets d'invention + 1 modèle d'utilité + 2 droits d'auteur logiciel de la GDUT.",
 		],
 		sections: [
 			{

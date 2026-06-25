@@ -4,27 +4,27 @@ export const enCareerOverride: ResumeOverride = {
   about: {
     highlights: [
       {
-        title: 'Engineering + AI + Compliance background',
-        description: 'Industrial engineering training (process optimization, simulation modeling, statistical analysis) combined with AI deployment experience and law minor coursework in regulatory frameworks and compliance.',
+        title: 'Engineering + AI + law background',
+        description: 'IE training (time study, line balancing, simulation) plus hands-on AI deployment and law minor coursework — gives me a mix of technical, operational, and regulatory thinking.',
       },
       {
-        title: 'Process audit and internal controls experience',
-        description: 'Conducted time studies and process audits across 2 manufacturing plants, identifying control gaps and proposing corrective actions with quantified efficiency improvements.',
+        title: 'Factory floor process audits',
+        description: 'Did time studies and process reviews at 2 factories (Midea, LiuGong) — found bottlenecks, suggested fixes, and backed them up with numbers.',
       },
       {
-        title: 'IT systems and data analysis',
-        description: 'Built simulation models (AnyLogic), developed AI applications (Huawei Ascend NPU), worked with SQL/MySQL databases, and applied Python for data analysis and workflow automation.',
+        title: 'IT and data skills',
+        description: 'Built simulation models in AnyLogic, deployed AI on Huawei Ascend chips, worked with SQL/MySQL, and used Python for data work.',
       },
     ],
   },
   experience: {
     summary: [
-      'Operations analytics and technology risk candidate with experience in process optimization, simulation modeling, computer vision model support, and legal/compliance coursework.',
+      'Background in operations analytics and tech risk — did process optimization, simulation modeling, and AI deployment work across 4 internships.',
     ],
   },
   education: {
     summary: [
-      'MEng in Aviation Engineering (PolyU, GPA 3.95/4.3) + BE in Industrial Engineering (GPA 3.67, Top 20%) + Minor in Law (GPA 3.61) — technical, operational, and regulatory perspectives in one profile.',
+      'MEng in Aviation (PolyU, 3.95/4.3) + BE in IE (3.67, Top 20%) + Minor in Law (3.61) — operations research, stochastic processes, quality control, and regulatory coursework.',
     ],
   },
 };

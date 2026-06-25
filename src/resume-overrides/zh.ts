@@ -16,22 +16,22 @@ export const zhOverride: ResumeOverride = {
 		],
 		highlights: [
 			{
-				title: '工程 + AI + 合规的复合背景',
-				description: '工业工程训练（流程优化、仿真建模、统计分析）+ AI 部署经验 + 法学辅修中的法规与合规课程。',
+				title: '工程 + AI + 法学背景',
+				description: 'IE 出身（工时、线平衡、仿真），做过 AI 部署，辅修法学——技术、运营、合规都能聊。',
 			},
 			{
-				title: '流程审计与内控经验',
-				description: '在 2 家制造企业做过工时测量和流程审计，识别控制缺陷并提出有量化改善效果的纠正措施。',
+				title: '下过产线做流程审计',
+				description: '在美的和柳工两家工厂做过工时测量和流程审查，找到瓶颈，用数据说话。',
 			},
 			{
-				title: 'IT 系统与数据分析能力',
-				description: '搭建过仿真模型（AnyLogic）、开发过 AI 应用（华为昇腾 NPU）、用过 SQL/MySQL 数据库，以及 Python 做数据分析和工作流自动化。',
+				title: 'IT 和数据能力',
+				description: '搭过 AnyLogic 仿真、在华为昇腾芯片上部署过 AI、用过 SQL/MySQL，Python 做数据分析。',
 			},
 		],
 	},
 	experience: {
 		summary: [
-			'运营分析与科技风控方向，有流程优化、仿真建模、计算机视觉模型支持和法学合规课程的实践经验。',
+			'运营分析和科技风控方向，4 段实习覆盖了流程优化、仿真建模、AI 部署和法学合规。',
 		],
 		items: [{
 				title: 'AI 运营实习生',
@@ -103,7 +103,7 @@ export const zhOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'广东工业大学学术研究成果：3 项发明专利 + 1 项实用新型。',
+			'GDUT 学术成果：3 项发明专利 + 1 项实用新型 + 2 项软著。',
 		],
 		sections: [
 			{

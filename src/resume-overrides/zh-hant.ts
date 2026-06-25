@@ -76,8 +76,7 @@ export const zhHantOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			'我的學習背景涵蓋航空、工業工程和法學輔修。',
-			'這種組合讓我在營運管理問題上有更全面的視角。',
+			'航空工程碩士（港理工，3.95/4.3）+ 工業工程學士（3.67，前 20%）+ 法學輔修（3.61）——運籌學、隨機過程、品質管制和法規課程。',
 		],
 		items: [
 			{
@@ -105,8 +104,7 @@ export const zhHantOverride: ResumeOverride = {
 	},
 	publications: {
 		summary: [
-			'我目前還沒有正式論文發表，但有實際專案成果。',
-			'主要是專利產出和獲獎的模擬研究專案。',
+			'GDUT 學術成果：3 項發明專利 + 1 項實用新型 + 2 項軟著。',
 		],
 		sections: [
 			{
