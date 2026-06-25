@@ -62,16 +62,6 @@ export const enOverride: ResumeOverride = {
 					'Measured manual operation times on dishwasher inner-liner sheet metal line; built operator workload charts and identified 5 processes exceeding takt time.',
 					'Found 22 improvement opportunities using lean methods (ECRS, motion economy, safety); simulation showed line balance rate improving from 58% to 70% with headcount reduced from 20 to 18.',
 				],
-			},{
-				title: 'R&D and Operations Intern',
-				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
-				period: 'May 2025 - Apr 2026',
-				location: 'Shenzhen, China',
-				bullets: [
-					'Worked on smart piano project using Huawei Ascend 310B NPU — hardware testing (oscilloscope, multimeter, logic analyzer), full-bridge motor driver circuit design (LCEDA), and STM32 firmware development.',
-					'Built computer vision pipeline for piano finger gesture recognition on Ascend NPU; also wrote technical documentation for Ascend SDK usage.',
-					'Handled server ops (Ubuntu Linux), network administration (Huawei switches/routers), office procurement, and served as interviewer for new hires — full-stack operational role in a startup.',
-				],
 			}],
 	},
 	education: {
