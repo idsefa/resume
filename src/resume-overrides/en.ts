@@ -34,14 +34,16 @@ export const enOverride: ResumeOverride = {
 			'Operations analytics and technology risk candidate with experience in process optimization, simulation modeling, computer vision model support, and legal/compliance coursework.',
 		],
 		items: [{
-				title: 'AI Operations Intern',
+				title: 'AI Operations & R&D Intern',
 				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Built 3 AI application use cases on Huawei Ascend NPU platform for internal workflow automation; optimized inference pipelines reducing processing latency by ~30%.',
+					'Built 3 AI application use cases on Huawei Ascend 310B NPU for internal workflow automation; optimized inference pipelines reducing processing latency by ~30%.',
+					'Developed smart piano hardware: full-bridge motor driver circuit design (LCEDA), STM32 firmware, and oscilloscope/logic analyzer testing.',
+					'Built computer vision pipeline for piano finger gesture recognition on Ascend NPU; wrote technical documentation for Ascend SDK.',
 					'Filed 2 patents covering AI-driven process optimization and intelligent scheduling algorithms.',
-					'Applied prompt engineering to accelerate prototype validation and code debugging, cutting development cycles by ~40%.',
+					'Handled server ops (Ubuntu Linux), network administration (Huawei switches/routers), and served as interviewer for new hires.',
 				],
 			},{
 				title: 'Research Assistant — Airport Operations Simulation',
@@ -50,7 +52,8 @@ export const enOverride: ResumeOverride = {
 				location: 'Guangzhou, China',
 				bullets: [
 					'Built an AnyLogic agent-based simulation of Guangzhou Baiyun Airport ground vehicle operations — modeled road networks, service lanes, and vehicle dispatch logic using Java + MySQL.',
-					'Built path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing; validated road network topology and optimized dispatch under peak-hour scenarios.',
+					'Implemented path-planning algorithms (Dijkstra, A*, BFS, genetic algorithm) for collision-free routing across 3 airside zones with 50+ vehicles.',
+					'Optimized dispatch under peak-hour scenarios (200+ movements/hour): achieved 35% congestion reduction with zero simulated collisions.',
 					'Thesis won Excellent Thesis + Innovation Award; airport operations team adopted model for scenario planning.',
 				],
 			},{
@@ -61,6 +64,15 @@ export const enOverride: ResumeOverride = {
 				bullets: [
 					'Measured manual operation times on dishwasher inner-liner sheet metal line; built operator workload charts and identified 5 processes exceeding takt time.',
 					'Found 22 improvement opportunities using lean methods (ECRS, motion economy, safety); simulation showed line balance rate improving from 58% to 70% with headcount reduced from 20 to 18.',
+				],
+			},{
+				title: 'Manufacturing Operations Intern',
+				org: 'Guangxi LiuGong Machinery Co., Ltd.',
+				period: 'Jul 2023 - Aug 2023',
+				location: 'Liuzhou, China',
+				bullets: [
+					'Conducted stopwatch time studies across 12 workstations of the wheel loader assembly line; applied ECRS analysis to identify 3 main bottleneck points.',
+					'Proposed layout and sequence changes that reduced cycle time by ~8% in simulation; validated by line engineers before implementation.',
 				],
 			}],
 	},
