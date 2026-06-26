@@ -441,7 +441,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
     ],
     experienceSummary: [
-      'My research and internship work centered on algorithmic problem-solving: path planning in simulation, patent-driven AI projects, and operations optimization.',
+      'My research and internship work centered on algorithmic problem-solving: path planning in simulation, AI deployment projects, and operations optimization.',
       'These experiences demonstrate the mathematical and programming foundation needed for quantitative research roles.',
     ],
     educationSummary: [

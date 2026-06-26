@@ -109,27 +109,65 @@ export const zhHantOverride: ResumeOverride = {
 		],
 		sections: [
 			{
-				title: '專利',
+				title: '發明專利',
 				items: [
 					{
-						title: '實習期間多項專利申請',
-						year: '2025-2026',
-						authors: '何昊程及團隊',
-						venue: '深圳研發實習專案',
-						links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' }],
+						title: '一種基於蒙特卡洛馬爾科夫鏈採樣的PI塗布機控制器的運動控制方法',
+						year: '2026',
+						authors: '周賢中; 何昊程; 賀致遠',
+						venue: 'CN122085794A — 廣東工業大學',
+						links: [],
+					},
+					{
+						title: '一種塗布控制方法及塗布系統（深度強化學習）',
+						year: '2025',
+						authors: '周賢中; 何昊程; 賀致遠',
+						venue: 'CN121325552A — 廣東工業大學',
+						links: [],
+					},
+					{
+						title: '一種家用太陽能儲能系統的能量調控方法及系統',
+						year: '2024',
+						authors: '周賢中; 曾黃濤; 余達明; 何昊程',
+						venue: 'CN117767437A — 廣東工業大學',
+						links: [],
 					},
 				],
 			},
 			{
-				title: '研究與獎項',
+				title: '實用新型',
 				items: [
 					{
-						title: '機場特種車輛模擬與優化專案',
-						year: '2025',
-						authors: '何昊程',
-						venue: '廣州白雲國際機場聯合專案',
+						title: '一種線束生產一體化設備',
+						year: '2024',
+						authors: '趙翔; 何昊程; 胡波鋒',
+						venue: 'CN221352455U — 廣東工業大學',
 						links: [],
 					},
+				],
+			},
+			{
+				title: '軟件著作權',
+				items: [
+					{
+						title: '企業財務數據分析軟件 V1.0',
+						year: '2024',
+						authors: '李一思; 何昊程',
+						venue: '登記號：2024SR0146827',
+						links: [],
+					},
+					{
+						title: '城市防汛智能移動應急指揮調度系統 V1.0',
+						year: '2024',
+						authors: '林誠豐; 李澤茵; 楊華; 何昊程',
+						venue: '登記號：2024SR0549247',
+						links: [],
+					},
+				],
+			},
+			{
+				title: '獲獎',
+				items: [
 					{
 						title: '本科優秀畢業論文與創新獎',
 						year: '2025',
