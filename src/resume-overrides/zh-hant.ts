@@ -62,7 +62,7 @@ export const zhHantOverride: ResumeOverride = {
 					'用精益方法提了 22 個改善點；模擬結果：線平衡率 58%→70%，20 人減到 18 人。',
 				],
 			},{
-				title: 'AI 運營與研發實習生',
+				title: 'AI 工程師助理',
 				org: '深圳市五線宏音科技有限公司',
 				period: '2025年5月 - 2026年4月',
 				location: '深圳',

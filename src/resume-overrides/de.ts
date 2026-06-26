@@ -34,7 +34,7 @@ export const deOverride: ResumeOverride = {
 			'Hintergrund in Operations Analytics und Tech Risk — Prozessoptimierung, Simulation und KI-Einsatz in 4 Praktika.',
 		],
 		items: [{
-				title: 'KI-Operations-Praktikant',
+				title: 'KI-Ingenieurassistent',
 				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
 				period: 'Mai 2025 - Apr 2026',
 				location: 'Shenzhen, China',

@@ -34,7 +34,7 @@ export const frOverride: ResumeOverride = {
 			"Profil opérations analytics et tech risk — optimisation de processus, simulation et déploiement IA sur 4 stages.",
 		],
 		items: [{
-				title: 'Stagiaire Opérations IA',
+				title: 'Assistant Ingénieur IA',
 				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
 				period: 'Mai 2025 - Avr 2026',
 				location: 'Shenzhen, Chine',

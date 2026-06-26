@@ -34,7 +34,7 @@ export const enOverride: ResumeOverride = {
 			'Background in operations analytics and tech risk — did process optimization, simulation modeling, and AI deployment work across 4 internships.',
 		],
 		items: [{
-				title: 'AI Operations & R&D Intern',
+				title: 'AI Engineer Assistant',
 				org: 'Shenzhen Wuxian Hongyin Technology Co., Ltd.',
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',

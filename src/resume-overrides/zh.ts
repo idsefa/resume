@@ -34,7 +34,7 @@ export const zhOverride: ResumeOverride = {
 			'运营分析和科技风控方向，4 段实习覆盖了流程优化、仿真建模、AI 部署和法学合规。',
 		],
 		items: [{
-				title: 'AI 运营实习生',
+				title: 'AI 工程师助理',
 				org: '深圳市五线宏音科技有限公司',
 				period: '2025年5月 - 2026年4月',
 				location: '深圳',
