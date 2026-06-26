@@ -41,9 +41,8 @@ export const deOverride: ResumeOverride = {
 				bullets: [
 					'3 KI-Tools auf Huawei Ascend 310B-Chips für das Team eingerichtet; Antwortzeit um ~30 % verkürzt.',
 					'Motortreiberschaltungen entworfen (LCEDA) und STM32-Firmware für ein intelligentes Klavier geschrieben; mit Oszilloskopen und Logikanalysatoren getestet.',
-					'Fingerpositionserkennung für das Klavier per Kamera und Ascend-Chip aufgebaut; SDK-Dokumentation für das Team erstellt.',
-					'2 Patente aus dieser Arbeit eingereicht — eines zur Prozessoptimierung, eines zur KI-gestützten Planung.',
-					'Server betrieben (Ubuntu), Netzwerk verwaltet (Huawei Switches/Router) und Bewerbungsgespräche geführt.',
+					'Ein Fingerspositionserkennungssystem für das Klavier mit Kamera und Ascend-Chip gebaut; SDK-Dokumentation für das Team erstellt.',
+					'Server betrieben (Ubuntu), Netzwerk verwaltet (Huawei-Switches und -Router) und Vorstellungsgespräche für neue Positionen geführt.',
 				],
 			},{
 				title: 'Wissenschaftlicher Mitarbeiter — Flughafen-Simulation',

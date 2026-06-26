@@ -41,9 +41,8 @@ export const frOverride: ResumeOverride = {
 				bullets: [
 					"Installé 3 outils IA sur des puces Huawei Ascend 310B pour l'équipe interne ; temps de réponse réduit d'environ 30 %.",
 					"Conçu des circuits de commande moteur (LCEDA) et écrit le firmware STM32 pour un piano intelligent ; testé avec oscilloscopes et analyseurs logiques.",
-					"Monté un système de suivi des doigts pour le piano avec une caméra et la puce Ascend ; rédigé la documentation SDK pour l'équipe.",
-					"Déposé 2 brevets issus de ce travail — un sur l'optimisation de processus, un sur la planification par IA.",
-					"Géré les serveurs (Ubuntu), le réseau (commutateurs/routeurs Huawei) et participé aux entretiens d'embauche.",
+					"Construit un système de reconnaissance de position des doigts pour le piano avec caméra et puce Ascend ; rédigé la documentation SDK pour l'équipe.",
+					"Maintenu les serveurs (Ubuntu), géré le réseau (commutateurs et routeurs Huawei) et mené des entretiens d'embauche.",
 				],
 			},{
 				title: 'Assistant de recherche — Simulation des opérations aéroportuaires',

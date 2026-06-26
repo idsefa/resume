@@ -209,13 +209,13 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     ],
     experienceOrder: [0, 1, 3, 2],
     experienceBullets: {
-      0: ['Set up 3 AI tools on Huawei Ascend 310B chips for internal team use; sped up response time by ~30%.', 'Designed motor driver circuits and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.', 'Filed 2 patents from this work — one on process optimization, one on scheduling with AI.'],
+      0: ['Set up 3 AI tools on Huawei Ascend 310B chips for internal team use; sped up response time by ~30%.', 'Designed motor driver circuits and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.', 'Built a finger-position tracking system for the piano using a camera and the Ascend chip; documented the SDK for the team.'],
       1: ['Modeled how ground vehicles move around Guangzhou Baiyun Airport — roads, service lanes, dispatch rules — using AnyLogic, Java, and MySQL.', 'Wrote routing algorithms (Dijkstra, A*, BFS, genetic) so 50+ vehicles across 3 zones could find collision-free paths.', 'Cut simulated congestion by 35% during peak hours (200+ movements/hour); thesis won Excellent Thesis + Innovation Award.'],
       2: ['Timed every step on a dishwasher sheet metal line by hand; found 5 steps that were too slow.', 'Suggested 22 changes using lean methods; simulation showed line balance going from 58% to 70%, with 2 fewer workers.'],
       3: ['Timed 12 workstations on the wheel loader assembly line; found the 3 biggest bottlenecks using ECRS.', 'Suggested layout tweaks that cut cycle time by ~8% in simulation. The line engineers confirmed it worked.'],
     },
     experienceBulletsZh: {
-      0: ['在华为昇腾 310B 芯片上跑了 3 个 AI 工具给团队内部用，响应速度提了约 30%。', '画了智能钢琴的电机驱动电路（嘉立创），写了 STM32 固件，用示波器和逻辑分析仪调过板子。', '实习期间出了 2 项专利，一个做流程优化，一个做 AI 排程。'],
+      0: ['在华为昇腾 310B 芯片上跑了 3 个 AI 工具给团队内部用，响应速度提了约 30%。', '画了智能钢琴的电机驱动电路（嘉立创），写了 STM32 固件，用示波器和逻辑分析仪调过板子。', '用摄像头 + 昇腾芯片做了钢琴指法识别系统；帮团队写了 SDK 技术文档。'],
       1: ['用 AnyLogic + Java + MySQL 建了白云机场地面车辆的仿真模型——路网、服务车道、调度规则都做了。', '写了好几种路径算法（Dijkstra、A*、BFS、遗传），让 50 多辆车在 3 个区域里跑不撞。', '高峰时段（200+ 次/小时）拥堵降了 35%，零碰撞；论文拿了优秀论文 + 创新奖。'],
       2: ['拿秒表把洗碗机钣金线每个工位都测了一遍，找出 5 个超节拍的工序。', '用精益方法提了 22 个改善点；仿真结果：线平衡率 58%→70%，20 人减到 18 人。'],
       3: ['对装载机装配线 12 个工位做了秒表测时，用 ECRS 找到 3 个主要瓶颈。', '调整布局方案在仿真中把节拍时间降了约 8%，产线工程师验证过可行。'],
@@ -365,8 +365,8 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     profileRoleFr: 'Ingénieur IA / Chercheur en Recherche Opérationnelle',
     highlights: [
       {
-        title: 'AI deployment on Huawei Ascend: use cases + 2 patent filings',
-        description: 'Developed AI use cases on Huawei Ascend platform and optimized workflows at Shenzhen Wuxian Hongyin; filed 2 patents from AI-driven internship projects.',
+        title: 'AI deployment on Huawei Ascend: use cases and internal tools',
+        description: 'Developed AI use cases on Huawei Ascend platform and optimized workflows at Shenzhen Wuxian Hongyin; built internal tools and documented SDK for the team.',
       },
       {
         title: 'Hybrid AI: simulation + optimization + LLM prompt engineering',
@@ -378,30 +378,30 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
     ],
     highlightsZh: [
-      { title: "华为昇腾AI部署：用例开发 + 2项专利", description: "开发华为昇腾平台AI用例并优化工作流；申请2项专利。" },
+      { title: "华为昇腾AI部署：用例开发与内部工具", description: "开发华为昇腾平台AI用例并优化工作流；构建内部工具并撰写SDK文档。" },
       { title: "混合AI：仿真 + 优化 + LLM提示工程", description: "结合AnyLogic仿真、OR-Tools优化和提示工程构建混合AI-运营解决方案。" },
       { title: "快速原型：Python、SQL、提示工程", description: "常用 Python、SQL 和 Prompt Engineering，在实习中交付过 AI 辅助工具，能把开发周期压下来。" },
     ],
     highlightsZhHant: [
-      { title: "華為昇騰AI部署：用例開發 + 2項專利", description: "開發華為昇騰平台AI用例並優化工作流；申請2項專利。" },
+      { title: "華為昇騰AI部署：用例開發與內部工具", description: "開發華為昇騰平台AI用例並優化工作流；構建內部工具並撰寫SDK文檔。" },
       { title: "混合AI：仿真 + 優化 + LLM提示工程", description: "結合AnyLogic仿真、OR-Tools優化和提示工程構建混合AI-運營解決方案。" },
       { title: "快速原型：Python、SQL、提示工程", description: "常用 Python、SQL 和 Prompt Engineering，在實習中交付過 AI 輔助工具，能把開發週期壓下來。" },
     ],
     highlightsDe: [
-      { title: "KI-Bereitstellung auf Huawei Ascend + 2 Patente", description: "Entwicklung von KI-Anwendungsfällen auf Huawei Ascend; Einreichung von 2 Patenten." },
+      { title: "KI-Bereitstellung auf Huawei Ascend: Anwendungsfälle und interne Tools", description: "Entwicklung von KI-Anwendungsfällen auf Huawei Ascend und Optimierung von Workflows; Erstellung interner Tools und SDK-Dokumentation." },
       { title: "Hybride KI: Simulation + Optimierung + Prompt-Engineering", description: "Kombination von Simulation, OR-Tools und Prompt-Engineering für hybride KI-Lösungen." },
       { title: "Schnelles Prototyping: Python, SQL, Prompt-Engineering", description: "Versiert in Python, SQL und Prompt-Engineering; Lieferung KI-unterstützter Tools." },
     ],
     highlightsFr: [
-      { title: "Déploiement IA sur Huawei Ascend + 2 brevets", description: "Développement de cas d'usage IA sur Huawei Ascend ; dépôt de 2 brevets." },
+      { title: "Déploiement IA sur Huawei Ascend : cas d'usage et outils internes", description: "Développement de cas d'usage IA sur Huawei Ascend et optimisation des flux de travail ; création d'outils internes et documentation SDK." },
       { title: "IA hybride : simulation + optimisation + prompt engineering", description: "Combinaison de simulation, OR-Tools et prompt engineering pour des solutions hybrides IA." },
       { title: "Prototypage rapide : Python, SQL, prompt engineering", description: "Maîtrise de Python, SQL et prompt engineering ; livraison d'outils assistés par IA." },
     ],
     experienceSummary: [
-      'At Shenzhen Wuxian Hongyin Technology, I worked on AI use cases based on Huawei Ascend, wrote patents, and used prompt engineering to speed up development.',
+      'At Shenzhen Wuxian Hongyin Technology, I worked on AI use cases based on Huawei Ascend, built internal tools, and used prompt engineering to speed up development.',
       'My earlier simulation research at Guangzhou Baiyun Airport combined path planning algorithms and data modeling — directly relevant to AI systems design.',
     ],
-    experienceSummaryZh: ["在深圳无限宏音参与华为昇腾AI用例开发，撰写专利，使用提示工程加速开发。", "白云机场仿真实验结合路径规划算法和数据建模——与AI系统设计直接相关。"],
+    experienceSummaryZh: ["在深圳无限宏音参与华为昇腾AI用例开发，构建内部工具，使用提示工程加速开发。", "白云机场仿真实验结合路径规划算法和数据建模——与AI系统设计直接相关。"],
     experienceSummaryZhHant: ["在深圳無限宏音參與華為昇騰AI用例開發，撰寫專利，使用提示工程加速開發。", "白雲機場仿真實驗結合路徑規劃算法和數據建模——與AI系統設計直接相關。"],
     experienceSummaryDe: ["Bei Shenzhen Wuxian Hongyin arbeitete ich an KI-Anwendungsfällen auf Huawei Ascend und schrieb Patente.", "Meine Flughafensimulation verband Pfadplanungsalgorithmen und Datenmodellierung."],
     experienceSummaryFr: ["Chez Shenzhen Wuxian Hongyin, j'ai travaillé sur des cas d'usage IA sur Huawei Ascend et rédigé des brevets.", "Ma recherche en simulation aéroportuaire combinait algorithmes et modélisation."],
@@ -581,7 +581,7 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     highlights: [
       {
         title: 'AI deployment and model experience',
-        description: 'Set up 3 AI tools on Huawei Ascend chips, filed 2 patents — I know how AI models get built, deployed, and where they break.',
+        description: 'Set up AI tools on Huawei Ascend chips and managed server infrastructure — I know how AI models get built, deployed, and where they break.',
       },
       {
         title: 'Data analysis and simulation for risk',
@@ -593,22 +593,22 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       },
     ],
     highlightsZh: [
-      { title: 'AI 部署和模型经验', description: '在华为昇腾芯片上跑了 3 个 AI 工具，出了 2 项专利——我知道 AI 模型怎么建、怎么部署、哪里会出问题。' },
+      { title: 'AI 部署和模型经验', description: '在华为昇腾芯片上跑了 AI 工具，管过服务器——我知道 AI 模型怎么建、怎么部署、哪里会出问题。' },
       { title: '数据分析和仿真用于风险', description: '50+ 辆车的机场仿真和路径算法——和反欺诈检测、模型风险的数学基础是一样的。' },
       { title: 'IE 量化背景', description: '运筹学、随机建模、数据驱动决策——直接适用于 AML/KYC、模型验证和风险量化。' },
     ],
     highlightsZhHant: [
-      { title: 'AI 部署和模型經驗', description: '在華為昇騰芯片上跑了 3 個 AI 工具，出了 2 項專利——我知道 AI 模型怎麼建、怎麼部署、哪裡會出問題。' },
+      { title: 'AI 部署和模型經驗', description: '在華為昇騰芯片上跑了 AI 工具，管過伺服器——我知道 AI 模型怎麼建、怎麼部署、哪裡會出問題。' },
       { title: '數據分析和仿真用於風險', description: '50+ 輛車的機場仿真和路徑算法——和反欺詐檢測、模型風險的數學基礎是一樣的。' },
       { title: 'IE 量化背景', description: '運籌學、隨機建模、數據驅動決策——直接適用於 AML/KYC、模型驗證和風險量化。' },
     ],
     highlightsDe: [
-      { title: 'KI-Einsatz und Modellerfahrung', description: '3 KI-Tools auf Huawei Ascend-Chips eingerichtet, 2 Patente eingereicht — ich weiß, wie KI-Modelle gebaut, eingesetzt werden und wo sie scheitern können.' },
+      { title: 'KI-Einsatz und Modellerfahrung', description: 'KI-Tools auf Huawei Ascend-Chips eingerichtet und Server-Infrastruktur verwaltet — ich weiß, wie KI-Modelle gebaut, eingesetzt werden und wo sie scheitern können.' },
       { title: 'Datenanalyse und Simulation für Risiko', description: 'Flughafen-Simulation mit 50+ Fahrzeugen und Routenalgorithmen — dieselben mathematischen Grundlagen wie bei Betrugserkennung und Modellrisiko.' },
       { title: 'IE-Quant-Hintergrund', description: 'OR, stochastische Modellierung und datengetriebene Entscheidungsfindung — direkt anwendbar auf AML/KYC, Modellvalidierung und Risikoquantifizierung.' },
     ],
     highlightsFr: [
-      { title: "Déploiement IA et expérience de modèles", description: "3 outils IA sur puces Huawei Ascend, 2 brevets déposés — je sais comment les modèles IA sont construits, déployés et où ils peuvent échouer." },
+      { title: "Déploiement IA et expérience de modèles", description: "Outils IA sur puces Huawei Ascend et gestion de l'infrastructure serveur — je sais comment les modèles IA sont construits, déployés et où ils peuvent échouer." },
       { title: "Analyse de données et simulation pour le risque", description: "Simulation aéroportuaire avec 50+ véhicules et algorithmes de routage — mêmes fondements mathématiques que la détection de fraude et le risque de modèle." },
       { title: "Background quantitatif IE", description: "RO, modélisation stochastique et prise de décision basée sur les données — directement applicable à l'AML/KYC, la validation de modèles et la quantification des risques." },
     ],

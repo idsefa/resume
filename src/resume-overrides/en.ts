@@ -42,7 +42,6 @@ export const enOverride: ResumeOverride = {
 					'Set up 3 AI tools on Huawei Ascend 310B chips for internal team use; sped up response time by ~30%.',
 					'Designed motor driver circuits (LCEDA) and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.',
 					'Built a finger-position tracking system for the piano using a camera and the Ascend chip; documented the SDK for the team.',
-					'Filed 2 patents from this work — one on process optimization, one on scheduling with AI.',
 					'Kept the servers running (Ubuntu), managed the network (Huawei switches and routers), and interviewed candidates for new roles.',
 				],
 			},{
