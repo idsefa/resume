@@ -24,3 +24,8 @@ pnpm-debug.log*
 .idea/
 Google-Gemini.md
 个人职业经历梳理与简历优化策略_transcript.txt
+
+# LaTeX auxiliary files
+latex-templates/*.aux
+latex-templates/*.log
+latex-templates/*.out
