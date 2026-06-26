@@ -42,8 +42,8 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     labelDe: 'Allgemein',
     labelFr: 'Général',
     profileRole: 'MEng Student in Aviation Engineering and Operation Management',
-    profileRoleZh: '航空工程与运营管理硕士研究生',
-    profileRoleZhHant: '航空工程與運營管理碩士研究生',
+    profileRoleZh: '民航工程与运营管理硕士研究生',
+    profileRoleZhHant: '民航工程與運營管理碩士研究生',
     profileRoleDe: 'MSc-Student in Luftfahrttechnik und Betriebsmanagement',
     profileRoleFr: 'Étudiant MSc en Ingénierie Aéronautique et Management des Opérations',
     highlights: [
@@ -157,12 +157,12 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
     ],
     highlightsZh: [
       { title: "机场仿真：白云机场地面车辆运营建模", description: "为广州白云机场地面车辆运营设计AnyLogic仿真模型，实现避碰和路径规划算法，改善模拟交通流和安全指标。" },
-      { title: "理工大学航空工程硕士——专为航空公司和机场运营设计", description: "港理工MEng课程专门面向航空公司运营、机场管理和航空咨询职业设计——在技术能力之外提供深入的领域专业知识。" },
+      { title: "理工大学民航工程硕士——专为航空公司和机场运营设计", description: "港理工MEng课程专门面向航空公司运营、机场管理和航空咨询职业设计——在技术能力之外提供深入的领域专业知识。" },
       { title: "工业工程训练的系统思维应用于航空", description: "工业工程训练提供了结构化、系统化的方法来分析和优化复杂的机场和航空公司运营工作流。" },
     ],
     highlightsZhHant: [
       { title: "機場仿真：白雲機場地面車輛運營建模", description: "為廣州白雲機場地面車輛運營設計AnyLogic仿真模型，實現避碰和路徑規劃算法，改善模擬交通流和安全指標。" },
-      { title: "理工大學航空工程碩士——專為航空公司和機場運營設計", description: "港理工MEng課程專門面向航空公司運營、機場管理和航空諮詢職業設計——在技術能力之外提供深入的領域專業知識。" },
+      { title: "理工大學民航工程碩士——專為航空公司和機場運營設計", description: "港理工MEng課程專門面向航空公司運營、機場管理和航空諮詢職業設計——在技術能力之外提供深入的領域專業知識。" },
       { title: "工業工程訓練的系統思維應用於航空", description: "工業工程訓練提供了結構化、系統化的方法來分析和優化複雜的機場和航空公司運營工作流。" },
     ],
     highlightsDe: [
@@ -192,11 +192,11 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       "Ce projet combinait planification de trajectoire, évitement de collisions et optimisation basée sur les données — prix de l\'innovation obtenu.",
     ],
     educationSummaryZh: [
-      "港理工的航空工程与运营管理硕士与航空公司运营、机场管理和航空咨询职业直接对口。",
+      "港理工的民航工程与运营管理硕士与航空公司运营、机场管理和航空咨询职业直接对口。",
       "我的工业工程本科和法学辅修为航空领域基础增加了结构化问题解决能力和法规意识。",
     ],
     educationSummaryZhHant: [
-      "港理工的航空工程與運營管理碩士與航空公司運營、機場管理和航空諮詢職業直接對口。",
+      "港理工的民航工程與運營管理碩士與航空公司運營、機場管理和航空諮詢職業直接對口。",
       "我的工業工程本科和法學輔修為航空領域基礎增加了結構化問題解決能力和法規意識。",
     ],
     educationSummaryDe: [

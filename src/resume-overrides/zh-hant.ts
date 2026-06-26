@@ -3,11 +3,11 @@ import type { ResumeOverride } from './types';
 export const zhHantOverride: ResumeOverride = {
 	profile: {
 		name: '何昊程',
-		role: '航空工程與營運管理碩士在讀',
+		role: '民航工程與營運管理碩士在讀',
 		location: '中國香港',
 	},
 	about: {
-		bio: '本科在廣工讀工業工程，現在港理工讀航空工程碩士。中間做了 4 段實習——在深圳一家做智能鋼琴的創業公司搞硬件和 AI 芯片，跟白雲機場合作做地面車輛仿真拿了優秀論文，還有在美的和柳工兩家工廠做工時測量和線平衡。手上也有一些專利。我喜歡把東西弄明白，然後讓它跑得更好。',
+		bio: '本科在廣工讀工業工程，現在港理工讀民航工程碩士。中間做了 4 段實習——在深圳一家做智能鋼琴的創業公司搞硬件和 AI 芯片，跟白雲機場合作做地面車輛仿真拿了優秀論文，還有在美的和柳工兩家工廠做工時測量和線平衡。手上也有一些專利。我喜歡把東西弄明白，然後讓它跑得更好。',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: '所在地', value: '中國香港' },
@@ -77,11 +77,11 @@ export const zhHantOverride: ResumeOverride = {
 	},
 	education: {
 		summary: [
-			'航空工程碩士（港理工，3.95/4.3）+ 工業工程學士（3.67，前 20%）+ 法學輔修（3.61）——運籌學、隨機過程、品質管制和法規課程。',
+			'民航工程碩士（港理工，3.95/4.3）+ 工業工程學士（3.67，前 20%）+ 法學輔修（3.61）——運籌學、隨機過程、品質管制和法規課程。',
 		],
 		items: [
 			{
-				title: '航空工程與營運管理 碩士',
+				title: '民航工程與營運管理 碩士',
 				org: '香港理工大學',
 				period: '2025年9月 - 2027年1月',
 				location: '中國香港',

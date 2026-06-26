@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:07
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -245,7 +245,7 @@ File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
 \g__pdfannot_backend_int=\count299
 \g__pdfannot_backend_link_int=\count300
 )
-No file resume-en.aux.
+(./resume-en.aux)
 \openout1 = `resume-en.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -268,6 +268,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -303,14 +304,13 @@ LaTeX Font Info:    ... okay on input line 30.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 30.
+(./resume-en.out) (./resume-en.out)
 \@outlinefile=\write3
 \openout3 = `resume-en.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
 7.
+
 (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -339,10 +339,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 37.
 
-Overfull \hbox (3.56345pt too wide) in paragraph at lines 99--100
-[]\T1/lmr/m/n/10.95 Documented sim-u-la-tion method-ol-ogy in a 30-page tech-ni
--cal re-port for the client's continuous-improvement
- []
+! Misplaced alignment tab character &.
+l.46 ...rations research, and hardware/software R&
+                                                  D. Holds a law minor provi...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
 [1
 
@@ -351,21 +356,14 @@ Overfull \hbox (3.56345pt too wide) in paragraph at lines 99--100
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-Package rerunfilecheck Warning: File `resume-en.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `resume-en.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  07CB825B0F4F9C1DA76B38A2DFA8BD2D;693.
+Package rerunfilecheck Info: File `resume-en.out' has not changed.
+(rerunfilecheck)             Checksum: E64BE3318C4C696A261346F820A7C9C8;635.
  ) 
 Here is how much of TeX's memory you used:
- 9050 strings out of 468168
- 140755 string characters out of 5432815
- 564238 words of memory out of 5000000
- 37703 multiletter control sequences out of 15000+600000
+ 9059 strings out of 468168
+ 140893 string characters out of 5432815
+ 565241 words of memory out of 5000000
+ 37706 multiletter control sequences out of 15000+600000
  661733 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  69i,5n,79p,1198b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
