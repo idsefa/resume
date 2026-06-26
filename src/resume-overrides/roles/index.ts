@@ -402,9 +402,9 @@ export const ROLE_VARIANTS: Record<string, RoleVariant> = {
       'My earlier simulation research at Guangzhou Baiyun Airport combined path planning algorithms and data modeling — directly relevant to AI systems design.',
     ],
     experienceSummaryZh: ["在深圳无限宏音参与华为昇腾AI用例开发，构建内部工具，使用提示工程加速开发。", "白云机场仿真实验结合路径规划算法和数据建模——与AI系统设计直接相关。"],
-    experienceSummaryZhHant: ["在深圳無限宏音參與華為昇騰AI用例開發，撰寫專利，使用提示工程加速開發。", "白雲機場仿真實驗結合路徑規劃算法和數據建模——與AI系統設計直接相關。"],
-    experienceSummaryDe: ["Bei Shenzhen Wuxian Hongyin arbeitete ich an KI-Anwendungsfällen auf Huawei Ascend und schrieb Patente.", "Meine Flughafensimulation verband Pfadplanungsalgorithmen und Datenmodellierung."],
-    experienceSummaryFr: ["Chez Shenzhen Wuxian Hongyin, j'ai travaillé sur des cas d'usage IA sur Huawei Ascend et rédigé des brevets.", "Ma recherche en simulation aéroportuaire combinait algorithmes et modélisation."],
+    experienceSummaryZhHant: ["在深圳無限宏音參與華為昇騰AI用例開發，構建內部工具，使用提示工程加速開發。", "白雲機場仿真實驗結合路徑規劃算法和數據建模——與AI系統設計直接相關。"],
+    experienceSummaryDe: ["Bei Shenzhen Wuxian Hongyin arbeitete ich an KI-Anwendungsfällen auf Huawei Ascend, erstellte interne Tools und nutzte Prompt Engineering zur Beschleunigung der Entwicklung.", "Meine Flughafensimulation verband Pfadplanungsalgorithmen und Datenmodellierung."],
+    experienceSummaryFr: ["Chez Shenzhen Wuxian Hongyin, j'ai travaillé sur des cas d'usage IA sur Huawei Ascend, créé des outils internes et utilisé le prompt engineering pour accélérer le développement.", "Ma recherche en simulation aéroportuaire combinait algorithmes et modélisation."],
     educationSummary: [
       'Industrial Engineering provides the operations research foundation (optimization, modeling, algorithms) that underpins applied AI work.',
       'The MEng in Aviation Engineering extends this to real-world systems with complex operational constraints — a natural context for AI applications.',
