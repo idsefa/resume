@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:37
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -445,6 +445,10 @@ Package hyperref Info: Link coloring OFF on input line 37.
 \openout3 = `resume-zh.out'.
 
 
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
@@ -520,7 +524,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 44.
 
-
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSerifCJKSC(0)/m/n' instead on input line 61.
 
@@ -539,10 +542,10 @@ Package rerunfilecheck Info: File `resume-zh.out' has not changed.
 (rerunfilecheck)             Checksum: 06D3AD98BF0CDE83A9063AEAE127924D;359.
  ) 
 Here is how much of TeX's memory you used:
- 12934 strings out of 468168
- 288057 string characters out of 5432815
- 757813 words of memory out of 5000000
- 41507 multiletter control sequences out of 15000+600000
+ 12936 strings out of 468168
+ 288103 string characters out of 5432815
+ 757816 words of memory out of 5000000
+ 41509 multiletter control sequences out of 15000+600000
  631778 words of font info for 102 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  74i,5n,93p,1198b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
