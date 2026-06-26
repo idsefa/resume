@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:41
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.11)  27 JUN 2026 00:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,20 +426,21 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 39.
+ [1
 
-! Misplaced alignment tab character &.
-l.48 ...rations research, and hardware/software R&
-                                                  D. Holds a law minor provi...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+]
+Overfull \hbox (2.61293pt too wide) in paragraph at lines 138--139
+[]\TU/LiberationSerif(0)/m/n/10.95 Integrated Wire Harness Production Equipment
+ — Zhao Xiang, He Haocheng, Hu Bofeng (2024). CN221352455U,
+ []
 
-[1
 
-] [2] (./resume-en.aux)
+Overfull \hbox (15.06882pt too wide) in paragraph at lines 145--146
+[]\TU/LiberationSerif(0)/m/n/10.95 Enterprise Financial Data Analysis Software 
+V1.0 — Li Yisi, He Haocheng (2024). Registration No. 2024SR0146827. 
+ []
+
+[2] (./resume-en.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -450,7 +451,7 @@ Package rerunfilecheck Info: File `resume-en.out' has not changed.
 Here is how much of TeX's memory you used:
  11256 strings out of 468168
  227765 string characters out of 5432815
- 697612 words of memory out of 5000000
+ 698612 words of memory out of 5000000
  39858 multiletter control sequences out of 15000+600000
  631148 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
