@@ -1,0 +1,138 @@
+% 何昊程 — 中文简历（ATS 友好）
+\documentclass[11pt,a4paper]{article}
+
+% ── 页面布局 ─────────────────────────────────────────────────
+\usepackage[margin=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% ── 中文字体（xeCJK）────────────────────────────────────────
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+% ── 英文字体 ────────────────────────────────────────────────
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+
+% ── 去掉页码 ────────────────────────────────────────────────
+\pagestyle{empty}
+
+% ── 章节标题格式 ────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% ── 列表格式 ────────────────────────────────────────────────
+\setlist[itemize]{leftmargin=1.5em, itemsep=2pt, parsep=0pt, topsep=2pt}
+
+% ── 自定义命令 ──────────────────────────────────────────────
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\experienceEntry}[4]{%
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════
+%  联系方式
+% ══════════════════════════════════════════════════════════════
+\begin{center}
+  {\LARGE\bfseries 何昊程} \\[6pt]
+  haocheng.he@foxmail.com \enspace$|$\enspace
+  中国香港特别行政区 \enspace$|$\enspace
+  \href{https://linkedin.com/in/haocheng-he-92657028b}{linkedin.com/in/haocheng-he-92657028b}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════
+%  个人简介
+% ══════════════════════════════════════════════════════════════
+\section{个人简介}
+工程学硕士，具备扎实的运筹学、数据分析与仿真建模能力。通过四段行业实习，
+积累了航空运营、供应链优化及科技风险方面的实战经验。拥有多项发明专利与
+软件著作权，期望从事运筹分析及科技风险相关岗位。
+
+% ══════════════════════════════════════════════════════════════
+%  教育背景
+% ══════════════════════════════════════════════════════════════
+\section{教育背景}
+
+\textbf{香港理工大学} \hfill 中国香港 \\
+\textit{航空工程学硕士} \hfill 2024年9月 -- 至今 \\
+GPA：3.95 / 4.30
+
+\vspace{6pt}
+
+\textbf{广东工业大学} \hfill 广州 \\
+\textit{工业工程学士} \hfill 2020年9月 -- 2024年6月 \\
+GPA：3.67 / 4.00（前 20\%）
+
+\vspace{2pt}
+
+\textit{法学辅修} \hfill 2021年9月 -- 2024年6月 \\
+GPA：3.61 / 4.00
+
+% ══════════════════════════════════════════════════════════════
+%  实习经历
+% ══════════════════════════════════════════════════════════════
+\section{实习经历}
+
+\experienceEntry{运筹优化实习生}{2023年6月 -- 2023年9月}{供应链数据分析公司}{广州}
+\begin{itemize}
+  \resumeItem{使用 OR-Tools 构建仓库拣货路径优化模型，覆盖 3 个仓库，平均行走距离降低 18\%。}
+  \resumeItem{基于 Python（pandas + matplotlib）自动化周报 KPI 看板，手动报表时间从 4 小时缩短至 20 分钟。}
+  \resumeItem{分析逾 15 万条物流记录，识别瓶颈环节并提出布局优化方案，吞吐量提升 12\%。}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{航空数据实习生}{2023年1月 -- 2023年5月}{机场管理局合作项目}{中国香港}
+\begin{itemize}
+  \resumeItem{使用 AnyLogic 开发航站楼旅客流离散事件仿真模型，测试 5 种布局方案。}
+  \resumeItem{通过 SQL 处理超过 200 万条航班运行记录，构建延误预测特征集（准确率 82\%）。}
+  \resumeItem{与 4 人团队协作完成可行性报告，获项目方采纳。}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{生产仿真实习生}{2022年7月 -- 2022年10月}{汽车零部件制造企业}{广州}
+\begin{itemize}
+  \resumeItem{使用 Plant Simulation 搭建 12 工位装配线模型，定位导致 23\% 空闲时间的瓶颈工位。}
+  \resumeItem{提出优化排班方案，在不增加人员的前提下将设备利用率从 71\% 提升至 84\%。}
+  \resumeItem{撰写 30 页技术报告，记录仿真方法论，交付客户持续改善团队。}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{商业智能实习生}{2021年6月 -- 2021年9月}{科技咨询公司}{深圳}
+\begin{itemize}
+  \resumeItem{设计并搭建 MySQL 数据仓库，整合 4 套遗留系统，支持 15+ 并发分析师查询。}
+  \resumeItem{构建 Tableau 交互看板，追踪营收、成本及毛利率等高管关注的核心指标。}
+  \resumeItem{编写 Python ETL 脚本，数据管线运行时间较人工流程缩短 40\%。}
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════
+%  技能特长
+% ══════════════════════════════════════════════════════════════
+\section{技能特长}
+
+\textbf{编程语言：}Python、Java、SQL \\
+\textbf{工具与平台：}AnyLogic、Plant Simulation、OR-Tools、MySQL、Tableau、Git \\
+\textbf{语言能力：}英语（雅思 6.5）、普通话（母语）、粤语（日常交流）
+
+% ══════════════════════════════════════════════════════════════
+%  学术成果与知识产权
+% ══════════════════════════════════════════════════════════════
+\section{学术成果与知识产权}
+
+\begin{itemize}
+  \resumeItem{发明专利 3 项（已授权）——物流与排程优化算法。}
+  \resumeItem{实用新型专利 1 项——仓库设备人因工程设计。}
+  \resumeItem{软件著作权 2 项——制造产线分析仿真工具包。}
+  \resumeItem{优秀本科毕业论文——《基于仿真的混流装配线优化研究》。}
+\end{itemize}
+
+\end{document}

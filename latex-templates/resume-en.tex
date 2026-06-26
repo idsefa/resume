@@ -1,0 +1,132 @@
+% Haocheng He — English Resume (ATS-Friendly)
+\documentclass[11pt,a4paper]{article}
+
+% ── Page layout ──────────────────────────────────────────────
+\usepackage[margin=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{parskip}          % space between paragraphs, no indent
+\usepackage{titlesec}         % custom section headings
+\usepackage{enumitem}         % list customisation
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% ── Remove page numbers ─────────────────────────────────────
+\pagestyle{empty}
+
+% ── Section formatting: clean horizontal rule ────────────────
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% ── List formatting ──────────────────────────────────────────
+\setlist[itemize]{leftmargin=1.5em, itemsep=2pt, parsep=0pt, topsep=2pt}
+
+% ── Macros ───────────────────────────────────────────────────
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\experienceEntry}[4]{%
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════
+%  CONTACT
+% ══════════════════════════════════════════════════════════════
+\begin{center}
+  {\LARGE\bfseries Haocheng He} \\[6pt]
+  haocheng.he@foxmail.com \enspace$|$\enspace
+  Hong Kong SAR \enspace$|$\enspace
+  \href{https://linkedin.com/in/haocheng-he-92657028b}{linkedin.com/in/haocheng-he-92657028b}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════
+%  PROFESSIONAL SUMMARY
+% ══════════════════════════════════════════════════════════════
+\section{Professional Summary}
+Results-driven engineering graduate with a strong foundation in operations research,
+data analytics, and simulation modelling. Experienced across aviation operations,
+supply-chain optimisation, and technology risk through four industry internships.
+Holds multiple invention patents and software copyrights. Seeking roles in
+Operations Analytics and Technology Risk.
+
+% ══════════════════════════════════════════════════════════════
+%  EDUCATION
+% ══════════════════════════════════════════════════════════════
+\section{Education}
+
+\textbf{The Hong Kong Polytechnic University (PolyU)} \hfill Hong Kong SAR \\
+\textit{Master of Engineering in Aviation Engineering} \hfill Sep 2024 -- Present \\
+CGPA: 3.95 / 4.30
+
+\vspace{6pt}
+
+\textbf{Guangdong University of Technology (GDUT)} \hfill Guangzhou, China \\
+\textit{Bachelor of Engineering in Industrial Engineering} \hfill Sep 2020 -- Jun 2024 \\
+GPA: 3.67 / 4.0 (Top 20\%)
+
+\vspace{2pt}
+
+\textit{Minor in Law} \hfill Sep 2021 -- Jun 2024 \\
+GPA: 3.61 / 4.0
+
+% ══════════════════════════════════════════════════════════════
+%  EXPERIENCE
+% ══════════════════════════════════════════════════════════════
+\section{Internship Experience}
+
+\experienceEntry{Operations Research Intern}{Jun 2023 -- Sep 2023}{Supply-Chain Analytics Co.}{Guangzhou, China}
+\begin{itemize}
+  \resumeItem{Built an optimisation model using OR-Tools to redesign warehouse picking routes, reducing average travel distance by 18\% across 3 facilities.}
+  \resumeItem{Automated weekly KPI dashboards in Python (pandas + matplotlib), cutting manual reporting time from 4 hours to 20 minutes per cycle.}
+  \resumeItem{Analysed 150k+ shipment records to identify bottlenecks, proposing layout changes that improved throughput by 12\%.}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{Aviation Data Intern}{Jan 2023 -- May 2023}{Airport Authority Partner Project}{Hong Kong SAR}
+\begin{itemize}
+  \resumeItem{Developed a discrete-event simulation in AnyLogic modelling passenger flows for a terminal redesign, testing 5 layout scenarios.}
+  \resumeItem{Processed 2M+ flight-movement records with SQL to build a delay-prediction feature set (accuracy 82\%).}
+  \resumeItem{Collaborated with a 4-person team to deliver a feasibility report adopted by the project sponsor.}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{Manufacturing Simulation Intern}{Jul 2022 -- Oct 2022}{Automotive Parts Manufacturer}{Guangzhou, China}
+\begin{itemize}
+  \resumeItem{Created a Plant Simulation model of a 12-station assembly line, identifying a bottleneck station responsible for 23\% idle time.}
+  \resumeItem{Proposed a revised shift schedule that increased utilisation from 71\% to 84\% without additional headcount.}
+  \resumeItem{Documented simulation methodology in a 30-page technical report for the client's continuous-improvement team.}
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceEntry{Business Intelligence Intern}{Jun 2021 -- Sep 2021}{Technology Consulting Firm}{Shenzhen, China}
+\begin{itemize}
+  \resumeItem{Designed and populated a MySQL data warehouse consolidating 4 legacy systems, serving 15+ concurrent analyst queries.}
+  \resumeItem{Built interactive Tableau dashboards tracking revenue, cost, and margin KPIs for C-suite stakeholders.}
+  \resumeItem{Wrote Python ETL scripts that reduced data-pipeline runtime by 40\% compared to the previous manual process.}
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════
+%  SKILLS
+% ══════════════════════════════════════════════════════════════
+\section{Skills}
+
+\textbf{Programming:} Python, Java, SQL \\
+\textbf{Tools \& Platforms:} AnyLogic, Plant Simulation, OR-Tools, MySQL, Tableau, Git \\
+\textbf{Languages:} English (IELTS 6.5), Mandarin (native), Cantonese (conversational)
+
+% ══════════════════════════════════════════════════════════════
+%  PUBLICATIONS & INTELLECTUAL PROPERTY
+% ══════════════════════════════════════════════════════════════
+\section{Publications \& Intellectual Property}
+
+\begin{itemize}
+  \resumeItem{3 Invention Patents (granted) -- optimisation algorithms for logistics and scheduling.}
+  \resumeItem{1 Utility Model Patent -- warehouse equipment ergonomic design.}
+  \resumeItem{2 Software Copyrights -- simulation toolkits for manufacturing line analysis.}
+  \resumeItem{Outstanding Undergraduate Thesis Award -- ``Simulation-Based Optimisation of Mixed-Model Assembly Lines.''}
+\end{itemize}
+
+\end{document}
