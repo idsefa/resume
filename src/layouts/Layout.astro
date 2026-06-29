@@ -312,7 +312,7 @@ const roleVariantsJson = JSON.stringify(
         if (el) el.textContent = THEME_ICONS[id] || '☀️';
         try { localStorage.setItem(THEME_KEY, id); } catch(_) {}
         document.querySelectorAll('.theme-option').forEach(o => o.classList.toggle('is-active', o.getAttribute('data-theme-id') === id));
-        if (window.__applyThemeEffects) window.__applyThemeEffects(id);
+        window.resumeSite?.applyThemeEffects?.(id);
       }
 
       let saved; try { saved = localStorage.getItem(THEME_KEY); } catch(_) {}

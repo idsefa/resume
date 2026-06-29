@@ -48,8 +48,51 @@
     return (THEME_PROFILES as Record<string, typeof THEME_PROFILES['light-tech']>)[id] || THEME_PROFILES['light-tech'];
   }
 
+  const resumeSite = window.resumeSite ??= {};
+  resumeSite.themeEffectsCleanup?.();
+
+  const cursorCleanups = new WeakMap<HTMLElement, () => void>();
+  let currentCursorEl: HTMLElement | null = null;
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function isLowPowerDevice() {
+    const cores = navigator.hardwareConcurrency ?? 8;
+    const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+    return cores <= 4 || memory <= 4;
+  }
+
+  function shouldUseEnhancedMotion() {
+    return !prefersReducedMotion() && !isLowPowerDevice();
+  }
+
+  function shouldUsePointerEffects() {
+    return shouldUseEnhancedMotion() && window.matchMedia('(pointer: fine)').matches;
+  }
+
+  function cleanupCursor(cursorEl: HTMLElement) {
+    const cleanup = cursorCleanups.get(cursorEl);
+    if (!cleanup) return;
+    cleanup();
+    cursorCleanups.delete(cursorEl);
+  }
+
+  function setCursorCleanup(cursorEl: HTMLElement, cleanup: () => void) {
+    cursorCleanups.set(cursorEl, cleanup);
+  }
+
+  function appendCursorCleanup(cursorEl: HTMLElement, cleanup: () => void) {
+    const previous = cursorCleanups.get(cursorEl);
+    setCursorCleanup(cursorEl, () => {
+      previous?.();
+      cleanup();
+    });
+  }
+
   // Apply theme effects — called by applyTheme() after setting data-theme
-  window.__applyThemeEffects = function(themeId) {
+  resumeSite.applyThemeEffects = function(themeId: string) {
     const profile = getProfile(themeId);
 
     // Set page layout variant on article (but don't override user's layout choice)
@@ -90,6 +133,7 @@
         setupPageTransitions();
       } else {
         pt.style.display = 'none';
+        pageTransitionsCleanup?.();
       }
     }
 
@@ -179,8 +223,7 @@
   function toggleMagnetic(enable: boolean) {
     if (magneticCleanup) { magneticCleanup(); magneticCleanup = null; }
     if (!enable) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (!shouldUsePointerEffects()) return;
 
     const MAGNETIC_RADIUS = 80;
     const MAGNETIC_STRENGTH = 0.3;
@@ -224,7 +267,7 @@
       cards.forEach(c => { c.classList.remove('floating-card'); (c as HTMLElement).style.animationDelay = ''; (c as HTMLElement).style.transform = ''; });
       return;
     }
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!shouldUseEnhancedMotion()) return;
 
     cards.forEach((card, i) => {
       card.classList.add('floating-card');
@@ -324,11 +367,10 @@
     if (cursorRAF) { cancelAnimationFrame(cursorRAF); cursorRAF = null; }
 
     // Clean up previous listeners
-    if (cursorEl._cleanup) { cursorEl._cleanup(); cursorEl._cleanup = null; }
+    currentCursorEl = cursorEl;
+    cleanupCursor(cursorEl);
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-    const shouldEnable = hasFinePointer && !prefersReducedMotion;
+    const shouldEnable = shouldUsePointerEffects();
 
     if (!shouldEnable || mode === 'none') {
       document.body.classList.remove('has-custom-cursor');
@@ -376,10 +418,10 @@
       interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
 
       // Store cleanup
-      cursorEl._cleanup = () => {
+      setCursorCleanup(cursorEl, () => {
         window.removeEventListener('pointermove', moveHandler);
         interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
-      };
+      });
 
     } else if (mode === 'follower') {
       // Small dot follower (Oliver9011 style)
@@ -405,10 +447,10 @@
       const onLeave = () => cursorEl.classList.remove('active');
       interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
 
-      cursorEl._cleanup = () => {
+      setCursorCleanup(cursorEl, () => {
         window.removeEventListener('pointermove', moveHandler);
         interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
-      };
+      });
 
     } else if (mode === 'square-follower') {
       // Square follower: 8px square with 1px border-radius, expands on hover
@@ -434,17 +476,24 @@
       const onLeave = () => cursorEl.classList.remove('active');
       interactive.forEach(el => { el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave); });
 
-      cursorEl._cleanup = () => {
+      setCursorCleanup(cursorEl, () => {
         window.removeEventListener('pointermove', moveHandler);
         interactive.forEach(el => { el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave); });
-      };
+      });
     }
 
     // Safe zone for language menu
     const safeZone = document.querySelector('.lang-menu');
     if (safeZone) {
-      safeZone.addEventListener('pointerenter', () => document.body.classList.add('system-cursor-mode'));
-      safeZone.addEventListener('pointerleave', () => document.body.classList.remove('system-cursor-mode'));
+      const onSafeZoneEnter = () => document.body.classList.add('system-cursor-mode');
+      const onSafeZoneLeave = () => document.body.classList.remove('system-cursor-mode');
+      safeZone.addEventListener('pointerenter', onSafeZoneEnter);
+      safeZone.addEventListener('pointerleave', onSafeZoneLeave);
+      appendCursorCleanup(cursorEl, () => {
+        safeZone.removeEventListener('pointerenter', onSafeZoneEnter);
+        safeZone.removeEventListener('pointerleave', onSafeZoneLeave);
+        document.body.classList.remove('system-cursor-mode');
+      });
     }
   }
 
@@ -452,19 +501,23 @@
   // PAGE TRANSITIONS
   // ============================================
   let pageTransitionsSetup = false;
+  let pageTransitionsCleanup: (() => void) | null = null;
 
   function setupPageTransitions() {
     if (pageTransitionsSetup) return;
-    pageTransitionsSetup = true;
 
     const pt = document.querySelector('.page-transition');
     if (!pt) return;
 
+    pageTransitionsSetup = true;
+    const cleanupFns: Array<() => void> = [];
     const setState = (state: boolean) => pt.classList.toggle('is-active', state);
-    window.addEventListener('beforeunload', () => setState(true));
+    const onBeforeUnload = () => setState(true);
+    window.addEventListener('beforeunload', onBeforeUnload);
+    cleanupFns.push(() => window.removeEventListener('beforeunload', onBeforeUnload));
 
     document.querySelectorAll('a[href^="/"], a[href^="."]').forEach(anchor => {
-      anchor.addEventListener('click', event => {
+      const onClick = (event: Event) => {
         const e = event as MouseEvent;
         const a = anchor as HTMLAnchorElement;
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return;
@@ -473,14 +526,23 @@
         e.preventDefault();
         setState(true);
         window.setTimeout(() => { window.location.href = a.href; }, 280);
-      });
+      };
+      anchor.addEventListener('click', onClick);
+      cleanupFns.push(() => anchor.removeEventListener('click', onClick));
     });
+
+    pageTransitionsCleanup = () => {
+      cleanupFns.splice(0).forEach(cleanup => cleanup());
+      pageTransitionsSetup = false;
+      pageTransitionsCleanup = null;
+    };
   }
 
   // ============================================
   // PARALLAX
   // ============================================
   let parallaxActive = false;
+  let parallaxCleanup: (() => void) | null = null;
 
   function setupParallax() {
     if (parallaxActive) return;
@@ -500,14 +562,14 @@
     };
 
     window.addEventListener('scroll', scrollHandler, { passive: true });
-    window.__parallaxCleanup = () => window.removeEventListener('scroll', scrollHandler);
+    parallaxCleanup = () => window.removeEventListener('scroll', scrollHandler);
   }
 
   function teardownParallax() {
     parallaxActive = false;
-    if (window.__parallaxCleanup) {
-      window.__parallaxCleanup();
-      window.__parallaxCleanup = null;
+    if (parallaxCleanup) {
+      parallaxCleanup();
+      parallaxCleanup = null;
     }
     // Reset hero transform
     const hero = (document.querySelector('.hero-content') || document.querySelector('.hero-inner')) as HTMLElement | null;
@@ -533,9 +595,8 @@
     document.body.setAttribute('data-reveal-style', style);
 
     const targets = document.querySelectorAll('[data-reveal]');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasAnimation = typeof window.IntersectionObserver === 'function';
-    const shouldAnimate = hasAnimation && !prefersReducedMotion;
+    const shouldAnimate = hasAnimation && shouldUseEnhancedMotion();
 
     if (!shouldAnimate) {
       targets.forEach(el => el.classList.add('visible'));
@@ -561,13 +622,28 @@
   // ============================================
   // Initialize on DOM ready
   // ============================================
+  resumeSite.themeEffectsCleanup = () => {
+    if (magneticCleanup) { magneticCleanup(); magneticCleanup = null; }
+    if (floatingCleanup) { floatingCleanup(); floatingCleanup = null; }
+    if (currentCursorEl) cleanupCursor(currentCursorEl);
+    if (cursorRAF) { cancelAnimationFrame(cursorRAF); cursorRAF = null; }
+    if (parallaxRAF) { cancelAnimationFrame(parallaxRAF); parallaxRAF = null; }
+    teardownParallax();
+    pageTransitionsCleanup?.();
+    if (revealObserver) { revealObserver.disconnect(); revealObserver = null; }
+    delete resumeSite.applyThemeEffects;
+  };
+
+  let initialEffectsApplied = false;
+  function applyInitialThemeEffects() {
+    if (initialEffectsApplied) return;
+    initialEffectsApplied = true;
+    resumeSite.applyThemeEffects?.(getCurrentThemeId());
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const id = getCurrentThemeId();
-      if (window.__applyThemeEffects) window.__applyThemeEffects(id);
-    });
+    document.addEventListener('DOMContentLoaded', applyInitialThemeEffects, { once: true });
   } else {
-    const id = getCurrentThemeId();
-    if (window.__applyThemeEffects) window.__applyThemeEffects(id);
+    applyInitialThemeEffects();
   }
 </script>
