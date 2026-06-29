@@ -31,3 +31,12 @@ latex-templates/*.log
 latex-templates/*.out
 latex-templates/*.fdb_latexmk
 latex-templates/*.fls
+latex-templates/*.synctex.gz
+latex-templates/*.txt
+*.aux
+*.log
+*.out
+*.synctex.gz
+resume-en.pdf
+resume-zh.pdf
+review2-gemini.md
