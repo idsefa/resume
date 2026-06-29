@@ -8,10 +8,14 @@ cd "$SCRIPT_DIR"
 
 echo "=== Compiling English resume ==="
 xelatex -interaction=nonstopmode resume-en.tex
+xelatex -interaction=nonstopmode resume-en.tex
+test -s resume-en.pdf
 echo "=== resume-en.pdf done ==="
 
 echo "=== Compiling Chinese resume ==="
 xelatex -interaction=nonstopmode resume-zh.tex
+xelatex -interaction=nonstopmode resume-zh.tex
+test -s resume-zh.pdf
 echo "=== resume-zh.pdf done ==="
 
 echo "=== All PDFs generated successfully ==="
