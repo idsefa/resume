@@ -53,7 +53,7 @@ const eduData = getResumeContent(lang).education;
               <p class="pub-meta">{item.authors} · {item.venue} · {item.year}</p>
               <div class="pub-links">
                 {item.links.map(link => (
-                  <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
                 ))}
               </div>
             </article>

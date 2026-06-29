@@ -1,15 +1,32 @@
 export const SITE = {
   title: 'Haocheng He',
   description: 'Resume — Aviation Engineering, Industrial Engineering, AI Workflow',
+  url: 'https://cv.idsefa.top',
 };
 
-export const NAVIGATION_SITE_URL = 'https://nav.example.com';
+function optionalHttpUrl(value: string | undefined): string {
+  const trimmed = value?.trim();
+  if (!trimmed || trimmed === 'https://nav.example.com') return '';
+
+  try {
+    const url = new URL(trimmed);
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url.toString() : '';
+  } catch {
+    return '';
+  }
+}
+
+export const NAVIGATION_SITE_URL = optionalHttpUrl(
+  import.meta.env.PUBLIC_NAVIGATION_SITE_URL ?? import.meta.env.NAVIGATION_SITE_URL
+);
 
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/idsefa', icon: 'github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/haocheng-he-92657028b', icon: 'linkedin' },
-  { label: 'Navigation', href: NAVIGATION_SITE_URL, icon: 'navigation' },
-];
+  ...(NAVIGATION_SITE_URL
+    ? [{ label: 'Navigation', href: NAVIGATION_SITE_URL, icon: 'navigation' }]
+    : []),
+] as const;
 
 export const LANGUAGES = ['en', 'zh', 'zh-hant', 'de', 'fr'] as const;
 export type Lang = typeof LANGUAGES[number];
@@ -27,8 +44,11 @@ export const DEFAULT_LANG: Lang = 'en';
 // Resume content mode: 'personal' shows the homepage/personal copy,
 // 'career' switches to the job-seeking / career-focused copy.
 export type ResumeMode = 'personal' | 'career';
-// Change this value to 'career' to use the career-oriented resume overrides.
-export const RESUME_MODE: ResumeMode = 'career';
+const configuredResumeMode = import.meta.env.PUBLIC_RESUME_MODE ?? import.meta.env.RESUME_MODE;
+export const RESUME_MODE: ResumeMode =
+  configuredResumeMode === 'personal' || configuredResumeMode === 'career'
+    ? configuredResumeMode
+    : 'career';
 
 export type LayoutMode = 'classic' | 'light-tech' | 'sidebar';
 // Switch between visual layouts
