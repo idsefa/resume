@@ -1,4 +1,5 @@
 % 何昊程 — 中文简历（ATS 友好）
+% Compile with XeLaTeX (requires xeCJK + fontspec)
 \documentclass[11pt,a4paper]{article}
 
 % ── 页面布局 ──────────────────────────────────────────────
@@ -6,7 +7,6 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
 
 % ── 中文字体 ──────────────────────────────────────────────
 \usepackage{xeCJK}
@@ -16,6 +16,7 @@
 \setmainfont{Liberation Serif}
 \setsansfont{Liberation Sans}
 \setmonofont{Liberation Mono}
+\usepackage[hidelinks]{hyperref}
 
 % ── 去掉页码 ──────────────────────────────────────────────
 \pagestyle{empty}
