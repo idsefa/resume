@@ -1,10 +1,10 @@
 % Haocheng He — English Resume (ATS-Friendly)
 % Compile with XeLaTeX (requires fontspec)
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 
 % ── Page layout ──────────────────────────────────────────────
-\usepackage[margin=1cm,top=1.5cm,bottom=1.5cm]{geometry}
-\usepackage{parskip}          % space between paragraphs, no indent
+\usepackage[margin=1cm,top=1cm,bottom=0.3cm]{geometry}
+\setlength{\parskip}{0pt}     % no paragraph spacing
 \usepackage{titlesec}         % custom section headings
 \usepackage{enumitem}         % list customisation
 \usepackage{fontspec}
@@ -18,10 +18,10 @@
 
 % ── Section formatting: clean horizontal rule ────────────────
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
 
 % ── List formatting ──────────────────────────────────────────
-\setlist[itemize]{leftmargin=1.5em, itemsep=2pt, parsep=0pt, topsep=2pt}
+\setlist[itemize]{leftmargin=1.5em, itemsep=1pt, parsep=0pt, topsep=0pt}
 
 % ── Macros ───────────────────────────────────────────────────
 \newcommand{\resumeItem}[1]{\item #1}
@@ -36,7 +36,7 @@
 %  CONTACT
 % ══════════════════════════════════════════════════════════════
 \begin{center}
-  {\LARGE\bfseries Haocheng He} \\[6pt]
+  {\large\bfseries Haocheng He} \\[2pt]
   Phone: +852 5698 7112 \enspace\textbar\enspace
   haocheng.he@foxmail.com \enspace\textbar\enspace
   Hong Kong SAR, China \\
@@ -47,7 +47,7 @@
 %  PROFESSIONAL SUMMARY
 % ══════════════════════════════════════════════════════════════
 \section{Professional Summary}
-Industrial Engineering graduate from Guangdong University of Technology, with a minor bachelor's degree in Law, and currently pursuing an MSc in Aviation Engineering and Operations Management at The Hong Kong Polytechnic University. My experience spans four internships in AI hardware integration, airport emergency simulation, manufacturing improvement, and assembly-line optimization, along with a time-series RUL prediction project. I learn quickly, enjoy digging into technical problems, and am comfortable working across hands-on engineering, data modeling, and high-pressure execution.
+Industrial Engineering graduate with a Law minor from GDUT, currently pursuing an MSc in Aviation Engineering and Operations Management at PolyU (GPA: 3.95/4.3). Experience spans airport emergency dispatch simulation, manufacturing line optimization, and AI hardware integration, with 3 published invention patent applications.
 % ══════════════════════════════════════════════════════════════
 %  EDUCATION
 % ══════════════════════════════════════════════════════════════
@@ -58,7 +58,7 @@ Industrial Engineering graduate from Guangdong University of Technology, with a 
 GPA: 3.95 / 4.3 (Current) \\
 Thesis: Simulation Modelling and Optimization for Airport Ferry Vehicle Scheduling under Uncertainty
 
-\vspace{6pt}
+\vspace{3pt}
 
 \textbf{Guangdong University of Technology} \hfill Guangzhou, China \\
 \textit{Bachelor of Engineering in Industrial Engineering} \hfill Sep 2021 -- Jun 2025 \\
@@ -66,7 +66,7 @@ GPA: 3.67 (Top 20\%) \\
 Thesis: AnyLogic-Based Simulation Optimization of Emergency Vehicle Route Planning in Large Airports \\
 Honors: Excellent Graduation Thesis + Innovation Award
 
-\vspace{2pt}
+\vspace{1pt}
 
 \textit{Bachelor of Laws (Minor Degree in Law)} \hfill Sep 2022 -- Jun 2025 \\
 GPA: 3.61 \\
@@ -83,7 +83,7 @@ Thesis: Coordination Between Copyright Protection and Privacy Protection in Digi
   \resumeItem{Maintained Ubuntu servers and Huawei switches/routers; also supported procurement, administration, and technical interviews.}
 \end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \experienceEntry{Research Assistant}{Sep 2023 -- Jun 2025}{Guangdong University of Technology (with Guangzhou Baiyun Int'l Airport)}{Guangzhou, China}
 \begin{itemize}
@@ -92,7 +92,7 @@ Thesis: Coordination Between Copyright Protection and Privacy Protection in Digi
   \resumeItem{Completed 4 emergency-scenario comparisons across 5 routing algorithms; D* Lite achieved the highest average reliability index (1.342).}
 \end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \experienceEntry{Industrial Engineering Intern}{Apr 2024 -- May 2024}{Midea Group — Kitchen \& Water Heater Division}{Foshan, China}
 \begin{itemize}
@@ -100,7 +100,7 @@ Thesis: Coordination Between Copyright Protection and Privacy Protection in Digi
   \resumeItem{Proposed 22 improvements using lean methods; simulation showed line balance improving from 58\% to 70\%, reducing headcount from 20 to 18.}
 \end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \experienceEntry{Manufacturing Operations Intern}{Jul 2023 -- Aug 2023}{Guangxi LiuGong Machinery Co., Ltd.}{Liuzhou, China}
 \begin{itemize}
@@ -120,42 +120,23 @@ Thesis: Coordination Between Copyright Protection and Privacy Protection in Digi
 \end{itemize}
 
 % ══════════════════════════════════════════════════════════════
-%  SKILLS
+%  SKILLS & IP
 % ══════════════════════════════════════════════════════════════
-\section{Skills}
+\section{Skills \& Intellectual Property}
 
-\textbf{Programming \& Data:} Python, Java, SQL/MySQL, C/STM32, JavaScript/TypeScript \\
-\textbf{AI \& Automation:} Claude Code, Codex, Hermes, ChatGPT, Prompt Engineering, Loop Engineering (Agent Loop Design), AI Agent workflows, model deployment/evaluation \\
-\textbf{Machine Learning:} Random Forest, LSTM, BiLSTM, Transformer, PCA, model training/evaluation \\
-\textbf{Simulation \& Optimization:} AnyLogic, Plant Simulation, OR-Tools, Dijkstra, A*, BFS, genetic algorithms, line balancing, ECRS \\
-\textbf{Engineering Tools:} Ubuntu/Linux, Git, LCEDA, oscilloscope, logic analyzer, Huawei switches/routers \\
-\textbf{Languages:} English (IELTS 6.5), Mandarin (native), Cantonese (conversational)
-
-% ══════════════════════════════════════════════════════════════
-%  INTELLECTUAL PROPERTY
-% ══════════════════════════════════════════════════════════════
-\section{Intellectual Property}
-
-\textbf{Published Invention Patent Applications}
-\begin{itemize}
-  \resumeItem{\textit{MCMC Sampling-Based Motion Control Method for a PI Coating Machine Controller}. CN122085794A, Guangdong University of Technology, 2026. Inventors: Xianzhong Zhou, Haocheng He, Zhiyuan He.}
-  \resumeItem{\textit{Coating Control Method and System Based on Deep Reinforcement Learning}. CN121325552A, Guangdong University of Technology, 2025. Inventors: Xianzhong Zhou, Haocheng He, Zhiyuan He.}
-  \resumeItem{\textit{Energy Regulation Method and System for a Household Solar Energy Storage System}. CN117767437A, Guangdong University of Technology, 2024. Inventors: Xianzhong Zhou, Huangtao Zeng, Daming Yu, Haocheng He.}
-\end{itemize}
-
-\vspace{4pt}
-
-\textbf{Utility Model Patent}
-\begin{itemize}
-  \resumeItem{\textit{Integrated Equipment for Wire Harness Production}. CN221352455U, Guangdong University of Technology, 2024. Inventors: Xiang Zhao, Haocheng He, Bofeng Hu.}
-\end{itemize}
-
-\vspace{4pt}
-
-\textbf{Computer Software Copyright Registrations}
-\begin{itemize}
-  \resumeItem{Enterprise Financial Data Analysis Software V1.0. Reg. No. 2024SR0146827, 2024. Authors: Yisi Li, Haocheng He.}
-  \resumeItem{Urban Flood Intelligent Mobile Emergency Command \& Dispatch System V1.0. Reg. No. 2024SR0549247, 2024. Authors: Chengfeng Lin, Zeyin Li, Hua Yang, Haocheng He.}
-\end{itemize}
+\textbf{Programming:} Python, Java, SQL/MySQL, C/STM32, JS/TS \quad
+\textbf{ML:} LSTM, BiLSTM, Transformer, RF, PCA \quad
+\textbf{AI:} LLM Workflows, Prompt Eng., Loop Engineering \\
+\textbf{Simulation:} AnyLogic, Plant Sim., OR-Tools, Dijkstra, A*, BFS, GA, ECRS \quad
+\textbf{Tools:} Ubuntu/Linux, Git, JLC EDA, Oscilloscope \\
+\textbf{Languages:} English (IELTS 6.5), Mandarin (native), Cantonese (conversational) \\[2pt]
+\textbf{Patents:}
+\textit{MCMC Sampling-Based Motion Control Method for a PI Coating Machine Controller} (CN122085794A, 2026);
+\textit{Coating Control Method and System Based on Deep Reinforcement Learning} (CN121325552A, 2025);
+\textit{Energy Regulation Method and System for a Household Solar Energy Storage System} (CN117767437A, 2024).
+Inventors include Xianzhong Zhou, Haocheng He et al. \\
+\textbf{Utility Model:}
+\textit{Integrated Equipment for Wire Harness Production} (CN221352455U, 2024).
+\textbf{Software Copyrights:} Financial Data Analysis V1.0 (2024SR0146827); Flood Emergency Dispatch V1.0 (2024SR0549247).
 
 \end{document}
