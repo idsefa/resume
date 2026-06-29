@@ -2,7 +2,7 @@
 \documentclass[11pt,a4paper]{article}
 
 % ── Page layout ──────────────────────────────────────────────
-\usepackage[margin=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[margin=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{parskip}          % space between paragraphs, no indent
 \usepackage{titlesec}         % custom section headings
 \usepackage{enumitem}         % list customisation
@@ -36,8 +36,9 @@
 % ══════════════════════════════════════════════════════════════
 \begin{center}
   {\LARGE\bfseries Haocheng He} \\[6pt]
+  Phone: 56987112 \enspace$|$\enspace
   haocheng.he@foxmail.com \enspace$|$\enspace
-  Hong Kong SAR, China \enspace$|$\enspace
+  Hong Kong SAR, China \\
   \href{https://linkedin.com/in/haocheng-he-92657028b}{linkedin.com/in/haocheng-he-92657028b}
 \end{center}
 
@@ -45,7 +46,7 @@
 %  PROFESSIONAL SUMMARY
 % ══════════════════════════════════════════════════════════════
 \section{Professional Summary}
-IE undergrad at GDUT, now doing an MEng in aviation at PolyU. Along the way I did 4 internships — a Shenzhen startup where I worked on smart piano hardware and AI chips, an airport simulation project with Guangzhou Baiyun that won a thesis award, and two factory stints at Midea and LiuGong doing time studies and line balancing. Filed a few patents along the way. I like figuring out how things actually work and making them run better.
+Industrial Engineering graduate from GDUT with a Bachelor of Laws minor degree, currently pursuing an MEng in Aviation Engineering and Operation Management at PolyU. Completed 4 internships across AI hardware integration, airport emergency simulation, manufacturing improvement, and assembly-line optimization, plus a time-series RUL prediction project. Technically curious, fast-learning, and comfortable with hands-on engineering, data modeling, and high-intensity execution.
 
 % ══════════════════════════════════════════════════════════════
 %  EDUCATION
@@ -54,18 +55,22 @@ IE undergrad at GDUT, now doing an MEng in aviation at PolyU. Along the way I di
 
 \textbf{The Hong Kong Polytechnic University} \hfill Hong Kong SAR, China \\
 \textit{Master of Engineering in Aviation Engineering and Operation Management} \hfill Sep 2025 -- Jan 2027 \\
-GPA: 3.95 / 4.3 (Current)
+GPA: 3.95 / 4.3 (Current) \\
+Thesis: Simulation Modelling and Optimization for Airport Ferry Vehicle Scheduling under Uncertainty
 
 \vspace{6pt}
 
 \textbf{Guangdong University of Technology} \hfill Guangzhou, China \\
 \textit{Bachelor of Engineering in Industrial Engineering} \hfill Sep 2021 -- Jun 2025 \\
-GPA: 3.67 (Top 20\%) — Excellent Graduation Thesis + Innovation Award
+GPA: 3.67 (Top 20\%) \\
+Thesis: AnyLogic-Based Simulation and Optimization of Emergency Special Vehicle Routing at a Large Airport \\
+Honors: Excellent Graduation Thesis + Innovation Award
 
 \vspace{2pt}
 
-\textit{Minor in Law} \hfill Sep 2022 -- Jun 2025 \\
-GPA: 3.61
+\textit{Bachelor of Laws (Minor Degree in Law)} \hfill Sep 2022 -- Jun 2025 \\
+GPA: 3.61 \\
+Thesis: Coordination Between Copyright Protection and Privacy Protection in Digital Rights Management
 
 % ══════════════════════════════════════════════════════════════
 %  EXPERIENCE
@@ -74,27 +79,25 @@ GPA: 3.61
 
 \experienceEntry{AI Engineer Assistant}{May 2025 -- Apr 2026}{Shenzhen Wuxian Hongyin Technology Co., Ltd.}{Shenzhen, China}
 \begin{itemize}
-  \resumeItem{Deployed AI inference workflows on Huawei Ascend 310B chips for internal team use; improved response time by approximately 30\%.}
-  \resumeItem{Designed motor driver circuits (LCEDA) and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.}
-  \resumeItem{Developed a finger-position tracking system using camera input and the Ascend chip; authored SDK technical documentation.}
-  \resumeItem{Oversaw server operations (Ubuntu), network infrastructure (Huawei switches/routers), procurement processes, and technical interviews.}
+  \resumeItem{Participated in smart piano R\&D based on Huawei Ascend 310B, covering PCB hardware tests (CPLD/STM32), piano motor tests, full-bridge motor driver schematic/layout, and STM32 firmware development.}
+  \resumeItem{Supported partial module integration for a camera- and Ascend-based piano fingering recognition system; reviewed code, understood system architecture, and helped locate issues.}
+  \resumeItem{Maintained Ubuntu servers and Huawei switches/routers; also supported procurement, administration, and technical interviews.}
 \end{itemize}
 
 \vspace{4pt}
 
-\experienceEntry{Research Assistant — Airport Operations Simulation}{Sep 2023 -- Jun 2025}{Guangdong University of Technology (with Guangzhou Baiyun Int'l Airport)}{Guangzhou, China}
+\experienceEntry{Research Assistant}{Sep 2023 -- Jun 2025}{Guangdong University of Technology (with Guangzhou Baiyun Int'l Airport)}{Guangzhou, China}
 \begin{itemize}
-  \resumeItem{Modeled ground vehicle operations at Guangzhou Baiyun Airport using AnyLogic, Java, and MySQL, covering road networks, service lanes, and dispatch rules.}
-  \resumeItem{Implemented routing algorithms (Dijkstra, A*, BFS, genetic) for 50+ vehicles across 3 zones to find collision-free paths.}
-  \resumeItem{Reduced simulated congestion by 35\% during peak hours (200+ movements/hour) with zero collisions.}
-  \resumeItem{Thesis awarded Excellent Graduation Thesis and Innovation Award by Guangdong University of Technology.}
+  \resumeItem{Built an airport road-network, apron, and runway-area simulation model in AnyLogic, Java, and MySQL for aircraft landing and emergency fire-truck dispatch scenarios.}
+  \resumeItem{Designed single/multi-vehicle, single/multi-event, and runway-road-closure scenarios; compared D* Lite, A*, Dijkstra, BFS, and GA routing algorithms.}
+  \resumeItem{Completed 4 emergency-scenario comparisons across 5 routing algorithms; D* Lite achieved the highest average reliability index (1.342).}
 \end{itemize}
 
 \vspace{4pt}
 
 \experienceEntry{Industrial Engineering Intern}{Apr 2024 -- May 2024}{Midea Group — Kitchen \& Water Heater Division}{Foshan, China}
 \begin{itemize}
-  \resumeItem{Conducted stopwatch time studies across all workstations on a dishwasher sheet metal line; identified 5 steps exceeding cycle time.}
+  \resumeItem{Conducted stopwatch time studies across all workstations on a dishwasher sheet-metal line, built operator workload tables, and identified 5 over-cycle steps.}
   \resumeItem{Proposed 22 improvements using lean methods; simulation showed line balance improving from 58\% to 70\%, reducing headcount from 20 to 18.}
 \end{itemize}
 
@@ -107,22 +110,32 @@ GPA: 3.61
 \end{itemize}
 
 % ══════════════════════════════════════════════════════════════
+%  PROJECTS
+% ══════════════════════════════════════════════════════════════
+\section{Projects}
+
+\textbf{Aircraft Engine Remaining Useful Life Prediction (Course Project)} \hfill Python / C-MAPSS \\
+\begin{itemize}
+  \resumeItem{Built an RUL prediction workflow on NASA C-MAPSS FD001 multivariate time-series data; cleaned operating-condition data and 21 sensor signals, constructed sequence features, and applied PCA.}
+  \resumeItem{Compared LSTM, BiLSTM, Transformer, and Random Forest baselines for time-series forecasting; after iterative tuning, the BiLSTM model reached about 8\% final error from an initial model error of about 50\%.}
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════
 %  SKILLS
 % ══════════════════════════════════════════════════════════════
 \section{Skills}
 
-\textbf{Programming:} Python, Java, SQL, STM32 (C) \\
-\textbf{Tools \& Platforms:} AnyLogic, Plant Simulation, OR-Tools, MySQL, LCEDA, oscilloscope, logic analyzer \\
+\textbf{Programming \& Data:} Python, Java, SQL/MySQL, C/STM32, JavaScript/TypeScript \\
+\textbf{AI \& Automation:} Claude Code, Codex, Hermes, ChatGPT, Prompt Engineering, Harness Loop Engineering, AI Agent workflows, model deployment/evaluation \\
+\textbf{Machine Learning:} Random Forest, LSTM, BiLSTM, Transformer, PCA, model training/evaluation \\
+\textbf{Simulation \& Optimization:} AnyLogic, Plant Simulation, OR-Tools, Dijkstra, A*, BFS, genetic algorithms, line balancing, ECRS \\
+\textbf{Engineering Tools:} Ubuntu/Linux, Git, LCEDA, oscilloscope, logic analyzer, Huawei switches/routers \\
 \textbf{Languages:} English (IELTS 6.5), Mandarin (native), Cantonese (conversational)
 
 % ══════════════════════════════════════════════════════════════
 %  PUBLICATIONS & INTELLECTUAL PROPERTY
 % ══════════════════════════════════════════════════════════════
 \section{Publications \& Intellectual Property}
-
-\textbf{Summary:} 3 invention patents + 1 utility model + 2 software copyrights from research at GDUT.
-
-\vspace{4pt}
 
 \textbf{Invention Patents}
 \begin{itemize}
@@ -135,22 +148,15 @@ GPA: 3.61
 
 \textbf{Utility Model}
 \begin{itemize}
-  \resumeItem{Integrated Wire Harness Production Equipment — Zhao Xiang, He Haocheng, Hu Bofeng (2024). CN221352455U, Guangdong University of Technology.}
+  \resumeItem{Integrated Wire Harness Production Equipment — Zhao Xiang, He Haocheng, Hu Bofeng. CN221352455U.}
 \end{itemize}
 
 \vspace{4pt}
 
 \textbf{Software Copyright}
 \begin{itemize}
-  \resumeItem{Enterprise Financial Data Analysis Software V1.0 — Li Yisi, He Haocheng (2024). Registration No. 2024SR0146827.}
-  \resumeItem{Urban Flood Intelligent Mobile Emergency Command Dispatch System V1.0 — Lin Chengfeng, Li Zeyin, Yang Hua, He Haocheng (2024). Registration No. 2024SR0549247.}
-\end{itemize}
-
-\vspace{4pt}
-
-\textbf{Awards}
-\begin{itemize}
-  \resumeItem{Excellent Bachelor Thesis and Innovation Award — Haocheng He (2025). Guangdong University of Technology.}
+  \resumeItem{Enterprise Financial Data Analysis Software V1.0 — Li Yisi, He Haocheng (2024). Reg. No. 2024SR0146827.}
+  \resumeItem{Urban Flood Intelligent Mobile Emergency Command Dispatch System V1.0 — Lin Chengfeng, Li Zeyin, Yang Hua, He Haocheng (2024). Reg. No. 2024SR0549247.}
 \end{itemize}
 
 \end{document}
