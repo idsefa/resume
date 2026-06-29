@@ -294,6 +294,17 @@ const roleVariantsJson = JSON.stringify(
       const THEME_KEY = 'resume-theme';
       const ROLE_KEY = 'resume-role';
 
+      const resumeSite = window.resumeSite ??= {};
+      resumeSite.layoutCleanup?.();
+      const layoutController = new AbortController();
+      resumeSite.layoutCleanup = () => {
+        layoutController.abort();
+        resumeSite.layoutCleanup = null;
+      };
+      const listen = (target, type, handler) => {
+        target.addEventListener(type, handler, { signal: layoutController.signal });
+      };
+
       // Role → recommended theme mapping
       const ROLE_THEME_MAP = {
         'default': 'light-tech',
@@ -321,12 +332,12 @@ const roleVariantsJson = JSON.stringify(
       const themeBtn = document.getElementById('themeToggle');
       const themePicker = document.getElementById('themePicker');
       if (themeBtn && themePicker) {
-        themeBtn.addEventListener('click', e => { e.stopPropagation(); themePicker.classList.toggle('is-open'); });
+        listen(themeBtn, 'click', e => { e.stopPropagation(); themePicker.classList.toggle('is-open'); });
         themePicker.querySelectorAll('.theme-option').forEach(o => {
-          o.addEventListener('click', () => { applyTheme(o.getAttribute('data-theme-id')); themePicker.classList.remove('is-open'); });
+          listen(o, 'click', () => { applyTheme(o.getAttribute('data-theme-id')); themePicker.classList.remove('is-open'); });
         });
-        document.addEventListener('click', e => { if (!themeBtn.contains(e.target) && !themePicker.contains(e.target)) themePicker.classList.remove('is-open'); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') themePicker.classList.remove('is-open'); });
+        listen(document, 'click', e => { if (!themeBtn.contains(e.target) && !themePicker.contains(e.target)) themePicker.classList.remove('is-open'); });
+        listen(document, 'keydown', e => { if (e.key === 'Escape') themePicker.classList.remove('is-open'); });
       }
 
       // ---- Lang menu ----
@@ -335,10 +346,10 @@ const roleVariantsJson = JSON.stringify(
       const langPanel = document.querySelector('.lang-menu-panel');
       if (langMenu && langToggle) {
         const setOpen = v => { langMenu.classList.toggle('is-open', v); langToggle.setAttribute('aria-expanded', String(v)); };
-        langToggle.addEventListener('click', e => { e.preventDefault(); setOpen(!langMenu.classList.contains('is-open')); });
-        langPanel?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-        document.addEventListener('click', e => { if (!langMenu.contains(e.target)) setOpen(false); });
-        langMenu.addEventListener('keydown', e => { if (e.key === 'Escape') { setOpen(false); langToggle.focus(); } });
+        listen(langToggle, 'click', e => { e.preventDefault(); setOpen(!langMenu.classList.contains('is-open')); });
+        langPanel?.querySelectorAll('a').forEach(a => listen(a, 'click', () => setOpen(false)));
+        listen(document, 'click', e => { if (!langMenu.contains(e.target)) setOpen(false); });
+        listen(langMenu, 'keydown', e => { if (e.key === 'Escape') { setOpen(false); langToggle.focus(); } });
       }
 
       // ---- Mobile nav (non-sidebar) ----
@@ -347,9 +358,9 @@ const roleVariantsJson = JSON.stringify(
         const mobileToggle = document.querySelector('.mobile-nav-toggle');
         const closeNav = () => { navEl?.classList.remove('is-mobile-open'); mobileToggle?.setAttribute('aria-expanded', 'false'); };
         if (navEl && mobileToggle) {
-          mobileToggle.addEventListener('click', () => { const o = navEl.classList.toggle('is-mobile-open'); mobileToggle.setAttribute('aria-expanded', String(o)); });
-          navEl.querySelectorAll('.nav-links a, .lang-menu-panel a').forEach(a => a.addEventListener('click', closeNav));
-          document.addEventListener('click', e => { if (!navEl.contains(e.target)) closeNav(); });
+          listen(mobileToggle, 'click', () => { const o = navEl.classList.toggle('is-mobile-open'); mobileToggle.setAttribute('aria-expanded', String(o)); });
+          navEl.querySelectorAll('.nav-links a, .lang-menu-panel a').forEach(a => listen(a, 'click', closeNav));
+          listen(document, 'click', e => { if (!navEl.contains(e.target)) closeNav(); });
         }
       }
 
@@ -359,20 +370,20 @@ const roleVariantsJson = JSON.stringify(
         const toggle = document.getElementById('sidebarToggle');
         const overlay = document.getElementById('sidebarOverlay');
         const close = () => { sidebar?.classList.remove('is-open'); overlay?.classList.remove('is-open'); toggle?.classList.remove('is-open'); toggle?.setAttribute('aria-expanded', 'false'); };
-        toggle?.addEventListener('click', () => {
+        if (toggle) listen(toggle, 'click', () => {
           const open = sidebar?.classList.toggle('is-open');
           overlay?.classList.toggle('is-open', open);
           toggle.classList.toggle('is-open', open);
           toggle.setAttribute('aria-expanded', String(open));
         });
-        overlay?.addEventListener('click', close);
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+        if (overlay) listen(overlay, 'click', close);
+        listen(document, 'keydown', e => { if (e.key === 'Escape') close(); });
       }
 
       // ---- PDF Export ----
       const pdfBtn = document.getElementById('pdfExportBtn');
       if (pdfBtn) {
-        pdfBtn.addEventListener('click', () => {
+        listen(pdfBtn, 'click', () => {
           const lang = location.pathname.split('/')[1] || 'en';
           window.open('/' + lang + '/pdf', '_blank');
         });
@@ -523,7 +534,7 @@ const roleVariantsJson = JSON.stringify(
         }
 
         if (currentRole !== 'default') applyRole(currentRole);
-        document.querySelectorAll('.role-option').forEach(b => b.addEventListener('click', () => {
+        document.querySelectorAll('.role-option').forEach(b => listen(b, 'click', () => {
           applyRole(b.getAttribute('data-role-id'));
           document.getElementById('roleSwitcher')?.classList.remove('is-open');
         }));
@@ -532,9 +543,9 @@ const roleVariantsJson = JSON.stringify(
         const roleSwitcher = document.getElementById('roleSwitcher');
         const roleToggle = document.getElementById('roleToggle');
         if (roleSwitcher && roleToggle) {
-          roleToggle.addEventListener('click', e => { e.stopPropagation(); roleSwitcher.classList.toggle('is-open'); });
-          document.addEventListener('click', e => { if (!roleSwitcher.contains(e.target)) roleSwitcher.classList.remove('is-open'); });
-          document.addEventListener('keydown', e => { if (e.key === 'Escape') roleSwitcher.classList.remove('is-open'); });
+          listen(roleToggle, 'click', e => { e.stopPropagation(); roleSwitcher.classList.toggle('is-open'); });
+          listen(document, 'click', e => { if (!roleSwitcher.contains(e.target)) roleSwitcher.classList.remove('is-open'); });
+          listen(document, 'keydown', e => { if (e.key === 'Escape') roleSwitcher.classList.remove('is-open'); });
         }
 
       // ---- Layout switcher ----
@@ -621,20 +632,20 @@ const roleVariantsJson = JSON.stringify(
         }
 
         // Toggle panel
-        layoutToggle.addEventListener('click', e => {
+        listen(layoutToggle, 'click', e => {
           e.stopPropagation();
           layoutSwitcher.classList.toggle('is-open');
         });
         layoutPanel.querySelectorAll('.layout-option').forEach(o => {
-          o.addEventListener('click', () => {
+          listen(o, 'click', () => {
             applyLayout(o.getAttribute('data-layout'));
             layoutSwitcher.classList.remove('is-open');
           });
         });
-        document.addEventListener('click', e => {
+        listen(document, 'click', e => {
           if (!layoutSwitcher.contains(e.target)) layoutSwitcher.classList.remove('is-open');
         });
-        document.addEventListener('keydown', e => {
+        listen(document, 'keydown', e => {
           if (e.key === 'Escape') { layoutSwitcher.classList.remove('is-open'); layoutToggle.focus(); }
         });
       }
