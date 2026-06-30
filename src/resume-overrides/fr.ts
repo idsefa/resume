@@ -3,29 +3,29 @@ import type { ResumeOverride } from './types';
 export const frOverride: ResumeOverride = {
 	profile: {
 		name: 'Haocheng He',
-		role: 'Candidat en Analyse des Opérations et Risk Technology',
+		role: 'MSc Ingénierie Aéronautique | Ingénierie Interdisciplinaire & IA',
 		location: 'Hong Kong, Chine',
 	},
 	about: {
-		bio: "Licence en IE à la GDUT, maintenant MSc en aéronautique à PolyU. J'ai fait 4 stages — une startup à Shenzhen avec un piano intelligent et des puces IA, un projet de simulation aéroportuaire avec Guangzhou Baiyun (mémoire primé), et deux stages en usine chez Midea et LiuGong sur le chronométrage et l'équilibrage de lignes. Quelques brevets déposés en chemin. J'aime comprendre comment les choses marchent et les faire marcher mieux.",
+		bio: "Candidat MSc en ingénierie aéronautique à PolyU (GPA: 3,95/4,3), avec un bachelor en IE et une mineure en droit à la GDUT. Expérience en simulation aéroportuaire (AnyLogic, 5 algorithmes de routage), optimisation manufacturière (équilibrage 58%→70%) et R&D matériel Ascend 310B. 3 demandes de brevet déposées.",
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Lieu', value: 'Hong Kong, Chine' },
-			{ label: 'Focus', value: 'Risk Technology, Risk Assurance, Gouvernance des données, Gouvernance IA' },
+			{ label: 'Focus', value: "Optimisation industrielle, Simulation aéroportuaire, Matériel IA, Interdisciplinaire" },
 			{ label: 'Langues', value: 'Anglais (IELTS 6.5), Mandarin (Langue maternelle), Cantonais (Conversationnel)' },
 		],
 		highlights: [
 			{
-				title: 'Ingénierie + IA + droit',
-				description: "Formation IE (chronométrage, équilibrage, simulation) plus déploiement IA et mineure en droit — technique, opérationnel et réglementaire dans un seul profil.",
+				title: 'Interdisciplinaire: Ingénierie + IA + Droit',
+				description: "Formation IE avec simulation aéroportuaire et optimisation manufacturière, maintenant en R&D matériel IA, plus une mineure en droit — compétences multi-domaines.",
 			},
 			{
-				title: 'Audits de processus en usine',
-				description: "Chronométrage et revue de processus dans 2 usines (Midea, LiuGong) — goulots identifiés, solutions proposées, chiffrées.",
+				title: 'Expérience pratique en usine',
+				description: "Chronométrage et analyse ECRS chez Midea et LiuGong, améliorations proposées vérifiées par simulation (équilibrage 58%→70%).",
 			},
 			{
-				title: 'Compétences IT et données',
-				description: "Modèles de simulation (AnyLogic), déploiement IA sur puces Huawei Ascend, SQL/MySQL, Python pour l'analyse de données.",
+				title: 'Matériel IA + modélisation par simulation',
+				description: "Modèles de simulation d'urgence aéroportuaire (AnyLogic), R&D matériel Ascend 310B, stack Python/Java/SQL.",
 			},
 		],
 	},
@@ -39,10 +39,10 @@ export const frOverride: ResumeOverride = {
 				period: 'Mai 2025 - Avr 2026',
 				location: 'Shenzhen, Chine',
 				bullets: [
-					"Installé 3 outils IA sur des puces Huawei Ascend 310B pour l'équipe interne ; temps de réponse réduit d'environ 30 %.",
-					"Conçu des circuits de commande moteur (LCEDA) et écrit le firmware STM32 pour un piano intelligent ; testé avec oscilloscopes et analyseurs logiques.",
-					"Construit un système de reconnaissance de position des doigts pour le piano avec caméra et puce Ascend ; rédigé la documentation SDK pour l'équipe.",
-					"Maintenu les serveurs (Ubuntu), géré le réseau (commutateurs et routeurs Huawei) et mené des entretiens d'embauche.",
+					"Participation à la R&D du piano intelligent Ascend 310B sur 3 phases ; test de 10+ cartes, itération du moteur 3 fois, firmware développé et 5 documents techniques rédigés.",
+					"Participation à l'intégration de modules de reconnaissance de doigts caméra + Ascend (Python/C++) ; diagnostic de problèmes inter-couches.",
+					"Maintenance des serveurs Ubuntu, configuration réseau Huawei, impression 3D, entretiens techniques.",
+					,
 				],
 			},{
 				title: 'Assistant de recherche — Simulation des opérations aéroportuaires',
@@ -70,7 +70,7 @@ export const frOverride: ResumeOverride = {
 				location: 'Liuzhou, Chine',
 				bullets: [
 					"Chronométré 12 postes sur la ligne d'assemblage de chargeuses ; trouvé les 3 plus gros goulots avec l'ECRS.",
-					"Proposé des changements de layout réduisant le temps de cycle de ~8 % en simulation. Les ingénieurs de production ont validé.",
+					"Proposé des ajustements de layout réduisant le temps de cycle d'environ 8 % en simulation.",
 				],
 			}],
 	},
@@ -91,14 +91,14 @@ export const frOverride: ResumeOverride = {
 				org: 'Université de Technologie du Guangdong',
 				period: 'Sep 2021 - Juin 2025',
 				location: 'Guangzhou, Chine',
-				bullets: ['GPA : 3,67 (Top 20 %) — Mémoire de licence primé + Prix de l\'innovation.'],
+				bullets: ['GPA : 3,67 / 5,0 (Top 20 %) — Mémoire universitaire excellent, Prix de l'innovation.'],
 			},
 			{
 				title: 'Mineure en droit',
 				org: 'Université de Technologie du Guangdong',
 				period: 'Sep 2022 - Juin 2025',
 				location: 'Guangzhou, Chine',
-				bullets: ['GPA : 3,61'],
+				bullets: ['GPA : 3,61 / 5,0'],
 			},
 		],
 	},

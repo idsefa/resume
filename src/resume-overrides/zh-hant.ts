@@ -3,28 +3,28 @@ import type { ResumeOverride } from './types';
 export const zhHantOverride: ResumeOverride = {
 	profile: {
 		name: '何昊程',
-		role: '民航工程與營運管理碩士在讀',
+		role: '民航工程碩士 | 跨學科工程與 AI',
 		location: '中國香港',
 	},
 	about: {
-		bio: '本科在廣工讀工業工程，現在港理工讀民航工程碩士。中間做了 4 段實習——在深圳一家做智能鋼琴的創業公司搞硬件和 AI 芯片，跟白雲機場合作做地面車輛仿真拿了優秀論文，還有在美的和柳工兩家工廠做工時測量和線平衡。手上也有一些專利。我喜歡把東西弄明白，然後讓它跑得更好。',
+		bio: '民航工程碩士在讀（GPA 3.95/4.3），本科主修工業工程、輔修法學，知識面橫跨工程優化、航空仿真、AI 硬件與知識產權。曾用精益方法將產線平衡率從 58% 提升至 70%，基於 AnyLogic 完成 4 類機場應急場景與 5 種路徑規劃算法對比（D* Lite 可靠指數 1.342），並參與昇騰 310B 智能硬件研發。已提交 3 項發明專利申請。',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: '所在地', value: '中國香港' },
-			{ label: '方向', value: '航空營運、AI 工作流、模擬優化' },
+			{ label: '方向', value: '工程優化、航空仿真、AI 硬件、跨學科融合' },
 		],
 		highlights: [
 			{
-				title: '喜歡解決真實業務問題',
-				description: '我主要關注機場和航司營運問題，希望用模擬和 AI 工具把效率做上去。',
+				title: '跨學科融合：工程 + AI + 法學',
+				description: '工業工程出身，做過機場仿真和製造改善，現在搞 AI 硬件，還輔修了法學——知識面橫跨多個領域。',
 			},
 			{
-				title: '技術和溝通都能做',
-				description: '我習慣和不同崗位一起做專案，把複雜問題拆成可以落地的步驟。',
+				title: '產線實戰經驗',
+				description: '在美的和柳工做過秒錶測時和 ECRS 分析，提出改善方案並用仿真驗證（線平衡率 58%→70%）。',
 			},
 			{
-				title: '工具使用偏實戰',
-				description: '常用 Python、SQL、AnyLogic、Plant Simulation 和 OR-Tools。',
+				title: 'AI 硬件 + 仿真建模',
+				description: '基於 AnyLogic 構建機場應急仿真模型，在昇騰 310B 上做智能硬件研發，熟悉 Python/Java/SQL 全棧。',
 			},
 		],
 	},
@@ -40,7 +40,7 @@ export const zhHantOverride: ResumeOverride = {
 				location: '柳州',
 				bullets: [
 					'對裝載機裝配線 12 個工位做了秒錶測時，用 ECRS 找到 3 個主要瓶頸。',
-					'調整佈局方案在模擬中把節拍時間降了約 8%，產線工程師驗證過可行。',
+					'提出佈局優化方案，仿真驗證節拍時間降低約 8%。',
 				],
 			},{
 				title: '科研助理 — 機場運行仿真',
@@ -66,13 +66,11 @@ export const zhHantOverride: ResumeOverride = {
 				org: '深圳市五線宏音科技有限公司',
 				period: '2025年5月 - 2026年4月',
 				location: '深圳',
-				bullets: [
-					'在華為昇騰 310B 芯片上跑了 3 個 AI 工具給團隊內部用，響應速度提了約 30%。',
-					'畫了智能鋼琴的電機驅動電路（嘉立創），寫了 STM32 固件，用示波器和邏輯分析儀調過板子。',
-					'用攝像頭 + 昇騰芯片做了鋼琴指法識別系統；幫團隊寫了 SDK 技術文檔。',
-					'用攝像頭 + 昇騰芯片做了鋼琴指法識別系統；幫團隊寫了 SDK 技術文檔。',
-					'同時管伺服器（Ubuntu）、管網路（華為交換機/路由器）、做採購和面試官。',
-				],
+								bullets: [
+									'參與昇騰 310B 智能鋼琴研發，經歷 3 個產品研發階段，測試 10+ 塊電路板，全橋電機驅動電路迭代 3 版，開發 STM32 固件並撰寫 5 篇昇騰應用技術文檔。',
+									'參與基於攝像頭與昇騰芯片的鋼琴指法識別系統部分模塊聯調（Python/C++），梳理系統架構並定位跨層集成問題。',
+									'兼管伺服器運維（Ubuntu）、網路設備配置（華為交換機/路由器）、3D 列印及技術面試。',
+								],
 			}],
 	},
 	education: {
@@ -112,7 +110,7 @@ export const zhHantOverride: ResumeOverride = {
 				title: '發明專利',
 				items: [
 					{
-						title: '一種基於蒙特卡洛馬爾科夫鏈採樣的PI塗布機控制器的運動控制方法',
+						title: '一種基於蒙特卡洛馬爾可夫鏈採樣的PI塗布機控制器的運動控制方法',
 						year: '2026',
 						authors: '周賢中; 何昊程; 賀致遠',
 						venue: 'CN122085794A — 廣東工業大學',
@@ -169,7 +167,7 @@ export const zhHantOverride: ResumeOverride = {
 				title: '獲獎',
 				items: [
 					{
-						title: '本科優秀畢業論文與創新獎',
+						title: '校級優秀畢業論文、畢業設計創新獎',
 						year: '2025',
 						authors: '何昊程',
 						venue: '廣東工業大學',

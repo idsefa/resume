@@ -3,29 +3,29 @@ import type { ResumeOverride } from './types';
 export const enOverride: ResumeOverride = {
 	profile: {
 		name: 'Haocheng He',
-		role: 'Operations Analytics & Technology Risk Candidate',
+		role: 'Aviation Engineering MSc | Cross-Disciplinary Engineering & AI',
 		location: 'Hong Kong SAR, China',
 	},
 	about: {
-		bio: 'IE undergrad at GDUT, now doing an MEng in aviation at PolyU. Along the way I did 4 internships — a Shenzhen startup where I worked on smart piano hardware and AI chips, an airport simulation project with Guangzhou Baiyun that won a thesis award, and two factory stints at Midea and LiuGong doing time studies and line balancing. Filed a few patents along the way. I like figuring out how things actually work and making them run better.',
+		bio: 'Aviation Engineering MSc candidate at PolyU (GPA: 3.95/4.3), with an IE undergraduate and Law minor from GDUT. Experience spans airport simulation (AnyLogic, 5 routing algorithms), manufacturing optimization (line balance 58%→70%), and Ascend 310B hardware R&D. 3 patent applications filed.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Location', value: 'Hong Kong SAR, China' },
-			{ label: 'Focus', value: 'Technology Risk, Risk Assurance, Data Governance, AI Governance' },
+			{ label: 'Focus', value: 'Engineering Optimization, Airport Simulation, AI Hardware, Cross-Disciplinary' },
 			{ label: 'Languages', value: 'English (IELTS 6.5), Mandarin (Native), Cantonese (Conversational)' },
 		],
 		highlights: [
 			{
-				title: 'Engineering + AI + law background',
-				description: 'IE training (time study, line balancing, simulation) plus hands-on AI deployment and law minor coursework — gives me a mix of technical, operational, and regulatory thinking.',
+				title: 'Cross-disciplinary: Engineering + AI + Law',
+				description: 'IE background with airport simulation and manufacturing optimization experience, now working on AI hardware, plus a law minor — knowledge spans multiple domains.',
 			},
 			{
-				title: 'Factory floor process audits',
-				description: 'Did time studies and process reviews at 2 factories (Midea, LiuGong) — found bottlenecks, suggested fixes, and backed them up with numbers.',
+				title: 'Hands-on factory experience',
+				description: 'Conducted stopwatch time studies and ECRS analysis at Midea and LiuGong, proposed improvements verified by simulation (line balance 58%→70%).',
 			},
 			{
-				title: 'IT and data skills',
-				description: 'Built simulation models in AnyLogic, deployed AI on Huawei Ascend chips, worked with SQL/MySQL, and used Python for data work.',
+				title: 'AI hardware + simulation modeling',
+				description: 'Built airport emergency simulation models in AnyLogic, worked on Ascend 310B smart hardware R&D, proficient in Python/Java/SQL stack.',
 			},
 		],
 	},
@@ -39,10 +39,10 @@ export const enOverride: ResumeOverride = {
 				period: 'May 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'Set up 3 AI tools on Huawei Ascend 310B chips for internal team use; sped up response time by ~30%.',
-					'Designed motor driver circuits (LCEDA) and wrote STM32 firmware for a smart piano; tested with oscilloscopes and logic analyzers.',
-					'Built a finger-position tracking system for the piano using a camera and the Ascend chip; documented the SDK for the team.',
-					'Kept the servers running (Ubuntu), managed the network (Huawei switches and routers), and interviewed candidates for new roles.',
+					'Participated in Ascend 310B smart piano R&D across 3 development phases; tested 10+ boards (CPLD, STM32), iterated motor driver 3 times, developed firmware and authored 5 technical documents.',
+					'Participated in camera- and Ascend-based piano fingering recognition module integration (Python/C++); diagnosed cross-layer issues.',
+					'Maintained Ubuntu servers, configured Huawei network equipment, operated 3D printer, supported technical interviews.',
+					,
 				],
 			},{
 				title: 'Research Assistant — Airport Operations Simulation',
@@ -71,7 +71,7 @@ export const enOverride: ResumeOverride = {
 				location: 'Liuzhou, China',
 				bullets: [
 					'Timed 12 workstations on the wheel loader assembly line with a stopwatch; found the 3 biggest bottlenecks using ECRS.',
-					'Suggested layout tweaks that cut cycle time by ~8% in simulation. The line engineers confirmed it worked.',
+					'Proposed layout adjustments estimated to reduce cycle time by approximately 8% in simulation.',
 				],
 			}],
 	},
@@ -81,7 +81,7 @@ export const enOverride: ResumeOverride = {
 		],
 		items: [
 			{
-				title: 'Master of Engineering in Aviation Engineering and Operation Management',
+				title: 'Master of Science in Aviation Engineering and Operations Management',
 				org: 'The Hong Kong Polytechnic University',
 				period: 'Sep 2025 - Jan 2027',
 				location: 'Hong Kong SAR, China',
@@ -92,14 +92,14 @@ export const enOverride: ResumeOverride = {
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2021 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: ['GPA: 3.67 (Top 20%) — Excellent Graduation Thesis + Innovation Award.'],
+				bullets: ['GPA: 3.67 / 5.0 (Top 20%) — University-level Excellent Graduation Thesis, Graduation Design Innovation Award.'],
 			},
 			{
 				title: 'Minor in Law',
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2022 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: ['GPA: 3.61'],
+				bullets: ['GPA: 3.61 / 5.0'],
 			},
 		],
 	},
@@ -112,21 +112,21 @@ export const enOverride: ResumeOverride = {
 				title: 'Invention Patents',
 				items: [
 					{
-						title: 'PI Coating Machine Motion Control via MCMC Sampling',
+						title: 'MCMC Motion Control for PI Coating Machine Controller',
 						year: '2026',
 						authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan',
 						venue: 'CN122085794A — Guangdong University of Technology',
 						links: [],
 					},
 					{
-						title: 'Coating Control Method and System (Deep Reinforcement Learning)',
+						title: 'Coating Control via Deep Reinforcement Learning',
 						year: '2025',
 						authors: 'Zhou Xianzhong, He Haocheng, He Zhiyuan',
 						venue: 'CN121325552A — Guangdong University of Technology',
 						links: [],
 					},
 					{
-						title: 'Home Solar Energy Storage System — Adaptive Energy Regulation',
+						title: 'Energy Regulation for Household Solar Storage',
 						year: '2024',
 						authors: 'Zhou Xianzhong, Zeng Huangtao, Yu Daming, He Haocheng',
 						venue: 'CN117767437A — Guangdong University of Technology',

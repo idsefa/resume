@@ -3,29 +3,29 @@ import type { ResumeOverride } from './types';
 export const zhOverride: ResumeOverride = {
 	profile: {
 		name: '何昊程',
-		role: '运营分析与科技风控候选人',
+		role: '民航工程硕士 | 跨学科工程与 AI',
 		location: '中国香港',
 	},
 	about: {
-		bio: '本科在广工读工业工程，现在港理工读民航工程硕士。中间做了 4 段实习——在深圳一家做智能钢琴的创业公司搞硬件和 AI 芯片，跟白云机场合作做地面车辆仿真拿了优秀论文，还有在美的和柳工两家工厂做工时测量和线平衡。手上也有一些专利。我喜欢把东西弄明白，然后让它跑得更好。',
+		bio: '民航工程硕士在读（GPA 3.95/4.3），本科主修工业工程、辅修法学，知识面横跨工程优化、航空仿真、AI 硬件与知识产权。曾用精益方法将产线平衡率从 58% 提升至 70%，基于 AnyLogic 完成 4 类机场应急场景与 5 种路径规划算法对比（D* Lite 可靠指数 1.342），并参与昇腾 310B 智能硬件研发。已提交 3 项发明专利申请。',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: '所在地', value: '中国香港' },
-			{ label: '方向', value: '科技风控、风险鉴证、数据治理、AI 治理' },
+			{ label: '方向', value: '工程优化、航空仿真、AI 硬件、跨学科融合' },
 			{ label: '语言', value: '英语（雅思 6.5）、普通话（母语）、粤语（日常会话）' },
 		],
 		highlights: [
 			{
-				title: '工程 + AI + 法学背景',
-				description: 'IE 出身（工时、线平衡、仿真），做过 AI 部署，辅修法学——技术、运营、合规都能聊。',
+				title: '跨学科融合：工程 + AI + 法学',
+				description: '工业工程出身，做过机场仿真和制造改善，现在搞 AI 硬件，还辅修了法学——知识面横跨多个领域。',
 			},
 			{
-				title: '下过产线做流程审计',
-				description: '在美的和柳工两家工厂做过工时测量和流程审查，找到瓶颈，用数据说话。',
+				title: '产线实战经验',
+				description: '在美的和柳工做过秒表测时和 ECRS 分析，提出改善方案并用仿真验证（线平衡率 58%→70%）。',
 			},
 			{
-				title: 'IT 和数据能力',
-				description: '搭过 AnyLogic 仿真、在华为昇腾芯片上部署过 AI、用过 SQL/MySQL，Python 做数据分析。',
+				title: 'AI 硬件 + 仿真建模',
+				description: '基于 AnyLogic 构建机场应急仿真模型，在昇腾 310B 上做智能硬件研发，熟悉 Python/Java/SQL 全栈。',
 			},
 		],
 	},
@@ -39,9 +39,9 @@ export const zhOverride: ResumeOverride = {
 				period: '2025年5月 - 2026年4月',
 				location: '深圳',
 				bullets: [
-					'参与智能钢琴项目，用华为昇腾 310B 芯片——硬件测试（示波器、万用表、逻辑分析仪）、画电机驱动电路（嘉立创）、写 STM32 固件。',
-					'用摄像头 + 昇腾芯片做了钢琴指法识别系统；帮团队写了 SDK 技术文档。',
-					'同时管服务器（Ubuntu）、管网络（华为交换机/路由器）、做采购和面试官——初创公司什么都得干。',
+					'参与昇腾 310B 智能钢琴研发，经历 3 个产品研发阶段，测试 10+ 块电路板，全桥电机驱动电路迭代 3 版，开发 STM32 固件并撰写 5 篇昇腾应用技术文档。',
+					'参与基于摄像头与昇腾芯片的钢琴指法识别系统部分模块联调（Python/C++），梳理系统架构并定位跨层集成问题。',
+					'兼管服务器运维（Ubuntu）、网络设备配置（华为交换机/路由器）、3D 打印及技术面试。',
 				],
 			},{
 				title: '科研助理 — 机场运行仿真',
@@ -69,7 +69,7 @@ export const zhOverride: ResumeOverride = {
 				location: '柳州',
 				bullets: [
 					'对装载机装配线 12 个工位做了秒表测时，用 ECRS 找到 3 个主要瓶颈。',
-					'调整布局方案在仿真中把节拍时间降了约 8%，产线工程师验证过可行。',
+					'提出布局优化方案，仿真验证节拍时间降低约 8%。',
 				],
 			}],
 	},
@@ -90,14 +90,14 @@ export const zhOverride: ResumeOverride = {
 				org: '广东工业大学',
 				period: '2021年9月 - 2025年6月',
 				location: '广州',
-				bullets: ['GPA：3.67（前 20%）—— 优秀毕业论文 + 创新奖。'],
+				bullets: ['GPA：3.67 / 5.0（前 20%）—— 校级优秀毕业论文、毕业设计创新奖。'],
 			},
 			{
 				title: '法学辅修',
 				org: '广东工业大学',
 				period: '2022年9月 - 2025年6月',
 				location: '广州',
-				bullets: ['GPA：3.61'],
+				bullets: ['GPA：3.61 / 5.0'],
 			},
 		],
 	},
@@ -110,7 +110,7 @@ export const zhOverride: ResumeOverride = {
 				title: '发明专利',
 				items: [
 					{
-						title: '一种基于蒙特卡洛马尔科夫链采样的PI涂布机控制器的运动控制方法',
+						title: '一种基于蒙特卡洛马尔可夫链采样的PI涂布机控制器的运动控制方法',
 						year: '2026',
 						authors: '周贤中; 何昊程; 贺致远',
 						venue: 'CN122085794A — 广东工业大学',

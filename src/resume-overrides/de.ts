@@ -3,29 +3,29 @@ import type { ResumeOverride } from './types';
 export const deOverride: ResumeOverride = {
 	profile: {
 		name: 'Haocheng He',
-		role: 'Kandidat für Operations Analytics und Technology Risk',
+		role: 'MSc Luftfahrt | Interdisziplinäre Ingenieurwesen & KI',
 		location: 'Hongkong, China',
 	},
 	about: {
-		bio: 'IE-Bachelor an der GDUT, jetzt MEng Luftfahrt an der PolyU. Unterwegs 4 Praktika gemacht — ein Shenzhen-Startup mit intelligentem Klavier und KI-Chips, ein Flughafen-Simulationsprojekt mit Guangzhou Baiyun (Thesis-Preis gewonnen), und zwei Fabrikpraktika bei Midea und LiuGong mit Zeitstudien und Linienbalance. Ein paar Patente dabei entstanden. Ich mag es, Dinge zu verstehen und besser laufen zu lassen.',
+		bio: 'MSc Luftfahrttechnik an der PolyU (GPA: 3,95/4,3), mit IE-Bachelor und Jura-Minor an der GDUT. Erfahrung in Flughafensimulation (AnyLogic, 5 Routing-Algorithmen), Fertigungsoptimierung (Linienbalance 58%→70%) und Ascend 310B Hardware-Entwicklung. 3 Patentanmeldungen.',
 		facts: [
 			{ label: 'LinkedIn', value: 'linkedin.com/in/haocheng-he-92657028b', href: 'https://www.linkedin.com/in/haocheng-he-92657028b' },
 			{ label: 'Ort', value: 'Hongkong, China' },
-			{ label: 'Schwerpunkt', value: 'Technology Risk, Risk Assurance, Data Governance, KI-Governance' },
+			{ label: 'Schwerpunkt', value: 'Engineering-Optimierung, Flughafensimulation, KI-Hardware, Interdisziplinär' },
 			{ label: 'Sprachen', value: 'Englisch (IELTS 6.5), Mandarin (Muttersprache), Kantonesisch (Konversation)' },
 		],
 		highlights: [
 			{
-				title: 'Ingenieurwesen + KI + Jura',
-				description: 'IE-Grundlagen (Zeitstudie, Linienbalance, Simulation) plus KI-Erfahrung und Jura-Minor — technisches, betriebliches und regulatorisches Denken in einem.',
+				title: 'Interdisziplinär: Ingenieurwesen + KI + Jura',
+				description: 'IE-Hintergrund mit Flughafensimulation und Fertigungsoptimierung, jetzt KI-Hardware, plus Jura-Minor — Wissen über mehrere Domänen.',
 			},
 			{
-				title: 'Fabrik-Prozessprüfungen',
-				description: 'Zeitstudien und Prozessreviews in 2 Fabriken (Midea, LiuGong) gemacht — Engpässe gefunden, Lösungen vorgeschlagen, mit Zahlen belegt.',
+				title: 'Praxiserfahrung in der Fertigung',
+				description: 'Stoppuhr-Zeitstudien und ECRS-Analysen bei Midea und LiuGong durchgeführt, Verbesserungen per Simulation verifiziert (Linienbalance 58%→70%).',
 			},
 			{
-				title: 'IT und Daten',
-				description: 'Simulationsmodelle in AnyLogic gebaut, KI auf Huawei Ascend-Chips eingesetzt, SQL/MySQL und Python für Datenarbeit genutzt.',
+				title: 'KI-Hardware + Simulationsmodellierung',
+				description: 'Flughafen-Notfall-Simulationsmodelle in AnyLogic gebaut, Ascend 310B Hardware-Entwicklung, Python/Java/SQL-Stack.',
 			},
 		],
 	},
@@ -39,10 +39,10 @@ export const deOverride: ResumeOverride = {
 				period: 'Mai 2025 - Apr 2026',
 				location: 'Shenzhen, China',
 				bullets: [
-					'3 KI-Tools auf Huawei Ascend 310B-Chips für das Team eingerichtet; Antwortzeit um ~30 % verkürzt.',
-					'Motortreiberschaltungen entworfen (LCEDA) und STM32-Firmware für ein intelligentes Klavier geschrieben; mit Oszilloskopen und Logikanalysatoren getestet.',
-					'Ein Fingerspositionserkennungssystem für das Klavier mit Kamera und Ascend-Chip gebaut; SDK-Dokumentation für das Team erstellt.',
-					'Server betrieben (Ubuntu), Netzwerk verwaltet (Huawei-Switches und -Router) und Vorstellungsgespräche für neue Positionen geführt.',
+					'Teilnahme an der Ascend 310B Klavier-Entwicklung in 3 Phasen; 10+ Platinen getestet, Motorantrieb 3x iteriert, Firmware entwickelt und 5 technische Dokumente verfasst.',
+					'Teilnahme an der Kamera- und Ascend-basierten Klavier-Fingererkennung (Python/C++); diagnose von Integrationproblemen.',
+					'Ubuntu-Server verwaltet, Huawei-Netzwerk konfiguriert, 3D-Drucker betrieben, technische Interviews geführt.',
+					,
 				],
 			},{
 				title: 'Wissenschaftlicher Mitarbeiter — Flughafen-Simulation',
@@ -70,7 +70,7 @@ export const deOverride: ResumeOverride = {
 				location: 'Liuzhou, China',
 				bullets: [
 					'12 Arbeitsstationen an der Radlader-Montagelinie per Stoppuhr gemessen; mit ECRS die 3 größten Engpässe gefunden.',
-					'Layoutänderungen vorgeschlagen, die die Taktzeit in der Simulation um ~8 % senkten. Die Montageingenieure haben es bestätigt.',
+					'Layoutoptimierung vorgeschlagen, Simulation zeigte Taktzeitreduktion von ~8 %.',
 				],
 			}],
 	},
@@ -91,14 +91,14 @@ export const deOverride: ResumeOverride = {
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2021 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: ['GPA: 3,67 (Top 20 %) — Hervorragende Abschlussarbeit + Innovationspreis.'],
+				bullets: ['GPA: 3,67 / 5,0 (Top 20 %) — Hochschulübergreifende hervorragende Abschlussarbeit, Innovationspreis.'],
 			},
 			{
 				title: 'Minor in Law',
 				org: 'Guangdong University of Technology',
 				period: 'Sep 2022 - Jun 2025',
 				location: 'Guangzhou, China',
-				bullets: ['GPA: 3,61'],
+				bullets: ['GPA: 3,61 / 5,0'],
 			},
 		],
 	},
