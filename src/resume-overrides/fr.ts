@@ -91,7 +91,7 @@ export const frOverride: ResumeOverride = {
 				org: 'Université de Technologie du Guangdong',
 				period: 'Sep 2021 - Juin 2025',
 				location: 'Guangzhou, Chine',
-				bullets: ['GPA : 3,67 / 5,0 (Top 20 %) — Mémoire universitaire excellent, Prix de l'innovation.'],
+				bullets: [`GPA : 3,67 / 5,0 (Top 20 %) — Mémoire universitaire excellent, Prix de l'innovation.`],
 			},
 			{
 				title: 'Mineure en droit',
