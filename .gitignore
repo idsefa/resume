@@ -22,8 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-Google-Gemini.md
-个人职业经历梳理与简历优化策略_transcript.txt
+
 
 # LaTeX auxiliary files
 latex-templates/*.aux
@@ -37,10 +36,7 @@ latex-templates/*.txt
 *.log
 *.out
 *.synctex.gz
-resume-en.pdf
-resume-zh.pdf
-review2-gemini.md
+
 
 # LaTeX build artifacts
 *.xdv
-*.png
