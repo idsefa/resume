@@ -40,3 +40,7 @@ latex-templates/*.txt
 resume-en.pdf
 resume-zh.pdf
 review2-gemini.md
+
+# LaTeX build artifacts
+*.xdv
+*.png
